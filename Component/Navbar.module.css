@@ -1,0 +1,29 @@
+.navcolor{
+    background-color: #022945;
+}
+.login{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+
+  }
+  .sign{
+    background-color: #FFDA5F !important;
+      border: 1px solid #FFDA5F !important;
+      color: black;
+      font-size: smaller;
+      height: 2.8rem;
+      width: 7.5rem;
+      border-radius: 1rem;
+      font-size: 1.4rem;
+  }
+  .login{
+    background-color: #0f74af !important;
+    color: white;
+    font-size: smaller;
+    height: 2.9rem;
+    width: 6.3rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+
+  }
+ 
