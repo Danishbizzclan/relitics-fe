@@ -583,3 +583,7 @@ html{
   white-space: normal !important;
   font-size: 8px;
 }
+.nav-link.active{
+  background-color: #041E31;
+  color           : #FFDA5F !important;
+}

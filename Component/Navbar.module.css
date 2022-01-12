@@ -1,29 +1,74 @@
-.navcolor{
-    background-color: #022945;
+.navcolor {
+  background-color: #022945;
+  border-bottom   : .2rem solid #EAF7FF;
 }
-.login{
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
 
-  }
-  .sign{
-    background-color: #FFDA5F !important;
-      border: 1px solid #FFDA5F !important;
-      color: black;
-      font-size: smaller;
-      height: 2.8rem;
-      width: 7.5rem;
-      border-radius: 1rem;
-      font-size: 1.4rem;
-  }
-  .login{
-    background-color: #0f74af !important;
-    color: white;
-    font-size: smaller;
-    height: 2.9rem;
-    width: 6.3rem;
-    font-size: 1.4rem;
-    border-radius: 10px;
+.ImgSize {
+  width : 14.6rem !important;
+  height: 6.6rem !important;
+}
 
+.active {
+  background-color: #041E31;
+  color           : #FFDA5F !important;
+}
+
+.NavBtnPadding {
+  padding-top   : 3.2rem;
+  padding-bottom: 3.1rem;
+  padding-left  : 1rem;
+  padding-right : 1rem;
+}
+
+@media only screen and (max-width: 994px) {
+  .NavBtnPadding {
+    padding-top   : 1rem;
+    padding-bottom: 1rem;
+    padding-left  : 1rem;
+    margin-left   : 1.4rem;
+    border-left   : 0px;
+    border-left   : 0px;
+    border-top    : 1px solid #153952;
+    border-bottom : 1px solid #153952;
   }
+
+  .login, .sign {
+    margin-top   : 1rem !important;
+    margin-bottom: 1rem !important;
+    margin-left  : 1.4rem;
+  }
+
+  .ImgSize {
+    margin: 1.4rem;
+  }
+}
+
+.sign {
+  background-color: #FFDA5F !important;
+  border          : .1rem solid #FFDA5F !important;
+  color           : #022945;
+  font-size       : smaller;
+  height          : 2.8rem;
+  width           : 7.5rem;
+  border-radius   : 1rem;
+  font-size       : 1.4rem;
+  margin-top      : 3rem;
+  margin-bottom   : 3rem;
+  margin-left     : 1rem;
+  margin-right    : 1rem;
+}
+
+.login {
+  background-color: #0F74AF !important;
+  color           : white;
+  font-size       : smaller;
+  height          : 2.8rem;
+  width           : 7.5rem;
+  font-size       : 1.4rem;
+  border-radius   : 1rem;
+  margin-top      : 3rem;
+  margin-bottom   : 3rem;
+  margin-left     : 1rem;
+  margin-right    : 1rem;
+}
  
