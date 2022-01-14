@@ -6,10 +6,13 @@ import Navbar from "../Component/Navbar"
 import PersonalInfo from './PersonalInfo';
 import Acount from '../Api/Acount'
 import FreeModal from './FreeModal';
+import CustomModal from './Modal';
 
 
 const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   const [error, setError] = useState('')
+  const [errorModel, setErrorModel] = useState(false)
+  const [succesModel, setSuccesModel] = useState(false)
 
 
   const Continue = e => {
@@ -21,11 +24,18 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     const res= Acount.Registeration(values, setError)
     res.then(value=>{
         console.log(value, value.data.success)
+        if(value.data.success){
+          setSuccesModel(true)
+        }
+        else{
+          setErrorModel(true)
+        }
        
     })
     .catch(error=>{
-        return
-        setError(error.response.data.message);
+      console.log(error.responce)
+        // setError(error.response.data.message);
+        setErrorModel(true)
 
     })
 }
@@ -80,7 +90,24 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 Package="24 Hours Package"
               />
             </div>
-            <FreeModal />
+            <CustomModal
+            title="Succefull"
+            isModalVisible={succesModel}
+            handleOk={nextStep}
+            closable={false}
+            >
+              <p>fghjkl;</p>
+              <p>fghjkl;</p>
+              <p>fghjkl;</p>
+            </CustomModal>
+            <CustomModal
+            title="Error"
+            isModalVisible={errorModel}
+            handleOk={prevStep}
+            closable={false}
+            >
+              {/* {error.responce.message} */}
+            </CustomModal>
 
           </div>
         </div>
