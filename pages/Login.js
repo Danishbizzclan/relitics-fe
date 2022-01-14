@@ -1,11 +1,26 @@
 import React from 'react'
 import Navbar from "../Component/Navbar"
 import classes from "./Login.module.css"
+import Acount from '../Api/Acount'
 import { useState } from 'react'
 
 const Login = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState('')
+
+
+    const loginHandler = e => {
+        e.preventDefault();
+        // nextStep();
+        const res= Acount.Login(userName, password, setError)
+        res.then(value=>{
+            console.log(value)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
 
 
     return (
@@ -29,6 +44,7 @@ const Login = () => {
                                     <div className="login-right p-5">
                                         <p className="fs-40 text-center mt-5">LOG IN</p>
                                         <p className='fs-15'>Username</p>
+                                        <form onSubmit={loginHandler}>
                                         <input type="text"
                                             id="inputPassword6"
 
@@ -37,6 +53,7 @@ const Login = () => {
                                             name="firstName"
                                             onChange={(e) => setUserName(e.target.value)}
                                             value={userName}
+                                            required
                                             placeholder="Enter User Name"
                                         />
                                         <p className="fs-15 my-3">Password</p>
@@ -48,6 +65,7 @@ const Login = () => {
                                             name="firstName"
                                             onChange={(e) => setPassword(e.target.value)}
                                             value={password}
+                                            required
                                             placeholder="Enter Password"
                                         />
                                         <div className="mt-2 d-flex">
@@ -55,8 +73,9 @@ const Login = () => {
                                             <p className="font-13 text-nowrap ms-auto">Not a Member<sapn className="ms-1 font-13 password-color">Sigu up</sapn></p>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mt-3 mx-auto">
-                                            <button class="btn btn-primary login-button fs-15" type="button">Log in</button>
+                                            <button class="btn btn-primary login-button fs-15" type='submit'>Log in</button>
                                         </div>
+                                        </form>
                                         <div className="text-center my-4">
                                             <p className='fs-14'>Sign up with a Social Media</p>
                                         </div>

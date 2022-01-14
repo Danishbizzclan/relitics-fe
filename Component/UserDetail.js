@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Avatarr from './Avatarr'
 import Navbar from './Navbar'
 import Link from "next/link"
 import PersonalInfo from './PersonalInfo'
 // import { makeStyles } from '@material-ui/core/styles';
+import Acount from '../Api/Acount'
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import next from 'next'
 
 const UserDetails = ({ nextStep, handleChange, values }) => {
 
@@ -12,7 +14,8 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
     const Continue = e => {
         e.preventDefault();
         nextStep();
-    }
+      }
+  
 
     return (
         <div>
@@ -192,13 +195,13 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                 </div>
 
                                 <div class="form-check mt-3 ms-5">
-                                    <input class="form-check-input ms-3" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input class="form-check-input ms-3" type="checkbox" required value="" id="flexCheckDefault" />
                                     <label class="form-check-label fs-15 ms-3" for="flexCheckDefault">
                                         i agreed to the terms and conditions, Privacy Policy and Cockies Policy
                                     </label>
                                 </div>
                                 <div class="form-check mt-3 ms-5">
-                                    <input class="form-check-input ms-3" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input ms-3" required type="checkbox" value="" id="flexCheckChecked" />
                                     <label class="form-check-label fs-15 ms-3" for="flexCheckChecked">
                                         i would like to keep up to date on new features and new articles, Privacy Policy
                                     </label>
@@ -215,6 +218,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                     >
                                         Create Account
                                     </Button>
+                                    {/* <p>{error}</p> */}
                                 </div>
                                 </form>
 

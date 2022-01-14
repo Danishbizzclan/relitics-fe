@@ -39,7 +39,7 @@ const Price = (props) => {
                     </div>
 
                 </div>
-                <button type="button" onClick={props.Continue} class="btn btn-info buy-color px-5 mt-3">Buy Now</button>
+                <button type="submit" onClick={props.Continue} class="btn btn-info buy-color px-5 mt-3">Buy Now</button>
 
             </div>
 
