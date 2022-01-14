@@ -9,19 +9,19 @@ import HeadImage from '../../styles/UI/HeadImage';
 const ContactUs = () => {
     return (
         <>
-        <Navbar />
-            <HeadImage header='Contact us now' />
-            <div className="container-fluid my-5">
-                <div className="row">
-                    <div className="col-10 mx-auto row">
-                        <h1 className={classes.heading}>We'd love to hear from you</h1>
-                        <h6 className={classes.subHeading}>Get in touch for any inqueries or suggestions.</h6>
+            <Navbar />
+            <HeadImage header='REACH OUT TO US' />
+            <div className="pb-5">
+                <div className='container my-5'>
+                    <div className="my-5">
+                        <p className='fs-40 Gothic_3D Bold mb-0'>We'd love to hear from you</p>
+                        <p className='fs-18 mb-0'>Use the form below to get in touch with us.</p>
                         <div className="row">
-                            <div className="col-lg-7 col-md-7 col-12 my-5 px-3 py-3 card">
-                                <h1 className={classes.subHeading2}>Send Message</h1>
+                            <div className="col-lg-8 col-md-8 col-12 my-5 p-3 card border_1">
+                                <p className='fs-40 Gothic_3D Bold ml-4'>Send message</p>
                                 <MessageForm />
                             </div>
-                            <div className="col-lg-5 col-md-5 col-12 my-5 px-5 py-3">
+                            <div className="col-lg-4 col-md-4 col-12 my-5 px-5">
                                 <EmailForm />
                             </div>
                         </div>

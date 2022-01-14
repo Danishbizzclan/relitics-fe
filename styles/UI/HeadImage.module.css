@@ -1,14 +1,14 @@
 .head {
-    background: linear-gradient(0deg, rgba(2, 41, 69, 0.8), rgba(2, 41, 69, 0.8)), url('../../public/Mask\ Group\ 115.png');
+    background: linear-gradient(0deg, rgba(2, 41, 69, 0.8), rgba(2, 41, 69, 0.8)), url('../../public/top-view-dubai.png');
     background-size: cover;
-    height: 160px;
-    margin-top: 0px !important;
+    height: 22.0rem;
+    margin-top: 0rem !important;    
 }
 
 .text {
     position: absolute;
     bottom: 30%;
-    left: 10%;
-    font-size: 50px;
+    left: 12%;
+    font-size: 7.0rem;
     color: white;
 }
