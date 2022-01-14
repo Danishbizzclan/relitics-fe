@@ -3,29 +3,21 @@ import BlogCompnnent from '../../Component/BlogComponent'
 import Pagination from '../../Component/BlogPagination'
 import blogData from '../../Component/Data/BlogData'
 import Navbar from '../../Component/Navbar'
+import HeadImage from '../../styles/UI/HeadImage';
 import Foter from '../../Component/Footer'
 
 const Blog = () => {
     return (
         <>
-        <Navbar />
-        <div className="container-fluid privacy">
-
-
-
-<div className="container">
-    <h2 className="text-white h2-bold py-5 ">Blog</h2>
-</div>
-</div>
-                <div className='container'>
-                    <div className='row mt-3'>
-                        
-                    <Pagination data={blogData} /></div>
-                    
-
+            <Navbar />
+            <HeadImage header='ARTICLES' />
+            <div className='container'>
+                <div className='row my-3 gx-4 gy-3'>
+                    <Pagination data={blogData} />
                 </div>
-                <Foter />
-            
+            </div>
+            <Foter />
+
         </>
     )
 }

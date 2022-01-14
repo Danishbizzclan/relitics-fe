@@ -33,9 +33,9 @@ function Navbar() {
                     <Link href="/Contact" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/Contact" ? "active" : null}`}>
                       Contact</div></Link>
                     <Link href="/Login">
-                      <button type="button" class={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
+                      <button type="button" class={`${classes.login} py-0 mx-0 btn ms-3 hover_btn`}>Log in</button></Link>
                     <Link href="/SignUp">
-                      <button type="button" className={`${classes.sign} py-0 mx-0 btn-primary btn ms-3`}>Sign up</button></Link>
+                      <button type="button" className={`${classes.sign} py-0 mx-0 btn ms-3 hover`}>Sign up</button></Link>
                   </ul>
                   <img className="p-2 rounded-pill" src="Path 188.png" alt="" />
                 </div>

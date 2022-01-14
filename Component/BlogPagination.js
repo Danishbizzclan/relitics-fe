@@ -15,7 +15,7 @@ const Pagination = (props) => {
         return (
 
             <div className=" col-lg-4 col-sm-6">
-                    <BlogCompnnent data={user} />
+                <BlogCompnnent data={user} />
             </div>
 
         );
@@ -30,15 +30,15 @@ const Pagination = (props) => {
             {displayUsers}
             <div>
                 <ReactPaginate
-                   previousLabel={"Previous"}
-                                nextLabel={"Next"}
-                                pageCount={pageCount}
-                                onPageChange={changePage}
-                                containerClassName={`text-white paginationBtn`}
-                                previousLinkClassName={"nextBttn"}
-                                nextLinkClassName={"nextBttn"}
-                                disabledClassName={"paginationDisabled"}
-                                activeClassName={"paginationActive"}
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={`text-white paginationBtn`}
+                    previousLinkClassName={"nextBttn"}
+                    nextLinkClassName={"nextBttn"}
+                    disabledClassName={"paginationDisabled"}
+                    activeClassName={"paginationActive"}
                 ></ReactPaginate>
             </div>
         </>
