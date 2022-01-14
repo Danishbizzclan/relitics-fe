@@ -22,32 +22,29 @@ const Login = () => {
         })
     }
 
-
     return (
         <div>
             <Navbar />
-            <div className={classes.loginbg}>
+            <div className={`${classes.bgLogin} brdr_2`}>
                 <div className="container">
-                    <div className="col-xl-10 mx-auto  ">
-                        <div className="login-left ">
+                    <div className="col-xl-10 mx-auto p-5">
+                        <div className={`my-5 ${classes.bgBlue}`}>
                             <div className="row">
-                                <div className=" col-md-6 my-auto p-5 ">
-                                    <div className=" text-center px-5 m-0">
-                                        <img src="Group 244.png" className='w-50' alt="reilitics" />
+                                <div className=" col-md-6 my-auto">
+                                    <div className=" text-center p-5 m-0">
+                                        <img src="Group 251.png" className='w-50' alt="reilitics" />
                                         <div>
                                             <p className="text-white mt-5 fs-15">Welcome, get started by logging into the REI Litics platform. </p>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div className="col-md-6 my-auto ">
+                                <div className="col-md-6 my-auto px-0 ">
                                     <div className="login-right p-5">
-                                        <p className="fs-40 text-center mt-5">LOG IN</p>
+                                        <p className="fs-40 Gothic_3D text-center mt-5">LOG IN</p>
                                         <p className='fs-15'>Username</p>
                                         <form onSubmit={loginHandler}>
                                         <input type="text"
                                             id="inputPassword6"
-
                                             className="form-control w-100 form-bg my-2"
                                             aria-describedby="passwordHelpInline"
                                             name="firstName"
@@ -59,7 +56,6 @@ const Login = () => {
                                         <p className="fs-15 my-3">Password</p>
                                         <input type="password"
                                             id="inputPassword6"
-
                                             className="form-control form-bg  w-100"
                                             aria-describedby="passwordHelpInline"
                                             name="firstName"
@@ -69,8 +65,8 @@ const Login = () => {
                                             placeholder="Enter Password"
                                         />
                                         <div className="mt-2 d-flex">
-                                            <p className="font-13 ">Forgot Password?<sapn className="ms-1 font-13 password-color">Reset Now</sapn></p>
-                                            <p className="font-13 text-nowrap ms-auto">Not a Member<sapn className="ms-1 font-13 password-color">Sigu up</sapn></p>
+                                            <p className="font-13 ">Forgot Password?<a className="ms-1 font-13 text-link">Reset Now</a></p>
+                                            <p className="font-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 font-13 text-link">Sign up</a></p>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mt-3 mx-auto">
                                             <button class="btn btn-primary login-button fs-15" type='submit'>Log in</button>
@@ -93,7 +89,6 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

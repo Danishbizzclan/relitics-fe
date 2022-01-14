@@ -12,8 +12,6 @@ function Navbar() {
       <div className="container ">
         <div className="row ms-0 ">
           <div className="col-12 ms-0 p-0 m-0">
-
-
             <nav className="navbar navbar-expand-lg p-0 navbar-dark bordr">
               <div className="container-fluid p-0">
                 <Link href="/">
@@ -29,7 +27,7 @@ function Navbar() {
                     <Link href="/BecomeProfessional" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
                       Pricing</div></Link>
                     <Link href="/About" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/About" ? "active" : null}`}>
-                      About</div></Link>
+                      About us</div></Link>
                     <Link href="/Blog" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/Blog" ? "active" : null}`}>
                       Articles</div></Link>
                     <Link href="/Contact" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/Contact" ? "active" : null}`}>

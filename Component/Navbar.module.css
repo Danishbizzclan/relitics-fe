@@ -16,8 +16,8 @@
 .NavBtnPadding {
   padding-top   : 3.2rem;
   padding-bottom: 3.1rem;
-  padding-left  : 1rem;
-  padding-right : 1rem;
+  padding-left  : 1.3rem !important;
+  padding-right : 1.3rem !important;
 }
 
 @media only screen and (max-width: 994px) {
@@ -35,11 +35,11 @@
   .login, .sign {
     margin-top   : 1rem !important;
     margin-bottom: 1rem !important;
-    margin-left  : 1.4rem;
+    margin-left  : 1.8rem !important;
   }
 
   .ImgSize {
-    margin: 1.4rem;
+    margin: 1.8rem !important;
   }
 }
 
