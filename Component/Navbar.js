@@ -33,7 +33,7 @@ function Navbar() {
                     <Link href="/Contact" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/Contact" ? "active" : null}`}>
                       Contact</div></Link>
                     <Link href="/Login">
-                      <button type="button" class={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
+                      <button type="button" className={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
                     <Link href="/SignUp">
                       <button type="button" className={`${classes.sign} py-0 mx-0 btn-primary btn ms-3`}>Sign up</button></Link>
                   </ul>

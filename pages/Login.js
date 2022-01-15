@@ -68,8 +68,8 @@ const Login = () => {
                                             <p className="font-13 ">Forgot Password?<a className="ms-1 font-13 text-link">Reset Now</a></p>
                                             <p className="font-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 font-13 text-link">Sign up</a></p>
                                         </div>
-                                        <div class="d-grid gap-2 col-12 mt-3 mx-auto">
-                                            <button class="btn btn-primary login-button fs-15" type='submit'>Log in</button>
+                                        <div className="d-grid gap-2 col-12 mt-3 mx-auto">
+                                            <button className="btn btn-primary login-button fs-15" type='submit'>Log in</button>
                                         </div>
                                         </form>
                                         <div className="text-center my-4">

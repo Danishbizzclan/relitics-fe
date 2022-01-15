@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core';
 import Price from './Price'
@@ -11,6 +11,8 @@ import CustomModal from './Modal';
 
 const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+
   const [errorModel, setErrorModel] = useState(false)
   const [succesModel, setSuccesModel] = useState(false)
 
@@ -19,26 +21,31 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     e.preventDefault();
     nextStep();
   }
+
+  const handleErrors = (error) => {
+    setError(error)
+    setErrorModel(true)
+  }
+
   const Success = e => {
     e.preventDefault();
-    const res= Acount.Registeration(values, setError)
-    res.then(value=>{
-        console.log(value, value.data.success)
-        if(value.data.success){
-          setSuccesModel(true)
-        }
-        else{
-          setErrorModel(true)
-        }
-       
-    })
-    .catch(error=>{
-      console.log(error.responce)
-        // setError(error.response.data.message);
+    const res = Acount.Registeration(values, handleErrors)
+    res.then(value => {
+      setSuccess(value.data.message)
+      console.log('Sign Up res', value)
+      if (value.data.success) {
+        setSuccesModel(true)
+      }
+      else {
         setErrorModel(true)
+      }
 
     })
-}
+      .catch(error => {
+        console.log('error', error)
+
+      })
+  }
 
   const Previous = e => {
     e.preventDefault();
@@ -49,11 +56,11 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     <div>
       <Navbar />
       <div className="maj-bg">
-      <PersonalInfo 
-              values={values.step}
-              prevStep={prevStep }
-              nextStep={nextStep }
-              />
+        <PersonalInfo
+          values={values.step}
+          prevStep={prevStep}
+          nextStep={nextStep}
+        />
         <div className="col-sm-9 mt-3 mb-0 mx-auto ">
           <div className="uper-color m-0">
             <h3 className="text-white mb-0 p-4">Select Package</h3>
@@ -90,29 +97,27 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 Package="24 Hours Package"
               />
             </div>
-            <CustomModal
-            title="Succefull"
-            isModalVisible={succesModel}
-            handleOk={nextStep}
-            closable={false}
-            >
-              <p>fghjkl;</p>
-              <p>fghjkl;</p>
-              <p>fghjkl;</p>
-            </CustomModal>
-            <CustomModal
-            title="Error"
-            isModalVisible={errorModel}
-            handleOk={prevStep}
-            closable={false}
-            >
-              {/* {error.responce.message} */}
-            </CustomModal>
 
           </div>
         </div>
 
-
+        <CustomModal
+          title="Succefull"
+          isModalVisible={succesModel}
+          handleOk={nextStep}
+          closable={false}
+        >
+          <p className='text-white'>{success}</p>
+        </CustomModal>
+        <CustomModal
+          title="Error"
+          isModalVisible={errorModel}
+          handleOk={prevStep}
+          handleCancel={() => setErrorModel(false)}
+          closable={true}
+        >
+          {error}
+        </CustomModal>
       </div>
     </div>
 

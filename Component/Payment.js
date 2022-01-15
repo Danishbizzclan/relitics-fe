@@ -54,7 +54,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                         defaultValue={values.cardNumber}
                                         // variant="outlined"
                                         required
-                                        fullWidth
+                                        
 
                                     />
 
@@ -68,14 +68,14 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                         defaultValue={values.cardName}
                                         // variant="outlined"
                                         required
-                                        fullWidth
+                                        
                                     />
                                     <div className='row'>
                                         <div className='col-sm-6'>
                                             <p className='my-auto mt-3'>Expiry Date</p>
                                             <small>The date on your card Expire</small>
                                             <div>
-                                                <select class="form-select" className='m-1 p-2 form-bg' style={{ width: "45%" }} aria-label="Default select example">
+                                                <select className="form-select" className='m-1 p-2 form-bg' style={{ width: "45%" }} aria-label="Default select example">
                                                     <option selected>dec</option>
                                                     <option value="1">jan</option>
                                                     <option value="2">feb</option>
@@ -83,7 +83,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                                 </select>
 
 
-                                                <select class="form-select"
+                                                <select className="form-select"
 
                                                     onChange={handleChange('year')}
                                                     defaultValue={values.year}
@@ -109,7 +109,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                                     defaultValue={values.cvv}
                                                     // variant="outlined"
                                                     required
-                                                    fullWidth
+                                                    
                                                 />
 
 
@@ -145,9 +145,9 @@ const Payment = ({ nextStep, handleChange, values }) => {
 
                                 </div>
                                 <div className='bg-white p-3 mt-3'>
-                                    <div class="form-check ms-3">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                                        <span class="form-check-label ms-2" for="flexCheckChecked">
+                                    <div className="form-check ms-3">
+                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                        <span className="form-check-label ms-2" htmlFor="flexCheckChecked">
                                             i am agree to the <TermsModal />, <PrivacyModal /> and <Cokies />
                                         </span>
                                     </div>

@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import { Modal, Button } from 'antd';
 
-const CustomModal = (props) => {
-  console.log({props})
+const  CustomModal = (props) => {
   return (
     <>
       <Modal title={props.title} visible={props.isModalVisible} onOk={props.handleOk} onCancel={props.handleCancel} closable={props.closable}>

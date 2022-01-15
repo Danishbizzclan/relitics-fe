@@ -9,17 +9,17 @@ const PersonalInfo = (props) => {
                 <div onClick={props.nextStep} className='d-flex justify-content-center mt-3'>
 
                     <div>
-                       <div onClick={props.nextStep} class={props.values == 1 ? " pink-color" : " gray-color"}
+                       <div onClick={props.nextStep} className={props.values == 1 ? " pink-color" : " gray-color"}
                         ></div>
                     </div>
                     <div>
 
-                        <div onClick={props.nextStep} class={props.values == 2 ? " pink-color ms-3" : " ms-3 gray-color"}
+                        <div onClick={props.nextStep} className={props.values == 2 ? " pink-color ms-3" : " ms-3 gray-color"}
                         ></div>
                    </div>
 
                     <div>
-                        <div  class={props.values == 3 ? " pink-color ms-3" : " ms-3 gray-color"}
+                        <div  className={props.values == 3 ? " pink-color ms-3" : " ms-3 gray-color"}
                         ></div>
                     </div>
                 </div>

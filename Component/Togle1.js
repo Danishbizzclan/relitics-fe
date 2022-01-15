@@ -16,7 +16,7 @@ class MaterialDesignSwitchh extends Component {
       return (
         <div className="example">
           
-          <label htmlFor="material-switch">
+          <label htmlhtmlFor="material-switch">
             
             <Switch
               checked={this.state.checked}

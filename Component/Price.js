@@ -17,29 +17,29 @@ const Price = (props) => {
                     <div className="price-line mt-2 mx-auto"></div>
 
                     <div className="d-flex mt-3">
-                        <img src={"check-circle-fill.png"} class="img-fluid" style={{ objectFit: "contain" }} alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2" >Option 1</p>
 
                     </div>
 
                     <div className="d-flex mt-2">
-                        <img src={"check-circle-fill.png"} class="img-fluid" style={{ objectFit: "contain" }} alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2" >Option 1</p>
 
                     </div>
                     <div className="d-flex mt-2">
-                        <img src={"check-circle-fill.png"} class="img-fluid" style={{ objectFit: "contain" }} alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2" >Option 1</p>
 
                     </div>
                     <div className="d-flex mt-2 mb-4">
-                        <img src={"check-circle-fill.png"} class="img-fluid" style={{ objectFit: "contain" }} alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2">Option 1</p>
 
                     </div>
 
                 </div>
-                <button type="submit" onClick={props.Continue} class="btn btn-info buy-color px-5 mt-3">Buy Now</button>
+                <button type="submit" onClick={props.Continue} className="btn btn-info buy-color px-5 mt-3">Buy Now</button>
 
             </div>
 

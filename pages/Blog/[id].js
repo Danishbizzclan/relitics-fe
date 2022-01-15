@@ -62,24 +62,24 @@ const BlogDetail = () => {
               {/* <div className='ant-modal-body p-3 mt-3'>
                 <p className='font-bold my-auto'>Leave a reply</p>
                 <p>your email will not be pubished. required fields are marked *</p>
-                <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                  <textarea class="form-control" value={comment} id="exampleFormControlTextarea1"
+                <div className="mb-3">
+                  <label htmlFor="exampleFormControlTextarea1" className="form-label">Comment</label>
+                  <textarea className="form-control" value={comment} id="exampleFormControlTextarea1"
                   onChange={(e) => setComment(e.target.value)}
                   required rows="3"></textarea>
                 </div>
                 <div className='d-flex'>
-                  <div class="mb-3 m-1">
-                    <label for="exampleFormControlInput1" class="form-label">Name*</label>
-                    <input type="text" class="form-control" value={name} onChange={(e) => setName(e.target.value)} id="exampleFormControlInput1" required />
+                  <div className="mb-3 m-1">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Name*</label>
+                    <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} id="exampleFormControlInput1" required />
                   </div>
-                  <div class="mb-3 m-1">
-                    <label for="exampleFormControlInput1" class="form-label">Email*</label>
-                    <input type="email" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleFormControlInput1" required />
+                  <div className="mb-3 m-1">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Email*</label>
+                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleFormControlInput1" required />
                   </div>
-                  <div class="mb-3 m-1">
-                    <label for="exampleFormControlInput1" class="form-label">Website</label>
-                    <input type="text" class="form-control" value={website} onChange={(e) => setWebsite(e.target.value)} id="exampleFormControlInput1" />
+                  <div className="mb-3 m-1">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Website</label>
+                    <input type="text" className="form-control" value={website} onChange={(e) => setWebsite(e.target.value)} id="exampleFormControlInput1" />
                   </div>
                 </div>
                 <button className='btn btn-info'>Post Comment</button>
@@ -103,35 +103,35 @@ const BlogDetail = () => {
 
               </div>
 
-              <div class="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
+                <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingOne">
+                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                       How to <span className='sec-color ms-2'>(73)</span>
                     </button>
                   </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                  <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
                   </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingTwo">
+                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                     How to <span className='sec-color ms-2'>(73)</span>
                     </button>
                   </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                   </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingThree">
+                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                     How to <span className='sec-color ms-2'>(73)</span>
                     </button>
                   </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                   </div>
                 </div>
 

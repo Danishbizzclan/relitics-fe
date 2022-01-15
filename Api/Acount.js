@@ -5,7 +5,7 @@ class Acount {
     this.result = [];
   }
 
-  Registeration = (data, setError) => {
+  Registeration = (data, settingErrors) => {
     const res = async () => {
       const resp = await axios
         .post("/users", {
@@ -22,8 +22,7 @@ class Acount {
         })
 
         .catch(function (error) {
-          console.log(error.response.data.message);
-          setError(error.response.data.message);
+          settingErrors(error.response.data.message);
         });
       return resp;
     };
