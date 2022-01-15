@@ -45,7 +45,7 @@ function Foter() {
 
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Pages</p>
-                                <Link href="Blog">
+                                <Link href="/Blog">
                                     <a className={classes.footerp}><p>Articles</p></a>
                                 </Link>
                                 <Link href="Contact">

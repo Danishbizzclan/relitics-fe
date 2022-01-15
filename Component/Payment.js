@@ -33,7 +33,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                         <div className='row'>
                             <div className='col-lg-6'>
                                 <div className='bg-white p-3 '>
-                                    <p className='font-17'>Card Details</p>
+                                    <p className='fs-17'>Card Details</p>
                                     <div className='card-border'>
                                         <div className='d-flex p-2'>
                                             <img src={'/card.png'} style={{ objectFit: "contain" }} />
@@ -120,7 +120,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                             </div>
                             <div className='col-md-6'>
                                 <div className='bg-white p-3'>
-                                    <p className='font-17'>Summary</p>
+                                    <p className='fs-17'>Summary</p>
                                     {PaymentData.map(x => {
                                         return (
                                             <>

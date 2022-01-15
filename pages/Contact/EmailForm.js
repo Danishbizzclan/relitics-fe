@@ -13,7 +13,7 @@ const EmailForm = () => {
                     <img src={"email_2.png"} alt="" className="me-4 my-auto hover" />
                 </div>
                 <div>
-                    <p className="font-17 mb-0 Bold greyBlack my-2">Email</p>
+                    <p className="fs-17 mb-0 Bold greyBlack my-2">Email</p>
                     <p className="fs-19 mb-0 greyBlack my-2">info@reilitics.com</p>
                 </div>
             </div>

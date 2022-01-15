@@ -151,8 +151,8 @@ textarea {
 }
 
 .text-link {
-  color : #0F74AF !important;
-  cursor: pointer;
+  color          : #0F74AF !important;
+  cursor         : pointer;
   text-decoration: none;
 }
 
@@ -194,10 +194,6 @@ textarea {
   border-color: #0F74AF !important;
 }
 
-.font-22 {
-  font-size: 2.2rem;
-}
-
 .bg-pric {
   background-color: #FAFAFA;
   padding         : .0rem !important;
@@ -234,7 +230,7 @@ textarea {
   border-radius: 5.0rem;
 }
 
-.font-17 {
+.fs-17 {
   font-size: 1.7rem;
 }
 
@@ -366,12 +362,17 @@ textarea {
   transform: scale(1.05);
 }
 
-.hover {
+.hover, .hover_btn {
   transition: 300ms ease-in-out;
 }
 
 .hover:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
+}
+
+.hover_btn:hover{
+  transform: scale(1.05);
+  color: white !important;
 }
 
 .ant-modal-header {
@@ -389,6 +390,8 @@ textarea {
 .fs-21 {
   font-size: 2.1rem;
 }
+
+/* Pagination */
 
 .paginationBtn {
   margin-top     : 3.0rem;
@@ -438,24 +441,26 @@ textarea {
   border-radius   : .0rem;
   border          : .1rem solid #0F74AF;
   background-color: #0F74AF;
-  text-decoration : none;
   color           : white;
+  text-decoration : none;
   cursor          : pointer;
+  border          : 0.3rem solid #ECEFF3;
 }
 
 .paginationBtn a:hover {
-  color           : rgba(255, 255, 255, 0.712);
-  background-color: #0f9caf;
+  color  : rgba(255, 255, 255, 0.712);
+  opacity: 0.7;
 }
 
 .paginationDisabled a {
   color           : white;
   background-color: grey;
+  border          : none;
 }
 
 .paginationActive a {
-  color  : black;
-  opacity: 0.7;
+  background-color: #FFDA5F;
+  color           : #041E31 !important;
 }
 
 .privacy {
@@ -708,8 +713,7 @@ textarea {
 }
 
 .fs-22 {
-  font-size  : 2.2rem;
-  font-weight: medium;
+  font-size: 2.2rem;
 }
 
 .fs-14 {
