@@ -25,7 +25,7 @@ const Login = () => {
     return (
         <div>
             <Navbar />
-            <div className={`${classes.bgLogin} brdr_2`}>
+            <div className={`${classes.bgLogin}`}>
                 <div className="container">
                     <div className="col-xl-10 mx-auto p-5">
                         <div className={`my-5 ${classes.bgBlue}`}>
@@ -65,8 +65,8 @@ const Login = () => {
                                             placeholder="Enter Password"
                                         />
                                         <div className="mt-2 d-flex">
-                                            <p className="font-13 ">Forgot Password?<a className="ms-1 font-13 text-link">Reset Now</a></p>
-                                            <p className="font-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 font-13 text-link">Sign up</a></p>
+                                            <p className="fs-13 ">Forgot Password?<a className="ms-1 fs-13 text-link pointer-cursor">Reset Now</a></p>
+                                            <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mt-3 mx-auto">
                                             <button class="btn btn-primary login-button fs-15" type='submit'>Log in</button>

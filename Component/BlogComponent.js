@@ -3,7 +3,7 @@ import Link from 'next/link'
 const BlogCompnnent = ({ data }) => {
     return (
         <>
-            <Link href={`/${data.category}/${data.id}`} >
+            <Link href={`/Blog/${data.category}/${data.id}`} >
                 <div className="d-flex flex-column h-100 hover">
                     <div className='shadow' style={{ flex: "1 1 auto" }}>
                         <img src={data.image} alt="photo" className='w-100 mt-3' />

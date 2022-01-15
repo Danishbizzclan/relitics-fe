@@ -37,7 +37,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                     <div className='card-border'>
                                         <div className='d-flex p-2'>
                                             <img src={'/card.png'} style={{ objectFit: "contain" }} />
-                                            <p className='ms-3 font-13 my-auto'>Card Details</p>
+                                            <p className='ms-3 fs-13 my-auto'>Card Details</p>
 
                                         </div>
 

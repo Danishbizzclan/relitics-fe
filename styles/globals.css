@@ -24,7 +24,7 @@ body {
   border-radius   : 1.0rem;
 }
 
-.small-font {
+.fs-12 {
   font-size: 1.2rem;
 }
 
@@ -80,11 +80,7 @@ textarea {
   height: 4.4rem !important;
 }
 
-
-
-
-
-.font-13 {
+.fs-13 {
   font-size: 1.3rem;
 }
 
@@ -126,11 +122,6 @@ textarea {
   background-color: #FAFAFA;
 }
 
-.font-12 {
-  font-size  : 1.2rem !important;
-  font-weight: 300 !important;
-}
-
 .login-right {
   background-color: white;
   position        : relative;
@@ -152,8 +143,11 @@ textarea {
 
 .text-link {
   color          : #0F74AF !important;
-  cursor         : pointer;
   text-decoration: none;
+}
+
+.pointer-cursor{
+  cursor         : pointer;
 }
 
 .social {
@@ -272,11 +266,6 @@ textarea {
   border-radius   : .0rem !important;
 }
 
-.slidecolor {
-  /* width: 2.0rem;
-  height: .3rem;
-  border: .2rem solid #0F74AF; */
-}
 
 .loginn {
   font-size: smaller !important;
@@ -362,7 +351,8 @@ textarea {
   transform: scale(1.05);
 }
 
-.hover, .hover_btn {
+.hover,
+.hover_btn {
   transition: 300ms ease-in-out;
 }
 
@@ -370,9 +360,9 @@ textarea {
   transform: scale(1.04);
 }
 
-.hover_btn:hover{
+.hover_btn:hover {
   transform: scale(1.05);
-  color: white !important;
+  color    : white !important;
 }
 
 .ant-modal-header {
@@ -470,8 +460,8 @@ textarea {
 }
 
 .blog-line {
-  height          : .3rem;
-  width           : 3.0rem;
+  height          : .4rem;
+  width           : 6.0rem;
   background-color: #0F74AF;
 }
 
