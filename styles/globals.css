@@ -79,11 +79,6 @@ textarea {
   width : 4.4rem !important;
   height: 4.4rem !important;
 }
-
-
-
-
-
 .font-13 {
   font-size: 1.3rem;
 }
@@ -169,7 +164,6 @@ textarea {
   background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Mask Group 115.png');
   background-size : cover;
   width           : 100%;
-
   background-repeat: no-repeat;
   padding-bottom   : 15.0rem;
   position         : absolute;
@@ -205,7 +199,6 @@ textarea {
   background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Mask Group 115.png');
   background-size : cover;
   width           : 100%;
-
   background-repeat: no-repeat;
   padding-bottom   : 15.0rem;
   position         : absolute;
@@ -237,19 +230,16 @@ textarea {
 .fs-19 {
   font-size: 1.9rem;
 }
-
 .s-social {
   width: 5%;
 
 }
-
 .img-plac {
   background-image   : url('/credit-card.png');
   background-position: 95% .7rem;
   background-repeat  : no-repeat;
   padding            : 1.2rem 2.0rem 1.2rem 4.0rem;
   justify-content    : end;
-
 }
 
 .img-place {
@@ -270,12 +260,6 @@ textarea {
   background-color: #0F74AF !important;
   color           : white !important;
   border-radius   : .0rem !important;
-}
-
-.slidecolor {
-  /* width: 2.0rem;
-  height: .3rem;
-  border: .2rem solid #0F74AF; */
 }
 
 .loginn {
@@ -304,12 +288,8 @@ textarea {
 .y_center {
   vertical-align: middle;
 }
-
 .zoom {
-
   transition: 400ms ease-in-out;
-  /* Animation */
-
   margin: 0 auto;
 }
 
@@ -317,7 +297,6 @@ textarea {
   transform           : scale(1.04);
   background-color    : #022945;
   color               : white;
-  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .zoom:hover path {
@@ -334,7 +313,6 @@ textarea {
   width           : 8.0rem;
   height          : 1.0rem;
 
-
 }
 
 .gray-color {
@@ -342,7 +320,6 @@ textarea {
   width           : 8.0rem;
   height          : 1.0rem;
   background-color: white !important;
-
 }
 
 .login-button {
@@ -375,17 +352,6 @@ textarea {
   color: white !important;
 }
 
-.ant-modal-header {
-  display: none;
-}
-
-.ant-modal-footer {
-  display: none;
-}
-
-.ant-modal-body {
-  background-color: #022945;
-}
 
 .fs-21 {
   font-size: 2.1rem;
@@ -413,20 +379,6 @@ textarea {
   cursor          : pointer;
 }
 
-/* .paginationBtn a:hover{
-    color: rgba(255, 255, 255, 0.712);
-    background-color: #0f9caf;
-}
-
-.paginationDisabled a{
-    color: white;
-    background-color: grey;
-} */
-/* 
-.paginationActive a{
-    color: black;
-    background-color: white;
-} */
 .paginationBtn {
   width          : 100%;
   height         : 4.0rem;
@@ -599,7 +551,6 @@ textarea {
 #header .logo {
   padding: 2.0rem;
 }
-
 .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
   padding: .4rem 3.5rem .4rem 2.0rem !important;
 }
@@ -613,7 +564,6 @@ textarea {
 .pro-sidebar.collapsed small {
   display: none;
 }
-
 .pro-sidebar.collapsed .imgw {
   width: 80%;
 }
@@ -629,9 +579,6 @@ textarea {
 .noti-bg {
   background-color: #0F74AF;
   border-radius   : 50%;
-  /* width        : 7%; */
-
-
 
 }
 
@@ -645,17 +592,11 @@ textarea {
 
   }
 }
-
-/* .img-sizee{
-  width: 8%;
-  height: 5.0rem;
-} */
 .name-bg {
   background-color: #0F74AF;
   /* border-radius: 50%; */
   padding-right   : 3.0rem;
   height          : 4.0rem;
-
 }
 
 #header {
@@ -666,7 +607,6 @@ textarea {
   /* Safari browser */
   transition        : width 5s;
 }
-
 .bg-dash {
   background-color: #F8FCFF;
 }
@@ -717,7 +657,7 @@ textarea {
 }
 
 .fs-14 {
-  font-size: 1.4rem;
+  font-size: 1.4rem !important;
 }
 
 .fs-40 {
@@ -771,10 +711,6 @@ textarea {
 .semi-bold {
   font-weight: 600;
 }
-
-
-
-
 html {
   font-size: 62.5%;
 }
@@ -798,10 +734,12 @@ html {
   font-size    : .8rem;
 
 }
-
 .ant-table-cell-ellipsis .ant-table-column-title {
   overflow     : initial !important;
   text-overflow: initial !important;
   white-space  : normal !important;
   font-size    : .8rem;
+}
+ .modal-bg .ant-modal-body {
+  background-color: #022945 !important;
 }

@@ -13,14 +13,22 @@ const Price = (props) => {
 
                 <div className="text-center w-75 price-border div-color edge px-4  mx-auto">
                     <h3 className="my-auto text-nowrap" >{props.Amount}</h3>
-                    <p className="mt-2 text-nowrap mb-0">{props.Package}</p>
+                    {/* <p className="mt-2 text-nowrap mb-0">{props.Package}</p> */}
+                    
+                    {props.Tags.map((each)=>{
+                        return(
+                      <>
                     <div className="price-line mt-2 mx-auto"></div>
 
                     <div className="d-flex mt-3">
                         <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
-                        <p className="my-auto ms-2" >Option 1</p>
+                        <p className="my-auto ms-2" >{Object.values(each)[0]}</p>
 
                     </div>
+                         
+                     </>
+                        )
+                    })}
 
                     <div className="d-flex mt-2">
                         <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />

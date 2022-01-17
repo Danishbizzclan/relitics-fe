@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core';
 import Price from './Price'
@@ -7,9 +7,14 @@ import PersonalInfo from './PersonalInfo';
 import Acount from '../Api/Acount'
 import FreeModal from './FreeModal';
 import CustomModal from './Modal';
+import GetData from "../Api/GetData";
+import { Spin } from 'antd';
+import { each } from 'jquery';
 
 
 const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
+  const [data , setData] = useState([]);
+  const [loading , setLoading] = useState(true);
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
@@ -51,11 +56,26 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     e.preventDefault();
     prevStep();
   }
+  
+  useEffect(()=>{
+    const response = GetData.AllPackeges();
+    console.log(response)
+    response.then(value=>{
+      setData(value.data.packages);
+      console.log(value.data.packages)
+      setLoading(false);
+    })
+  },[])
 
   return (
+    
     <div>
-      <Navbar />
+          <Navbar />
+
+          {loading ? (<Spin />):(
+  
       <div className="maj-bg">
+        
         <PersonalInfo
           values={values.step}
           prevStep={prevStep}
@@ -74,27 +94,27 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
 
               <Price
                 Continue={Success}
-                Price="Free"
-                Amount="0 US$"
-                Package="Free trail"
+                Price={data[0].name}
+                Amount={data[0].price}
+                Tags={[each.options]}
               />
             </div>
             <div className="col-sm-4">
               <Price
                 Continue={Continue}
 
-                Price="Paid"
-                Amount="50 US$"
-                Package="Monthly Package"
+                Price={data[1].name}
+                Amount={data[1].price}
+                Tags={[each.options]}
               />
             </div>
             <div className="col-sm-4">
               <Price
                 Continue={Continue}
 
-                Price="Paid"
-                Amount="10 US$"
-                Package="24 Hours Package"
+                Price={data[2].name}
+                Amount={data[2].price}
+                Tags={[each.options]}
               />
             </div>
 
@@ -107,7 +127,12 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
           handleOk={nextStep}
           closable={false}
         >
-          <p className='text-white'>{success}</p>
+          <div className='p-5'>
+          <p className='fs-22 text-white text-center p-5'>{success}</p>
+          <div className='text-center'>
+          <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
+          </div>
+          </div>
         </CustomModal>
         <CustomModal
           title="Error"
@@ -119,6 +144,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
           {error}
         </CustomModal>
       </div>
+      )}
     </div>
 
   )
