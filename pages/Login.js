@@ -13,13 +13,13 @@ const Login = () => {
     const loginHandler = e => {
         e.preventDefault();
         // nextStep();
-        const res= Acount.Login(userName, password, setError)
-        res.then(value=>{
+        const res = Acount.Login(userName, password, setError)
+        res.then(value => {
             console.log(value)
         })
-        .catch(error=>{
-            console.log(error)
-        })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
@@ -43,39 +43,39 @@ const Login = () => {
                                         <p className="fs-40 Gothic_3D text-center mt-5">LOG IN</p>
                                         <p className='fs-15'>Username</p>
                                         <form onSubmit={loginHandler}>
-                                        <input type="text"
-                                            id="inputPassword6"
-                                            className="form-control w-100 form-bg my-2"
-                                            aria-describedby="passwordHelpInline"
-                                            name="firstName"
-                                            onChange={(e) => setUserName(e.target.value)}
-                                            value={userName}
-                                            required
-                                            placeholder="Enter User Name"
-                                        />
-                                        <p className="fs-15 my-3">Password</p>
-                                        <input type="password"
-                                            id="inputPassword6"
-                                            className="form-control form-bg  w-100"
-                                            aria-describedby="passwordHelpInline"
-                                            name="firstName"
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            value={password}
-                                            required
-                                            placeholder="Enter Password"
-                                        />
-                                        <div className="mt-2 d-flex">
-                                            <p className="fs-13 ">Forgot Password?<a className="ms-1 fs-13 text-link pointer-cursor">Reset Now</a></p>
-                                            <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
-                                        </div>
-                                        <div class="d-grid gap-2 col-12 mt-3 mx-auto">
-                                            <button class="btn btn-primary login-button fs-15" type='submit'>Log in</button>
-                                        </div>
+                                            <input type="text"
+                                                id="inputPassword6"
+                                                className="form-control w-100 form-bg my-2"
+                                                aria-describedby="passwordHelpInline"
+                                                name="firstName"
+                                                onChange={(e) => setUserName(e.target.value)}
+                                                value={userName}
+                                                required
+                                                placeholder="Enter User Name"
+                                            />
+                                            <p className="fs-15 my-3">Password</p>
+                                            <input type="password"
+                                                id="inputPassword6"
+                                                className="form-control form-bg  w-100"
+                                                aria-describedby="passwordHelpInline"
+                                                name="firstName"
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                value={password}
+                                                required
+                                                placeholder="Enter Password"
+                                            />
+                                            <div className="mt-2 d-flex">
+                                                <p className="fs-13 ">Forgot Password?<a className="ms-1 fs-13 text-link pointer-cursor">Reset Now</a></p>
+                                                <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
+                                            </div>
+                                            <div className="d-grid gap-2 col-12 mt-3 mx-auto">
+                                                <button className="btn btn-primary login-button fs-15" type='submit'>Log in</button>
+                                            </div>
                                         </form>
                                         <div className="text-center my-4">
                                             <p className='fs-14'>Sign up with a Social Media</p>
                                         </div>
-                                        <div className="text-center mt-2">
+                                        <div className="text-center my-5">
                                             <img src={"Group 21.png"} className="ms-2  social" alt="facebook" />
                                             <img src={"Group 16.png"} className="ms-3 social" alt="facebook" />
                                             <img src={"Group 19.png"} className="ms-3 social" alt="facebook" />

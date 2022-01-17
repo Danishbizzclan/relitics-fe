@@ -46,7 +46,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                             <form onSubmit={Continue}>
 
                                 <div className="row px-5">
-                                    <div className='mx-5'>
+                                    <div className=''>
                                         <Avatarr />
                                     </div>
 
@@ -62,7 +62,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             defaultValue={values.firstName}
                                             // variant="outlined"
                                             required
-                                            fullWidth
+                                            
                                         />
                                     </div>
 
@@ -78,7 +78,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             required
                                             // variant="outlined"
                                             autoComplete="username"
-                                            fullWidth
+                                            
                                         />
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             defaultValue={values.username}
                                             // variant="outlined"
                                             required
-                                            fullWidth
+                                            
                                             type="input"
                                         />
 
@@ -112,8 +112,8 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             type="email"
                                             // variant="outlined"
                                             required
-                                            fullWidth
-                                            type="input"
+                                            
+                                            type="email"
                                         />
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             defaultValue={values.DOB}
                                             // variant="outlined"
                                             required
-                                            fullWidth
+                                            
                                             type="date"
                                         />
 
@@ -148,7 +148,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             type="text"
                                             // variant="outlined"
                                             required
-                                            fullWidth
+                                            
                                             type="input"
                                         />
                                     </div>
@@ -166,7 +166,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             defaultValue={values.state}
                                             // variant="outlined"
 
-                                            fullWidth
+                                            
                                             type="text"
                                         />
 
@@ -184,7 +184,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
 
                                             // variant="outlined"
 
-                                            fullWidth
+                                            
                                             type="password"
                                         />
 
@@ -194,15 +194,15 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
 
                                 </div>
 
-                                <div class="form-check mt-3 ms-5">
-                                    <input class="form-check-input ms-3" type="checkbox" required value="" id="flexCheckDefault" />
-                                    <label class="form-check-label fs-15 ms-3" for="flexCheckDefault">
+                                <div className="form-check mt-3 ms-5">
+                                    <input className="form-check-input ms-3" type="checkbox" required value="" id="flexCheckDefault" />
+                                    <label className="form-check-label fs-15 ms-3" htmlFor="flexCheckDefault">
                                         i agreed to the terms and conditions, Privacy Policy and Cockies Policy
                                     </label>
                                 </div>
-                                <div class="form-check mt-3 ms-5">
-                                    <input class="form-check-input ms-3" required type="checkbox" value="" id="flexCheckChecked" />
-                                    <label class="form-check-label fs-15 ms-3" for="flexCheckChecked">
+                                <div className="form-check mt-3 ms-5">
+                                    <input className="form-check-input ms-3" required type="checkbox" value="" id="flexCheckChecked" />
+                                    <label className="form-check-label fs-15 ms-3" htmlFor="flexCheckChecked">
                                         i would like to keep up to date on new features and new articles, Privacy Policy
                                     </label>
                                 </div>

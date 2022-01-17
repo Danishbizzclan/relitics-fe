@@ -46,7 +46,7 @@ const MessageForm = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-6 col-lg-6">
-                            <div class="form-group my-2">
+                            <div className="form-group my-2">
                                 <input
                                     type="text"
                                     required
@@ -60,7 +60,7 @@ const MessageForm = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="form-group my-2">
+                    <div className="form-group my-2">
                         <input
                             type="email"
                             required
@@ -73,7 +73,7 @@ const MessageForm = () => {
                         />
                     </div>
                     <div className="col-12">
-                        <div class="form-group my-2">
+                        <div className="form-group my-2">
                             <input
                                 type="text"
                                 required
@@ -85,7 +85,7 @@ const MessageForm = () => {
                         </div>
                     </div>
                     <div className="col-12">
-                        <div class="form-group my-2">
+                        <div className="form-group my-2">
                             <textarea
                                 type="text"
                                 required
@@ -101,14 +101,14 @@ const MessageForm = () => {
                         <div className="col-lg-9 col-md-9 col-12">
                             <h6 className="mb-0 fs-14">Please check the box below to complete</h6>
                             <div className="ps-0">
-                                <ReCAPTCHA
+                                {/* <ReCAPTCHA
                                     sitekey="6LdlkHUdAAAAAMp28lUJMQixeXECX2BU4VkJvUYl"
                                     id="reCaptcha"
                                     style={{ transform: 'scale(0.7)', transformOrigin: 'left' }}
                                     onChange={onChangeRecaptcha}
                                     name="reCaptcha"
                                     value={userInput}
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className='col-lg-3 col-md-2 col-12 my-auto'>

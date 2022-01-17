@@ -12,7 +12,7 @@ const HomePage = () => {
                         <div className="col-sm-8 py-5">
                             <p className="text-white Gothic_3D fs-70">WE'RE HERE TO SIMPLIFY THE MARKET RESEARCH</p>
                             <p className="text-white fs-17">Eliminate hours of pain-staking research with a single platform that has updated market, economic, and demographic data for the top metro markets across the United States.</p>
-                            <a href='#Prices' className="mt-4"> <button type="button" class="btn fs-15 home-button">See Pricing</button></a>
+                            <a href='#Prices' className="mt-4"> <button type="button" className="btn fs-15 home-button">See Pricing</button></a>
 
                         </div>
                     </div>
@@ -29,7 +29,7 @@ const HomePage = () => {
                         <p className='fs-17 pb-4'>Our mission is simple - To create the most versatile market research platform available for real estate investors.  </p>
                     </div>
                     <div className="col-sm-6 my-5">
-                        <iframe class="embed-responsive-item h-100 w-100" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                        <iframe className="embed-responsive-item h-100 w-100" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
 
                     </div>
                 </div>

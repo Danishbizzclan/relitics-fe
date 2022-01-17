@@ -20,29 +20,29 @@ const PriceCard = () => {
                     <div className="price-line my-5 mx-auto"></div>
 
                     <div className="d-flex mt-3">
-                        <img src={"check-circle-fill.png"} class="img-fluid" alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2 fs-15" >Option 1</p>
 
                     </div>
 
                     <div className="d-flex mt-3">
-                        <img src={"check-circle-fill.png"} class="img-fluid" alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2 fs-15" >Option 1</p>
 
                     </div>
                     <div className="d-flex mt-3">
-                        <img src={"check-circle-fill.png"} class="img-fluid" alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2 fs-15" >Option 1</p>
 
                     </div>
                     <div className="d-flex mt-3 mb-4">
-                        <img src={"check-circle-fill.png"} class="img-fluid" alt="..." />
+                        <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
                         <p className="my-auto ms-2 fs-15">Option 1</p>
 
                     </div>
 
                 </div>
-                <button type="button" class="btn btn-info zoom buy-color mb-5 fs-15 mt-5">Buy Now</button>
+                <button type="button" className="btn btn-info zoom buy-color mb-5 fs-15 mt-5">Buy Now</button>
 
             </div>
             </div>

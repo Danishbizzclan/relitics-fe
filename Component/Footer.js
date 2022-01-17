@@ -16,6 +16,9 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
+                                <Link href="/BlogCategory/Uncategory_1">
+                                    <a className={classes.footerp}><p>Category pg</p></a>
+                                </Link>
                                 <Link href="/RealState">
                                     <a className={classes.footerp}><p>Category 1</p></a>
                                 </Link>
@@ -62,7 +65,7 @@ function Foter() {
                                 <input type="email" value={email} name="email" type={email}
                                     placeholder="Enter your Email"
                                     onChange={(e) => setEmail(e.target.value)}
-                                    class="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    className="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                 <button type="button" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
                             </div>
 

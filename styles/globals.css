@@ -146,8 +146,8 @@ textarea {
   text-decoration: none;
 }
 
-.pointer-cursor{
-  cursor         : pointer;
+.pointer-cursor {
+  cursor: pointer;
 }
 
 .social {
@@ -192,6 +192,12 @@ textarea {
   background-color: #FAFAFA;
   padding         : .0rem !important;
   margin          : .0rem !important;
+}
+
+.UploadBtn {
+  background-color: #F2F8FF !important;
+  border          : .2rem solid #0F74AF !important;
+  border-radius: 2rem !important;
 }
 
 .maj-bg {
@@ -392,50 +398,30 @@ textarea {
   justify-content: center;
 }
 
+.nextBttn {
+  background-color: #0F74AF;
+}
+
 .paginationBtn a {
-  padding         : .6rem 1.8rem;
+  padding         : 1.2rem 2.4rem;
   margin          : .4rem;
   border-radius   : .0rem;
   border          : .1rem solid #0F74AF;
   background-color: #0F74AF;
-  text-decoration : none;
   color           : white;
+  font-size       : 1.6rem;
+  text-decoration : none;
   cursor          : pointer;
+  border          : 0.3rem solid #ECEFF3;
 }
 
-/* .paginationBtn a:hover{
-    color: rgba(255, 255, 255, 0.712);
-    background-color: #0f9caf;
-}
-
-.paginationDisabled a{
-    color: white;
-    background-color: grey;
-} */
-/* 
-.paginationActive a{
-    color: black;
-    background-color: white;
-} */
 .paginationBtn {
   width          : 100%;
-  height         : 4.0rem;
   list-style     : none;
   display        : flex;
   justify-content: center;
 }
 
-.paginationBtn a {
-  padding         : .6rem 1.8rem;
-  margin          : .4rem;
-  border-radius   : .0rem;
-  border          : .1rem solid #0F74AF;
-  background-color: #0F74AF;
-  color           : white;
-  text-decoration : none;
-  cursor          : pointer;
-  border          : 0.3rem solid #ECEFF3;
-}
 
 .paginationBtn a:hover {
   color  : rgba(255, 255, 255, 0.712);
