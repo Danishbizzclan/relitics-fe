@@ -46,7 +46,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                             <form onSubmit={Continue}>
 
                                 <div className="row px-5">
-                                    <div className='mx-5'>
+                                    <div className=''>
                                         <Avatarr />
                                     </div>
 

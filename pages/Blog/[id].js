@@ -4,15 +4,10 @@ import { getEventById } from '../../Component/Data/BlogData'
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
 import LatestPosts from '../../Component/LatestPosts';
-import { useState } from 'react';
 
 
 
 const BlogDetail = () => {
-  const [website, setWebsite] = useState("");
-  const [comment, setComment] = useState("");
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
@@ -34,57 +29,30 @@ const BlogDetail = () => {
 
           <div className='row'>
             <div className='col-md-8'>
-              <div className='shadow p-3'>
-                <small className='sec-color' style={{ fontWeight: "600" }}>{event.cata}</small>
-                <h2 className='mb-0'>{event.title}</h2>
-                <div className='blog-line mt-1'></div>
-                <small>Posted on {date} by Admin</small>
-                <div className='text-center'>
-                  <img className='m-1' src={"/linkedin.png"} />
-                  <img className='m-1' src={"/pinterest-square.png"} />
-                  <img className='m-1' src={"/twitter-square.png"} />
-                  <img className='m-1' src={"/gmail.png"} />
-                  <img className='m-1' src={"/instagram.png"} />
-
+              <div className='shadow p-5'>
+                <a className='text-link pointer-cursor fs-12 Bold'>{event.category}</a>
+                <h2 className='mb-0 fs-40'>{event.title}</h2>
+                <div className='blog-line mt-0 mb-3'></div>
+                <p className='fs-13'>Posted on {date} by Admin</p>
+                <div className='text-center mb-3'>
+                  <img className='m-2 hover' src={"/facebook_.png"} />
+                  <img className='m-2 hover' src={"/linkedin_.png"} />
+                  <img className='m-2 hover' src={"/twitter-square.png"} />
+                  <img className='m-2 hover' src={"/pinterest-square.png"} />
+                  <img className='m-2 hover' src={"/gmail.png"} />
+                  <img className='m-2 hover' src={"/copylink_.png"} />
                 </div>
                 <img src={event.image} className='w-100 mt-2' />
                 <p className='mt-3'>{event.data}</p>
                 <div className='text-center'>
-                  <img className='m-1' src={"/linkedin.png"} />
-                  <img className='m-1' src={"/pinterest-square.png"} />
-                  <img className='m-1' src={"/twitter-square.png"} />
-                  <img className='m-1' src={"/gmail.png"} />
-                  <img className='m-1' src={"/instagram.png"} />
-
+                  <img className='m-2 hover' src={"/facebook_.png"} />
+                  <img className='m-2 hover' src={"/linkedin_.png"} />
+                  <img className='m-2 hover' src={"/twitter-square.png"} />
+                  <img className='m-2 hover' src={"/pinterest-square.png"} />
+                  <img className='m-2 hover' src={"/gmail.png"} />
+                  <img className='m-2 hover' src={"/copylink_.png"} />
                 </div>
-
               </div>
-              {/* <div className='ant-modal-body p-3 mt-3'>
-                <p className='font-bold my-auto'>Leave a reply</p>
-                <p>your email will not be pubished. required fields are marked *</p>
-                <div className="mb-3">
-                  <label htmlFor="exampleFormControlTextarea1" className="form-label">Comment</label>
-                  <textarea className="form-control" value={comment} id="exampleFormControlTextarea1"
-                  onChange={(e) => setComment(e.target.value)}
-                  required rows="3"></textarea>
-                </div>
-                <div className='d-flex'>
-                  <div className="mb-3 m-1">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Name*</label>
-                    <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} id="exampleFormControlInput1" required />
-                  </div>
-                  <div className="mb-3 m-1">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Email*</label>
-                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleFormControlInput1" required />
-                  </div>
-                  <div className="mb-3 m-1">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Website</label>
-                    <input type="text" className="form-control" value={website} onChange={(e) => setWebsite(e.target.value)} id="exampleFormControlInput1" />
-                  </div>
-                </div>
-                <button className='btn btn-info'>Post Comment</button>
-              </div> */}
-
             </div>
             <div className='col-md-4'>
               <div className=' p-3'>
@@ -98,11 +66,7 @@ const BlogDetail = () => {
                 </div>
                 <h3>Catagories</h3>
                 <div className='blog-line mt-2 '></div>
-
-
-
               </div>
-
               <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="flush-headingOne">
@@ -114,35 +78,29 @@ const BlogDetail = () => {
                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
                   </div>
                 </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingTwo">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    How to <span className='sec-color ms-2'>(73)</span>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      How to <span className='sec-color ms-2'>(73)</span>
                     </button>
                   </h2>
                   <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                   </div>
                 </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingThree">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                    How to <span className='sec-color ms-2'>(73)</span>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      How to <span className='sec-color ms-2'>(73)</span>
                     </button>
                   </h2>
                   <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
-
-
         </div>
         <Foter />
       </div>

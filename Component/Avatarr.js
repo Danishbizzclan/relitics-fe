@@ -48,7 +48,17 @@ class Avatarr extends React.Component {
     const { loading, imageUrl } = this.state;
     const uploadButton = (
       <div className="antbefore">
-        { loading ? <LoadingOutlined /> : <><div className='d-flex'><img src={"user.png"} className="img-fluid mx-5 avatar-radius W-100" alt="..." ></img><button className='btn mt-2 upload-button fs-15 mt-5  px-5 text-nowrap btn-info'>upload Photo</button></div></>}
+        {loading ? <LoadingOutlined />
+          :
+          <div className='row gx-5 ms-0'>
+            <div className='col-4'>
+              <img src={"user.png"} className="avatar-radius W-100" alt="..." ></img>
+            </div>
+            <div className='col-8 my-auto'>
+              <button className='btn mt-2 UploadBtn px-5 fs-15 text-nowrap'>upload Photo</button>
+            </div>
+          </div>
+        }
       </div>
     );
     return (
@@ -63,8 +73,8 @@ class Avatarr extends React.Component {
         beforeUpload={beforeUpload}
         onChange={this.handleChange}
       >
-        {imageUrl ? <img src={imageUrl}  alt="avatar" className="avatar-radius overflow-hidden" style={{objectFit:"contain"}} /> : uploadButton}
-        
+        {imageUrl ? <img src={imageUrl} alt="avatar" className="avatar-radius overflow-hidden" style={{ objectFit: "contain" }} /> : uploadButton}
+
       </Upload>
     );
   }

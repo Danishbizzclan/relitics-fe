@@ -16,6 +16,9 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
+                                <Link href="/BlogCategory/Uncategory_1">
+                                    <a className={classes.footerp}><p>Category pg</p></a>
+                                </Link>
                                 <Link href="/RealState">
                                     <a className={classes.footerp}><p>Category 1</p></a>
                                 </Link>

@@ -34,20 +34,20 @@ const Dashnav = () => (
                 <ul className="navbar-nav ms-auto mb-2  mb-lg-0">
                   <Link href="/" className="nav-item">
 
-                    <a className="nav-link navbar-text text-end text-lg-start nav-bor font-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Home</p></a>
+                    <a className="nav-link navbar-text text-end text-lg-start nav-bor fs-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Home</p></a>
                   </Link>
                   <Link href="/BecomeProfessional" className="nav-item">
-                    <a className="nav-link navbar-text nav-bor text-end text-lg-start font-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Pricing</p></a>
+                    <a className="nav-link navbar-text nav-bor text-end text-lg-start fs-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Pricing</p></a>
                   </Link>
                   <Link href="/About" className="nav-item">
-                    <a className="nav-link navbar-text nav-bor text-end text-lg-start font-13  py-2  dash-text" aria-current="page" ><p className="mt-3">About</p></a>
+                    <a className="nav-link navbar-text nav-bor text-end text-lg-start fs-13  py-2  dash-text" aria-current="page" ><p className="mt-3">About</p></a>
                   </Link>
 
                   <Link href="/Blog" className="nav-item">
-                    <a className="nav-link navbar-text font-13 text-end nav-bor text-lg-start py-2  nav-bordash-text dash-text" aria-current="page" ><p className="mt-3">Article</p></a>
+                    <a className="nav-link navbar-text fs-13 text-end nav-bor text-lg-start py-2  nav-bordash-text dash-text" aria-current="page" ><p className="mt-3">Article</p></a>
                   </Link>
                   <Link href="/Contact" className="nav-item">
-                    <a className="nav-link navbar-text font-13 text-end text-lg-start nav-bor py-2   dash-text" aria-current="page" ><p className="mt-3">contact</p></a>
+                    <a className="nav-link navbar-text fs-13 text-end text-lg-start nav-bor py-2   dash-text" aria-current="page" ><p className="mt-3">contact</p></a>
                   </Link>
                   <img src={'/Group 221.png'} className="noti-bg ms-auto text-lg-0 my-3 p-2" style={{ objectFit: 'contain' }} />
                   <div className="d-flex rounded-pill my-3 ms-3 name-bg">

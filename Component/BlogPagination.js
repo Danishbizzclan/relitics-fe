@@ -2,22 +2,19 @@ import React from 'react'
 import ReactPaginate from 'react-paginate';
 import { useState } from 'react'
 import BlogCompnnent from './BlogComponent';
-import Link from 'next/link'
 
 
 const Pagination = (props) => {
     const [pageNumber, setPageNumber] = useState(0)
 
-    const userPerPage = 9;
+    const userPerPage = props.perpage;
     const pagesVisited = pageNumber * userPerPage;
 
     const displayUsers = props.data.slice(pagesVisited, pagesVisited + userPerPage).map((user) => {
         return (
-
-            <div className=" col-lg-4 col-sm-6">
+            <div className={props.class}>
                 <BlogCompnnent data={user} />
             </div>
-
         );
 
     });

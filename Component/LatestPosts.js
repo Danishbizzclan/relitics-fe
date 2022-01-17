@@ -7,22 +7,21 @@ const LatestPosts = () => {
 
     return (
         <div>
-            {LatestPost.map(post =>{
-                return(
+            {LatestPost.map(post => {
+                return (
                     <>
-                <div className='d-flex '>
-                <div className='Latest-color  p-2'>
-                    <p className='text-white my-auto'>{date}</p>
-                </div>
-                <p className='ms-3 my-auto'>{post.title}</p>
-                </div>
-                <hr/>
+                        <div className='d-flex '>
+                            <div className='Latest-color  p-2'>
+                                <p className='text-white my-auto'>{date}</p>
+                            </div>
+                            <p className='ms-3 fs-16 my-auto'>{post.title}</p>
+                        </div>
+                        <hr />
+                    </>
 
-                </>
-              
                 )
             })}
-              
+
         </div>
     )
 }

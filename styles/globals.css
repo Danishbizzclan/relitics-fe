@@ -24,7 +24,7 @@ body {
   border-radius   : 1.0rem;
 }
 
-.small-font {
+.fs-12 {
   font-size: 1.2rem;
 }
 
@@ -79,7 +79,12 @@ textarea {
   width : 4.4rem !important;
   height: 4.4rem !important;
 }
+<<<<<<< HEAD
 .font-13 {
+=======
+
+.fs-13 {
+>>>>>>> a6e53b33297315aa0c9d2e939bf00aea197fd4a8
   font-size: 1.3rem;
 }
 
@@ -121,11 +126,6 @@ textarea {
   background-color: #FAFAFA;
 }
 
-.font-12 {
-  font-size  : 1.2rem !important;
-  font-weight: 300 !important;
-}
-
 .login-right {
   background-color: white;
   position        : relative;
@@ -147,8 +147,11 @@ textarea {
 
 .text-link {
   color          : #0F74AF !important;
-  cursor         : pointer;
   text-decoration: none;
+}
+
+.pointer-cursor {
+  cursor: pointer;
 }
 
 .social {
@@ -192,6 +195,12 @@ textarea {
   background-color: #FAFAFA;
   padding         : .0rem !important;
   margin          : .0rem !important;
+}
+
+.UploadBtn {
+  background-color: #F2F8FF !important;
+  border          : .2rem solid #0F74AF !important;
+  border-radius: 2rem !important;
 }
 
 .maj-bg {
@@ -262,6 +271,10 @@ textarea {
   border-radius   : .0rem !important;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6e53b33297315aa0c9d2e939bf00aea197fd4a8
 .loginn {
   font-size: smaller !important;
   height   : fit-content !important;
@@ -339,7 +352,8 @@ textarea {
   transform: scale(1.05);
 }
 
-.hover, .hover_btn {
+.hover,
+.hover_btn {
   transition: 300ms ease-in-out;
 }
 
@@ -347,9 +361,9 @@ textarea {
   transform: scale(1.04);
 }
 
-.hover_btn:hover{
+.hover_btn:hover {
   transform: scale(1.05);
-  color: white !important;
+  color    : white !important;
 }
 
 
@@ -368,36 +382,30 @@ textarea {
   justify-content: center;
 }
 
+.nextBttn {
+  background-color: #0F74AF;
+}
+
 .paginationBtn a {
-  padding         : .6rem 1.8rem;
+  padding         : 1.2rem 2.4rem;
   margin          : .4rem;
   border-radius   : .0rem;
   border          : .1rem solid #0F74AF;
   background-color: #0F74AF;
-  text-decoration : none;
   color           : white;
+  font-size       : 1.6rem;
+  text-decoration : none;
   cursor          : pointer;
+  border          : 0.3rem solid #ECEFF3;
 }
 
 .paginationBtn {
   width          : 100%;
-  height         : 4.0rem;
   list-style     : none;
   display        : flex;
   justify-content: center;
 }
 
-.paginationBtn a {
-  padding         : .6rem 1.8rem;
-  margin          : .4rem;
-  border-radius   : .0rem;
-  border          : .1rem solid #0F74AF;
-  background-color: #0F74AF;
-  color           : white;
-  text-decoration : none;
-  cursor          : pointer;
-  border          : 0.3rem solid #ECEFF3;
-}
 
 .paginationBtn a:hover {
   color  : rgba(255, 255, 255, 0.712);
@@ -422,8 +430,8 @@ textarea {
 }
 
 .blog-line {
-  height          : .3rem;
-  width           : 3.0rem;
+  height          : .4rem;
+  width           : 6.0rem;
   background-color: #0F74AF;
 }
 
