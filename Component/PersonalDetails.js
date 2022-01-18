@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core';
 import Price from './Price'
@@ -7,9 +7,14 @@ import PersonalInfo from './PersonalInfo';
 import Acount from '../Api/Acount'
 import FreeModal from './FreeModal';
 import CustomModal from './Modal';
+import GetData from "../Api/GetData";
+import { Spin } from 'antd';
+import { each } from 'jquery';
 
 
 const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
@@ -52,69 +57,78 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     prevStep();
   }
 
+  useEffect(() => {
+    const response = GetData.AllPackeges();
+    console.log(response)
+    response.then(value => {
+      setData(value.data.packages);
+      console.log(value.data.packages)
+      setLoading(false);
+    })
+  }, [])
+
   return (
+
     <div>
       <Navbar />
-      <div className="container-fluid theme_bg p-5">
-        <PersonalInfo
-          values={values.step}
-          prevStep={prevStep}
-          nextStep={nextStep}
-        />
-        <div className="col-sm-9 mt-3 mb-0 mx-auto ">
-          <div className="row bg-pric brdr_div">
-            <div className="uper-color p-4 mb-4">
-              <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
-            </div>
-            <div className="col-sm-4">
 
-              <Price
-                Continue={Success}
-                Price="Free"
-                Amount="0 US$"
-                Package="Free trail"
-              />
-            </div>
-            <div className="col-sm-4">
-              <Price
-                Continue={Continue}
+      {loading ? (<Spin />) : (
 
-                Price="Paid"
-                Amount="50 US$"
-                Package="Monthly Package"
-              />
-            </div>
-            <div className="col-sm-4">
-              <Price
-                Continue={Continue}
+        <div className="container-fluid theme_bg p-5">
+          <PersonalInfo
+            values={values.step}
+            prevStep={prevStep}
+            nextStep={nextStep}
+          />
+          <div className="col-sm-9 mt-3 mb-0 mx-auto ">
+            <div className="row bg-pric brdr_div">
+              <div className="uper-color p-4 mb-4">
+                <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
 
-                Price="Paid"
-                Amount="10 US$"
-                Package="24 Hours Package"
-              />
+              </div>
+              <div className="row bg-pric p-3 ">
+
+                {console.log('per', data)}
+                {data.map(x => {
+                  return (
+                    <div className='col-sm-4'>
+                      <Price
+                        Continue={x.price === 0 ? Success : Continue}
+                        Price={x.name}
+                        Amount={x.price}
+                        Tags={x.options} />
+                    </div>
+                  )
+                })}
+
+              </div>
             </div>
 
+            <CustomModal
+              title="Succefull"
+              isModalVisible={succesModel}
+              handleOk={nextStep}
+              closable={false}
+            >
+              <div className='p-5'>
+                <p className='fs-22 text-white text-center p-5'>{success}</p>
+                <div className='text-center'>
+                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
+                </div>
+              </div>
+            </CustomModal>
+            <CustomModal
+              title="Error"
+              isModalVisible={errorModel}
+              handleOk={prevStep}
+              handleCancel={() => setErrorModel(false)}
+              closable={true}
+            >
+              {error}
+            </CustomModal>
           </div>
         </div>
-
-        <CustomModal
-          title="Succefull"
-          isModalVisible={succesModel}
-          handleOk={nextStep}
-          closable={false}
-        >
-          <p className='text-white'>{success}</p>
-        </CustomModal>
-        <CustomModal
-          title="Error"
-          isModalVisible={errorModel}
-          handleOk={prevStep}
-          handleCancel={() => setErrorModel(false)}
-          closable={true}
-        >
-          {error}
-        </CustomModal>
-      </div>
+      )}
     </div>
 
   )

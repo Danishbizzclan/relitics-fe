@@ -46,6 +46,28 @@ class Acount {
     };
     return res();
   };
+  Contact = (userInput, setError) => {
+    console.log({userInput})
+    const res = async () => {
+      const resp = await axios
+        .post("/contacts", {
+          firstName:userInput.firstName, 
+          lastName:userInput.lastName, 
+          phone:"0323233323", 
+          email:userInput.email, 
+          subject:userInput.subject,
+           message:userInput.message
+        })
+
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+        });
+      return resp;
+    };
+    return res();
+  };
+
 
 
   Return() {
