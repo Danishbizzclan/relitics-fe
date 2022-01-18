@@ -1,24 +1,25 @@
 import React from 'react'
-import LatestPost from './Data/LatestPostData';
+import blogData from './Data/BlogData';
 
 const LatestPosts = () => {
-    const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}`;
 
     return (
         <div>
-            {LatestPost.map(post => {
+            {blogData.map(posts => {
+                const date = new Date(posts.date)
+                const month = date.toLocaleDateString("en-US", { month: "short" });
+                const day = date.toLocaleDateString("en-US", { day: "numeric" });
                 return (
-                    <>
+                    <div>
                         <div className='d-flex '>
-                            <div className='Latest-color  p-2'>
-                                <p className='text-white my-auto'>{date}</p>
+                            <div className="date">
+                                <div>{day}</div>
+                                <div>{month}</div>
                             </div>
-                            <p className='ms-3 fs-16 my-auto'>{post.title}</p>
+                            <p className='ms-3 fs-16 my-auto'>{posts.title}</p>
                         </div>
                         <hr />
-                    </>
-
+                    </div>
                 )
             })}
 

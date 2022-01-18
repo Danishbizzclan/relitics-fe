@@ -4,6 +4,7 @@ import Navbar from '../../Component/Navbar';
 import { getEventByCategory } from '../../Component/Data/BlogData'
 import Pagination from '../../Component/BlogPagination';
 import LatestPosts from '../../Component/LatestPosts';
+import Foter from '../../Component/Footer';
 
 function CategorisedBlogDetail() {
 
@@ -87,6 +88,7 @@ function CategorisedBlogDetail() {
                         </div>
                     </div>
                 </div>
+                <Foter />
             </div>
         )
     }

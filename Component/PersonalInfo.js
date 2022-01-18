@@ -5,7 +5,7 @@ const PersonalInfo = (props) => {
  
     return (
         <div className='container'>
-            <div className='row ms-1'>
+            <div className='row ms-1 mb-5'>
                 <div onClick={props.nextStep} className='d-flex justify-content-center mt-3'>
 
                     <div>

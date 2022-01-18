@@ -50,12 +50,12 @@ class Avatarr extends React.Component {
       <div className="antbefore">
         {loading ? <LoadingOutlined />
           :
-          <div className='row gx-5 ms-0'>
-            <div className='col-4'>
-              <img src={"user.png"} className="avatar-radius W-100" alt="..." ></img>
+          <div className='d-lg-inline-flex gx-5'>
+            <div className='col-sm-6 w-100'>
+              <img src={"user.png"} className="img-fluid avatar-radius" alt="..." ></img>
             </div>
-            <div className='col-8 my-auto'>
-              <button className='btn mt-2 UploadBtn px-5 fs-15 text-nowrap'>upload Photo</button>
+            <div className='col-sm-6 w-100 my-auto'>
+              <button className='btn UploadBtn px-5 py-2 txt-grey fs-15 text-nowrap'>upload Photo</button>
             </div>
           </div>
         }

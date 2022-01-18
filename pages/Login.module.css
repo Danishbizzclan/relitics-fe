@@ -1,5 +1,5 @@
 .bgLogin {
-    background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Bg_Login.png');
+    background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Bg_Theme.png');
     background-size : cover;
     background-repeat: no-repeat;
     height: 100vh;

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from "next/link"
+import blogData from './Data/BlogData';
 import classes from "./Footer.module.css"
 
 import { FaFacebook, FaPinterest, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
@@ -16,10 +17,18 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
-                                <Link href="/BlogCategory/Uncategory_1">
-                                    <a className={classes.footerp}><p>Category pg</p></a>
-                                </Link>
-                                <Link href="/RealState">
+                                {blogData.map((x) => {
+                                    return (
+                                        <>
+                                            <Link href={`/BlogCategory/${x.category}`}>
+                                                <a className={classes.footerp}><p>{x.category}</p></a>
+                                            </Link>
+                                        </>
+                                    )
+                                })}
+
+
+                                {/* <Link href="/RealState">
                                     <a className={classes.footerp}><p>Category 1</p></a>
                                 </Link>
                                 <Link href="/Dashboard">
@@ -27,7 +36,7 @@ function Foter() {
                                 </Link>
                                 <Link href="/DroneVideo">
                                     <a className={classes.footerp}> <p >Category 3</p></a>
-                                </Link>
+                                </Link> */}
                             </div>
 
 

@@ -19,7 +19,7 @@ const FinishModal = (props) => {
 
     return (
         <>
-            <button className='btn button-color px-4 text-center' type="primary" onClick={showModal}>
+            <button className='btn btnYelow btn_width p-4 text-center' type="primary" onClick={showModal}>
                 Finish and pay
             </button>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -28,7 +28,7 @@ const FinishModal = (props) => {
                         Your Purchase has been completed Enjoy your membership
                     </p>
                     <div className="d-grid gap-2">
-                        <button className="btn button-color px-4 text-center" type="button">View Dashboard</button>
+                        <button className="btn button-color" type="button">View Dashboard</button>
                     </div>
 
                 </div>

@@ -55,21 +55,17 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   return (
     <div>
       <Navbar />
-      <div className="maj-bg">
+      <div className="container-fluid theme_bg p-5">
         <PersonalInfo
           values={values.step}
           prevStep={prevStep}
           nextStep={nextStep}
         />
         <div className="col-sm-9 mt-3 mb-0 mx-auto ">
-          <div className="uper-color m-0">
-            <h3 className="text-white mb-0 p-4">Select Package</h3>
-
-          </div>
-          <div className="row bg-pric p-3 ">
-
-
-
+          <div className="row bg-pric brdr_div">
+            <div className="uper-color p-4 mb-4">
+              <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
+            </div>
             <div className="col-sm-4">
 
               <Price

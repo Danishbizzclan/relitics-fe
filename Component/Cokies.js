@@ -19,7 +19,7 @@ const Cokies = () => {
 
   return (
     <>
-      <a className='maj-color' type="primary" onClick={showModal}>
+      <a className='blueColor' type="primary" onClick={showModal}>
         Cokies Policy
       </a>
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>

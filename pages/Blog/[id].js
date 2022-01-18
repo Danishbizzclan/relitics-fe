@@ -8,16 +8,15 @@ import LatestPosts from '../../Component/LatestPosts';
 
 
 const BlogDetail = () => {
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
-
   const router = useRouter();
 
 
   const eventId = router.query.id;
   const event = getEventById(eventId);
-  console.log({ event })
+  const date = new Date(event.date)
+  var options = { month: "short", year: "numeric", day: "numeric" };
+  const fullDate = date.toLocaleDateString("en-US", options);
+
   if (eventId && !event) {
     return <h1 className='text-center mt-5'>No Blog Found</h1>
   }
@@ -33,7 +32,7 @@ const BlogDetail = () => {
                 <a className='text-link pointer-cursor fs-12 Bold'>{event.category}</a>
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
                 <div className='blog-line mt-0 mb-3'></div>
-                <p className='fs-13'>Posted on {date} by Admin</p>
+                <p className='fs-13'>Posted on {fullDate} by Admin</p>
                 <div className='text-center mb-3'>
                   <img className='m-2 hover' src={"/facebook_.png"} />
                   <img className='m-2 hover' src={"/linkedin_.png"} />

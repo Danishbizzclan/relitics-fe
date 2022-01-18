@@ -1,8 +1,9 @@
+const blogDate = new Date (2022, 1, 8)
 const blogData = [
     {
         id: 1,
         title: "1 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -13,7 +14,7 @@ const blogData = [
     {
         id: 2,
         title: "2 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -24,7 +25,7 @@ const blogData = [
     {
         id: 3,
         title: "3 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -35,7 +36,7 @@ const blogData = [
     {
         id: 4,
         title: "4 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -46,7 +47,7 @@ const blogData = [
     {
         id: 5,
         title: "5 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -57,7 +58,7 @@ const blogData = [
     {
         id: 6,
         title: "6 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -68,7 +69,7 @@ const blogData = [
     {
         id: 7,
         title: "7 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -79,7 +80,7 @@ const blogData = [
     {
         id: 8,
         title: "8 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -90,7 +91,7 @@ const blogData = [
     {
         id: 9,
         title: "9 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -101,7 +102,7 @@ const blogData = [
     {
         id: 10,
         title: "10 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -112,7 +113,7 @@ const blogData = [
     {
         id: 11,
         title: "11 which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_2",
         cata: 'Blog',
         image: "/Mask Group 138.png",
@@ -123,7 +124,7 @@ const blogData = [
     {
         id: 12,
         title: "which imac i should buy?",
-        date: "2022,01,16",
+        date: blogDate.toDateString(),
         category: "Uncategory_1",
         cata: 'Blog',
         image: "/Mask Group 138.png",

@@ -19,7 +19,7 @@ const TermsModal = () => {
 
   return (
     <>
-      <a className='maj-color' type="primary" onClick={showModal}>
+      <a className='blueColor' type="primary" onClick={showModal}>
         Terms and Conditions
       </a>
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
