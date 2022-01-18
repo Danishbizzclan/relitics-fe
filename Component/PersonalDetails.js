@@ -13,8 +13,8 @@ import { each } from 'jquery';
 
 
 const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
-  const [data , setData] = useState([]);
-  const [loading , setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
@@ -56,94 +56,77 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     e.preventDefault();
     prevStep();
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     const response = GetData.AllPackeges();
     console.log(response)
-    response.then(value=>{
+    response.then(value => {
       setData(value.data.packages);
       console.log(value.data.packages)
       setLoading(false);
     })
-  },[])
+  }, [])
 
   return (
-    
+
     <div>
-          <Navbar />
+      <Navbar />
 
-          {loading ? (<Spin />):(
-  
-      <div className="maj-bg">
-        
-        <PersonalInfo
-          values={values.step}
-          prevStep={prevStep}
-          nextStep={nextStep}
-        />
-        <div className="col-sm-9 mt-3 mb-0 mx-auto ">
-          <div className="uper-color m-0">
-            <h3 className="text-white mb-0 p-4">Select Package</h3>
+      {loading ? (<Spin />) : (
 
+        <div className="maj-bg">
+
+          <PersonalInfo
+            values={values.step}
+            prevStep={prevStep}
+            nextStep={nextStep}
+          />
+          <div className="col-sm-9 mt-3 mb-0 mx-auto ">
+            <div className="uper-color m-0">
+              <h3 className="text-white mb-0 p-4">Select Package</h3>
+
+            </div>
+            <div className="row bg-pric p-3 ">
+
+                {console.log('per', data)}
+                {data.map(x => {
+                  return (
+                    <div className='col-sm-4'>
+                      <Price
+                        Continue={x.price===0?Success:Continue}
+                        Price={x.name}
+                        Amount={x.price}
+                        Tags={x.options} />
+                    </div>
+                  )
+                })}
+
+            </div>
           </div>
-          <div className="row bg-pric p-3 ">
 
-
-
-            <div className="col-sm-4">
-
-              <Price
-                Continue={Success}
-                Price={data[0].name}
-                Amount={data[0].price}
-                Tags={[each.options]}
-              />
+          <CustomModal
+            title="Succefull"
+            isModalVisible={succesModel}
+            handleOk={nextStep}
+            closable={false}
+          >
+            <div className='p-5'>
+              <p className='fs-22 text-white text-center p-5'>{success}</p>
+              <div className='text-center'>
+                <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
+              </div>
             </div>
-            <div className="col-sm-4">
-              <Price
-                Continue={Continue}
-
-                Price={data[1].name}
-                Amount={data[1].price}
-                Tags={[each.options]}
-              />
-            </div>
-            <div className="col-sm-4">
-              <Price
-                Continue={Continue}
-
-                Price={data[2].name}
-                Amount={data[2].price}
-                Tags={[each.options]}
-              />
-            </div>
-
-          </div>
+          </CustomModal>
+          <CustomModal
+            title="Error"
+            isModalVisible={errorModel}
+            handleOk={prevStep}
+            handleCancel={() => setErrorModel(false)}
+            closable={true}
+          >
+            {error}
+          </CustomModal>
         </div>
-
-        <CustomModal
-          title="Succefull"
-          isModalVisible={succesModel}
-          handleOk={nextStep}
-          closable={false}
-        >
-          <div className='p-5'>
-          <p className='fs-22 text-white text-center p-5'>{success}</p>
-          <div className='text-center'>
-          <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
-          </div>
-          </div>
-        </CustomModal>
-        <CustomModal
-          title="Error"
-          isModalVisible={errorModel}
-          handleOk={prevStep}
-          handleCancel={() => setErrorModel(false)}
-          closable={true}
-        >
-          {error}
-        </CustomModal>
-      </div>
       )}
     </div>
 

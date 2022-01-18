@@ -3,44 +3,38 @@ import classes from './ContactUs.module.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input'
+import { message } from "antd";
 
 
-const MessageForm = () => {
-    const [userInput, setUserInput] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-        reCaptcha: false
-    })
-    const [value, setValue] = useState('')
-    const submitMessage = event => {
-        event.preventDefault();
-    }
-    const handleChange = (event) => {
-        setUserInput(event.target.value)
-    }
-    const onChangeRecaptcha = (value) => {
-        console.log("Captcha value:", value);
-    }
+const MessageForm = (props) => {
+    console.log (props)
+
+    // const [value, setValue] = useState('')
+  
+  
+    // const onChangeRecaptcha = (value) => {
+    //     console.log("Captcha value:", value);
+    // }
 
     return (
         <>
-            <form onSubmit={submitMessage}>
                 <div className="row form">
-                    {console.log(userInput)}
+                    {console.log(props.state)}
+                    <form onSubmit={props.message}>
+
                     <div className="row px-0 w-100 m-0">
                         <div className="col-12 col-md-6 col-lg-6">
+
                             <div className="form-group my-2">
                                 <input
                                     type="text"
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.firstName}
+                                    value={props.firstName}
+                                    name="firstName"
                                     id="firstName"
-                                    onChange={handleChange}
+                                    onChange={(e) => firstName(e.target.value)}
                                     placeholder="First Name"
                                 />
                             </div>
@@ -52,9 +46,9 @@ const MessageForm = () => {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.lastName}
+                                    value={props.lastname}
                                     id="lastName"
-                                    onChange={handleChange}
+                                    onChange={(e) => lastname(e.target.value)}
                                     placeholder="Last Name"
                                 />
                             </div>
@@ -66,9 +60,9 @@ const MessageForm = () => {
                             required
                             autoComplete={false}
                             className='form-control'
-                            value={userInput.email}
+                            value={props.email}
                             id="email"
-                            onChange={handleChange}
+                            onChange={(e) => email(e.target.value)}
                             placeholder="Email address"
                         />
                     </div>
@@ -78,9 +72,9 @@ const MessageForm = () => {
                                 type="text"
                                 required
                                 className='form-control'
-                                value={userInput.subject}
+                                value={props.subject}
                                 id="subject"
-                                onChange={handleChange}
+                                onChange={(e) => subject(e.target.value)}
                                 placeholder="Subject" />
                         </div>
                     </div>
@@ -91,9 +85,9 @@ const MessageForm = () => {
                                 required
                                 className='form-control'
                                 rows={4}
-                                value={userInput.message}
+                                value={props.message}
                                 id="message"
-                                onChange={handleChange}
+                                onChange={(e) => message(e.target.value)}
                                 placeholder="Message" />
                         </div>
                     </div>
@@ -107,7 +101,7 @@ const MessageForm = () => {
                                     style={{ transform: 'scale(0.7)', transformOrigin: 'left' }}
                                     onChange={onChangeRecaptcha}
                                     name="reCaptcha"
-                                    value={userInput}
+                                    value={props.state}
                                 /> */}
                             </div>
                         </div>
@@ -115,10 +109,10 @@ const MessageForm = () => {
                             <button type="submit" className='btn btn-lg fs-15 px-5 py-4 btnYelow'>Send</button>
                         </div>
                     </div>
+                    </form>
+
                 </div>
-            </form>
-            <form className=" loginForm" onSubmit={submitMessage}>
-            </form>
+           
         </>
     )
 }
