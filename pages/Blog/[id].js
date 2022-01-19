@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getEventById } from '../../Component/Data/BlogData'
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
+import Categories from '../../Component/Categories';
 import LatestPosts from '../../Component/LatestPosts';
 
 
@@ -63,10 +64,14 @@ const BlogDetail = () => {
                 <div className="mt-3">
                   <LatestPosts />
                 </div>
-                <h3>Catagories</h3>
-                <div className='blog-line mt-2 '></div>
+                <div className="mt-3">
+                  <p className='fs-40 Gothic_3D'>Catagories</p>
+                  <div className='blog-line mt-2 '></div>
+                  <Categories />
+                </div>
               </div>
-              <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
+
+              {/* <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="flush-headingOne">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -97,7 +102,7 @@ const BlogDetail = () => {
                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

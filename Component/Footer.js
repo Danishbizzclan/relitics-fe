@@ -33,24 +33,21 @@ function Foter() {
                                 </Link>
                                 <Link href="/Dashboard">
                                     <a className={classes.footerp}> <p>Category 2</p></a>
-                                </Link>
-                                <Link href="/DroneVideo">
-                                    <a className={classes.footerp}> <p >Category 3</p></a>
                                 </Link> */}
                             </div>
 
 
                             <div className="col-md-3">
-                                <Link href="About">
-                                    <a className={classes.fontbold}><p>About us</p></a>
+                                <Link href="/Dashboard">
+                                    <a className={classes.fontbold}><p>About us (Dashboard)</p></a>
                                 </Link>
-                                <Link href="Terms">
+                                <Link href="/Terms">
                                     <a className={classes.footerp}><p>Terms of Use</p></a>
                                 </Link>
-                                <Link href="Privacy">
+                                <Link href="/Privacy">
                                     <a className={classes.footerp}><p>Privacy Policy</p></a>
                                 </Link>
-                                <Link href="CokiePolicy">
+                                <Link href="/CokiePolicy">
                                     <a className={classes.footerp}><p>Cookie Policy</p></a>
                                 </Link>
                             </div>
@@ -60,10 +57,10 @@ function Foter() {
                                 <Link href="/Blog">
                                     <a className={classes.footerp}><p>Articles</p></a>
                                 </Link>
-                                <Link href="Contact">
+                                <Link href="/Contact">
                                     <a className={classes.footerp}>  <p>Contact</p></a>
                                 </Link>
-                                <Link href="About">
+                                <Link href="/About">
                                     <a className={classes.footerp}>  <p>About Us</p></a>
                                 </Link>
                             </div>

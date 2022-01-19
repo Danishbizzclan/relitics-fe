@@ -8,11 +8,16 @@ body {
 
 @font-face {
   font-family: 'Gothic Medium';
-  src        : url(../styles/Fonts/Alternate/Gothic.otf);
+  src        : url(../styles/Fonts/Alternate\ Gothic\ No3\ D\ Regular.otf);
 }
 
 .Gothic_3D {
   font-family: 'Gothic Medium';
+  font-size  : 3rem !important;
+}
+.Gothic_Bold {
+  font-family: 'Gothic Medium';
+  font-size  : 7rem !important;
 }
 
 .container {
@@ -83,6 +88,7 @@ textarea {
   width : 4.4rem !important;
   height: 4.4rem !important;
 }
+
 .font-13 {
   font-size: 1.3rem;
 }
@@ -229,10 +235,12 @@ textarea {
 .fs-19 {
   font-size: 1.9rem;
 }
+
 .s-social {
   width: 5%;
 
 }
+
 .img-plac {
   background-image   : url('/credit-card.png');
   background-position: 95% 1.2rem;
@@ -287,15 +295,16 @@ textarea {
 .y_center {
   vertical-align: middle;
 }
+
 .zoom {
   transition: 400ms ease-in-out;
-  margin: 0 auto;
+  margin    : 0 auto;
 }
 
 .zoom:hover {
-  transform           : scale(1.04);
-  background-color    : #022945;
-  color               : white;
+  transform       : scale(1.04);
+  background-color: #022945;
+  color           : white;
 }
 
 .zoom:hover path {
@@ -552,6 +561,7 @@ textarea {
 #header .logo {
   padding: 2.0rem;
 }
+
 .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
   padding: .4rem 3.5rem .4rem 2.0rem !important;
 }
@@ -565,6 +575,7 @@ textarea {
 .pro-sidebar.collapsed small {
   display: none;
 }
+
 .pro-sidebar.collapsed .imgw {
   width: 80%;
 }
@@ -593,6 +604,7 @@ textarea {
 
   }
 }
+
 .name-bg {
   background-color: #0F74AF;
   /* border-radius: 50%; */
@@ -608,6 +620,7 @@ textarea {
   /* Safari browser */
   transition        : width 5s;
 }
+
 .bg-dash {
   background-color: #F8FCFF;
 }
@@ -712,6 +725,7 @@ textarea {
 .semi-bold {
   font-weight: 600;
 }
+
 html {
   font-size: 62.5%;
 }
@@ -741,12 +755,14 @@ html {
   font-size    : .8rem;
 
 }
+
 .ant-table-cell-ellipsis .ant-table-column-title {
   overflow     : initial !important;
   text-overflow: initial !important;
   white-space  : normal !important;
   font-size    : .8rem;
 }
- .modal-bg .ant-modal-body {
+
+.modal-bg .ant-modal-body {
   background-color: #022945 !important;
 }
