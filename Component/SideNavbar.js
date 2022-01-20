@@ -58,17 +58,17 @@ const Sidebar = () => {
             </div>
             <div className="text-center mt-5">
               <img src={'/profileAvatar.png'} className="imgw" />
-              <div className=""><p className="text-white fs-17 mt-3 mb-0">Tabish bin Tahir</p><img src={"/editLogo.png"} />
-              </div>
-              <p className="fs-15" >tabish614@gmail.com</p>
-
             </div>
+            <div className="d-inline-flex"><p className="text-white fs-17 mt-3 mb-0">Tabish bin Tahir</p><img src={"/editLogo.png"} className="mx-2" />
+            </div>
+            <p className="fs-15" >tabish614@gmail.com</p>
+
             <div className="closemenu" onClick={menuIconClick}>
               {/* changing menu collapse icon on click */}
               {menuCollapse ? (
-                <FiArrowRightCircle />
+                <img src="./collapseIcon.svg" style={{width:'2.5rem'}} />
               ) : (
-                <FiArrowLeftCircle />
+                <img src="./collapseIcon.svg" style={{width:'2.5rem'}} />
               )}
             </div>
           </SidebarHeader>

@@ -15,6 +15,7 @@ body {
   font-family: 'Gothic Medium';
   font-size  : 3rem !important;
 }
+
 .Gothic_Bold {
   font-family: 'Gothic Medium';
   font-size  : 7rem !important;
@@ -495,8 +496,15 @@ textarea {
   height: 100vh;
 }
 
+.pro-sidebar {
+  width: 30rem !important;
+}
+.pro-sidebar.collapsed {
+  width: 7rem !important;
+}
+
 #header .closemenu {
-  color        : rgb(8, 8, 8);
+  color        : white;
   position     : absolute;
   right        : 0;
   z-index      : 9999;
@@ -613,12 +621,8 @@ textarea {
 }
 
 #header {
-  background-color  : #022945;
   position          : inherit;
   width             : unset;
-  -webkit-transition: width 5s;
-  /* Safari browser */
-  transition        : width 5s;
 }
 
 .bg-dash {
