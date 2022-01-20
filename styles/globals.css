@@ -8,11 +8,16 @@ body {
 
 @font-face {
   font-family: 'Gothic Medium';
-  src        : url(../styles/Fonts/Alternate/Gothic.otf);
+  src        : url(../styles/Fonts/Alternate\ Gothic\ No3\ D\ Regular.otf);
 }
 
 .Gothic_3D {
   font-family: 'Gothic Medium';
+  font-size  : 3rem !important;
+}
+.Gothic_Bold {
+  font-family: 'Gothic Medium';
+  font-size  : 7rem !important;
 }
 
 .container {
@@ -32,6 +37,10 @@ body {
 
 .greyBlack {
   color: #464646 !important;
+}
+
+.txt-grey {
+  color: #888888 !important;
 }
 
 .row {
@@ -79,34 +88,27 @@ textarea {
   width : 4.4rem !important;
   height: 4.4rem !important;
 }
+
 .font-13 {
   font-size: 1.3rem;
 }
 
 .price-line {
-  background-color: #023792;
-  height          : .3rem;
-  width           : 4.0rem;
-}
-
-.buy-color {
-  background-color: #FFDA5F !important;
-  color           : black !important;
-  height          : 3.8rem;
-  width           : 17rem;
-  border-radius   : 1.0rem !important;
-  border          : .0rem !important;
+  background-color: #0F74AF;
+  height          : .2rem;
+  width           : 5.0rem;
 }
 
 .card-color {
   background-color: #FDFDFD;
+  border          : #ECEFF3;
+  color           : #464646;
 }
 
 .login-left {
   background-color: #022945;
   position        : relative;
   top             : 10.0rem;
-  height          : 65vh;
 }
 
 .heading-font {
@@ -136,10 +138,6 @@ textarea {
   font-size: 1.1rem !important;
 }
 
-.password-color {
-  color: #0F74AF !important;
-}
-
 .text-link {
   color          : #0F74AF !important;
   text-decoration: none;
@@ -158,13 +156,11 @@ textarea {
   height       : 100%;
 }
 
-.loginbg {
-  background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Mask Group 115.png');
-  background-size : cover;
-  width           : 100%;
+.theme_bg {
+  background-image : linear-gradient(to bottom, rgba(180, 203, 221, 0.8) 0%, rgba(52, 107, 145, 0.9) 100%), url('/Bg_Theme.png');
+  background-size  : cover;
+  height           : 100vh;
   background-repeat: no-repeat;
-  padding-bottom   : 15.0rem;
-  position         : absolute;
 }
 
 .ant-upload.ant-upload-select-picture-card {
@@ -175,6 +171,11 @@ textarea {
 .uper-color {
   background-color: #022945;
   width           : 100%;
+}
+
+.brdr_div {
+  border-radius: 1.5rem;
+  overflow     : hidden;
 }
 
 .form-bg {
@@ -195,32 +196,32 @@ textarea {
 .UploadBtn {
   background-color: #F2F8FF !important;
   border          : .2rem solid #0F74AF !important;
-  border-radius: 2rem !important;
-}
-
-.maj-bg {
-
-  background-image: linear-gradient(to bottom, rgba(220, 222, 236, 0.7) 0%, rgba(211, 215, 228, 0.7) 100%), url('/Mask Group 115.png');
-  background-size : cover;
-  width           : 100%;
-  background-repeat: no-repeat;
-  padding-bottom   : 15.0rem;
-  position         : absolute;
-
+  border-radius   : 1rem !important;
 }
 
 .bg-pay {
   background-color: #f7f7f7;
 }
 
+.card {
+  border       : .5rem solid #ECEFF3 !important;
+  border-radius: 1.5rem !important;
+  padding      : 3rem !important;
+}
+
 .card-border {
   border       : .2rem solid #0F74AF;
-  width        : 35%;
+  width        : 20rem;
   border-radius: 1.0rem;
+  padding      : auto;
 }
 
 .brdr {
   border-radius: 1.0rem;
+}
+
+.brdr-2 {
+  border-radius: 3.0rem;
 }
 
 .brdr_2 {
@@ -234,13 +235,15 @@ textarea {
 .fs-19 {
   font-size: 1.9rem;
 }
+
 .s-social {
   width: 5%;
 
 }
+
 .img-plac {
   background-image   : url('/credit-card.png');
-  background-position: 95% .7rem;
+  background-position: 95% 1.2rem;
   background-repeat  : no-repeat;
   padding            : 1.2rem 2.0rem 1.2rem 4.0rem;
   justify-content    : end;
@@ -256,7 +259,7 @@ textarea {
 
 }
 
-.maj-color {
+.blueColor {
   color: #0F74AF;
 }
 
@@ -292,15 +295,16 @@ textarea {
 .y_center {
   vertical-align: middle;
 }
+
 .zoom {
   transition: 400ms ease-in-out;
-  margin: 0 auto;
+  margin    : 0 auto;
 }
 
 .zoom:hover {
-  transform           : scale(1.04);
-  background-color    : #022945;
-  color               : white;
+  transform       : scale(1.04);
+  background-color: #022945;
+  color           : white;
 }
 
 .zoom:hover path {
@@ -309,6 +313,7 @@ textarea {
 
 ::placeholder {
   font-size: 1.2rem;
+  color    : #888888;
 }
 
 .pink-color {
@@ -337,6 +342,12 @@ textarea {
 .btnYelow {
   background-color: #FFDA5F !important;
   color           : #041E31 !important;
+}
+
+.btn_width {
+  padding      : 2rem;
+  width        : 17rem;
+  border-radius: 1rem !important;
 }
 
 .btnYelow:hover {
@@ -550,11 +561,12 @@ textarea {
 #header .logo {
   padding: 2.0rem;
 }
+
 .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
   padding: .4rem 3.5rem .4rem 2.0rem !important;
 }
 
-@media only screen and (max-width: 72.0rem) {
+@media only screen and (max-width: 720px) {
   html {
     overflow: hidden;
   }
@@ -563,6 +575,7 @@ textarea {
 .pro-sidebar.collapsed small {
   display: none;
 }
+
 .pro-sidebar.collapsed .imgw {
   width: 80%;
 }
@@ -585,12 +598,13 @@ textarea {
   color: #022945 !important;
 }
 
-@media only screen and (max-width: 99.2rem) {
+@media only screen and (max-width: 992px) {
   .nav-bor {
     border-left: .0rem;
 
   }
 }
+
 .name-bg {
   background-color: #0F74AF;
   /* border-radius: 50%; */
@@ -606,6 +620,7 @@ textarea {
   /* Safari browser */
   transition        : width 5s;
 }
+
 .bg-dash {
   background-color: #F8FCFF;
 }
@@ -620,7 +635,7 @@ textarea {
   border          : .0rem !important;
 }
 
-@media (min-width: 110.0rem) {
+@media (min-width: 1100px) {
   .button-inline {
     display: block;
   }
@@ -710,17 +725,24 @@ textarea {
 .semi-bold {
   font-weight: 600;
 }
+
 html {
   font-size: 62.5%;
 }
 
-@media(max-width:99.8rem) {
+@media(max-width:998px) {
   html {
     font-size: 55%;
   }
 }
 
-@media(max-width:76.8rem) {
+@media(max-width:1600px) {
+  .theme_bg {
+    height: 120vh;
+  }
+}
+
+@media(max-width:768px) {
   html {
     font-size: 45%;
   }
@@ -733,12 +755,14 @@ html {
   font-size    : .8rem;
 
 }
+
 .ant-table-cell-ellipsis .ant-table-column-title {
   overflow     : initial !important;
   text-overflow: initial !important;
   white-space  : normal !important;
   font-size    : .8rem;
 }
- .modal-bg .ant-modal-body {
+
+.modal-bg .ant-modal-body {
   background-color: #022945 !important;
 }

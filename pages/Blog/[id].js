@@ -3,21 +3,21 @@ import { useRouter } from "next/router";
 import { getEventById } from '../../Component/Data/BlogData'
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
+import Categories from '../../Component/Categories';
 import LatestPosts from '../../Component/LatestPosts';
 
 
 
 const BlogDetail = () => {
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
-
   const router = useRouter();
 
 
   const eventId = router.query.id;
   const event = getEventById(eventId);
-  console.log({ event })
+  const date = new Date(event.date)
+  var options = { month: "short", year: "numeric", day: "numeric" };
+  const fullDate = date.toLocaleDateString("en-US", options);
+
   if (eventId && !event) {
     return <h1 className='text-center mt-5'>No Blog Found</h1>
   }
@@ -33,7 +33,7 @@ const BlogDetail = () => {
                 <a className='text-link pointer-cursor fs-12 Bold'>{event.category}</a>
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
                 <div className='blog-line mt-0 mb-3'></div>
-                <p className='fs-13'>Posted on {date} by Admin</p>
+                <p className='fs-13'>Posted on {fullDate} by Admin</p>
                 <div className='text-center mb-3'>
                   <img className='m-2 hover' src={"/facebook_.png"} />
                   <img className='m-2 hover' src={"/linkedin_.png"} />
@@ -64,10 +64,14 @@ const BlogDetail = () => {
                 <div className="mt-3">
                   <LatestPosts />
                 </div>
-                <h3>Catagories</h3>
-                <div className='blog-line mt-2 '></div>
+                <div className="mt-3">
+                  <p className='fs-40 Gothic_3D'>Catagories</p>
+                  <div className='blog-line mt-2 '></div>
+                  <Categories />
+                </div>
               </div>
-              <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
+
+              {/* <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header" id="flush-headingOne">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -98,7 +102,7 @@ const BlogDetail = () => {
                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

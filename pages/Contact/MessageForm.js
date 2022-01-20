@@ -96,20 +96,20 @@ const MessageForm = (props) => {
                     </div>
                     <div className="row w-100">
                         <div className="col-lg-9 col-md-9 col-12">
-                            <h6 className="mb-0 fs-14">Please check the box below to complete</h6>
+                            <h6 className="mb-0 fs-14 mt-2">Please check the box below to complete</h6>
                             <div className="ps-0">
-                                {/* <ReCAPTCHA
+                                <ReCAPTCHA
                                     sitekey="6LdlkHUdAAAAAMp28lUJMQixeXECX2BU4VkJvUYl"
                                     id="reCaptcha"
                                     style={{ transform: 'scale(0.7)', transformOrigin: 'left' }}
                                     onChange={onChangeRecaptcha}
                                     name="reCaptcha"
                                     value={props.state}
-                                /> */}
+                                />
                             </div>
                         </div>
-                        <div className='col-lg-3 col-md-2 col-12 my-auto'>
-                            <button type="submit" className='btn btn-lg fs-15 px-5 py-4 btnYelow'>Send</button>
+                        <div className='col-lg-3 col-md-2 col-3 my-auto'>
+                            <button type="submit" className='btn fs-15 w-100 px-5 py-4 btnYelow'>Send</button>
                         </div>
                     </div>
                     </form>

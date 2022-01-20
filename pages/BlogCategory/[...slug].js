@@ -4,6 +4,8 @@ import Navbar from '../../Component/Navbar';
 import { getEventByCategory } from '../../Component/Data/BlogData'
 import Pagination from '../../Component/BlogPagination';
 import LatestPosts from '../../Component/LatestPosts';
+import Foter from '../../Component/Footer';
+import Categories from '../../Component/Categories';
 
 function CategorisedBlogDetail() {
 
@@ -26,7 +28,7 @@ function CategorisedBlogDetail() {
             <div>
                 <Navbar />
                 <div className='container'>
-                    <div className='row'>
+                    <div className='row gx-5'>
                         <div className='col-sm-8'>
                             <div className='row mt-5'>
                                 <p className='fs-40 Gothic_3D text-center'>CATEGORY ARCHIVES: {eventCategory} </p>
@@ -36,8 +38,8 @@ function CategorisedBlogDetail() {
                         </div>
 
 
-                        <div className='col-md-4'>
-                            <div className=' p-3 mt-4'>
+                        <div className='col-md-4 mt-5'>
+                            <div className=' p-3 mt-5'>
                                 <p className='fs-40 Gothic_3D my-auto pb-0'>ABOUT</p>
                                 <div className='blog-line'></div>
                                 <p className='mt-2 fs-16'>We keep you update with the latest news and information in  the Apple world. Everything you are looking for related to Mac, iMac and iPhone.</p>
@@ -46,11 +48,14 @@ function CategorisedBlogDetail() {
                                 <div className="mt-3">
                                     <LatestPosts />
                                 </div>
-                                <p className='fs-40 Gothic_3D'>Catagories</p>
-                                <div className='blog-line mt-2 '></div>
+                                <div className="mt-3">
+                                    <p className='fs-40 Gothic_3D'>Catagories</p>
+                                    <div className='blog-line mt-2 '></div>
+                                    <Categories />
+                                </div>
                             </div>
 
-                            <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
+                            {/* <div className="accordion accordion-flush m-0 p-3" id="accordionFlushExample">
                                 <div className="accordion-item">
                                     <h2 className="accordion-header" id="flush-headingOne">
                                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -81,12 +86,11 @@ function CategorisedBlogDetail() {
                                         <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
                                     </div>
                                 </div>
-
-                            </div>
-
+                            </div> */}
                         </div>
                     </div>
                 </div>
+                <Foter />
             </div>
         )
     }

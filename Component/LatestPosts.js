@@ -1,28 +1,38 @@
 import React from 'react'
-import LatestPost from './Data/LatestPostData';
+import Link from "next/link"
+import classes from "./BlogDetail.module.css"
+import blogData from './Data/BlogData';
+
 
 const LatestPosts = () => {
-    const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}`;
 
     return (
         <div>
-            {LatestPost.map(post => {
+            {blogData.slice(0, 4).map(posts => {
+                const date = new Date(posts.date)
+                const month = date.toLocaleDateString("en-US", { month: "short" });
+                const day = date.toLocaleDateString("en-US", { day: "numeric" });
+                // var lastPosts = blogData.slice(1, 3)
                 return (
-                    <>
-                        <div className='d-flex '>
-                            <div className='Latest-color  p-2'>
-                                <p className='text-white my-auto'>{date}</p>
+                    <Link href={`/Blog/${posts.id}`}>
+                        < div className='d-flex my-2' >
+                            <div className={classes.date}>
+                                <div className={classes.dateDay}>{day}</div>
+                                <div className={classes.dateMonth}>{month}</div>
                             </div>
-                            <p className='ms-3 fs-16 my-auto'>{post.title}</p>
+                            <div className="ms-3 fs-16 my-auto">
+                                {posts.title.length > 25
+                                    ? posts.title.substring(0, 45) + '...'
+                                    : posts.title}
+                            </div>
+                            <hr />
                         </div>
-                        <hr />
-                    </>
+                    </Link>
 
                 )
             })}
 
-        </div>
+        </div >
     )
 }
 
