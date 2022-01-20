@@ -34,7 +34,7 @@ const MessageForm = (props) => {
                                     value={props.firstName}
                                     name="firstName"
                                     id="firstName"
-                                    onChange={(e) => firstName(e.target.value)}
+                                    onChange={props.handleChange}
                                     placeholder="First Name"
                                 />
                             </div>
@@ -48,7 +48,7 @@ const MessageForm = (props) => {
                                     className='form-control'
                                     value={props.lastname}
                                     id="lastName"
-                                    onChange={(e) => lastname(e.target.value)}
+                                    onChange={props.handleChange}
                                     placeholder="Last Name"
                                 />
                             </div>
@@ -62,7 +62,7 @@ const MessageForm = (props) => {
                             className='form-control'
                             value={props.email}
                             id="email"
-                            onChange={(e) => email(e.target.value)}
+                            onChange={props.handleChange}
                             placeholder="Email address"
                         />
                     </div>
@@ -74,7 +74,7 @@ const MessageForm = (props) => {
                                 className='form-control'
                                 value={props.subject}
                                 id="subject"
-                                onChange={(e) => subject(e.target.value)}
+                                onChange={props.handleChange}
                                 placeholder="Subject" />
                         </div>
                     </div>
@@ -87,8 +87,11 @@ const MessageForm = (props) => {
                                 rows={4}
                                 value={props.message}
                                 id="message"
-                                onChange={(e) => message(e.target.value)}
-                                placeholder="Message" />
+                                onChange={props.handleChange}
+                                placeholder="Message" 
+                                />
+                             {console.log(props.state.message)}
+
                         </div>
                     </div>
                     <div className="row w-100">
