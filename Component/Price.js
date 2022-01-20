@@ -27,6 +27,7 @@ const Price = (props) => {
                 </div>
             </div>
             <button type="submit" onClick={props.Continue} className="btn btnYelow btn_width brdr-2 py-3 mt-5">Buy Now</button>
+            <hr className='d-sm-flex d-md-none mt-5'/>
         </div>
     )
 }

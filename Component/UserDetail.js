@@ -28,7 +28,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                     </div>
                     <div className="container">
                         {/* email address */}
-                        <div className="col-sm-10 mt-3 mx-auto">
+                        <div className="col-sm-11 mt-3 mx-auto">
                             <div className="bg-white brdr_div">
                                 <div className="uper-color px-5 py-3">
                                     <p className="text-white px-5 my-auto fs-40 Gothic_3D pt-3">CREATE ACCOUNT</p>

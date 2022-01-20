@@ -75,57 +75,63 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
       {loading ? (<Spin />) : (
 
         <div className="container-fluid theme_bg p-5">
-          <PersonalInfo
-            values={values.step}
-            prevStep={prevStep}
-            nextStep={nextStep}
-          />
-          <div className="col-sm-9 mt-3 mb-0 mx-auto ">
-            <div className="row bg-pric brdr_div">
-              <div className="uper-color p-4 mb-4">
-                <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
+          <div className="py-5">
+            <div className='mb-5'>
+              <PersonalInfo
+                values={values.step}
+                prevStep={prevStep}
+                nextStep={nextStep}
+              />
+            </div>
+            <div className="container">
+              <div className="col-sm-11 mt-3 mx-auto">
+                <div className="row bg-pric brdr_div">
+                  <div className="uper-color p-4 mb-4">
+                    <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
 
-              </div>
-              <div className="row bg-pric p-3 ">
+                  </div>
+                  <div className="row bg-pric p-3 ">
 
-                {console.log('per', data)}
-                {data.map(x => {
-                  return (
-                    <div className='col-sm-4'>
-                      <Price
-                        Continue={x.price === 0 ? Success : Continue}
-                        Price={x.name}
-                        Amount={x.price}
-                        Tags={x.options} />
+                    {console.log('per', data)}
+                    {data.map(x => {
+                      return (
+                        <div className='col-sm-4'>
+                          <Price
+                            Continue={x.price === 0 ? Success : Continue}
+                            Price={x.name}
+                            Amount={x.price}
+                            Tags={x.options} />
+                        </div>
+                      )
+                    })}
+
+                  </div>
+                </div>
+
+                <CustomModal
+                  title="Succefull"
+                  isModalVisible={succesModel}
+                  handleOk={nextStep}
+                  closable={false}
+                >
+                  <div className='p-5'>
+                    <p className='fs-22 text-white text-center p-5'>{success}</p>
+                    <div className='text-center'>
+                      <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
                     </div>
-                  )
-                })}
-
+                  </div>
+                </CustomModal>
+                <CustomModal
+                  title="Error"
+                  isModalVisible={errorModel}
+                  handleOk={prevStep}
+                  handleCancel={() => setErrorModel(false)}
+                  closable={true}
+                >
+                  {error}
+                </CustomModal>
               </div>
             </div>
-
-            <CustomModal
-              title="Succefull"
-              isModalVisible={succesModel}
-              handleOk={nextStep}
-              closable={false}
-            >
-              <div className='p-5'>
-                <p className='fs-22 text-white text-center p-5'>{success}</p>
-                <div className='text-center'>
-                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
-                </div>
-              </div>
-            </CustomModal>
-            <CustomModal
-              title="Error"
-              isModalVisible={errorModel}
-              handleOk={prevStep}
-              handleCancel={() => setErrorModel(false)}
-              closable={true}
-            >
-              {error}
-            </CustomModal>
           </div>
         </div>
       )}
