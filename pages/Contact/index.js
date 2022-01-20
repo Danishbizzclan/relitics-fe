@@ -12,14 +12,21 @@ const ContactUs = () => {
      const [error, setError] = useState('')
 
 
-        const [firstName, setFirstName] = useState('')
+      const [user, setUser]= useState({
+          firstName: "",
+          lastName: "",
+          email:"",
+          subject:"",
+          message:""
 
-        const [lastName, setLastName] = useState('')
-        const [email, setEmail] = useState('')
-        const [subject, setSubject] = useState('')
-        const [message, setMessage] = useState('')
-        reCaptcha: false
+      })
+let name, value;
+const getUserData = (event) =>{
+    name: event.target.name;
+    value: event.target.value;
 
+    setUser({ ...user, [name]: value})
+}
  
    
     
@@ -48,12 +55,9 @@ const ContactUs = () => {
                                 <p className='fs-40 Gothic_3D Bold ml-4'>Send message</p>
                                 <MessageForm 
                                 // handleChange={handleChange}
-                                firstName={firstName}
-                                lastName={lastName}
-                                email={email}
-                                subject={subject}
-                                messagee={message}
-                                message={SendMessage}
+                               user={user}
+                               handlChange={getUserData}
+                                messagee={SendMessage}
                                 />
                             </div>
                             <div className="col-lg-4 col-md-4 col-12 my-5 px-5">
