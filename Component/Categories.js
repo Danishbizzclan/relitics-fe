@@ -3,13 +3,15 @@ import Link from "next/link"
 import blogData from './Data/BlogData'
 
 function Categories() {
+    
+    const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
     return (
         <div>
-            {blogData.slice(0, 4).map((x) => {
+            {uniqueCategories.map((x) => {
                 return (
                     <>
-                        <Link href={`/BlogCategory/${x.category}`}>
-                            <p className='Gothic_3D Bold'>{x.category}</p>
+                        <Link href={`/BlogCategory/${x}`}>
+                            <p className='Gothic_3D Bolder fs-17 pointer-cursor'>{x}</p>
                         </Link>
                     </>
                 )

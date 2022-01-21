@@ -39,7 +39,7 @@ function CategorisedBlogDetail() {
 
 
                         <div className='col-md-4 mt-5'>
-                            <div className=' p-3 mt-5'>
+                            <div className=' px-3'>
                                 <p className='fs-40 Gothic_3D my-auto pb-0'>ABOUT</p>
                                 <div className='blog-line'></div>
                                 <p className='mt-2 fs-16'>We keep you update with the latest news and information in  the Apple world. Everything you are looking for related to Mac, iMac and iPhone.</p>

@@ -19,6 +19,8 @@ const MessageForm = (props) => {
     return (
         <>
                 <div className="row form">
+                <p className='fs-40 Gothic_3D Bold ml-4 ms-3'>Send message</p>
+
                     {console.log(props)}
                     <form onSubmit={props.messagee}>
 
@@ -112,7 +114,7 @@ const MessageForm = (props) => {
                             </div>
                         </div>
                         <div className='col-lg-3 col-md-2 col-3 my-auto'>
-                            <button type="submit" className='btn fs-15 w-100 px-5 py-4 btnYelow'>Send</button>
+                            <button type="submit" className='btn fs-15 w-100 py-4 btnYelow'>Send</button>
                         </div>
                     </div>
                     </form>

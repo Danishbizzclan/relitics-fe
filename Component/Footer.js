@@ -8,20 +8,22 @@ import { FaFacebook, FaPinterest, FaTwitter, FaLinkedinIn, FaInstagram } from "r
 import { useState } from 'react'
 function Foter() {
     const [email, setEmail] = useState('');
+    const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
+    console.log(uniqueCategories)
     return (
         <div>
             <hr className="mt-5" />
             <div className="container-fluid  p-0">
                 <div className="row my-5">
-                    <div className='col-9 mx-auto'>
+                    <div className='container'>
                         <div className='row'>
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
-                                {blogData.map((x) => {
+                                {uniqueCategories.map((x) => {
                                     return (
                                         <>
-                                            <Link href={`/BlogCategory/${x.category}`}>
-                                                <a className={classes.footerp}><p>{x.category}</p></a>
+                                            <Link href={`/BlogCategory/${x}`}>
+                                                <a className={classes.footerp}><p>{x}</p></a>
                                             </Link>
                                         </>
                                     )
@@ -85,7 +87,7 @@ function Foter() {
 
 
                         <div className="row ">
-                            <div className='col-9 mx-auto'>
+                            <div className='container'>
                                 <div className='row p-0 '>
 
 

@@ -1,10 +1,9 @@
-//import useState hook to create menu collapse state
+
 import React, { useState } from "react";
-import classes from "../Component/Navbar.module.css"
 import Link from "next/link"
-// import MaterialDesignSwitchh from '../Component/Togle1'
 import MaterialDesignSwitchh from "./Togle1";
 import Membership from "./Data/MembershipData";
+import $ from 'jquery';
 
 
 
@@ -20,7 +19,7 @@ import {
 
 //import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { FiHome, FiLogOut } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
 
 
@@ -62,24 +61,24 @@ const Sidebar = () => {
               <img className="my-5 disp-none imgw" src={'/Image 1.png'} onClick={menuIconClick} />
             </div>
             <div className="text-center mt-5">
-              <img src={'/profileAvatar.png'} className="w-50" />
+              <img src={'/profileAvatar.png'} className="imgw" />
             </div>
             <div className="disp-none text-center mt-5">
-              <p className="text-white fs-17 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
+              <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
             </div>
-            <p className="fs-15 text-center disp-none">tabish614@gmail.com</p>
+            <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>
 
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <MenuItem icon={<img src={'/Icon material-dashboard.png'} />}>
+              <MenuItem icon={<img src={'/Icon material-dashboard.png'} id="dropdown" className="dropdown-btn" />}>
                 Dashboared overview
               </MenuItem>
-              <div className="ms-4">
-                <MenuItem icon={<img src={'/development.png'} />}>Market aprecation</MenuItem>
-                <MenuItem icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
-                <MenuItem icon={<img src={'/bx-stats.png'} />}>Detail Statistics</MenuItem></div>
-
+              <div className="ms-4 dropdown-container" aria-labelledby="dropdownMenuButton">
+                <MenuItem icon={<img src={'/development.png'} href="#" />}>Market aprecation</MenuItem>
+                <MenuItem icon={<img src={'/chart.png'} href="#" />}>Rental Growth</MenuItem>
+                <MenuItem icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
+              </div>
               <MenuItem icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
 
               <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>

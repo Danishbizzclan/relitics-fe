@@ -15,7 +15,7 @@ const LatestPosts = () => {
                 // var lastPosts = blogData.slice(1, 3)
                 return (
                     <Link href={`/Blog/${posts.id}`}>
-                        < div className='d-flex my-2' >
+                        < div className='d-flex my-3 pointer-cursor' >
                             <div className={classes.date}>
                                 <div className={classes.dateDay}>{day}</div>
                                 <div className={classes.dateMonth}>{month}</div>
