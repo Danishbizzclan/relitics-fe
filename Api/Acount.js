@@ -28,7 +28,7 @@ class Acount {
     };
     return res();
   };
-  Login = (username, password, setError) => {
+  Login = (username, password, setError, setModel) => {
     const res = async () => {
       
       const resp = await axios
@@ -41,6 +41,8 @@ class Acount {
         .catch(function (error) {
           console.log(error.response.data.message);
           setError(error.response.data.message);
+          setModel(true)
+
         });
       return resp;
     };

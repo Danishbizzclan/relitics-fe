@@ -3,27 +3,45 @@ import Navbar from "../Component/Navbar"
 import classes from "./Login.module.css"
 import Acount from '../Api/Acount'
 import { useState } from 'react'
+import CustomModal from '../Component/Modal'
+import Link from "next/link"
+
 
 const Login = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    // const [error, setError] = useState('')
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+  
+    const [errorModel, setErrorModel] = useState(false)
+    const [succesModel, setSuccesModel] = useState(false)
 
 
     const loginHandler = e => {
         e.preventDefault();
         // nextStep();
-        const res = Acount.Login(userName, password, setError)
+        const res = Acount.Login(userName, password, setError, setErrorModel)
         res.then(value => {
             console.log(value)
+            setSuccess(value.data.statusText)
+
+            if (value.statusText=='OK') {
+                setSuccesModel(true)
+              }
+              else {
+                setErrorModel(true)
+              }
         })
             .catch(error => {
-                console.log(error)
+                console.log(error.responce)
             })
+
     }
 
     return (
         <div>
+            {console.log({error})}
             <Navbar />
             <div className={`${classes.bgLogin}`}>
                 <div className="container">
@@ -90,6 +108,27 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <CustomModal
+              title="Succefull"
+              isModalVisible={succesModel}
+              closable={false}
+            >
+              <div className='p-5'>
+                <p className='fs-22 text-white text-center p-5'>{success}</p>
+                <div className='text-center'>
+                <Link href="/Dashboard">
+                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
+                </div>
+              </div>
+            </CustomModal>
+            <CustomModal
+              title="Error"
+              isModalVisible={errorModel}
+              handleCancel={() => setErrorModel(false)}
+              closable={true}
+            >
+              <p className='text-white'>{error}</p>
+            </CustomModal>
         </div>
     )
 }
