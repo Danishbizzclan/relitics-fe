@@ -113,28 +113,8 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                   </div>
                 </div>
 
-                <CustomModal
-                  title="Succefull"
-                  isModalVisible={succesModel}
-                  handleOk={nextStep}
-                  closable={false}
-                >
-                  <div className='p-5'>
-                    <p className='fs-22 text-white text-center p-5'>{success}</p>
-                    <div className='text-center'>
-                      <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
-                    </div>
-                  </div>
-                </CustomModal>
-                <CustomModal
-                  title="Error"
-                  isModalVisible={errorModel}
-                  handleOk={prevStep}
-                  handleCancel={() => setErrorModel(false)}
-                  closable={true}
-                >
-                  {error}
-                </CustomModal>
+             
+               
               </div>
             </div>
 
