@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "../Component/Navbar.module.css"
 import Link from "next/link"
-import Sidebar from "../Component/Didebar";
+import Sidebar from "../Component/SideNavbar";
 // import MaterialDesignSwitchh from '../Component/Togle1'
 import MaterialDesignSwitchh from "../Component/Togle1";
 import Membership from "../Component/Data/MembershipData";

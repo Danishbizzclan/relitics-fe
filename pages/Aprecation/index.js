@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 // import './index.css';
 import { Table, Button, Space } from 'antd';
 import Dashnav from '../../Component/Dashnav';
-import Sidebar from '../../Component/Didebar';
+import Sidebar from '../../Component/SideNavbar';
 
 const data = [
   {

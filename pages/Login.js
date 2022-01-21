@@ -27,7 +27,7 @@ const Login = () => {
             <Navbar />
             <div className={`${classes.bgLogin}`}>
                 <div className="container">
-                    <div className="col-xl-10 mx-auto p-5">
+                    <div className="col-11 mx-auto p-5">
                         <div className={`my-5 ${classes.bgBlue}`}>
                             <div className="row">
                                 <div className=" col-md-6 my-auto">
