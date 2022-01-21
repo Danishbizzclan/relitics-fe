@@ -22,8 +22,8 @@ const ContactUs = () => {
       })
 let name, value;
 const getUserData = (event) =>{
-    name: event.target.name;
-    value: event.target.value;
+    name= event.target.name;
+    value= event.target.value;
 
     setUser({ ...user, [name]: value})
 }
@@ -33,7 +33,7 @@ const getUserData = (event) =>{
     const SendMessage = e => {
         e.preventDefault();
         // nextStep();
-        const res = Acount.Contact(userInput, setError)
+        const res = Acount.Contact(user, setError)
         res.then(value => {
             console.log(value)
         })
@@ -56,7 +56,7 @@ const getUserData = (event) =>{
                                 <MessageForm 
                                 // handleChange={handleChange}
                                user={user}
-                               handlChange={getUserData}
+                               handleChange={getUserData}
                                 messagee={SendMessage}
                                 />
                             </div>

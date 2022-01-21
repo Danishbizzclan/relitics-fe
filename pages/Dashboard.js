@@ -1,5 +1,5 @@
 //import useState hook to create menu collapse state
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../Component/Navbar.module.css"
 import Link from "next/link"
 import Sidebar from "../Component/SideNavbar";
@@ -7,6 +7,7 @@ import Sidebar from "../Component/SideNavbar";
 import MaterialDesignSwitchh from "../Component/Togle1";
 import Membership from "../Component/Data/MembershipData";
 import Dashnav from "../Component/Dashnav";
+import withAuth from "../Component/Auth";
 
 
 
@@ -36,6 +37,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 const Dashboard = () => {
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
+  // const[loading, setLoading] = useState(true);
 
 
 
@@ -47,6 +49,22 @@ const Dashboard = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  // useEffect=(()=>{
+  //   const securePage = async  () =>{
+  //     const session = await getSession ()
+  //     if (!session){
+  //       signIn()
+       
+  //     }
+  //     else{
+  //       setLoading(false)
+  //     }
+  //   }
+  //   securePage()
+  // }, [])
+  // if(loading){
+  //   return <h2>Loading...</h2>
+  // }
 
   return (
     <>
@@ -169,5 +187,5 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default withAuth (Dashboard);
 
