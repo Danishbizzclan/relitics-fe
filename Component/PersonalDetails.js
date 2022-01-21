@@ -137,7 +137,6 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 </CustomModal>
               </div>
             </div>
-<<<<<<< HEAD
 
             <CustomModal
               title="Succefull"
@@ -162,8 +161,6 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
             >
               {error}
             </CustomModal>
-=======
->>>>>>> 9466bcbc00954e091bd3ec5d95208dcb8fb80565
           </div>
         </div>
       )}
