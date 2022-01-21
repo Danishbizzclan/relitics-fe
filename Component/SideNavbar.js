@@ -59,7 +59,7 @@ const Sidebar = () => {
             <div className="text-center mt-5">
               <img src={'/profileAvatar.png'} className="imgw" />
             </div>
-            <div className="d-inline-flex"><p className="text-white fs-17 mt-3 mb-0">Tabish bin Tahir</p><img src={"/editLogo.png"} className="mx-2" />
+            <div className="d-inline-flex profile"><p className="text-white fs-17 mt-3 mb-0">Tabish bin Tahir</p><img src={"/editLogo.png"} className="mx-2" />
             </div>
             <p className="fs-15" >tabish614@gmail.com</p>
 

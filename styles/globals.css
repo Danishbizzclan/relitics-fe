@@ -574,6 +574,10 @@ textarea {
   padding: .4rem 3.5rem .4rem 2.0rem !important;
 }
 
+.collapsed .profile{
+  display: none !important;
+}
+
 @media only screen and (max-width: 720px) {
   html {
     overflow: hidden;
