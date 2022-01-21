@@ -19,8 +19,8 @@ const MessageForm = (props) => {
     return (
         <>
                 <div className="row form">
-                    {console.log(props.state)}
-                    <form onSubmit={props.message}>
+                    {console.log(props)}
+                    <form onSubmit={props.messagee}>
 
                     <div className="row px-0 w-100 m-0">
                         <div className="col-12 col-md-6 col-lg-6">
@@ -31,7 +31,7 @@ const MessageForm = (props) => {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={props.firstName}
+                                    value={props.user.firstName}
                                     name="firstName"
                                     id="firstName"
                                     onChange={props.handleChange}
@@ -46,7 +46,8 @@ const MessageForm = (props) => {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={props.lastname}
+                                    name="lastName"
+                                    value={props.user.lastname}
                                     id="lastName"
                                     onChange={props.handleChange}
                                     placeholder="Last Name"
@@ -60,8 +61,9 @@ const MessageForm = (props) => {
                             required
                             autoComplete={false}
                             className='form-control'
-                            value={props.email}
+                            value={props.user.email}
                             id="email"
+                            name="email"
                             onChange={props.handleChange}
                             placeholder="Email address"
                         />
@@ -72,8 +74,9 @@ const MessageForm = (props) => {
                                 type="text"
                                 required
                                 className='form-control'
-                                value={props.subject}
+                                value={props.user.subject}
                                 id="subject"
+                                name="subject"
                                 onChange={props.handleChange}
                                 placeholder="Subject" />
                         </div>
@@ -85,12 +88,12 @@ const MessageForm = (props) => {
                                 required
                                 className='form-control'
                                 rows={4}
-                                value={props.message}
+                                name="message"
+                                value={props.user.message}
                                 id="message"
                                 onChange={props.handleChange}
                                 placeholder="Message" 
                                 />
-                             {console.log(props.state.message)}
 
                         </div>
                     </div>
@@ -98,14 +101,14 @@ const MessageForm = (props) => {
                         <div className="col-lg-9 col-md-9 col-12">
                             <h6 className="mb-0 fs-14 mt-2">Please check the box below to complete</h6>
                             <div className="ps-0">
-                                <ReCAPTCHA
+                                {/* <ReCAPTCHA
                                     sitekey="6LdlkHUdAAAAAMp28lUJMQixeXECX2BU4VkJvUYl"
                                     id="reCaptcha"
                                     style={{ transform: 'scale(0.7)', transformOrigin: 'left' }}
                                     onChange={onChangeRecaptcha}
                                     name="reCaptcha"
                                     value={props.state}
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className='col-lg-3 col-md-2 col-3 my-auto'>

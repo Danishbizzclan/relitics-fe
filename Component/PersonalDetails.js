@@ -6,6 +6,8 @@ import Navbar from "../Component/Navbar"
 import PersonalInfo from './PersonalInfo';
 import Acount from '../Api/Acount'
 import FreeModal from './FreeModal';
+import Link from "next/link"
+
 import CustomModal from './Modal';
 import GetData from "../Api/GetData";
 import { Spin } from 'antd';
@@ -37,6 +39,9 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
     const res = Acount.Registeration(values, handleErrors)
     res.then(value => {
       setSuccess(value.data.message)
+      localStorage.setItem('user', JSON.stringify(value.data.user))
+      localStorage.setItem('token', JSON.stringify(value.data.token))
+
       console.log('Sign Up res', value)
       if (value.data.success) {
         setSuccesModel(true)
@@ -113,7 +118,8 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <div className='p-5'>
                 <p className='fs-22 text-white text-center p-5'>{success}</p>
                 <div className='text-center'>
-                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button>
+                <Link href="/Dashboard">
+                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
                 </div>
               </div>
             </CustomModal>
