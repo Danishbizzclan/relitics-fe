@@ -49,28 +49,26 @@ const Sidebar = () => {
   return (
     <>
       <div id="header">
-        {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
-            <div className="logotext text-center" style={{ width: "inherit" }}>
-              {/* small and big change using menucollapse state */}
-              <img className="my-5 imgw" src={'/Image 1.png'} onClick={menuIconClick} />
-            </div>
-            <div className="text-center mt-5">
-              <img src={'/profileAvatar.png'} className="imgw" />
-            </div>
-            <div className="d-inline-flex profile"><p className="text-white fs-17 mt-3 mb-0">Tabish bin Tahir</p><img src={"/editLogo.png"} className="mx-2" />
-            </div>
-            <p className="fs-15" >tabish614@gmail.com</p>
-
-            <div className="closemenu" onClick={menuIconClick}>
-              {/* changing menu collapse icon on click */}
+            <div className="closemenu text-center" onClick={menuIconClick}>
               {menuCollapse ? (
-                <img src="./collapseIcon.svg" style={{width:'2.5rem'}} />
+                <img src="./collapseIcon.svg" style={{ width: '2.5rem' }} />
               ) : (
-                <img src="./collapseIcon.svg" style={{width:'2.5rem'}} />
+                <img src="./collapseIcon.svg" style={{ width: '2.5rem' }} />
               )}
             </div>
+            <div className="logotext text-center" style={{ width: "inherit" }}>
+              <img className="my-5 disp-none imgw" src={'/Image 1.png'} onClick={menuIconClick} />
+            </div>
+            <div className="text-center mt-5">
+              <img src={'/profileAvatar.png'} className="w-50" />
+            </div>
+            <div className="disp-none text-center mt-5">
+              <p className="text-white fs-17 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
+            </div>
+            <p className="fs-15 text-center disp-none">tabish614@gmail.com</p>
+
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">

@@ -497,23 +497,21 @@ textarea {
 }
 
 .pro-sidebar {
-  width: 30rem !important;
+  width: 39rem !important;
 }
+
 .pro-sidebar.collapsed {
   width: 7rem !important;
 }
 
-#header .closemenu {
-  color        : white;
-  position     : absolute;
-  right        : 0;
-  z-index      : 9999;
-  line-height  : 2.0rem;
-  border-radius: 50%;
-  font-weight  : bold;
-  font-size    : 2.2rem;
-  top          : 5.5rem;
-  cursor       : pointer;
+.closemenu {
+  color      : white;
+  border     : .3rem solid white;
+  font-size  : 4rem;
+  cursor     : pointer;
+}
+.collapsed .closemenu {
+  border: none;
 }
 
 #header .pro-sidebar {
@@ -574,7 +572,7 @@ textarea {
   padding: .4rem 3.5rem .4rem 2.0rem !important;
 }
 
-.collapsed .profile{
+.collapsed .disp-none {
   display: none !important;
 }
 
@@ -625,8 +623,8 @@ textarea {
 }
 
 #header {
-  position          : inherit;
-  width             : unset;
+  position: inherit;
+  width   : unset;
 }
 
 .bg-dash {
