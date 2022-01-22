@@ -25,6 +25,8 @@ const Login = () => {
         res.then(value => {
             console.log(value)
             setSuccess(value.data.statusText)
+            localStorage.setItem('user', JSON.stringify(value.data.user))
+            localStorage.setItem('token', JSON.stringify(value.data.token))
 
             if (value.statusText=='OK') {
                 setSuccesModel(true)
@@ -35,6 +37,7 @@ const Login = () => {
         })
             .catch(error => {
                 console.log(error.responce)
+                // setError(error.responce)
             })
 
     }
@@ -116,6 +119,7 @@ const Login = () => {
               <div className='p-5'>
                 <p className='fs-22 text-white text-center p-5'>{success}</p>
                 <div className='text-center'>
+                    <p className='text-white fs-30'>you are login now</p>
                 <Link href="/Dashboard">
                   <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
                 </div>
