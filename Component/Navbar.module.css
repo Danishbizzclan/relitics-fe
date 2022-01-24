@@ -1,7 +1,22 @@
+.dashNavColor {
+  background-color: #F8FCFF;
+}
+
+.dashNavColor .navbarText {
+  color: #022945 !important;
+}
+.dashNavColor .navbarText:hover {
+  color: #FFDA5F !important;
+}
+
+
+
+
 .navcolor {
   background-color: #022945;
   border-bottom   : .2rem solid #EAF7FF;
 }
+
 
 .ImgSize {
   width : 14.6rem !important;
@@ -32,7 +47,10 @@
     border-bottom : 1px solid #153952;
   }
 
-  .login, .sign {
+  .login,
+  .sign,
+  .notiBtn,
+  .profileBtn {
     margin-top   : 1rem !important;
     margin-bottom: 1rem !important;
     margin-left  : 1.8rem !important;
@@ -71,4 +89,3 @@
   margin-left     : 1rem;
   margin-right    : 1rem;
 }
- 
