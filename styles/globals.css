@@ -497,7 +497,7 @@ textarea {
   width: 30.0rem;
 } */
 #header .pro-sidebar {
-  height: 100vh;
+  height  : 100vh;
   overflow: auto;
 }
 
@@ -514,10 +514,7 @@ textarea {
   border   : .3rem solid white;
   font-size: 4rem;
   cursor   : pointer;
-}
-
-.collapsed .closemenu {
-  border: none;
+  border   : none;
 }
 
 #header .pro-sidebar {
@@ -575,14 +572,16 @@ textarea {
 }
 
 .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
-  padding: .4rem 3.5rem .4rem 1.0rem !important;
+  padding: .4rem 3.5rem 1.4rem 2.0rem !important;
 }
-.collapsed .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
-  padding: .4rem 3.5rem .4rem 1.0rem !important;
-}
+
 
 .collapsed .disp-none {
   display: none !important;
+}
+.collapsed .display_block {
+  display: block !important;
+  margin-left: 2.4rem !important;
 }
 
 @media only screen and (max-width: 720px) {
@@ -600,8 +599,9 @@ textarea {
 }
 
 .dropdown-container {
-  display         : none;
+  display: none;
 }
+
 .dropdown-btn {
   display: block;
 }

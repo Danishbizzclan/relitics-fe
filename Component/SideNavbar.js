@@ -58,9 +58,10 @@ const Sidebar = () => {
               )}
             </div>
             <div className="logotext text-center" style={{ width: "inherit" }}>
-              <img className="my-5 disp-none imgw" src={'/Image 1.png'} onClick={menuIconClick} />
+              <img className="my-5 disp-none" src={'/Image 1.png'} onClick={menuIconClick} />
+              <img className="my-5 d-none display_block imgw" src={'/LogoOnly.png'} onClick={menuIconClick} />
             </div>
-            <div className="text-center mt-5">
+            <div className="text-center my-5">
               <img src={'/profileAvatar.png'} className="imgw" />
             </div>
             <div className="disp-none text-center mt-5">
@@ -71,7 +72,7 @@ const Sidebar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <MenuItem icon={<img src={'/Icon material-dashboard.png'} id="dropdown" className="dropdown-btn" />}>
+              <MenuItem icon={<img src={'/Icon material-dashboard.png'} id="dropdownMenuButton" className="dropdown-btn" />}>
                 Dashboared overview
               </MenuItem>
               <div className="ms-4 dropdown-container" aria-labelledby="dropdownMenuButton">
