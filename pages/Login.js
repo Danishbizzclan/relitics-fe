@@ -5,6 +5,7 @@ import Acount from '../Api/Acount'
 import { useState } from 'react'
 import CustomModal from '../Component/Modal'
 import Link from "next/link"
+import LoginModal from '../Component/Login/EnterEmail'
 
 
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
   
+    const [resetModel, setResetModel] = useState(false)
     const [errorModel, setErrorModel] = useState(false)
     const [succesModel, setSuccesModel] = useState(false)
 
@@ -24,7 +26,7 @@ const Login = () => {
         const res = Acount.Login(userName, password, setError, setErrorModel)
         res.then(value => {
             console.log(value)
-            setSuccess(value.data.statusText)
+            setSuccess(value.data.message)
             localStorage.setItem('user', JSON.stringify(value.data.user))
             localStorage.setItem('token', JSON.stringify(value.data.token))
 
@@ -37,10 +39,33 @@ const Login = () => {
         })
             .catch(error => {
                 console.log(error.responce)
-                // setError(error.responce)
+                setError(error.responce)
             })
 
     }
+    
+    const resetPasword  = (email)=>{
+   // nextStep();
+   const res = Acount.EnterEmail(email, setError, setErrorModel)
+   res.then(value => {
+       console.log(value)
+       setSuccess(value.data.message)
+       localStorage.setItem('user', JSON.stringify(value.data.user))
+       localStorage.setItem('token', JSON.stringify(value.data.token))
+
+       if (value.statusText=='OK') {
+           setSuccesModel(true)
+         }
+         else {
+           setErrorModel(true)
+         }
+   })
+       .catch(error => {
+           console.log(error.responce)
+           setError(error.responce)
+       })
+    }
+
 
     return (
         <div>
@@ -86,7 +111,10 @@ const Login = () => {
                                                 placeholder="Enter Password"
                                             />
                                             <div className="mt-2 d-flex">
-                                                <p className="fs-13 ">Forgot Password?<a className="ms-1 fs-13 text-link pointer-cursor">Reset Now</a></p>
+                                                <p className="fs-13 ">Forgot Password?
+      <a className='blueColor' type="primary" onClick={()=>setResetModel(true)}>
+        Reaset Now
+      </a></p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
@@ -111,6 +139,12 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <LoginModal
+              title="Reset Your Password"
+              isModalVisible={resetModel}
+              closable={false}
+              setResetModel={setResetModel}
+              resetPasword={resetPasword} />
             <CustomModal
               title="Succefull"
               isModalVisible={succesModel}
@@ -119,7 +153,8 @@ const Login = () => {
               <div className='p-5'>
                 <p className='fs-22 text-white text-center p-5'>{success}</p>
                 <div className='text-center'>
-                    <p className='text-white fs-30'>you are login now</p>
+                    {/* {success} */}
+                    {/* <p className='text-white fs-30'>you are login now</p> */}
                 <Link href="/Dashboard">
                   <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
                 </div>

@@ -48,7 +48,7 @@ class Acount {
     };
     return res();
   };
-  Contact = (userInput, setError) => {
+  Contact = (userInput, setError, errorModel) => {
     console.log({userInput})
     const res = async () => {
       const resp = await axios
@@ -59,6 +59,25 @@ class Acount {
           email:userInput.email, 
           subject:userInput.subject,
            message:userInput.message
+        })
+
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+          errorModel(true)
+
+        });
+      return resp;
+    };
+    return res();
+  };
+  EnterEmail = (email, setError) => {
+    console.log({email})
+    const res = async () => {
+      const resp = await axios
+        .post("/users/sendcode", {
+          email: email
+
         })
 
         .catch(function (error) {
