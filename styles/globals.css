@@ -162,10 +162,12 @@ textarea {
 }
 
 .theme_bg {
-  background-image : linear-gradient(to bottom, rgba(180, 203, 221, 0.8) 0%, rgba(52, 107, 145, 0.9) 100%), url('/Bg_Theme.png');
-  background-size  : cover;
-  height           : 100vh;
-  background-repeat: no-repeat;
+  background-image     : linear-gradient(to bottom, rgba(180, 203, 221, 0.8) 0%, rgba(52, 107, 145, 0.9) 100%), url('/Bg_Theme.png');
+  background-size      : cover;
+  height               : 100vh;
+  background-attachment: fixed;
+  min-height           : 101.6rem;
+  background-repeat    : no-repeat;
 }
 
 .ant-upload.ant-upload-select-picture-card {
@@ -264,8 +266,13 @@ textarea {
 
 }
 
-.blueColor {
+.bluetxt {
   color: #0F74AF;
+}
+
+.bluebtn {
+  background-color: #0F74AF !important;
+  color           : white !important;
 }
 
 .loginn {
@@ -367,6 +374,9 @@ textarea {
   color    : white !important;
 }
 
+.opac:hover {
+  opacity: 0.8;
+}
 
 .fs-21 {
   font-size: 2.1rem;
@@ -436,24 +446,19 @@ textarea {
   background-color: #0F74AF;
 }
 
-.Latest-color {
-  background-color: #023792;
-  height          : fit-content;
-}
-
 .wrapper {
   display: block;
 }
 
 #sidebar {
-  min-width: 25.0rem;
-  max-width: 25.0rem;
-  height   : 100vh;
-  position : fixed;
-  top      : 0;
-  left     : 0;
+  min-width   : 25.0rem;
+  max-width   : 25.0rem;
+  height      : 100vh;
+  /* position : fixed; */
+  top         : 0;
+  left        : 0;
   /* top layer */
-  z-index  : 9999;
+  z-index     : 9999;
 }
 
 .overlay {
@@ -491,12 +496,16 @@ textarea {
   width: 30.0rem;
 } */
 #header .pro-sidebar {
-  height  : 100vh;
-  overflow: auto;
+  height    : 100vh;
+  min-height: 100%;
+  overflow  : auto;
 }
 
 .pro-sidebar {
-  width: 39rem !important;
+  width     : 39rem !important;
+  height    : 100vh;
+  min-height: 100%;
+  position: fixed;
 }
 
 .pro-sidebar.collapsed {
@@ -636,7 +645,7 @@ textarea {
 
 .bg-dash {
   background-color: #F8FCFF;
-  border: .2rem solid #E8F2FF;
+  border          : .2rem solid #E8F2FF;
 }
 
 .light-BlueBtn {
@@ -751,12 +760,6 @@ html {
   }
 }
 
-@media(max-width:1600px) {
-  .theme_bg {
-    height: 120vh;
-  }
-}
-
 @media(max-width:768px) {
   html {
     font-size: 45%;
@@ -767,7 +770,7 @@ html {
   overflow     : initial !important;
   text-overflow: initial !important;
   white-space  : normal !important;
-  font-size    : .8rem;
+  font-size    : 1.3rem;
 
 }
 
@@ -775,7 +778,8 @@ html {
   overflow     : initial !important;
   text-overflow: initial !important;
   white-space  : normal !important;
-  font-size    : .8rem;
+  font-size    : 1.4rem;
+  font-weight  : bold;
 }
 
 .modal-bg .ant-modal-body {

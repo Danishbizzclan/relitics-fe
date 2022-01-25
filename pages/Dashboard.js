@@ -77,52 +77,52 @@ const Dashboard = () => {
             <p className="fs-16">Welcome back to your dashboard</p>
             <div className="row g-5">
               <div className="col-lg-8">
-                <div className="bg-dash p-4">
+                <div className="bg-dash p-5">
                   <p className="fs-30 Gothic_3D">Overview</p>
-                  <p className="fs-16">Let's start by finding you a city of intrest</p>
+                  <p className="fs-16 greyBlack">Let's start by finding you a city of intrest</p>
                   <div className="row">
                     <div className="col-sm-12 col-md-6 bg-white text-center p-5">
                       <a>
                         <img src={'/development1.svg'} />
-                        <p className="mt-3 fs-18 Bold">Market Aprecation</p>
+                        <p className="my-5 fs-18 Bold greyBlack">Market Aprecation</p>
                       </a>
                     </div>
                     <div className="col-sm-12 col-md-6 bg-white text-center p-5">
                       <img src={'/chart1.svg'} />
-                      <p className="mt-3 fs-18 Bold">Rental Growth</p>
+                      <p className="my-5 fs-18 Bold greyBlack">Rental Growth</p>
                     </div>
                   </div>
                 </div>
                 {Membership.map(mem => {
                   return (
                     <>
-                      <div className="bg-dash mt-3 p-3">
+                      <div className="bg-dash mt-3 p-5">
                         <p className="fs-30 Gothic_3D mb-0">MEMBERSHIP Details</p>
                         <div className="bg-white p-3">
-                          <p className="fs-16">Membership Package</p>
+                          <p className="fs-16 greyBlack">Membership Package</p>
                           <div className="d-flex mt-3">
-                            <p className=" fs-20 Bold">Paid</p>
-                            <p className="ms-auto fs-22 Bold">{mem.price}</p>
+                            <p className=" fs-20 Bold greyBlack">Paid</p>
+                            <p className="ms-auto fs-22 Bold greyBlack">{mem.price}</p>
                           </div>
                           <div className="d-flex mt-1">
-                            <p className="my-auto fs-16">Status</p>
+                            <p className="my-auto fs-16 greyBlack">Status</p>
                             <button className="btn ms-auto light-BlueBtn px-5 fs-14">{mem.status ? "active" : "not-active"}</button>
                           </div>
                           <div className="d-flex mt-2">
-                            <p className="my-auto fs-16">Membership Renewdate</p>
-                            <p className="ms-auto my-auto fs-16">{mem.date}</p>
+                            <p className="my-auto fs-16 greyBlack">Membership Renewdate</p>
+                            <p className="ms-auto my-auto fs-16 greyBlack">{mem.date}</p>
                           </div>
                           <div className="d-flex  mt-2">
                             <div className="row">
                               <div className="col-xl-4 d-flex">
-                                <p className="my-auto fs-14 text-nowrap">Auto renew</p>
+                                <p className="my-auto fs-14 text-nowrap greyBlack">Auto renew</p>
                                 <div className="mt-2 ms-3">
                                   <MaterialDesignSwitchh className='mt-3' /></div>
                               </div>
                               <div className="col-xl-4 ms-auto d-flex">
-                                <button className=" btn mx-2 px-4 btnYelow">Deactivate</button>
-                                <button className=" btn mx-2 px-4 btnYelow">Downground</button>
-                                <button className=" btn mx-2 px-4 btnYelow">Renew</button>
+                                <button className=" btn mx-2 opac px-4 btnYelow">Deactivate</button>
+                                <button className=" btn mx-2 opac px-4 btnYelow">Downground</button>
+                                <button className=" btn mx-2 opac px-4 btnYelow">Renew</button>
                               </div>
                             </div>
                           </div>
@@ -135,9 +135,9 @@ const Dashboard = () => {
               <div className="col-lg-4">
                 <div className="bg-dash p-3">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
-                  <p className="fs-16">Let's go to the city statistics</p>
-                  <div className="bg-white text-center px-5 mx-auto p-3">
-                    <p className="fs-18" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
+                  <p className="fs-16 greyBlack">Let's go to the city statistics</p>
+                  <div className="bg-white text-center px-3 mx-auto p-3">
+                    <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
                     <input type="text" value={state} name="state"
                       placeholder="select state"
                       onChange={(e) => setState(e.target.value)}
@@ -147,7 +147,7 @@ const Dashboard = () => {
                         placeholder="select city"
                         onChange={(e) => setCity(e.target.value)}
                         className="form-control dash-form w-75  " id="exampleInputEmail1" aria-describedby="emailHelp" />
-                      <button className=" button-color ms-3 btn">Search</button>
+                      <button className="btn ms-1 bluebtn px-5 brdr">Search</button>
                     </div>
                   </div>
                 </div>

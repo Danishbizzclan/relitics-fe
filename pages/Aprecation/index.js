@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import './index.css';
-import { Table, Button, Space } from 'antd';
+import { Table, Button, Space, Select } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 
@@ -30,7 +30,7 @@ const data = [
     Averagesaleprice: '$13600',
     Averagepropertytax: "18%",
     population: '136000',
- },
+  },
   {
     key: '3',
     Region: 'Multan',
@@ -158,6 +158,7 @@ class Aprecation extends React.Component {
     const columns = [
       {
         title: 'Region',
+        fixed: 'left',
         dataIndex: 'Region',
         key: 'Region',
         // filters: [
@@ -172,6 +173,7 @@ class Aprecation extends React.Component {
       },
       {
         title: 'Average Aprecation',
+        fixed: 'left',
         dataIndex: 'Averageaprecation',
         key: 'Averageaprecation',
         sorter: (a, b) => a.age - b.Averageaprecation,
@@ -279,35 +281,40 @@ class Aprecation extends React.Component {
     ];
     return (
       <>
-    <div className="d-inline-flex w-100">
-     <Sidebar />
+        <div className="d-inline-flex w-100">
+          <Sidebar />
 
-        <div style={{ width: "inherit" }}>
-          <Dashnav />
-          {/* <div className='container'> */}
-              <div className='col-xl-10 mx-auto mt-5' >
-                  <p className='fs-25'>Market Aprecation</p>
-                  <div className='d-flex'>
-        <Space style={{ marginBottom: 16 }}>
-          <Button onClick={this.setAgeSort}>Sort age</Button>
-          <Button onClick={this.clearFilters}>Clear filters</Button>
-          <Button onClick={this.clearAll}>Clear filters and sorters</Button>
-        </Space>
-        <div className='ms-auto'>
-            <button className='btn btn-primary'>Print</button>
-            <button className='btn btn-primary ms-2'>Download PDF</button>
+          <div style={{ width: "inherit" }}>
+            <Dashnav />
+            {/* <div className='container'> */}
+            <div className='col-xl-10 mx-auto mt-5' >
+              <p className='fs-40 Gothic_3D'>Market Aprecation</p>
+              <div className='d-flex'>
+                <Space style={{ marginBottom: 16 }}>
+                  <form>
+                    <label htmlfor="state" className='bluetxt fs-12'></label>
+                    <Select name="state" id="state" onClick={this.setAgeSort}>Sort age</Select>
+                    <label htmlfor="city" className='bluetxt fs-12'></label>
+                    <Select name="city" id="city" onClick={this.clearFilters}>Clear filters</Select>
+                    {/* <Button onClick={this.clearAll}>Clear filters and sorters</Button> */}
+                  </form>
+                </Space>
+                <div className='ms-auto'>
+                  <button className='btn bluebtn px-4 fs-14'>Print</button>
+                  <button className='btn bluebtn px-4 fs-14 ms-2'>Download PDF</button>
 
+                </div>
+              </div>
+              <Table columns={columns}
+                colors={['#123123', 'rgba(123,123,123,12)']}
+                averageDuplicates
+                inferBlanks
+                dataSource={data} onChange={this.handleChange}
+                scroll={{ x: 1300 }} />
+            </div>
+          </div>
+          {/* </div>    */}
         </div>
-        </div>
-        <Table columns={columns}
- colors={['#123123', 'rgba(123,123,123,12)']}
- averageDuplicates
- inferBlanks
-        dataSource={data} onChange={this.handleChange} />
-        </div>
-        </div>
-        {/* </div>    */}
-        </div> 
       </>
     );
   }
