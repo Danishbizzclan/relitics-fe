@@ -1,71 +1,88 @@
-//import useState hook to create menu collapse state
-import React, { useState } from "react";
+import React, { activeClassName } from 'react'
+import { useRouter } from "next/router"
 import classes from "../Component/Navbar.module.css"
 import Link from "next/link"
-// // import MaterialDesignSwitchh from '../Component/Togle1'
-// import MaterialDesignSwitchh from "../Component/Togle1";
-// import Membership from "../Component/Data/MembershipData";
 
-
-
-
-
-
-
-//import sidebar css from react-pro-sidebar module and our custom css 
-
-
-const Dashnav = () => (
-    <>
-    <div className='dash-nav '>
-    <div className="container ">
-      <div className="row ms-0 w-100">
-        <div className="col-12 ms-0 p-0 m-0">
-
-
-          <nav className="navbar navbar-expand-lg p-0  navbar-light ">
-            <div className="container-fluid p-0">
-              {/* <Link href="/">
-                <a href="/"><img  alt="reilitics" /></a></Link> */}
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ms-auto mb-2  mb-lg-0">
-                  <Link href="/" className="nav-item">
-
-                    <a className="nav-link navbar-text text-end text-lg-start nav-bor fs-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Home</p></a>
-                  </Link>
-                  <Link href="/BecomeProfessional" className="nav-item">
-                    <a className="nav-link navbar-text nav-bor text-end text-lg-start fs-13 py-2  dash-text" aria-current="page" ><p className="mt-3">Pricing</p></a>
-                  </Link>
-                  <Link href="/About" className="nav-item">
-                    <a className="nav-link navbar-text nav-bor text-end text-lg-start fs-13  py-2  dash-text" aria-current="page" ><p className="mt-3">About</p></a>
-                  </Link>
-
-                  <Link href="/Blog" className="nav-item">
-                    <a className="nav-link navbar-text fs-13 text-end nav-bor text-lg-start py-2  nav-bordash-text dash-text" aria-current="page" ><p className="mt-3">Article</p></a>
-                  </Link>
-                  <Link href="/Contact" className="nav-item">
-                    <a className="nav-link navbar-text fs-13 text-end text-lg-start nav-bor py-2   dash-text" aria-current="page" ><p className="mt-3">contact</p></a>
-                  </Link>
-                  <img src={'/Group 221.png'} className="noti-bg ms-auto text-lg-0 my-3 p-2" style={{ objectFit: 'contain' }} />
-                  <div className="d-flex rounded-pill my-3 ms-3 name-bg">
-                    <img src={'/Mask Group 23.png'} className="img-sizee mb- w-50 " style={{ objectFit: 'contain' }} />
-                    <p className="text-white my-auto">Tabish</p>
-                  </div>
-
-                </ul>
-                {/* <img className="p-2 rounded-pill" src="Path 188.png" alt="" /> */}
+function Dashnav() {
+  const router = useRouter();
+  return (
+    <div className={classes.dashNavColor}>
+      <div className="container ms-3">
+        <div className="row ms-0">
+          <div className="col-12 ms-0 p-0 m-0">
+            <nav className="navbar navbar-expand-lg navbar-light p-0 bordr">
+              <div className="container-fluid p-0">
+                <button className="navbar-toggler py-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav ms-auto  mb-lg-0">
+                    <Link href="/" ><div className={`nav-link fs-15  ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/" ? "active" : null}`}>
+                      Home</div>
+                    </Link>
+                    <Link href="/BecomeProfessional" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
+                      Pricing</div></Link>
+                    <Link href="/About" ><div className={`nav-link  fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/About" ? "active" : null}`}>
+                      About us</div></Link>
+                    <Link href="/Blog" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/Blog" ? "active" : null}`}>
+                      Articles</div></Link>
+                    <Link href="/Contact" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/Contact" ? "active" : null}`}>
+                      Contact</div></Link>
+                    <Link href="/Dashboard">
+                      <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
+                    <Link href="/Dashboard">
+                      <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
+                        <img src={'/Mask Group 23.png'} style={{ width: '4.6rem' }} />
+                        <p className="text-white my-auto px-sm-0 px-md-4 fs-15">Tabish</p>
+                      </div>
+                    </Link>
+                  </ul>
+                  <img className="p-2 rounded-pill" src="Path 188.png" alt="" />
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </>
-   
-);
+      </div >
+    </div >
+  )
+}
 export default Dashnav
-      
+
+    // <>
+    //   {/* <div className='dash-nav '>
+    //     <div className="container py-4">
+    //           <nav className="navbar navbar-expand-lg p-0 navbar-light ">
+    //             <div className="container-fluid p-0">
+    //               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    //                 <span className="navbar-toggler-icon"></span>
+    //               </button>
+    //               <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    //                 <ul className="navbar-nav ms-auto mb-lg-0">
+    //                   <Link href="/" className="nav-item">
+    //                     <div className={`nav-link navbar-text text-lg-start nav-bor fs-15 p-0 my-auto mx-3 dash-text`} aria-current="page">Home</div>
+    //                   </Link>
+    //                   <Link href="/BecomeProfessional" className="nav-item">
+    //                     <div className={`nav-link navbar-text nav-bor text-lg-start fs-15 p-0 my-auto mx-3 dash-text`} aria-current="page">Pricing</div>
+    //                   </Link>
+    //                   <Link href="/About" className="nav-item">
+    //                     <div className={`nav-link navbar-text nav-bor text-lg-start fs-15 p-0 my-auto mx-3  dash-text ${router.pathname == "/About" ? "active" : null}`} aria-current="page">About</div>
+    //                   </Link>
+    //                   <Link href="/Blog" className="nav-item">
+    //                     <div className={`nav-link navbar-text fs-15 p-0 my-auto text-lg-start mx-3 nav-bor nav-bordash-text dash-text`} aria-current="page">Article</div>
+    //                   </Link>
+    //                   <Link href="/Contact" className="nav-item">
+    //                     <div className={`nav-link navbar-text fs-15 p-0 my-auto mx-3 text-lg-start nav-bor  dash-text`} aria-current="page">contact</div>
+    //                   </Link>
+    //                   <img src={'/NotificationNav.svg'} className="mx-3 text-lg-start noti-w" style={{ objectFit: 'contain' }} />
+    //                   <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto`}>
+    //                     <img src={'/Mask Group 23.png'} style={{ width: '4.6rem' }} />
+    //                     <p className="text-white my-auto px-sm-0 px-md-4 fs-15">Tabish</p>
+    //                   </div>
+    //                 </ul>
+    //               </div>
+    //             </div>
+    //           </nav>
+    //         </div>
+    //   </div> */}
+    // </>
