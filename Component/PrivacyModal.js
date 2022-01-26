@@ -19,7 +19,7 @@ const PrivacyModal = (props) => {
 
   return (
     <>
-       <a className='blueColor' type="primary" onClick={showModal}>
+       <a className='bluetxt' type="primary" onClick={showModal}>
         Privacy Policy
       </a> 
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>

@@ -118,7 +118,7 @@ const Payment = ({ nextStep, handleChange, values }) => {
                                                         <hr />
                                                         <div className='d-flex fs-18'>
                                                             <p>Total</p>
-                                                            <p className='Bold blueColor ms-auto'>{x.total}</p>
+                                                            <p className='Bold bluetxt ms-auto'>{x.total}</p>
                                                         </div>
                                                     </>
                                                 )
