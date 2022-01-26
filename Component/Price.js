@@ -1,5 +1,5 @@
 import React from 'react'
-import PriceCardData from './PriceCardData'
+// import PriceCardData from './PriceCardData'
 
 const Price = (props) => {
     return (
