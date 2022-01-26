@@ -71,7 +71,7 @@ class Acount {
     };
     return res();
   };
-  EnterEmail = (email, setError) => {
+  EnterEmail = (email, setError, errorModal) => {
     console.log({email})
     const res = async () => {
       const resp = await axios
@@ -83,6 +83,7 @@ class Acount {
         .catch(function (error) {
           console.log(error.response.data.message);
           setError(error.response.data.message);
+          errorModal(true)
         });
       return resp;
     };

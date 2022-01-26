@@ -49,16 +49,7 @@ const Login = () => {
    const res = Acount.EnterEmail(email, setError, setErrorModel)
    res.then(value => {
        console.log(value)
-       setSuccess(value.data.message)
-       localStorage.setItem('user', JSON.stringify(value.data.user))
-       localStorage.setItem('token', JSON.stringify(value.data.token))
 
-       if (value.statusText=='OK') {
-           setSuccesModel(true)
-         }
-         else {
-           setErrorModel(true)
-         }
    })
        .catch(error => {
            console.log(error.responce)
