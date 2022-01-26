@@ -356,6 +356,10 @@ textarea {
   border-radius: 1rem !important;
 }
 
+.btn-w {
+  width: 12rem;
+}
+
 .btnYelow:hover {
   transform: scale(1.05);
 }
@@ -363,6 +367,11 @@ textarea {
 .hover,
 .hover_btn {
   transition: 300ms ease-in-out;
+}
+
+.Hover:hover {
+  font-weight: bolder !important;
+  opacity: 0.8 !important;
 }
 
 .hover:hover {
@@ -505,7 +514,7 @@ textarea {
   width     : 39rem !important;
   height    : 100vh;
   min-height: 100%;
-  position: fixed;
+  position  : fixed;
 }
 
 .pro-sidebar.collapsed {
@@ -602,13 +611,15 @@ textarea {
   width: 40%;
 }
 
-.dropdown-container {
-  display: none;
+.pro-sidebar .active,
+.active .pro-inner-item {
+  background-color: #041E31;
+  color           : #FFDA5F !important;
 }
 
-.dropdown-btn {
-  display: block;
-}
+/* .dropdown-container {
+  display: none;
+} */
 
 .nav-bor {
   border-left: .1rem solid #E8F2FF;
@@ -616,6 +627,9 @@ textarea {
 
 .noti-w {
   width: 4.5rem !important;
+}
+.icon-w {
+  width: 2.2rem !important;
 }
 
 .dash-text {
@@ -766,6 +780,11 @@ html {
   }
 }
 
+.Table .form-control {
+  font-size  : 1.4rem !important;
+  font-weight: Bold;
+}
+
 .ant-table-cell-ellipsis {
   overflow     : initial !important;
   text-overflow: initial !important;
@@ -784,4 +803,11 @@ html {
 
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
+}
+
+.ant-table-thead>tr>th,
+.ant-table-tbody>tr>td,
+.ant-table tfoot>tr>th,
+.ant-table tfoot>tr>td {
+  padding: 1.6rem 8rem;
 }

@@ -24,7 +24,7 @@
 }
 
 .active {
-  background-color: #041E31;
+  background-color: #041E31 !important;
   color           : #FFDA5F !important;
 }
 

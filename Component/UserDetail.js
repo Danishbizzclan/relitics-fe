@@ -182,9 +182,9 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                     <p className='fs-15'>Sign up with a Social Media</p>
                                 </div>
                                 <div className="text-center pb-5 mt-2">
-                                    <img src={"Group 21.png"} className="ms-2 s-social" alt="facebook" />
-                                    <img src={"Group 16.png"} className="ms-3 s-social" alt="facebook" />
-                                    <img src={"Group 19.png"} className="ms-3 s-social" alt="facebook" />
+                                    <img src={"squareFb.svg"} className="ms-2 s-social" alt="facebook" />
+                                    <img src={"squareTwitter.svg"} className="ms-3 s-social" alt="facebook" />
+                                    <img src={"squareGmail.svg"} className="ms-3 s-social" alt="facebook" />
 
                                 </div>
                             </div>

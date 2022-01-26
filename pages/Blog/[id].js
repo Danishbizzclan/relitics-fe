@@ -35,21 +35,21 @@ const BlogDetail = () => {
                 <div className='blog-line mt-0 mb-3'></div>
                 <p className='fs-13'>Posted on {fullDate} by Admin</p>
                 <div className='text-center mb-3'>
-                  <img className='m-2 hover' src={"/facebook_.png"} />
-                  <img className='m-2 hover' src={"/linkedin_.png"} />
-                  <img className='m-2 hover' src={"/twitter-square.png"} />
-                  <img className='m-2 hover' src={"/pinterest-square.png"} />
-                  <img className='m-2 hover' src={"/gmail.png"} />
+                  <img className='m-2 hover' src={"/facebook-rect.svg"} />
+                  <img className='m-2 hover' src={"/linkedin-square.svg"} />
+                  <img className='m-2 hover' src={"/twitter-square.svg"} />
+                  <img className='m-2 hover' src={"/pinterest-square.svg"} />
+                  <img className='m-2 hover' src={"/gmail.svg"} />
                   <img className='m-2 hover' src={"/copylink_.png"} />
                 </div>
                 <img src={event.image} className='w-100 mt-2' />
                 <p className='mt-3 fs-17'>{event.data}</p>
                 <div className='text-center'>
-                  <img className='m-2 hover' src={"/facebook_.png"} />
-                  <img className='m-2 hover' src={"/linkedin_.png"} />
-                  <img className='m-2 hover' src={"/twitter-square.png"} />
-                  <img className='m-2 hover' src={"/pinterest-square.png"} />
-                  <img className='m-2 hover' src={"/gmail.png"} />
+                  <img className='m-2 hover' src={"/facebook-rect.svg"} />
+                  <img className='m-2 hover' src={"/linkedin-square.svg"} />
+                  <img className='m-2 hover' src={"/twitter-square.svg"} />
+                  <img className='m-2 hover' src={"/pinterest-square.svg"} />
+                  <img className='m-2 hover' src={"/gmail.svg"} />
                   <img className='m-2 hover' src={"/copylink_.png"} />
                 </div>
               </div>

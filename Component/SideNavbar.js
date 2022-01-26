@@ -1,6 +1,6 @@
-
-import React, { useState } from "react";
+import React, { activeClassName, useState } from 'react'
 import Link from "next/link"
+import { useRouter } from "next/router"
 import MaterialDesignSwitchh from "./Togle1";
 import Membership from "./Data/MembershipData";
 import $ from 'jquery';
@@ -44,7 +44,11 @@ const Sidebar = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
-
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen=()=>{
+    setIsOpen= !isOpen
+  }
   return (
     <>
       <div id="header">
@@ -68,17 +72,25 @@ const Sidebar = () => {
               <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
             </div>
             <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>
-
+{/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <MenuItem icon={<img src={'/Icon material-dashboard.png'} id="dropdownMenuButton" className="dropdown-btn" />}>
-                Dashboared overview
-              </MenuItem>
-              <div className="ms-4 dropdown-container" aria-labelledby="dropdownMenuButton">
-                <MenuItem icon={<img src={'/development.png'} href="#" />}>Market aprecation</MenuItem>
-                <MenuItem icon={<img src={'/chart.png'} href="#" />}>Rental Growth</MenuItem>
-                <MenuItem icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
+              <div className='dropdown' onClick={toggleOpen}>
+                <MenuItem className={`${router.pathname == "/Dashboard" ? "active" : null}`} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" icon={<img src={'/Icon material-dashboard.png'}  />}>
+                  Dashboared overview 
+                </MenuItem>
+                <div className={`ms-4 dropdown-menu`} aria-labelledby="dropdownMenuButton">
+                  <Link href="/Appreciation" className="dropdown-item">
+                    <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
+                  </Link>
+                  <Link href="/RentalGrowth" className="dropdown-item">
+                    <MenuItem className={router.pathname == "/RentalGrowth" ? "active" : null} icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
+                  </Link>
+                  <Link href="/DetailStats" className="dropdown-item">
+                    <MenuItem className={router.pathname == "/DetailStats" ? "active" : null} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
+                  </Link>
+                </div>
               </div>
               <MenuItem icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
 

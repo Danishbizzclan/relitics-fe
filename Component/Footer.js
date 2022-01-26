@@ -98,11 +98,11 @@ function Foter() {
 
                                     <div className="col-sm-6  ms-auto">
                                         <diV className="float-end">
-                                            <img className='my-4' src={"/facebook.png"} alt="facebook" />
-                                            <img className="ms-3 my-4" src={"/pinterest.png"} alt="pinterest" />
-                                            <img className="ms-3 my-4" src={"/twitter.png"} alt="twitter" />
-                                            <img className="ms-3 my-4" src={"/linkedin.png"} alt="linkedin" />
-                                            <img className="ms-3 my-4" src={"/instagram.png"} alt="instagram" />
+                                            <img className='my-4' src={"/circleFb.svg"} alt="facebook" />
+                                            <img className="ms-3 my-4" src={"/circlePinterest.svg"} alt="pinterest" />
+                                            <img className="ms-3 my-4" src={"/circleTwitter.svg"} alt="twitter" />
+                                            <img className="ms-3 my-4" src={"/circleLinkedin.svg"} alt="linkedin" />
+                                            <img className="ms-3 my-4" src={"/circleInstagram.svg"} alt="instagram" />
                                         </diV>
 
 
