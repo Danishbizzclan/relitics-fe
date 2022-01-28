@@ -7,7 +7,7 @@ function Dashnav() {
   const router = useRouter();
   return (
     <div className={classes.dashNavColor}>
-      <div className="container ms-3">
+      <div className="container mx-auto">
         <div className="row ms-0">
           <div className="col-12 ms-0 p-0 m-0">
             <nav className="navbar navbar-expand-lg navbar-light p-0 bordr">

@@ -12,7 +12,7 @@ import PersonalInfo from '../../Component/PersonalInfo'
 export default class Signup extends Component {
 
   state = {
-    step: 2,
+    step: 1,
     email: '',
     state: '',
     username: '', 

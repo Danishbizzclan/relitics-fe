@@ -350,6 +350,10 @@ textarea {
   color           : #041E31 !important;
 }
 
+.txt-yellow {
+  color: #FFDA5F !important;
+}
+
 .btn_width {
   padding      : 2rem;
   width        : 17rem;
@@ -371,7 +375,7 @@ textarea {
 
 .Hover:hover {
   font-weight: bolder !important;
-  opacity: 0.8 !important;
+  opacity    : 0.8 !important;
 }
 
 .hover:hover {
@@ -459,17 +463,6 @@ textarea {
   display: block;
 }
 
-#sidebar {
-  min-width   : 25.0rem;
-  max-width   : 25.0rem;
-  height      : 100vh;
-  /* position : fixed; */
-  top         : 0;
-  left        : 0;
-  /* top layer */
-  z-index     : 9999;
-}
-
 .overlay {
   display   : none;
   position  : fixed;
@@ -500,14 +493,24 @@ textarea {
   right   : 1.0rem;
 }
 
+#sidebar {
+  min-width: 25.0rem;
+  max-width: 25.0rem;
+  height   : 100vh;
+  position : fixed;
+  top      : 0;
+  left     : 0;
+  /* top layer */
+  z-index  : 9999;
+}
+
 /* #header {
   position: absolute;
   width: 30.0rem;
 } */
 #header .pro-sidebar {
-  height    : 100vh;
-  min-height: 100%;
-  overflow  : auto;
+  height  : 100vh;
+  overflow: auto;
 }
 
 .pro-sidebar {
@@ -544,9 +547,9 @@ textarea {
   box-shadow      : 0..5rem 0.86.6rem .2rem .0rem rgba(0, 0, 0, 0.15);
 }
 
-#header .pro-sidebar-inner .pro-sidebar-layout {
+/* #header .pro-sidebar-inner .pro-sidebar-layout {
   overflow-y: hidden;
-}
+} */
 
 #header .pro-sidebar-inner .pro-sidebar-layout .logotext p {
   font-size  : 2.0rem;
@@ -628,6 +631,7 @@ textarea {
 .noti-w {
   width: 4.5rem !important;
 }
+
 .icon-w {
   width: 2.2rem !important;
 }
@@ -803,11 +807,4 @@ html {
 
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
-}
-
-.ant-table-thead>tr>th,
-.ant-table-tbody>tr>td,
-.ant-table tfoot>tr>th,
-.ant-table tfoot>tr>td {
-  padding: 1.6rem 8rem;
 }

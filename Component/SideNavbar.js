@@ -46,8 +46,8 @@ const Sidebar = () => {
   };
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const toggleOpen=()=>{
-    setIsOpen= !isOpen
+  const toggleOpen = () => {
+    setIsOpen = !isOpen
   }
   return (
     <>
@@ -72,14 +72,16 @@ const Sidebar = () => {
               <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
             </div>
             <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>
-{/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
+            {/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
               <div className='dropdown' onClick={toggleOpen}>
-                <MenuItem className={`${router.pathname == "/Dashboard" ? "active" : null}`} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" icon={<img src={'/Icon material-dashboard.png'}  />}>
-                  Dashboared overview 
-                </MenuItem>
+                <Link href="/Dashboard" >
+                  <MenuItem className={`${router.pathname == "/Dashboard" ? "active" : null}`} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" icon={<img src={'/Icon material-dashboard.png'} />}>
+                    Dashboared overview
+                  </MenuItem>
+                </Link>
                 <div className={`ms-4 dropdown-menu`} aria-labelledby="dropdownMenuButton">
                   <Link href="/Appreciation" className="dropdown-item">
                     <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
@@ -93,8 +95,10 @@ const Sidebar = () => {
                 </div>
               </div>
               <MenuItem icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
-
-              <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>
+              <Link href="/MyFavourites" >
+                <MenuItem icon={<FaRegHeart />} className={router.pathname == "/MyFavourites" ? "active" : null}>
+                  Favourite</MenuItem>
+              </Link>
               <MenuItem icon={<img src={'/Icon material-note.png'} />}>Notes</MenuItem>
               {/* <MenuItem icon={<BiCog />}>Settings</MenuItem> */}
             </Menu>

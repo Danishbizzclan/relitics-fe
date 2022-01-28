@@ -4,126 +4,8 @@ import 'antd/dist/antd.css';
 import { Table, Button, Space, Select } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
+import RentalGrowthData from '../../Component/Data/RentalGrowthData';
 
-const RentalGrowthData = [
-    {
-        key: '1',
-        Region: 'John Brown',
-        AverageRentalGrowth: "18%",
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: false,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '2',
-        Region: 'Sialkot',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: true,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '3',
-        Region: 'Multan',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: false,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '4',
-        Region: 'Faisalbad',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: true,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '5',
-        Region: 'Lahore',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: false,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '6',
-        Region: 'Karachi',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: true,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '7',
-        Region: 'Peshawar',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: false,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '8',
-        Region: 'Islamabad',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: true,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-    {
-        key: '9',
-        Region: 'Rawalpindi',
-        AverageRentalGrowth: '18%',
-        2018: '93%',
-        2019: '79%',
-        2020: '46%',
-        2021: '12%',
-        2022: '33%',
-        isFavourite: false,
-        MedianRentalX: "18%",
-        LandlordFriendlyScore: '136000',
-    },
-];
 
 class Aprecation extends React.Component {
     state = {
@@ -168,6 +50,7 @@ class Aprecation extends React.Component {
                 title: 'Region',
                 fixed: 'left',
                 key: 'Region',
+                width: '15%',
                 // filters: [
                 //   { text: 'Joe', value: 'Joe' },
                 //   { text: 'Jim', value: 'Jim' },
@@ -297,7 +180,7 @@ class Aprecation extends React.Component {
                     <div style={{ width: "inherit" }}>
                         <Dashnav />
                         {/* <div className='container'> */}
-                        <div className='container ms-3 mt-3 Table' >
+                        <div className='container mx-auto mt-3 Table' >
                             <p className='fs-40 Gothic_3D'>Rental Growth</p>
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>

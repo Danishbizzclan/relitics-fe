@@ -6,126 +6,7 @@ import { Table, Button, Space, Select } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import { imageConfigDefault } from 'next/dist/server/image-config';
-
-const ApreciationData = [
-  {
-    key: '1',
-    Region: 'John Brown',
-    AverageAppreciation: "18%",
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '2',
-    Region: 'Sialkot',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '3',
-    Region: 'Multan',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '4',
-    Region: 'Faisalbad',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: false,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '5',
-    Region: 'Lahore',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '6',
-    Region: 'Karachi',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: false,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '7',
-    Region: 'Peshawar',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '8',
-    Region: 'Islamabad',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: false,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-  {
-    key: '9',
-    Region: 'Rawalpindi',
-    AverageAppreciation: '18%',
-    2018: '18%',
-    2019: '18%',
-    2020: '18%',
-    2021: '18%',
-    isFavourite: true,
-    Averagesaleprice: '$13600',
-    Averagepropertytax: "18%",
-    population: '136000',
-  },
-];
+import ApreciationData from '../../Component/Data/ApericiationData';
 
 class Aprecation extends React.Component {
   state = {
@@ -170,6 +51,7 @@ class Aprecation extends React.Component {
         title: 'Region',
         fixed: 'left',
         key: 'Region',
+        width: '15%',
         // filters: [
         //   { text: 'Joe', value: 'Joe' },
         //   { text: 'Jim', value: 'Jim' },
@@ -299,7 +181,7 @@ class Aprecation extends React.Component {
           <div style={{ width: "inherit" }}>
             <Dashnav />
             {/* <div className='container'> */}
-            <div className='container ms-3 mt-3' >
+            <div className='container mx-auto mt-3' >
               <p className='fs-40 Gothic_3D'>Market Appreciation</p>
               <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
