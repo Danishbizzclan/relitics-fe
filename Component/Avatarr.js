@@ -52,7 +52,7 @@ class Avatarr extends React.Component {
           :
           <div className='d-lg-inline-flex gx-5'>
             <div className='col-sm-6 w-100'>
-              <img src={"user_.png"} className="img-fluid avatar-radius" alt="..." ></img>
+              <img src={"./User.svg"} className="img-fluid avatar-radius" alt="..." ></img>
             </div>
             <div className='col-sm-6 w-100 my-auto'>
               <button className='btn UploadBtn px-5 py-2 txt-grey fs-15 text-nowrap'>upload Photo</button>
