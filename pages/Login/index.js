@@ -5,8 +5,8 @@ import Acount from '../../Api/Acount'
 import { useState } from 'react'
 import CustomModal from '../../Component/Modal'
 import Link from "next/link"
-import LoginModal from '../Component/Login/EnterEmail'
-import Otp from '../Component/Login/Otp'
+import LoginModal from '../../Component/Login/EnterEmail'
+import Otp from '../../Component/Login/Otp'
 import Modal from 'antd/lib/modal/Modal'
 
 
