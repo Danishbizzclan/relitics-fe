@@ -5,7 +5,8 @@ class Acount {
     this.result = [];
   }
 
-  Registeration = (data, settingErrors) => {
+  Registeration = (data, id, settingErrors) => {
+  
     const res = async () => {
       const resp = await axios
         .post("/users", {
@@ -17,6 +18,7 @@ class Acount {
             dob:data.dob,
             phone:data.phone,
             image:data.image,
+            packageID:id,
             email:data.email,
             password:data.password
         })
@@ -84,6 +86,24 @@ class Acount {
           console.log(error.response.data.message);
           setError(error.response.data.message);
           errorModal(true)
+        });
+      return resp;
+    };
+    return res();
+  };
+  verifyOtp = (email, otp, setError ) => {
+    console.log({email})
+    const res = async () => {
+      const resp = await axios
+        .post("/users/verifycode", {
+          email: email,
+          confirmation_code:otp
+        })
+
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+          // errorModal(true)
         });
       return resp;
     };

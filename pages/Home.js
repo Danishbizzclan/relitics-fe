@@ -17,6 +17,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
+                {/* <NewPassword /> */}
 
             </div>
             <div className="container">

@@ -6,15 +6,18 @@ import { useState } from 'react'
 import CustomModal from '../Component/Modal'
 import Link from "next/link"
 import LoginModal from '../Component/Login/EnterEmail'
+import Otp from '../Component/Login/Otp'
+import Modal from 'antd/lib/modal/Modal'
 
 
 const Login = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    // const [error, setError] = useState('')
+    const [email, setEmail] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-  
+    const [otpModal, setOtpModal] = useState(false)
+
     const [resetModel, setResetModel] = useState(false)
     const [errorModel, setErrorModel] = useState(false)
     const [succesModel, setSuccesModel] = useState(false)
@@ -30,37 +33,54 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify(value.data.user))
             localStorage.setItem('token', JSON.stringify(value.data.token))
 
-            if (value.statusText=='OK') {
+            if (value.statusText == 'OK') {
                 setSuccesModel(true)
-              }
-              else {
+            }
+            else {
                 setErrorModel(true)
-              }
+            }
         })
             .catch(error => {
-                console.log(error.responce)
-                setError(error.responce)
+                console.log({error})
             })
 
     }
-    
-    const resetPasword  = (email)=>{
-   // nextStep();
-   const res = Acount.EnterEmail(email, setError, setErrorModel)
-   res.then(value => {
-       console.log(value)
 
-   })
-       .catch(error => {
-           console.log(error.responce)
-           setError(error.responce)
-       })
+    const resetPasword = (email) => {
+        // nextStep();
+        setEmail(email)
+        const res = Acount.EnterEmail(email, setError, setErrorModel)
+        res.then(value => {
+            console.log('value', value.data)
+            if (value.data.success) {
+                
+                setOtpModal(true)
+            }
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
     }
+    const verifyOtp = (otp) => {
+        const res = Acount.verifyOtp(email, otp, setError)
+        res.then(value => {
+            console.log('value', value.data)
+            if (value.data.success) {
+                
+                setSuccess(true)
+            }
 
+        })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
 
     return (
         <div>
-            {console.log({error})}
+            {/* {console.log({ error })} */}
             <Navbar />
             <div className={`${classes.bgLogin}`}>
                 <div className="container">
@@ -103,9 +123,9 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-      <a className='blueColor' type="primary" onClick={()=>setResetModel(true)}>
-        Reaset Now
-      </a></p>
+                                                    <a className='blueColor' type="primary" onClick={() => setResetModel(true)}>
+                                                        Reaset Now
+                                                    </a></p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
@@ -131,34 +151,44 @@ const Login = () => {
                 </div>
             </div>
             <LoginModal
-              title="Reset Your Password"
-              isModalVisible={resetModel}
-              closable={false}
-              setResetModel={setResetModel}
-              resetPasword={resetPasword} />
+                title="Reset Your Password"
+                isModalVisible={resetModel}
+                closable={false}
+                setResetModel={setResetModel}
+                resetPasword={resetPasword} />
             <CustomModal
-              title="Succefull"
-              isModalVisible={succesModel}
-              closable={false}
+                title="Succefull"
+                isModalVisible={succesModel}
+                closable={false}
             >
-              <div className='p-5'>
-                <p className='fs-22 text-white text-center p-5'>{success}</p>
-                <div className='text-center'>
-                    {/* {success} */}
-                    {/* <p className='text-white fs-30'>you are login now</p> */}
-                <Link href="/Dashboard">
-                  <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
+                <div className='p-5'>
+                    <p className='fs-22 text-white text-center p-5'>{success}</p>
+                    <div className='text-center'>
+                        {/* {success} */}
+                        {/* <p className='text-white fs-30'>you are login now</p> */}
+                        <Link href="/Dashboard">
+                            <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
+                    </div>
                 </div>
-              </div>
             </CustomModal>
             <CustomModal
-              title="Error"
-              isModalVisible={errorModel}
-              handleCancel={() => setErrorModel(false)}
-              closable={true}
+                title="Error"
+                isModalVisible={errorModel}
+                handleCancel={() => setErrorModel(false)}
+                closable={true}
             >
-              <p className='text-white'>{error}</p>
+                <p className='text-white'>{error}</p>
             </CustomModal>
+            <Otp
+                isModalVisible={otpModal}
+                handleCancel={() => setErrorModel(false)}
+                isModalVisiblee={resetModel}
+                closable={false}
+                setResetModel={setResetModel}
+                verifyOtp={verifyOtp}
+
+            />
+
         </div>
     )
 }
