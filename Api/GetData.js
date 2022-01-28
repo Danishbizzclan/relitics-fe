@@ -17,5 +17,27 @@ AllPackeges = () => {
     };
     return res();
   };
+  BlogComponent = () => {
+    const res = async () => {
+      const resp = await axios
+        .get("/article")
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  BlogDetail = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .get(`/article/${id}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();

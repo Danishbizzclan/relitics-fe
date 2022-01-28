@@ -26,7 +26,7 @@ const Price = (props) => {
                     <p className="my-auto ms-2 fs-14">Option 1</p>
                 </div>
             </div>
-            <button type="submit" onClick={props.Continue} className="btn btnYelow btn_width brdr-2 py-3 mt-5">Buy Now</button>
+            <button type="button" onClick={()=>props.Continue(props.id)} className="btn btnYelow btn_width brdr-2 py-3 mt-5">Buy Now</button>
             <hr className='d-sm-flex d-md-none mt-5'/>
         </div>
     )

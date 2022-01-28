@@ -804,7 +804,17 @@ html {
   font-size    : 1.4rem;
   font-weight  : bold;
 }
-
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
+}
+.otpcenter div{
+  justify-content: center !important;
+}
+.otp-size{
+  width: 6rem;
+}
+.otpcenter input{
+  width: 4rem !important;
+  height: 4rem;
+  border-radius: 5px;
 }

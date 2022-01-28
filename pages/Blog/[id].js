@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import { getEventById } from '../../Component/Data/BlogData'
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
 import Categories from '../../Component/Categories';
 import LatestPosts from '../../Component/LatestPosts';
+import GetData from '../../Api/GetData';
 
 
 
 const BlogDetail = () => {
   const router = useRouter();
+  const [event, setEvent] = useState('');
+  const [loading, setLoading] = useState(true);
 
-
-  const eventId = router.query.id;
-  const event = getEventById(eventId);
-  const date = new Date(event.date)
+  const eventId = router.query.id
+  const date = new Date()
   var options = { month: "short", year: "numeric", day: "numeric" };
   const fullDate = date.toLocaleDateString("en-US", options);
 
-  if (eventId && !event) {
+  useEffect(() => {
+    setLoading(true)
+    const response = GetData.BlogDetail(eventId);
+    response.then(value => {
+      console.log({ value })
+      setEvent(value?.data?.article);
+      setLoading(false)
+      console.log(value?.data?.article)
+      //   setLoading(false);
+    })
+  }, [eventId]);
+
+
+  if (loading) {
+    return(
+    <h1>Loading</h1>
+    )
+  }
+
+  else if (!loading && !event) {
     return <h1 className='text-center mt-5'>No Blog Found</h1>
   }
   else if (eventId && event) {
@@ -30,7 +50,7 @@ const BlogDetail = () => {
           <div className='row'>
             <div className='col-md-8'>
               <div className='shadow p-5'>
-                <a className='text-link pointer-cursor fs-13 Bold'>{event.category}</a>
+                {/* <a className='text-link pointer-cursor fs-13 Bold'>{event.category}</a> */}
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
                 <div className='blog-line mt-0 mb-3'></div>
                 <p className='fs-13'>Posted on {fullDate} by Admin</p>
@@ -44,14 +64,14 @@ const BlogDetail = () => {
                 </div>
                 <img src={event.image} className='w-100 mt-2' />
                 <p className='mt-3 fs-17'>{event.data}</p>
-                <div className='text-center'>
-                  <img className='m-2 hover' src={"/facebook-rect.svg"} />
-                  <img className='m-2 hover' src={"/linkedin-square.svg"} />
-                  <img className='m-2 hover' src={"/twitter-square.svg"} />
-                  <img className='m-2 hover' src={"/pinterest-square.svg"} />
-                  <img className='m-2 hover' src={"/gmail.svg"} />
+                {/* <div className='text-center'>
+                  <img className='m-2 hover' src={"/facebook_.png"} />
+                  <img className='m-2 hover' src={"/linkedin_.png"} />
+                  <img className='m-2 hover' src={"/twitter-square.png"} />
+                  <img className='m-2 hover' src={"/pinterest-square.png"} />
+                  <img className='m-2 hover' src={"/gmail.png"} />
                   <img className='m-2 hover' src={"/copylink_.png"} />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className='col-md-4 mt-5'>
@@ -110,11 +130,6 @@ const BlogDetail = () => {
       </div>
     )
   }
-  return (
-    <div>
-      <p>Loading</p>
-    </div>
-  )
 }
 
 export default BlogDetail

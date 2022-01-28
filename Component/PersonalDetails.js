@@ -35,8 +35,8 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   }
 
   const Success = e => {
-    e.preventDefault();
-    const res = Acount.Registeration(values, handleErrors)
+    alert(e)
+    const res = Acount.Registeration(values, e, handleErrors)
     res.then(value => {
       setSuccess(value.data.message)
       localStorage.setItem('user', JSON.stringify(value.data.user))
@@ -105,7 +105,8 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                             Continue={x.price === 0 ? Success : Continue}
                             Price={x.name}
                             Amount={x.price}
-                            Tags={x.options} />
+                            Tags={x.options} 
+                            id={x._id}/>
                         </div>
                       )
                     })}
