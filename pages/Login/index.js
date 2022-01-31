@@ -7,7 +7,9 @@ import CustomModal from '../../Component/Modal'
 import Link from "next/link"
 import LoginModal from '../../Component/Login/EnterEmail'
 import Otp from '../../Component/Login/Otp'
+import NewPassword from "../../Component/Login/NewPassword"
 import Modal from 'antd/lib/modal/Modal'
+
 
 
 const Login = () => {
@@ -17,6 +19,14 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [otpModal, setOtpModal] = useState(false)
+    const [passwordModel, setPasswordModel] = useState(false)
+    const [otp, setOtp] = useState('')
+
+    const [successMessage, setSuccessMessage] = useState('')
+
+    const [passwordChanged, setPasswordChanged] = useState(false)
+
+
 
     const [resetModel, setResetModel] = useState(false)
     const [errorModel, setErrorModel] = useState(false)
@@ -63,12 +73,27 @@ const Login = () => {
             })
     }
     const verifyOtp = (otp) => {
-        const res = Acount.verifyOtp(email, otp, setError)
+        setOtp(otp)
+        const res = Acount.verifyOtp(email, otp, setError, setErrorModel)
         res.then(value => {
             console.log('value', value.data)
             if (value.data.success) {
-                
-                setSuccess(true)
+            setPasswordModel(true)
+            }
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
+    const confirmPassword = (Password, PasswordNew) => {
+        const res = Acount.confirmPassword(Password, otp, email, setError, setErrorModel)
+        res.then(value => {
+            console.log('value', value.data.message)
+            setSuccessMessage(value.data.message)
+            if (value.data.success) {
+            setPasswordChanged(true)
             }
 
         })
@@ -181,13 +206,26 @@ const Login = () => {
             </CustomModal>
             <Otp
                 isModalVisible={otpModal}
-                handleCancel={() => setErrorModel(false)}
                 isModalVisiblee={resetModel}
                 closable={false}
                 setResetModel={setResetModel}
                 verifyOtp={verifyOtp}
 
             />
+            <NewPassword 
+           isModalVisible={passwordModel}
+           confirmPassword={confirmPassword}
+
+            />
+            {/* confirm password */}
+              <CustomModal
+                title="Error"
+                isModalVisible={passwordChanged}
+                handleCancel={() => setErrorModel(false)}
+                closable={true}
+            >
+                <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
+            </CustomModal>
 
         </div>
     )

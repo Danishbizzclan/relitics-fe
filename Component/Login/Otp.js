@@ -24,7 +24,7 @@ const LoginModal = (props) => {
 
   return (
     <>
-      <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={() => props.setResetModel(false)}>
+      <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={props.handleCancel} closable={props.closable}>
         <div className='otpcenter'>
           <p className='fs-40 text-white text-center'>Reset Password</p>
           <p className='text-white fs-13 text-center my-5'>We've sent you a verifcation code on your registerd email. Please check your email and enter the code to reset your password</p>

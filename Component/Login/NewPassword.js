@@ -5,37 +5,42 @@ import OtpInput from 'react-otp-input';
 
 import { Modal, Button } from 'antd';
 import Otp from './Otp';
+import Password from 'antd/lib/input/Password';
 
-const NewPassword = () => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+const NewPassword = (props) => {
+  const [PasswordNew, setPasswordNew] = useState('')
+  const [Password, setPassword] = useState('')
 
- 
-const handleOk =(e)=>{
+
+  const handleOk = (e) => {
     e.preventDefault();
-    props.resetPasword(otp)
-}
+    props.confirmPassword(PasswordNew, Password)
+  }
 
-const handleChange =(e)=>{
+  const handleChange = (e) => {
     console.log(e)
     setOtp(e)
-}
- 
+  }
+
 
   return (
     <>
-      <Modal visible={isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={()=>props.isModalVisible(false)}>
-          
-      <p className='text-white fs-21'>Enter New Password</p>
-      <input  class="form-control w-100"  />
-      <p className='text-white fs-21 mt-3'>Confirm New Password</p>
-      <input  class="form-control w-100"  />
-      <div class="d-grid gap-2">
-  <button class="btn btn-primary mt-5 py-4" type="button">Verify</button>
+      <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={() => props.isModalVisible(false)}>
+        <form onSubmit={handleOk}>
+          <p className='text-white fs-21'>Enter New Password</p>
+          <input value={Password} onChange={(e) => setPassword(e.target.value)} class="form-control w-100" />
+          <p className='text-white fs-21 mt-3'>Confirm New Password</p>
+          <input onChange={(e) => setPasswordNew(e.target.value)} value={PasswordNew} class="form-control w-100" />
+          {Password && PasswordNew ?
+            Password === PasswordNew ? <p className='text-white'>Password Matched</p> : <p className='text-danger'>Password does not Match</p> : null}
+          {/* <p>{Password == PasswordNew ? "passwordmatch" : "password does not match"}</p> */}
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary mt-5 py-4"
+              disabled={!(Password && PasswordNew && Password === PasswordNew)}
+              type="submit">Verify</button>
+          </div>
+        </form>
 
-
-
-      </div>
-      
 
 
       </Modal>

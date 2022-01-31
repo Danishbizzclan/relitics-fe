@@ -18,7 +18,7 @@ const handleChange =(e)=>{
 
   return (
     <>
-      <Modal visible={props.isModalVisible} onOk={handleOk} onCancel={()=>props.setResetModel(false)}>
+      <Modal visible={props.isModalVisible} onOk={handleOk} onCancel={props.handleCancel} closable={props.closable}>
        <p className='fs-25'>Enter your Email to get verifcation code</p>
        <form onSubmit={handleOk} >
        <input type="email" class="form-control" value={email} onChange={handleChange}/>
