@@ -378,6 +378,10 @@ textarea {
 .btn-w {
   width: 12rem;
 }
+.catagory:hover{
+  cursor: pointer;
+  color: #0F74AF;
+}
 
 .btnYelow:hover {
   transform: scale(1.05);

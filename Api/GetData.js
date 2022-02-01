@@ -39,5 +39,16 @@ AllPackeges = () => {
     };
     return res();
   };
+  BlogCatagory = () => {
+    const res = async () => {
+      const resp = await axios
+        .get('/category')
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();

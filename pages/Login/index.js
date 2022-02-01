@@ -148,8 +148,8 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-                                                    <a className='blueColor' type="primary" onClick={() => setResetModel(true)}>
-                                                        Reaset Now
+                                                    <a className='blueColor ms-2' type="primary" onClick={() => setResetModel(true)}>
+                                                        Reset Now
                                                     </a></p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                             </div>

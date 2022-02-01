@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import blogData from './Data/BlogData';
 import classes from "./Footer.module.css"
+import GetData from '../Api/GetData';
 
 import { FaFacebook, FaPinterest, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
-import { useState } from 'react'
 function Foter() {
     const [email, setEmail] = useState('');
-    const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
-    console.log(uniqueCategories)
+    const [data, setData] = useState([]);
+
+    // const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
+    // console.log(uniqueCategories)
+    useEffect(() => {
+        const response = GetData.BlogCatagory();
+        console.log(response)
+        response.then(value => {
+            console.log('dfgh',value.data.categories)
+          setData(value?.data?.categories)
+        })
+      }, [])
     return (
         <div>
             <hr className="mt-5" />
@@ -19,11 +29,13 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
-                                {uniqueCategories.map((x) => {
+                                {data.map((x) => {
+                                    console.log(x)
                                     return (
                                         <>
-                                            <Link href={`/BlogCategory/${x}`}>
-                                                <a className={classes.footerp}><p>{x}</p></a>
+
+                                            <Link href={`/BlogCategory/${x.name}`}>
+                                            <p className='fs-17 catagory'>{x.name}</p>
                                             </Link>
                                         </>
                                     )
