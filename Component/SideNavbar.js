@@ -94,13 +94,17 @@ const Sidebar = () => {
                   </Link>
                 </div>
               </div>
-              <MenuItem icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
+              <Link href="/Resources" className="dropdown-item">
+                <MenuItem className={router.pathname == "/Resources" ? "active" : null} icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
+              </Link>
               <Link href="/MyFavourites" >
                 <MenuItem icon={<FaRegHeart />} className={router.pathname == "/MyFavourites" ? "active" : null}>
                   Favourite</MenuItem>
               </Link>
-              <MenuItem icon={<img src={'/Icon material-note.png'} />}>Notes</MenuItem>
-              {/* <MenuItem icon={<BiCog />}>Settings</MenuItem> */}
+              <Link href="/Notes" >
+                <MenuItem icon={<img src={'/Icon material-note.png'} />} className={router.pathname == "/Notes" ? "active" : null}>
+                  Notes</MenuItem>
+              </Link>
             </Menu>
           </SidebarContent>
           <SidebarFooter>

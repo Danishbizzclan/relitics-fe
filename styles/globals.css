@@ -185,6 +185,10 @@ textarea {
   overflow     : hidden;
 }
 
+.bottom_radius{
+  border-radius: 0 0 2rem 2rem;
+}
+
 .form-bg {
   background-color: #FAFAFA !important;
   border          : none !important;
@@ -348,6 +352,13 @@ textarea {
 .btnYelow {
   background-color: #FFDA5F !important;
   color           : #041E31 !important;
+}
+
+.btn-Yelow {
+  background-color: #FFDA5F !important;
+  color           : black !important;
+  font-size       : 1.2rem !important;
+  font-weight     : bold !important;
 }
 
 .txt-yellow {
@@ -644,6 +655,18 @@ textarea {
   color: #022945 !important;
 }
 
+.bg_theme {
+  background-color: #022945;
+}
+
+.bg-lightBlue{
+  background-color: #0F74AF !important;
+}
+
+.border-L_white{
+  border-right: solid .2rem white;
+}
+
 .navbar-light .navbar-toggler {
   border: none;
 }
@@ -808,17 +831,21 @@ html {
   font-size    : 1.4rem;
   font-weight  : bold;
 }
+
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
 }
-.otpcenter div{
+
+.otpcenter div {
   justify-content: center !important;
 }
-.otp-size{
+
+.otp-size {
   width: 6rem;
 }
-.otpcenter input{
-  width: 4rem !important;
-  height: 4rem;
+
+.otpcenter input {
+  width        : 4rem !important;
+  height       : 4rem;
   border-radius: 5px;
 }
