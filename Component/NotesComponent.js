@@ -4,7 +4,7 @@ export default function NotesComponent(props) {
     return (
         <>
             <div className='col-lg-3 col-md-4 col-6'>
-                <div className='bg-dash brdr d-flex flex-column h-100'>
+                <div className='bg-dash brdr d-flex flex-column h-100 overflow-hidden'>
                     <div className='d-inline-flex w-100 mt-2 p-3' style={{ flex: "1 1 auto" }}>
                         <p className='fs-18 Bold greyBlack w-75'>{props.title}</p>
                         <img src='./deleteIcon.svg' className='mb-auto ms-auto' />
