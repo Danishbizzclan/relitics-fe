@@ -8,8 +8,8 @@ export default function SecondNav() {
     return (
         <div className=' bg-lightBlue'>
             <ul className="nav container">
-                <Link href="/Market" className="dropdown-item">
-                    <button className={`btn fs-15 text-white nav-link py-3 px-5 border-L_white ${router.pathname == "/Market" ? "active" : null}`} href="#">Market</button>
+                <Link href="/MarketStats" className="dropdown-item">
+                    <button className={`btn fs-15 text-white nav-link py-3 px-5 border-L_white ${router.pathname == "/MarketStats" ? "active" : null}`} href="#">Market</button>
                 </Link>
                 <Link href="/Economic" className="dropdown-item">
                     <button className={`btn fs-15 text-white nav-link py-3 px-5 border-L_white ${router.pathname == "/Economic" ? "active" : null}`} href="#">Economic</button>
