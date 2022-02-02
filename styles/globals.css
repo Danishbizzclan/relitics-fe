@@ -185,7 +185,7 @@ textarea {
   overflow     : hidden;
 }
 
-.bottom_radius{
+.bottom_radius {
   border-radius: 0 0 2rem 2rem;
 }
 
@@ -237,6 +237,10 @@ textarea {
 
 .brdr_2 {
   border-radius: 5.0rem;
+}
+
+.no_brdr {
+  border: none;
 }
 
 .fs-17 {
@@ -366,7 +370,7 @@ textarea {
 }
 
 .btn_width {
-  padding      : 2rem;
+  padding      : 1.7rem 2rem;
   width        : 17rem;
   border-radius: 1rem !important;
 }
@@ -659,11 +663,11 @@ textarea {
   background-color: #022945;
 }
 
-.bg-lightBlue{
+.bg-lightBlue {
   background-color: #0F74AF !important;
 }
 
-.border-L_white{
+.border-L_white {
   border-right: solid .2rem white;
 }
 
@@ -690,6 +694,11 @@ textarea {
 
 .bg-dash {
   background-color: #F8FCFF;
+  border          : .2rem solid #E8F2FF;
+}
+
+.bg-notes {
+  background-color: #E8F2FF;
   border          : .2rem solid #E8F2FF;
 }
 

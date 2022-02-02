@@ -2,12 +2,12 @@ const NotesData = [
     {
         key: '1',
         title: "this is heading of the note",
-        details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
+        details: "lorem Ipsum is simply dummy text of the printing and typesetting",
     },
     {
         key: '2',
         title: "this is heading of the note",
-        details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
+        details: "lorem Ipsum is simply dummy text of the printing and typesetting",
     },
     // {
     //     key: '3',

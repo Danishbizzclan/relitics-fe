@@ -42,7 +42,8 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                 <form onSubmit={Continue} className='p-5'>
                                     <div className="row px-5">
                                         <div className=''>
-                                            <Avatarr />
+                                            <Avatarr 
+                                            value={<button className='btn UploadBtn px-5 py-2 txt-grey fs-15 text-nowrap'>upload Photo</button>}/>
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input
@@ -88,8 +89,6 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                                 type="email"
                                                 // variant="outlined"
                                                 required
-
-                                                type="email"
                                             />
                                         </div>
                                     </div>
@@ -116,8 +115,6 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                                 type="text"
                                                 // variant="outlined"
                                                 required
-
-                                                type="input"
                                             />
                                         </div>
                                     </div>

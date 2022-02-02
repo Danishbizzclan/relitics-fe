@@ -68,9 +68,11 @@ const Sidebar = () => {
             <div className="text-center my-5">
               <img src={'/profileAvatar.png'} className="imgw" />
             </div>
-            <div className="disp-none text-center mt-5">
-              <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
-            </div>
+            <Link href="/EditProfile">
+              <div className="disp-none text-center mt-5">
+                <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
+              </div>
+            </Link>
             <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>
             {/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
           </SidebarHeader>
@@ -101,9 +103,9 @@ const Sidebar = () => {
                 <MenuItem icon={<FaRegHeart />} className={router.pathname == "/MyFavourites" ? "active" : null}>
                   Favourite</MenuItem>
               </Link>
-              <Link href="/Notes" >
-                <MenuItem icon={<img src={'/Icon material-note.png'} />} className={router.pathname == "/Notes" ? "active" : null}>
-                  Notes</MenuItem>
+              <Link href="/MyNotes" >
+                <MenuItem icon={<img src={'/Icon material-note.png'} />} className={router.pathname == "/MyNotes" ? "active" : null}>
+                  My Notes</MenuItem>
               </Link>
             </Menu>
           </SidebarContent>

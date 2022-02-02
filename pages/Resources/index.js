@@ -88,7 +88,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.LoadMore('booksvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         load More
                                     </button>
                                 </div>
@@ -97,7 +97,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.ShowLess('booksvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         Show Less
                                     </button>
                                 </div>
@@ -113,7 +113,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.LoadMore('podcastsvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         load More
                                     </button>
                                 </div>
@@ -122,7 +122,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.ShowLess('podcastsvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         Show Less
                                     </button>
                                 </div>
@@ -138,7 +138,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.LoadMore('documenrtsvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         load More
                                     </button>
                                 </div>
@@ -147,7 +147,7 @@ class index extends React.Component {
                                     className="col-12 text-center mb-5"
                                     onClick={() => this.ShowLess('documenrtsvisible')}
                                 >
-                                    <button className="btn" style={{ cursor: "pointer" }}>
+                                    <button className="bg_theme brdr text-white no_brdr" style={{ cursor: "pointer" }}>
                                         Show Less
                                     </button>
                                 </div>
