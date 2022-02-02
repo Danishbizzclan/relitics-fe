@@ -12,11 +12,12 @@ import PersonalInfo from '../../Component/PersonalInfo'
 export default class Signup extends Component {
 
   state = {
-    step: 1,
+    step: 2,
     email: '',
     state: '',
     username: '', 
     password: '',
+    price: "",
     firstName: '',
     familyName: '',
     DOB:'',
@@ -41,9 +42,13 @@ export default class Signup extends Component {
     this.setState({ [input]: e.target.value });
   }
 
+  handleDirectChange=(name, value)=>{
+    this.setState({ [name]: value });
+  }
+
   render() {
-    const { step, email, cardName, cvv, year, username, password, firstName, cardNumber, lastName, familyName, state, country, levelOfEducation } = this.state;
-    const values = { step, email, cvv, year, cardName, username, familyName, cardNumber, state, password, firstName,  lastName, country, levelOfEducation }
+    const { step, email, cardName, cvv, price, year, username, password, firstName, cardNumber, lastName, familyName, state, country, levelOfEducation } = this.state;
+    const values = { step, email, cvv, price, year, cardName, username, familyName, cardNumber, state, password, firstName,  lastName, country, levelOfEducation }
     
     switch(values.step) {
       case 1: 
@@ -65,6 +70,7 @@ export default class Signup extends Component {
             prevStep={ this.prevStep }
             nextStep={ this.nextStep }
             handleChange={ this.handleChange }
+            handleDirectChange={this.handleDirectChange}
             values={ values }
           />
           </>

@@ -1,18 +1,33 @@
-import React from 'react'
 import Link from "next/link"
 import blogData from './Data/BlogData'
+import GetData from '../Api/GetData'
+import React, { useEffect, useState } from 'react'
+
 
 function Categories() {
+    const [data, setData] = useState([]);
+
     
-    const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
+  useEffect(() => {
+    const response = GetData.BlogComponent();
+    console.log(response)
+    response.then(value => {
+        console.log(value)
+      setData(value.data.articles);
+      console.log(value.data.articles)
+   })
+  }, [])
+    
+    // const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
     return (
         <div>
-            {uniqueCategories.map((x) => {
+            {data.map((x) => {
+                console.log(x)
                 return (
                     <>
-                        <Link href={`/BlogCategory/${x}`}>
-                            <p className='Gothic_3D Bolder fs-17 pointer-cursor'>{x}</p>
-                        </Link>
+                       <Link href={`/BlogCategory/${x.name}`}>
+                                            <p className='fs-17 catagory'>{x.title}</p>
+                                            </Link>
                     </>
                 )
             })}

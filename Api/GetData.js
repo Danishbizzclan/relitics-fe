@@ -50,5 +50,16 @@ AllPackeges = () => {
     };
     return res();
   };
+  GetMerchantId = () => {
+    const res = async () => {
+      const resp = await axios
+        .get('/config/paypal')
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();
