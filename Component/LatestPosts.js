@@ -1,20 +1,33 @@
-import React from 'react'
 import Link from "next/link"
 import classes from "./BlogDetail.module.css"
 import blogData from './Data/BlogData';
+import GetData from '../Api/GetData'
+import React, { useEffect, useState } from 'react'
 
 
 const LatestPosts = () => {
+    const [data, setData] = useState([]);
+
+        
+  useEffect(() => {
+    const response = GetData.BlogComponent();
+    console.log(response)
+    response.then(value => {
+        console.log(value)
+      setData(value.data.articles);
+      console.log(value.data.articles)
+   })
+  }, [])
 
     return (
         <div>
-            {blogData.slice(0, 4).map(posts => {
+            {data.slice(0, 4).map(posts => {
                 const date = new Date(posts.date)
                 const month = date.toLocaleDateString("en-US", { month: "short" });
                 const day = date.toLocaleDateString("en-US", { day: "numeric" });
                 // var lastPosts = blogData.slice(1, 3)
                 return (
-                    <Link href={`/Blog/${posts.id}`}>
+                    <Link href={`/Blog/${posts._id}`}>
                         < div className='d-flex my-3 pointer-cursor' >
                             <div className={classes.date}>
                                 <div className={classes.dateDay}>{day}</div>

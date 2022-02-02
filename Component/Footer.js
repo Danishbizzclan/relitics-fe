@@ -30,7 +30,7 @@ function Foter() {
                             <div className="col-md-3">
                                 <p className={classes.fontbold}>Categories</p>
                                 {data.map((x) => {
-                                    console.log(x)
+                                    // console.log(x)
                                     return (
                                         <>
 

@@ -35,7 +35,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   }
 
   const Success = e => {
-    alert(e)
+    // alert(e)
     const res = Acount.Registeration(values, e, handleErrors)
     res.then(value => {
       setSuccess(value.data.message)
