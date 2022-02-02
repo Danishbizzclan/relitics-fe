@@ -61,15 +61,17 @@ const Sidebar = () => {
                 <img src="./collapseIcon.svg" style={{ width: '2.5rem' }} />
               )}
             </div>
-            <div className="logotext text-center" style={{ width: "inherit" }}>
-              <img className="my-5 disp-none" src={'/Image 1.png'} onClick={menuIconClick} />
-              <img className="my-5 d-none display_block imgw" src={'/LogoOnly.png'} onClick={menuIconClick} />
-            </div>
-            <div className="text-center my-5">
+            <Link href="/Dashboard" >
+              <div className={`logotext text-center ${router.pathname == "/Dashboard" ? "active" : null}`} style={{ width: "inherit" }}>
+                <img className="my-2 disp-none" src={'/Image 1.png'} />
+                <img className="my-2 d-none display_block imgw" src={'/LogoOnly.png'} />
+              </div>
+            </Link>
+            <div className="text-center my-3">
               <img src={'/profileAvatar.png'} className="imgw" />
             </div>
             <Link href="/EditProfile">
-              <div className="disp-none text-center mt-5">
+              <div className="disp-none text-center mt-3">
                 <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
               </div>
             </Link>

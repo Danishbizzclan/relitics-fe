@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import './index.css';
 import { Table, Button, Space, Select } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
-import { imageConfigDefault } from 'next/dist/server/image-config';
 import ApreciationData from '../../Component/Data/ApericiationData';
 
 class Aprecation extends React.Component {

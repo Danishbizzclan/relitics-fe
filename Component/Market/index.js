@@ -1,4 +1,7 @@
 import React from 'react';
+import ApreciationTableComponent from '../ApreciationTableComponent'
+import RentalTableComponent from '../RentalTableComponent'
+import MedianGraph from './MedianGraph';
 
 export default function index() {
     const stateSort = (event) => [
@@ -11,6 +14,7 @@ export default function index() {
             order: 'descend',
             columnKey: 'age',
         }]
+
     return (
         <div>
             <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
@@ -35,6 +39,17 @@ export default function index() {
                     <button className='btn bluebtn px-4 fs-14 m-1'>Print <img src='./print.svg' className='ms-2 my-auto' /></button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src='./Download_Icon1.svg' className='ms-2 my-auto' /></button>
                 </div>
+            </div>
+            <div className='d-lg-inline-flex'>
+                <div className='p-3 mx-2 paginetion_none'>
+                    <ApreciationTableComponent />
+                </div>
+                <div className='p-3 mx-2 paginetion_none'>
+                    <ApreciationTableComponent />
+                </div>
+            </div>
+            <div className=''>
+                <MedianGraph />
             </div>
         </div>
     );

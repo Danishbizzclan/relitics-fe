@@ -14,7 +14,7 @@ export default function index() {
                 <div style={{ width: "inherit" }}>
                     <Dashnav />
                     <SecondNavbar />
-                    <div className='container mx-auto py-3'>
+                    <div className='container mx-auto p-4'>
                         <Market />
                     </div>
                 </div>
