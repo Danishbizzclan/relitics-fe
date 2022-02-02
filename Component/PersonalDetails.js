@@ -14,7 +14,7 @@ import { Spin } from 'antd';
 import { each } from 'jquery';
 
 
-const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
+const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange, values, props }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
@@ -24,8 +24,11 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
   const [succesModel, setSuccesModel] = useState(false)
 
 
-  const Continue = e => {
-    e.preventDefault();
+  const Continue = (id, price) => {
+    // e.preventDefault();
+    handleDirectChange('price', price)
+    handleDirectChange('pkgId', id)
+    // props.SelectPrice(data)
     nextStep();
   }
 
@@ -101,6 +104,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, values }) => {
                     {data.map(x => {
                       return (
                         <div className='col-sm-4'>
+                          {console.log(x.price)};
                           <Price
                             Continue={x.price === 0 ? Success : Continue}
                             Price={x.name}
