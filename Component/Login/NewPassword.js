@@ -25,7 +25,7 @@ const NewPassword = (props) => {
 
   return (
     <>
-      <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={() => props.isModalVisible(false)}>
+      <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={() => props.setPasswordModel(false)}>
         <form onSubmit={handleOk}>
           <p className='text-white fs-21'>Enter New Password</p>
           <input value={Password} onChange={(e) => setPassword(e.target.value)} class="form-control w-100" />

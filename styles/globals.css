@@ -871,3 +871,6 @@ html {
   height       : 4rem;
   border-radius: 5px;
 }
+.email-buuton{
+  background-color: #ffda5f !important;
+}
