@@ -104,6 +104,7 @@ const Login = () => {
             })
 
     }
+ 
 
     // console
     // const accessToken = localStorage.getItem("user");
@@ -210,6 +211,8 @@ const Login = () => {
             </CustomModal>
             <CustomModal
                 title="Error"
+                setErrorModel={setErrorModel}
+
                 isModalVisible={errorModel}
                 handleCancel={() => setErrorModel(false)}
                 closable={true}

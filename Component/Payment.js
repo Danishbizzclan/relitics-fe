@@ -196,6 +196,7 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
 
                                 console.log('Sign Up res', value)
                                 if (value.data.success) {
+                                    alert('1')
                                     setSuccesModel(true)
                                 }
                                 else {

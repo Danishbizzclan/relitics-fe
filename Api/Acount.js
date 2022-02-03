@@ -102,7 +102,7 @@ class Acount {
 
         .catch(function (error) {
           console.log(error.response.data.message);
-          alert(1)
+          // alert(1)
           setError(error.response.data.message);
           errorModal(true)
         });
