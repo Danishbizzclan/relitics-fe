@@ -152,6 +152,19 @@ textarea {
   cursor: pointer;
 }
 
+.paginetion_none .ant-table-pagination.ant-pagination{
+  display: none;
+}
+.paginetion_none .ant-table-tbody > tr > td{
+  background-color: #F4F7F9;
+}
+.paginetion_none td.ant-table-cell.ant-table-cell-fix-left.ant-table-cell-fix-left-last{
+  border-right: 0.2rem #0F74AF solid;
+}
+.paginetion_none .ant-table-small .ant-table-thead > tr > th{
+  background-color: white;
+}
+
 .social {
   height: 5.2rem !important;
 }

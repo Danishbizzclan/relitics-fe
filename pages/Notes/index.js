@@ -14,26 +14,24 @@ export default function index() {
                 <div style={{ width: "inherit" }}>
                     <Dashnav />
                     <SecondNavbar />
-                    <div className='container mx-auto py-3'>
+                    <div className='container mx-auto p-4'>
                         <p className='fs-40 Gothic_3D my-3'>My Notes FOR City, state</p>
-                        <div className='p-4'>
-                            <div className='row'>
-                                <div className='col-lg-3 col-md-4 col-6'>
-                                    <div className='bg-notes brdr d-flex flex-column h-100'>
-                                        <Link href="/EditNotes">
-                                            <div className='text-center my-auto'>
-                                                <img src='./addNotes_Icon.svg' />
-                                                <p className='fs-18 Bold mt-3'>Add Note</p>
-                                            </div>
-                                        </Link>
+                        <div className='row'>
+                            <div className='col-lg-3 col-md-4 col-6'>
+                                <Link href="/EditNotes">
+                                    <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
+                                        <div className='text-center my-auto'>
+                                            <img src='./addNotes_Icon.svg' />
+                                            <p className='fs-18 Bold mt-3'>Add Note</p>
+                                        </div>
                                     </div>
-                                </div>
-                                {NotesData.map((notes) =>
-                                    <NotesComponent
-                                        title={notes.title}
-                                        details={notes.details} />
-                                )}
+                                </Link>
                             </div>
+                            {NotesData.map((notes) =>
+                                <NotesComponent
+                                    title={notes.title}
+                                    details={notes.details} />
+                            )}
                         </div>
                     </div>
                 </div>

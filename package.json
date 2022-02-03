@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/plots": "^1.0.8",
     "@material-ui/core": "^4.12.3",
     "@mui/material": "^5.2.6",
     "antd": "^4.17.2",
