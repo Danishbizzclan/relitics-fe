@@ -104,7 +104,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
                     {data.map(x => {
                       return (
                         <div className='col-sm-4'>
-                          {console.log(x.price)};
+                          {console.log(x.price)}
                           <Price
                             Continue={x.price === 0 ? Success : Continue}
                             Price={x.name}

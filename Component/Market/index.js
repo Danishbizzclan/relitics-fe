@@ -1,7 +1,7 @@
 import React from 'react';
 import ApreciationTableComponent from '../ApreciationTableComponent'
 import RentalTableComponent from '../RentalTableComponent'
-import MedianGraph from './MedianGraph';
+import MedianGraph from './MarketPageGraph';
 
 export default function index() {
     const stateSort = (event) => [
@@ -45,12 +45,16 @@ export default function index() {
                     <ApreciationTableComponent />
                 </div>
                 <div className='p-3 mx-2 paginetion_none'>
-                    <ApreciationTableComponent />
+                    <RentalTableComponent />
                 </div>
             </div>
             <div className=''>
                 <MedianGraph />
             </div>
+            <footer className='text-center mt-5'>
+                <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                </footer>
         </div>
     );
 }

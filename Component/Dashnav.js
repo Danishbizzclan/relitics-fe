@@ -20,7 +20,7 @@ function Dashnav() {
                     <Link href="/" ><div className={`nav-link fs-15  ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/" ? "active" : null}`}>
                       Home</div>
                     </Link>
-                    <Link href="/BecomeProfessional" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
+                    <Link href="/Pricing" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
                       Pricing</div></Link>
                     <Link href="/About" ><div className={`nav-link  fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/About" ? "active" : null}`}>
                       About us</div></Link>

@@ -1,23 +1,20 @@
-import React, { activeClassName, useState } from 'react'
+import React, { useState } from 'react'
 import Link from "next/link"
 import { useRouter } from "next/router"
+
+import 'react-pro-sidebar/dist/css/styles.css';
 import MaterialDesignSwitchh from "./Togle1";
 import Membership from "./Data/MembershipData";
 import $ from 'jquery';
-
-
-
-//import react pro sidebar components
 import {
   ProSidebar,
   Menu,
+  SubMenu,
   MenuItem,
   SidebarHeader,
   SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
-
-//import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
@@ -80,24 +77,17 @@ const Sidebar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <div className='dropdown' onClick={toggleOpen}>
-                <Link href="/Dashboard" >
-                  <MenuItem className={`${router.pathname == "/Dashboard" ? "active" : null}`} type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" icon={<img src={'/Icon material-dashboard.png'} />}>
-                    Dashboared overview
-                  </MenuItem>
+              <SubMenu title="Dashboared overview" icon={<img src={'/Icon material-dashboard.png'} />}>
+                <Link href="/Appreciation" className="dropdown-item">
+                  <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
                 </Link>
-                <div className={`ms-4 dropdown-menu`} aria-labelledby="dropdownMenuButton">
-                  <Link href="/Appreciation" className="dropdown-item">
-                    <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
-                  </Link>
-                  <Link href="/RentalGrowth" className="dropdown-item">
-                    <MenuItem className={router.pathname == "/RentalGrowth" ? "active" : null} icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
-                  </Link>
-                  <Link href="/DetailStats" className="dropdown-item">
-                    <MenuItem className={router.pathname == "/DetailStats" ? "active" : null} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
-                  </Link>
-                </div>
-              </div>
+                <Link href="/RentalGrowth" className="dropdown-item">
+                  <MenuItem className={router.pathname == "/RentalGrowth" ? "active" : null} icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
+                </Link>
+                <Link href="/MarketStats" className="dropdown-item">
+                  <MenuItem className={router.pathname == ['/MarketStats' || '/Notes' || '/Economic' || '/DemoGraphic'] ? "active" : null} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
+                </Link>
+              </SubMenu>
               <Link href="/Resources" className="dropdown-item">
                 <MenuItem className={router.pathname == "/Resources" ? "active" : null} icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
               </Link>
@@ -117,7 +107,6 @@ const Sidebar = () => {
             </Menu>
           </SidebarFooter>
         </ProSidebar>
-
       </div>
     </>
   )
