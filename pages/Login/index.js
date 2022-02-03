@@ -9,6 +9,9 @@ import LoginModal from '../../Component/Login/EnterEmail'
 import Otp from '../../Component/Login/Otp'
 import NewPassword from "../../Component/Login/NewPassword"
 import Modal from 'antd/lib/modal/Modal'
+import { useRouter } from "next/router";
+import withAuth from '../../Component/unAuth'
+
 
 
 
@@ -55,7 +58,6 @@ const Login = () => {
             })
 
     }
-
     const resetPasword = (email) => {
         // nextStep();
         setEmail(email)
@@ -102,6 +104,17 @@ const Login = () => {
             })
 
     }
+ 
+
+    // console
+    // const accessToken = localStorage.getItem("user");
+
+    // // If there is no access token we redirect to "/" page.
+    // if (accessToken) {
+    //   Router.replace("/Dashboard");
+    //   return null;
+    // }
+
 
     return (
         <div>
@@ -198,6 +211,8 @@ const Login = () => {
             </CustomModal>
             <CustomModal
                 title="Error"
+                setErrorModel={setErrorModel}
+
                 isModalVisible={errorModel}
                 handleCancel={() => setErrorModel(false)}
                 closable={true}
@@ -214,13 +229,14 @@ const Login = () => {
             />
             <NewPassword 
            isModalVisible={passwordModel}
+           setPasswordModel={setPasswordModel}
            confirmPassword={confirmPassword}
-
-            />
+           />
             {/* confirm password */}
               <CustomModal
                 title="Error"
                 isModalVisible={passwordChanged}
+                setPasswordChanged={setPasswordChanged}
                 handleCancel={() => setErrorModel(false)}
                 closable={true}
             >
@@ -231,4 +247,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withAuth(Login)

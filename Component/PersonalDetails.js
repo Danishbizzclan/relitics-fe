@@ -108,6 +108,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
                           <Price
                             Continue={x.price === 0 ? Success : Continue}
                             Price={x.name}
+                            Packages={x.packageType}
                             Amount={x.price}
                             Tags={x.options} 
                             id={x._id}/>

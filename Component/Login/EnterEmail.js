@@ -18,12 +18,12 @@ const handleChange =(e)=>{
 
   return (
     <>
-      <Modal visible={props.isModalVisible} onOk={handleOk} onCancel={props.handleCancel} closable={props.closable}>
-       <p className='fs-25'>Enter your Email to get verifcation code</p>
+      <Modal visible={props.isModalVisible} onOk={handleOk} className='modal-bg' onCancel={props.handleCancel} footer={false} closable={props.closable}>
+       <p className='fs-25 text-white'>Enter your Email to get verifcation code</p>
        <form onSubmit={handleOk} >
        <input type="email" class="form-control" value={email} onChange={handleChange}/>
        <div className='text-center mt-3'>
-       <button className='btn p-3 fs-22 btn-info' type='submit'>Send</button>
+       <button className='btn p-3 px-5 fs-22 btn-info email-buuton' type='submit'>Send</button>
        </div>
        </form>
 

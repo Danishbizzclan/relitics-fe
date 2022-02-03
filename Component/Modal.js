@@ -6,16 +6,11 @@ import { Modal, Button } from 'antd';
 const CustomModal = (props) => {
   return (
     <>
-        <Modal visible={props.isModalVisible} className='modal-bg' onOk={props.handleOk} footer={false} onCancel={props.handleCancel} closable={props.closable}>
+        <Modal visible={props.isModalVisible} className='modal-bg' onOk={props.handleOk} footer={false} onCancel={() => props.setErrorModel(false)} closable={props.closable}>
 
           {props.children}
 
-
         </Modal>
-      
-
-
-
     </>
   );
 };
