@@ -12,12 +12,13 @@ import PersonalInfo from '../../Component/PersonalInfo'
 export default class Signup extends Component {
 
   state = {
-    step: 2,
+    step: 1,
     email: '',
     state: '',
     username: '', 
     password: '',
-    price: "",
+    price:"",
+    pkgId: "",
     firstName: '',
     familyName: '',
     DOB:'',
@@ -47,9 +48,10 @@ export default class Signup extends Component {
   }
 
   render() {
-    const { step, email, cardName, cvv, price, year, username, password, firstName, cardNumber, lastName, familyName, state, country, levelOfEducation } = this.state;
-    const values = { step, email, cvv, price, year, cardName, username, familyName, cardNumber, state, password, firstName,  lastName, country, levelOfEducation }
+    const { step, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country } = this.state;
+    const values = { step, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country }
     
+    console.log({values})
     switch(values.step) {
       case 1: 
         return (

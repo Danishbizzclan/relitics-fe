@@ -7,7 +7,7 @@ class Acount {
   }
 
   Registeration = (data, id, settingErrors) => {
-
+alert('1')
     const res = async () => {
       const resp = await axios
         .post("/users", {
@@ -19,12 +19,14 @@ class Acount {
           dob: data.dob,
           phone: data.phone,
           image: data.image,
-          packageID: id,
+          packageID: data.pkgId,
           email: data.email,
           password: data.password
         })
 
         .catch(function (error) {
+          console.log(error.response)
+          alert('2')
           settingErrors(error.response.data.message);
         });
       return resp;

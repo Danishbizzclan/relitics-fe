@@ -152,12 +152,17 @@ import GetData from "../Api/GetData";
 import Link from "next/link"
 import Acount from "../Api/Acount";
 import CustomModal from "./Modal";
+import axios from "axios";
 
 
 const Payment = ({ prevStep, nextStep, handleChange, values }) => {
     const [clientId, setClientId] = useState('')
     const [succesModel, setSuccesModel] = useState(false)
     const [success, setSuccess] = useState('')
+    const [errorModal, setErrorModal] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
+
+
 
 
 
@@ -173,9 +178,57 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
         })
     }, [])
 
+    useEffect(() => {
+      if(values.price == 0){
+          SignUp()
+      }
+    }, [values.price]);
+    
+
+    const SignUp = () => {
+// alert('1')
+        // const res = Acount.Registeration(values, handleErrors)
+        // res
+        axios
+        .post("/users", {
+          firstName: values.firstName,
+          lastName: values.familyName,
+          username: values.username,
+          city: values.city,
+          state: values.state,
+          dob: values.dob,
+          phone: values.phone,
+          image: values.image,
+          packageID: '61e516f81a5bd094548e998e',
+          email: values.email,
+          password: values.password
+        }).then(value => {
+            setSuccess(value.data.message)
+            localStorage.setItem('user', JSON.stringify(value.data.user))
+            localStorage.setItem('token', JSON.stringify(value.data.token))
+
+            console.log('Sign Up res', value)
+            // if (value.data.success) {
+                setSuccesModel(true)
+            // }
+            // else {
+            //     alert('4')
+            //     setErrorModel(true)
+            // }
+
+        })
+            .catch(error => {
+                alert('5')
+                console.log('error', error.response)
+                setErrorModal(true)
+                setErrorMessage(error.response.data.message)
+
+
+            })
+    }
+
     return (
         <>
-            {/* {console.log(data)} */}
             {clientId ?
                 <div className="App">
                     <PayPalButton
@@ -187,28 +240,8 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
                         onSuccess={(details, data) => {
                             console.log("Details---------->", details);
                             console.log("Data------------->", data);
-
-                            const res = Acount.Registeration(values, values.pkgId, handleErrors)
-                            res.then(value => {
-                                setSuccess(value.data.message)
-                                localStorage.setItem('user', JSON.stringify(value.data.user))
-                                localStorage.setItem('token', JSON.stringify(value.data.token))
-
-                                console.log('Sign Up res', value)
-                                if (value.data.success) {
-                                    alert('1')
-                                    setSuccesModel(true)
-                                }
-                                else {
-                                    setErrorModel(true)
-                                }
-
-                            })
-                                .catch(error => {
-                                    console.log('error', error)
-
-                                })
-                          }
+                            SignUp()
+                        }
                         }
 
 
@@ -226,6 +259,14 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
                                     <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
                             </div>
                         </div>
+                    </CustomModal>
+                    <CustomModal
+                        title="Succefull"
+                        isModalVisible={errorModal}
+                        handleOk={nextStep}
+                        closable={false}
+                    >
+                        {errorMessage}
                     </CustomModal>
                 </div> : <p>Loading....</p>}</>
     );
