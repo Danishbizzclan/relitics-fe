@@ -37,29 +37,6 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
     setErrorModel(true)
   }
 
-  const Success = e => {
-    // alert(e)
-    const res = Acount.Registeration(values, e, handleErrors)
-    res.then(value => {
-      setSuccess(value.data.message)
-      localStorage.setItem('user', JSON.stringify(value.data.user))
-      localStorage.setItem('token', JSON.stringify(value.data.token))
-
-      console.log('Sign Up res', value)
-      if (value.data.success) {
-        setSuccesModel(true)
-      }
-      else {
-        setErrorModel(true)
-      }
-
-    })
-      .catch(error => {
-        console.log('error', error)
-
-      })
-  }
-
   const Previous = e => {
     e.preventDefault();
     prevStep();
@@ -106,7 +83,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
                         <div className='col-sm-4'>
                           {console.log(x.price)}
                           <Price
-                            Continue={x.price === 0 ? Success : Continue}
+                            Continue={Continue}
                             Price={x.name}
                             Packages={x.packageType}
                             Amount={x.price}
