@@ -24,7 +24,7 @@ function Navbar() {
                     <Link href="/" ><div className={`nav-link nav-set navbar-text text-white fs-15  ${classes.NavBtnPadding} ${router.pathname == "/" ? "active" : null}`}>
                       Home</div>
                     </Link>
-                    <Link href="/Pricing" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
+                    <Link href="#Prices" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding}`}>
                       Pricing</div></Link>
                     <Link href="/About" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/About" ? "active" : null}`}>
                       About us</div></Link>
