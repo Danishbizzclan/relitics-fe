@@ -3,7 +3,9 @@ import React from 'react';
 export default function BooksComponent(props) {
   return <div className='brdr-2 bg-white col-lg-2 col-md-4 col-6 hover d-flex flex-column h-100'>
     <div style={{ flex: "1 1 auto" }}>
-      <img src={props.Imgsrc} />
+      <div className='text-center overflow-hidden'>
+        <img src={props.Imgsrc} />
+      </div>
       <div className='p-2'>
         <p className='mb-0 fs-13'>{props.title}</p>
         <p className='mb-0 fs-13'>{props.authur}</p>

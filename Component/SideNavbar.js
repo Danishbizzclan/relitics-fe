@@ -69,7 +69,7 @@ const Sidebar = () => {
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">
-                <p className="text-white fs-18 mb-1">Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
+                <p className={`text-white fs-18 mb-1 pointer-cursor ${router.pathname == "/EditProfile" ? "active" : null}`}>Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
               </div>
             </Link>
             <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>

@@ -556,16 +556,17 @@ textarea {
   overflow: auto;
 } */
 
-/* .pro-sidebar {
+.pro-sidebar {
   width     : 39rem !important;
-  height    : 100vh;
-  min-height: 100%;
-  position  : fixed;
-} */
+  height: 100% !important;
+}
 
-/* .pro-sidebar.collapsed {
+.pro-sidebar.collapsed {
   width: 7rem !important;
-} */
+}
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul{
+  padding: 0rem !important;
+}
 
 .pro-sidebar .pro-menu>ul>.pro-sub-menu>.pro-inner-list-item {
   background-color: transparent !important;

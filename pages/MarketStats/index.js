@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import SecondNavbar from '../../Component/secondNavbar';
 import Sidebar from '../../Component/SideNavbar';
