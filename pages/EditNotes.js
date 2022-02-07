@@ -20,7 +20,7 @@ export default function EditNotes() {
             console.log(value)
         })
             .catch(error => {
-                console.log(error)
+                console.log("Error",error)
             })
     }
 
