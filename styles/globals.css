@@ -202,7 +202,7 @@ textarea {
 }
 
 .bottom_radius {
-  border-radius: 0 0 2rem 2rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .form-bg {
@@ -558,7 +558,8 @@ textarea {
 
 .pro-sidebar {
   width     : 39rem !important;
-  height: 100% !important;
+  height: 100vh !important;
+  min-height: 100% !important;
 }
 
 .pro-sidebar.collapsed {
@@ -693,6 +694,9 @@ textarea {
 
 .bg-lightBlue {
   background-color: #0F74AF !important;
+}
+.bg_light {
+  background-color: #F8FCFF !important;
 }
 
 .border-L_white {

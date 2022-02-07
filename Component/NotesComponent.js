@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link"
 
 export default function NotesComponent(props) {
     return (
@@ -16,10 +17,10 @@ export default function NotesComponent(props) {
                     }</p>
                     <div className='d-inline-flex bg-lightBlue bottom_radius w-100'>
                         <button className='btn btn-lg py-3 w-50'>
-                            <img src='./eyeIcon.svg' />
+                            <Link href="/EditNotes" className='pointer-cursor'><img src='./eyeIcon.svg' /></Link>
                         </button>
                         <button className='btn btn-lg py-3 w-50'>
-                            <img src='./edit_Icon.svg' />
+                            <Link href="/EditNotes" className='pointer-cursor'><img src='./edit_Icon.svg' /></Link>
                         </button>
                     </div>
                 </div>

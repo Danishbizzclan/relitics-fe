@@ -26,7 +26,8 @@ class UnemploymentRateGraph extends Component {
                     show: true,
                     showForSingleSeries: true,
                     position: 'top',
-                    horizontalAlign: 'right'
+                    horizontalAlign: 'right',
+                    fontSize:'16'
                 },
                 dataLabels: {
                     enabled: false

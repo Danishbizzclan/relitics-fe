@@ -30,18 +30,18 @@ class EmploymentSectorsGraph extends Component {
                     show: true,
                     showForSingleSeries: true,
                     position: 'top',
-                    horizontalAlign: 'right'
+                    horizontalAlign: 'right',
+                    fontSize:'16'
                 },
                 dataLabels: {
-                    enabled: false
+                    enabled: false,
+                    fontSize:'16'
                 },
                 xaxis: {
                     categories: ['Total Nonfarm', 'Mining and Logging', 'Construction', 'Manufacturing',
                         'Trade, Transportation and Utilities', 'Information', 'Financial Activities',
                         'Professional and Business', 'Education and Health Services', 'Leisure and Hospitality', 'Other Services', 'Government'
-                    ], margin: {
-                        top: '10'
-                    }
+                    ],
                 }
             },
 
