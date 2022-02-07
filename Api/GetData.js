@@ -61,5 +61,16 @@ AllPackeges = () => {
     };
     return res();
   };
+  AllNotes = () => {
+    const res = async () => {
+      const resp = await axios
+        .get('/article?keyword=name2')
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();
