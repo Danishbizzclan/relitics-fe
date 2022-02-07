@@ -1,11 +1,25 @@
-import React from 'react';
 import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
 import Sidebar from '../../Component/SideNavbar';
+import GetData from '../../Api/GetData';
+import React, { useEffect, useState } from 'react'
+
 
 export default function index() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const response = GetData.AllNotes();
+        console.log(response)
+        response.then(value => {
+            console.log("notes", value)
+          setData(value.data.articles);
+          console.log(value.data.articles)
+        //   setLoading(false);
+        })
+      }, [])
     return (
         <div>
             <div className="d-inline-flex w-100">
@@ -26,10 +40,10 @@ export default function index() {
                                     </div>
                                 </Link>
                             </div>
-                            {NotesData.map((notes) =>
+                            {data.map((notes) =>
                                 <NotesComponent
                                     title={notes.title}
-                                    details={notes.details} />
+                                    details={notes.detail} />
                             )}
                         </div>
                         <div>
@@ -45,10 +59,10 @@ export default function index() {
                                         </div>
                                     </Link>
                                 </div>
-                                {NotesData.map((notes) =>
+                                {data.map((notes) =>
                                     <NotesComponent
                                         title={notes.title}
-                                        details={notes.details} />
+                                        details={notes.detail} />
                                 )}
                             </div>
                         </div>

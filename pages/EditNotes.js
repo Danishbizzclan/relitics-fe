@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from '../Component/SideNavbar';
 import Dashnav from '../Component/Dashnav';
 import Link from "next/link"
+import PostData from '../Api/PostData';
 
 export default function EditNotes() {
     const [userInput, setuserInput] = useState({
@@ -11,8 +12,16 @@ export default function EditNotes() {
     const handleChange = (event) => {
         setuserInput(event.target.value)
     }
-    const submitNotes = (event) => {
-        event.preventDefault();
+    const submitNotes = e => {
+        e.preventDefault();
+        // nextStep();
+        const res = PostData.EditNotes(userInput, setError)
+        res.then(value => {
+            console.log(value)
+        })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return <div>
@@ -32,7 +41,7 @@ export default function EditNotes() {
                                     type="text"
                                     required
                                     autoComplete={false}
-                                    className='form-control'
+                                    className='form-control textera-bg'
                                     value={userInput.title}
                                     id="title"
                                     name="title"
@@ -44,7 +53,7 @@ export default function EditNotes() {
                                 <textarea
                                     type="text"
                                     required
-                                    className='form-control'
+                                    className='form-control textera-bg'
                                     rows={13}
                                     name="details"
                                     value={userInput.details}

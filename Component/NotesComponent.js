@@ -10,8 +10,8 @@ export default function NotesComponent(props) {
                         <img src='./deleteIcon.svg' className='mb-auto ms-auto' />
                     </div>
                     <p className='fs-16 p-3'>{
-                        props.details.length > 25
-                            ? props.details.substring(0, 70) + '...'
+                        props.details?.length > 25
+                            ? props.details?.substring(0, 70) + '...'
                             : props.details
                     }</p>
                     <div className='d-inline-flex bg-lightBlue bottom_radius w-100'>
