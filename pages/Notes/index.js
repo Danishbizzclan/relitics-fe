@@ -5,8 +5,13 @@ import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
 import SecondNavbar from '../../Component/secondNavbar';
 import Sidebar from '../../Component/SideNavbar';
+import GetData from '../../Api/GetData';
 
 export default function index() {
+
+
+    
+
     return (
         <div>
             <div className="d-inline-flex w-100">

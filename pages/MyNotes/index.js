@@ -1,9 +1,11 @@
-import React from 'react';
 import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
 import Sidebar from '../../Component/SideNavbar';
+import GetData from '../../Api/GetData';
+import React, { useEffect, useState } from 'react'
+
 
 export default function index() {
     const city = NotesData.map((data => {

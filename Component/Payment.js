@@ -205,7 +205,7 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
         }).then(value => {
             setSuccess(value.data.message)
             localStorage.setItem('user', JSON.stringify(value.data.user))
-            localStorage.setItem('token', JSON.stringify(value.data.token))
+            localStorage.setItem('token', value.data.token)
 
             console.log('Sign Up res', value)
             // if (value.data.success) {

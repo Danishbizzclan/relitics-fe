@@ -10,6 +10,7 @@ import Otp from '../../Component/Login/Otp'
 import NewPassword from "../../Component/Login/NewPassword"
 import Modal from 'antd/lib/modal/Modal'
 import { useRouter } from "next/router";
+import axios from 'axios'
 import withAuth from '../../Component/unAuth'
 
 
@@ -44,7 +45,8 @@ const Login = () => {
             console.log(value)
             setSuccess(value.data.message)
             localStorage.setItem('user', JSON.stringify(value.data.user))
-            localStorage.setItem('token', JSON.stringify(value.data.token))
+            localStorage.setItem('token', value.data.token)
+            axios.defaults.headers.common['Authorization'] = `Bearer ${value.data.token}`;
 
             if (value.statusText == 'OK') {
                 setSuccesModel(true)
