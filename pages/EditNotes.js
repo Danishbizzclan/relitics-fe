@@ -5,17 +5,17 @@ import Link from "next/link"
 import PostData from '../Api/PostData';
 
 export default function EditNotes() {
-    const [userInput, setuserInput] = useState({
-        details: "",
-        title: ""
-    })
-    const handleChange = (event) => {
-        setuserInput(event.target.value)
-    }
+   const [title, setTitle]= useState('')
+   const [details, setDetails]= useState('')
+   const [settingErrors, setSettingErrord]= useState('')
+
+    // const handleChange = (event) => {
+    //     setuserInput(event.target.value)
+    // }
     const submitNotes = e => {
         e.preventDefault();
         // nextStep();
-        const res = PostData.EditNotes(userInput, setError)
+        const res = PostData.EditNotes(title, details, settingErrors)
         res.then(value => {
             console.log(value)
         })
@@ -25,7 +25,7 @@ export default function EditNotes() {
     }
 
     return <div>
-        {console.log(userInput)}
+        {/* {console.log(userInput)} */}
         <div className="d-inline-flex w-100">
             <Sidebar />
             <div style={{ width: "inherit" }}>
@@ -42,10 +42,10 @@ export default function EditNotes() {
                                     required
                                     autoComplete={false}
                                     className='form-control textera-bg'
-                                    value={userInput.title}
+                                    value={title}
                                     id="title"
                                     name="title"
-                                    onChange={handleChange}
+                                    onChange={(e) => setTitle(e.target.value)}
                                     placeholder="Subject line/Title"
                                 />
                             </div>
@@ -56,14 +56,14 @@ export default function EditNotes() {
                                     className='form-control textera-bg'
                                     rows={13}
                                     name="details"
-                                    value={userInput.details}
+                                    value={details}
                                     id="details"
-                                    onChange={handleChange}
+                                    onChange={(e) => setDetails(e.target.value)}
                                     placeholder="Add notes details"
                                 />
                             </div>
                             <div className='mx-auto text-center'>
-                                <Link href='/MyNotes'><button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button></Link>
+                               <button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button>
                                 <Link href='/MyNotes'><button className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Cancel</button></Link>
                             </div>
                         </form>

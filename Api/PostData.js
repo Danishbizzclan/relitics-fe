@@ -6,21 +6,15 @@ class PostData {
     this.result = [];
   }
 
-  EditNotes = (data, id, settingErrors) => {
+  EditNotes = (title, detail, settingErrors) => {
     const res = async () => {
       const resp = await axios
-        .post("/users", {
-          firstName: data.firstName,
-          lastName: data.familyName,
-          username: data.username,
-          city: data.city,
-          state: data.state,
-          dob: data.dob,
-          phone: data.phone,
-          image: data.image,
-          packageID: data.pkgId,
-          email: data.email,
-          password: data.password
+        .post("/note", {
+          title: title,
+          detail:  detail,
+          city:"lahore", 
+          state:"pakistan"
+         
         })
 
         .catch(function (error) {
