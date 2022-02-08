@@ -852,6 +852,10 @@ html {
   }
 }
 
+.notes_form .form-control{
+  background-color: white !important;
+}
+
 .Table .form-control {
   font-size  : 1.4rem !important;
   font-weight: Bold;

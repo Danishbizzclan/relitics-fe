@@ -27,11 +27,7 @@ export default function index() {
                                     </div>
                                 </Link>
                             </div>
-                            {NotesData.map((notes) =>
-                                <NotesComponent
-                                    title={notes.title}
-                                    details={notes.details} />
-                            )}
+                            <NotesComponent />
                         </div>
                     </div>
                 </div>

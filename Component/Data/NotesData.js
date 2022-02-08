@@ -1,49 +1,63 @@
 const NotesData = [
     {
-        key: '1',
+        id: 1,
+        city: 'New York City, NY',
         title: "this is heading of the note",
         details: "lorem Ipsum is simply dummy text of the printing and typesetting",
     },
     {
-        key: '2',
+        id: 2,
+        city: 'New York City, NY',
         title: "this is heading of the note",
         details: "lorem Ipsum is simply dummy text of the printing and typesetting",
     },
     // {
-    //     key: '3',
+    //     id: '3',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '4',
+    //     id: '4',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '5',
+    //     id: '5',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '6',
+    //     id: '6',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '7',
+    //     id: '7',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '8',
+    //     id: '8',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
     // {
-    //     key: '9',
+    //     id: '9',
+    //     city: 'New York City, NY',
     //     title: "this is heading of the note",
     //     details: "lorem Ipsum is simply dummy text of the printing and typesetting...",
     // },
 ]
-
+export function getEventById(id) {
+    return NotesData.find(x => x.id == id);
+}
+export function getEventByCity(city) {
+    return NotesData.filter(x => x.city == city);
+}
 export default NotesData

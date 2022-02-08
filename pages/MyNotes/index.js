@@ -6,6 +6,9 @@ import NotesComponent from '../../Component/NotesComponent';
 import Sidebar from '../../Component/SideNavbar';
 
 export default function index() {
+    const city = NotesData.map((data => {
+        { data.city }
+    }))
     return (
         <div>
             <div className="d-inline-flex w-100">
@@ -14,7 +17,7 @@ export default function index() {
                     <Dashnav />
                     <div className='container mx-auto p-4'>
                         <p className='fs-40 Gothic_3D my-3'>My Notes</p>
-                        <p className='fs-30 Gothic_3D my-3'>City, state</p>
+                        <p className='fs-30 Gothic_3D my-3'>{city}</p>
                         <div className='row'>
                             <div className='col-lg-3 col-md-4 col-6'>
                                 <Link href="/EditNotes">
@@ -26,14 +29,10 @@ export default function index() {
                                     </div>
                                 </Link>
                             </div>
-                            {NotesData.map((notes) =>
-                                <NotesComponent
-                                    title={notes.title}
-                                    details={notes.details} />
-                            )}
+                            <NotesComponent />
                         </div>
                         <div>
-                            <p className='fs-30 Gothic_3D my-3'>City, state</p>
+                            <p className='fs-30 Gothic_3D my-3'>{city}</p>
                             <div className='row'>
                                 <div className='col-lg-3 col-md-4 col-6'>
                                     <Link href="/EditNotes">
@@ -45,11 +44,7 @@ export default function index() {
                                         </div>
                                     </Link>
                                 </div>
-                                {NotesData.map((notes) =>
-                                    <NotesComponent
-                                        title={notes.title}
-                                        details={notes.details} />
-                                )}
+                                <NotesComponent />
                             </div>
                         </div>
                     </div>
