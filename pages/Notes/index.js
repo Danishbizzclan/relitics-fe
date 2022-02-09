@@ -33,7 +33,7 @@ export default function index() {
                                     <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
                                         <div className='text-center my-auto'>
                                             <img src='./addNotes_Icon.svg' />
-                                            <p className='fs-18 Bold mt-3'>Add Note</p>
+                                            <p className='fs-18 Bold mt-3'>Add a Note</p>
                                         </div>
                                     </div>
                                 </Link>
