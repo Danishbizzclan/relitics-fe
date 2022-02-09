@@ -7,7 +7,7 @@ class Acount {
   }
 
   Registeration = (data, id, settingErrors) => {
-alert('1')
+// alert('1')
     const res = async () => {
       const resp = await axios
         .post("/users", {

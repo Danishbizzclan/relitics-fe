@@ -410,8 +410,10 @@ textarea {
 }
 
 .hover,
+.graph_hover,
 .hover_btn {
   transition: 300ms ease-in-out;
+
 }
 
 .Hover:hover {
@@ -420,7 +422,13 @@ textarea {
 }
 
 .hover:hover {
-  transform: scale(1.04);
+  transform : scale(1.04);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.graph_hover:hover {
+  transform : scale(1.01);
+  box-shadow: rgba(2, 41, 69, 0.2) 0px 20px 90px;
 }
 
 .hover_btn:hover {
@@ -558,14 +566,15 @@ textarea {
 
 .pro-sidebar {
   width     : 39rem !important;
-  height: 100vh !important;
+  height    : 100vh !important;
   min-height: 100% !important;
 }
 
 .pro-sidebar.collapsed {
   width: 7rem !important;
 }
-.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul{
+
+.pro-sidebar .pro-menu>ul>.pro-sub-menu>.pro-inner-list-item>div>ul {
   padding: 0rem !important;
 }
 
@@ -695,6 +704,7 @@ textarea {
 .bg-lightBlue {
   background-color: #0F74AF !important;
 }
+
 .bg_light {
   background-color: #F8FCFF !important;
 }
@@ -852,7 +862,7 @@ html {
   }
 }
 
-.notes_form .form-control{
+.notes_form .form-control {
   background-color: white !important;
 }
 
@@ -894,9 +904,11 @@ html {
   height       : 4rem;
   border-radius: 5px;
 }
-.email-buuton{
+
+.email-buuton {
   background-color: #ffda5f !important;
 }
-.textera-bg{
+
+.textera-bg {
   background-color: white !important;
 }

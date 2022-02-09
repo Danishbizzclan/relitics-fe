@@ -10,7 +10,7 @@ axios.defaults.baseURL = 'https://reilitics-be.herokuapp.com/api';
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      alert('1')
+      // alert('1')
       // Perform localStorage action
       const item = localStorage.getItem('token')
 
