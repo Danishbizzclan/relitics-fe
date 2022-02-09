@@ -1,35 +1,30 @@
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
 import Sidebar from '../../Component/SideNavbar';
-import GetData from '../../Api/GetData';
-import React, { useEffect, useState } from 'react'
 
 
 export default function index() {
-    const [data, setData] = useState([]);
+    const [visible, setVisible] = useState(3);
+    const loadMore = () => {
+        setVisible(old => old + 4)
+    }
+    const loadLess = () => {
+        setVisible(old => old - 4)
+    }
 
-    useEffect(() => {
-        const response = GetData.AllNotes();
-        console.log(response)
-        response.then(value => {
-            console.log("notes", value)
-          setData(value.data.articles);
-          console.log(value.data.articles)
-        //   setLoading(false);
-        })
-      }, [])
     return (
         <div>
             <div className="d-inline-flex w-100">
                 <Sidebar />
                 <div style={{ width: "inherit" }}>
                     <Dashnav />
-                    <div className='container mx-auto p-5'>
+                    <div className='container mx-auto p-4'>
                         <p className='fs-40 Gothic_3D my-3'>My Notes</p>
-                        <p className='fs-30 Gothic_3D my-3'>City, state</p>
-                        <div className='row'>
+                        <p className='fs-30 Gothic_3D my-3'>New York</p>
+                        <div className='row gy-4'>
                             <div className='col-lg-3 col-md-4 col-6'>
                                 <Link href="/EditNotes">
                                     <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
@@ -40,31 +35,26 @@ export default function index() {
                                     </div>
                                 </Link>
                             </div>
-                            {data.map((notes) =>
+                            {NotesData.slice(0, visible).map((x) =>
                                 <NotesComponent
-                                    title={notes.title}
-                                    details={notes.detail} />
+                                    title={x.title}
+                                    details={x.details}
+                                    id={x.id}
+                                />
                             )}
                         </div>
-                        <div>
-                            <p className='fs-30 Gothic_3D my-3'>City, state</p>
-                            <div className='row'>
-                                <div className='col-lg-3 col-md-4 col-6'>
-                                    <Link href="/EditNotes">
-                                        <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
-                                            <div className='text-center my-auto'>
-                                                <img src='./addNotes_Icon.svg' />
-                                                <p className='fs-18 Bold mt-3'>Add Note</p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                                {data.map((notes) =>
-                                    <NotesComponent
-                                        title={notes.title}
-                                        details={notes.detail} />
-                                )}
-                            </div>
+                        <div className="text-center mt-5">
+                        {NotesData.length > 3 && (
+                                visible < NotesData.length ? (
+                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadMore} style={{ cursor: "pointer" }}>
+                                            load More
+                                        </button>
+                                ) : (
+                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadLess} style={{ cursor: "pointer" }}>
+                                            Show Less
+                                        </button>
+                                )
+                            )}
                         </div>
                     </div>
                 </div>

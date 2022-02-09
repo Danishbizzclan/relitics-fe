@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from "next/link"
+import NotesData from './Data/NotesData';
 
 export default function NotesComponent(props) {
     return (
@@ -11,15 +13,15 @@ export default function NotesComponent(props) {
                     </div>
                     <p className='fs-16 p-3'>{
                         props.details?.length > 25
-                            ? props.details?.substring(0, 70) + '...'
+                            ? props.details.substring(0, 60) + '.....'
                             : props.details
                     }</p>
                     <div className='d-inline-flex bg-lightBlue bottom_radius w-100'>
                         <button className='btn btn-lg py-3 w-50'>
-                            <img src='./eyeIcon.svg' />
+                            <Link href={`/ShowNotes/${props.id}`} className='pointer-cursor'><img src='./eyeIcon.svg' /></Link>
                         </button>
                         <button className='btn btn-lg py-3 w-50'>
-                            <img src='./edit_Icon.svg' />
+                            <Link href={`/EditNotes/${props.id}`} className='pointer-cursor'><img src='./edit_Icon.svg' /></Link>
                         </button>
                     </div>
                 </div>

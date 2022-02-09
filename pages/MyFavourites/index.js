@@ -1,12 +1,17 @@
-import React from 'react';
-import { useRouter } from "next/router";
+import React, { useState } from 'react'
 import Dashnav from '../../Component/Dashnav';
-import RentalGrowthData from '../../Component/Data/RentalGrowthData';
 import { getEventByFav } from '../../Component/Data/RentalGrowthData';
 import Sidebar from '../../Component/SideNavbar';
 import FavCard from '../../Component/FavCard';
 
 function index() {
+    const [visible, setVisible] = useState(12);
+    const loadMore = () => {
+        setVisible(old => old + 4)
+    }
+    const loadLess = () => {
+        setVisible(old => old - 4)
+    }
     const event = getEventByFav();
     console.log({ event })
     if (!event) {
@@ -20,15 +25,28 @@ function index() {
 
                     <div style={{ width: "inherit" }}>
                         <Dashnav />
-                        <div className='container mx-auto mt-3 Table' >
+                        <div className='container mx-auto mt-3 p-4 Table' >
                             <p className='fs-40 Gothic_3D'>My Favourites</p>
                             <div className='row my-4 g-4'>
-                                {event.map(fav => {
+                                {event.slice(0, visible).map((fav) => {
                                     return (
                                         < FavCard
                                             city={fav.Region} />
                                     )
                                 })}
+                            </div>
+                            <div className="text-center my-3">
+                                {event.length > 12 && (
+                                    visible < event.length ? (
+                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadMore} style={{ cursor: "pointer" }}>
+                                            load More
+                                        </button>
+                                    ) : (
+                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadLess} style={{ cursor: "pointer" }}>
+                                            Show Less
+                                        </button>
+                                    )
+                                )}
                             </div>
                         </div>
                     </div>
@@ -37,3 +55,8 @@ function index() {
     }
 }
 export default index;
+ // <div className="text-center my-4">
+                                //     <button className="bg_theme brdr text-white no_brdr " onClick={loadMore} style={{ cursor: "pointer" }}>
+                                //         load More
+                                //     </button>
+                                // </div>

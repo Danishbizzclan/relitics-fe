@@ -1,8 +1,7 @@
-// import Chart from 'react-apexcharts'
 import { Component } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-class ApexMedianChart extends Component {
+class UnemploymentRateGraph extends Component {
     constructor(props) {
         super(props);
 
@@ -10,15 +9,11 @@ class ApexMedianChart extends Component {
 
             series: [
                 {
-                    name: 'Rental Growth',
-                    data: [25, 20, 22, 20, 28, 15, 18],
-                    color: '#E027A0'
-                },
-                {
-                    name: 'Market Appreciation',
-                    data: [35, 30, 35, 30, 35, 20, 10],
+                    name: "Unemployment",
+                    data: [2, 23, 19, 45, 38, 52, 45],
                     color: '#0F74AF'
-                }],
+                }
+            ],
             options: {
                 chart: {
                     height: 350,
@@ -28,6 +23,8 @@ class ApexMedianChart extends Component {
                     },
                 },
                 legend: {
+                    show: true,
+                    showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
                     fontSize:'16'
@@ -71,4 +68,4 @@ class ApexMedianChart extends Component {
     }
 }
 
-export default ApexMedianChart
+export default UnemploymentRateGraph

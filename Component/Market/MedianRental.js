@@ -24,7 +24,8 @@ class MedianRental extends Component {
                 },
                 legend: {
                     position: 'top',
-                    horizontalAlign: 'right'
+                    horizontalAlign: 'right',
+                    fontSize:'16'
                 },
                 dataLabels: {
                     enabled: false
