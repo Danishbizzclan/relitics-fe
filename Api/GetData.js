@@ -72,5 +72,16 @@ AllPackeges = () => {
     };
     return res();
   };
+  NotesDetail = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .get(`/note/${id}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();
