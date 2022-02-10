@@ -7,13 +7,8 @@ import Sidebar from '../../Component/SideNavbar';
 
 
 export default function index() {
-    const [visible, setVisible] = useState(3);
-    const loadMore = () => {
-        setVisible(old => old + 4)
-    }
-    const loadLess = () => {
-        setVisible(old => old - 4)
-    }
+
+    
 
     return (
         <div>
@@ -35,27 +30,12 @@ export default function index() {
                                     </div>
                                 </Link>
                             </div>
-                            {NotesData.slice(0, visible).map((x) =>
                                 <NotesComponent
-                                    title={x.title}
-                                    details={x.details}
-                                    id={x.id}
+                                  
                                 />
-                            )}
+                         
                         </div>
-                        <div className="text-center mt-5">
-                        {NotesData.length > 3 && (
-                                visible < NotesData.length ? (
-                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadMore} style={{ cursor: "pointer" }}>
-                                            load More
-                                        </button>
-                                ) : (
-                                        <button className="bg_theme brdr text-white no_brdr" onClick={loadLess} style={{ cursor: "pointer" }}>
-                                            Show Less
-                                        </button>
-                                )
-                            )}
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -3,11 +3,15 @@ import Link from "next/link"
 import blogData from './Data/BlogData';
 import classes from "./Footer.module.css"
 import GetData from '../Api/GetData';
+import PostData from '../Api/PostData';
 
 import { FaFacebook, FaPinterest, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 function Foter() {
     const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const [settingErrors, setSettingErrors] = useState('');
     const [data, setData] = useState([]);
 
     // const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
@@ -20,6 +24,19 @@ function Foter() {
           setData(value?.data?.categories)
         })
       }, [])
+
+      const NewsLetter = e => {
+        e.preventDefault();
+        // nextStep();
+        const res = PostData.CreateNewsLetter(email, settingErrors)
+        res.then(value => {
+            console.log(value)
+            setSuccess(value.data.message)
+        })
+            .catch(error => {
+                console.log("Error", error)
+            })
+    }
     return (
         <div>
             <hr className="mt-5" />
@@ -81,12 +98,17 @@ function Foter() {
 
                             <div className="col-lg-3 pb-5">
                                 <p className={classes.fontbold}>Subscribe to our newsletter</p>
+                                <form onSubmit={NewsLetter}>
                                 <p className="mx-auto Bold fs-16">Email</p>
-                                <input type="email" value={email} name="email" type={email}
+                                <input type="email" value={email} name="email" 
                                     placeholder="Enter your Email"
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                <button type="button" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
+                                    {settingErrors}
+                                    <p className='fs-19 text-success'>{success}</p>
+                                <button type="submit" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
+                                </form>
+
                             </div>
 
                         </div>
