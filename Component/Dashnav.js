@@ -28,7 +28,7 @@ function Dashnav() {
                       Articles</div></Link>
                     <Link href="/Contact" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/Contact" ? "active" : null}`}>
                       Contact</div></Link>
-                    <Link href="/Dashboard">
+                    <Link href="/Notifications">
                       <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
                     <Link href="/Dashboard">
                       <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>

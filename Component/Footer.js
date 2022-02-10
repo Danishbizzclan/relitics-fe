@@ -27,7 +27,7 @@ function Foter() {
                 <div className="row my-5">
                     <div className='container'>
                         <div className='row'>
-                            <div className="col-md-3">
+                            <div className="col-md-3 col-sm-6">
                                 <p className={classes.fontbold}>Categories</p>
                                 {data.map((x) => {
                                     // console.log(x)
@@ -51,7 +51,7 @@ function Foter() {
                             </div>
 
 
-                            <div className="col-md-3">
+                            <div className="col-md-3 col-sm-6">
                                 <Link href="/Dashboard">
                                     <a className={classes.fontbold}><p>About us (Dashboard)</p></a>
                                 </Link>
@@ -66,7 +66,7 @@ function Foter() {
                                 </Link>
                             </div>
 
-                            <div className="col-md-3">
+                            <div className="col-md-3 col-sm-6">
                                 <p className={classes.fontbold}>Pages</p>
                                 <Link href="/Blog">
                                     <a className={classes.footerp}><p>Articles</p></a>
@@ -79,7 +79,7 @@ function Foter() {
                                 </Link>
                             </div>
 
-                            <div className="col-lg-3 pb-5">
+                            <div className="col-lg-3 col-sm-6 pb-5">
                                 <p className={classes.fontbold}>Subscribe to our newsletter</p>
                                 <p className="mx-auto Bold fs-16">Email</p>
                                 <input type="email" value={email} name="email" type={email}
