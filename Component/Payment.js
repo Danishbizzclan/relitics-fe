@@ -199,7 +199,7 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
           dob: values.dob,
           phone: values.phone,
           image: values.image,
-          packageID: '61e516f81a5bd094548e998e',
+          packageID: values.pkgId,
           email: values.email,
           password: values.password
         }).then(value => {
@@ -218,7 +218,6 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
 
         })
             .catch(error => {
-                alert('5')
                 console.log('error', error.response)
                 setErrorModal(true)
                 setErrorMessage(error.response.data.message)
@@ -266,7 +265,7 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
                         handleOk={nextStep}
                         closable={false}
                     >
-                        {errorMessage}
+                      <p className="text-white fs-22">  {errorMessage} </p>
                     </CustomModal>
                 </div> : <p>Loading....</p>}</>
     );
