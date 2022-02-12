@@ -8,6 +8,7 @@ import Acount from '../Api/Acount'
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 import next from 'next'
 
+
 const UserDetails = ({ nextStep, handleChange, values }) => {
 
     // for continue event listener
@@ -42,8 +43,10 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                 <form onSubmit={Continue} className='p-5'>
                                     <div className="row px-5">
                                         <div className=''>
-                                            <Avatarr 
-                                            value={<button className='btn UploadBtn px-5 py-2 txt-grey fs-15 text-nowrap'>upload Photo</button>}/>
+                                            {/* <AvatarUploader
+                                                size={150}
+                                                uploadURL="http://localhost:3000"
+                                                fileType={"image/png"} /> */}
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input

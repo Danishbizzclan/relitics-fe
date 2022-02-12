@@ -10,6 +10,9 @@ import HeadImage from '../../styles/UI/HeadImage';
 import Acount from '../../Api/Acount';
 const ContactUs = () => {
     const [error, setError] = useState('')
+    const [success, setError] = useState('')
+
+    
 
 
     const [user, setUser] = useState({
@@ -17,7 +20,8 @@ const ContactUs = () => {
         lastName: "",
         email: "",
         subject: "",
-        message: ""
+        message: "",
+        
 
     })
     let name, value;
@@ -39,6 +43,8 @@ const ContactUs = () => {
         })
             .catch(error => {
                 console.log(error)
+                
+
             })
     }
     return (

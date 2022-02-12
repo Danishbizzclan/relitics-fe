@@ -9,8 +9,10 @@ const PriceCard = () => {
         const response = GetData.AllPackeges();
         console.log(response)
         response.then(value => {
-          setData(value.data.packages);
+            if(value){
+          setData(value?.data?.packages);
           console.log(value.data.packages)
+        }
         })
       }, [])
     return (
