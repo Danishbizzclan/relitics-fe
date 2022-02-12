@@ -565,7 +565,7 @@ textarea {
 } */
 
 .pro-sidebar {
-  width     : 39rem !important;
+  /* width     : 39rem !important; */
   height    : 100vh !important;
   min-height: 100% !important;
 }
@@ -870,6 +870,10 @@ html {
   font-size  : 1.4rem !important;
   font-weight: Bold;
 }
+
+table tr:nth-child(2n) td {
+  background-color: #F4F7F9;
+  }
 
 .ant-table-cell-ellipsis {
   overflow     : initial !important;

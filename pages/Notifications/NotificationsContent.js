@@ -9,7 +9,7 @@ export default function NotificationsContent(props) {
 
             <div>
                 <div className='bluebtn px-5'>
-                    <p className='ps-4 py-3 fs-18 Boldest'>{x}</p>
+                    <p className='ps-4 py-2 fs-18 Boldest'>{x}</p>
                 </div>
                 {props.data.date[x].map(y => {
                     console.log({ x, y })

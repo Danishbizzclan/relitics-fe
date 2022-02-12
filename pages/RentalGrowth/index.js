@@ -66,7 +66,7 @@ class Aprecation extends React.Component {
             },
             {
                 title: 'Overall AVERAGE RENTAL GROWTH',
-                fixed: 'left',
+                width: '15%',
                 dataIndex: 'AverageRentalGrowth',
                 key: 'AverageRentalGrowth',
                 sorter: (a, b) => a.age - b.AverageRentalGrowth,
@@ -193,7 +193,7 @@ class Aprecation extends React.Component {
                                     <div className='d-block col-6'>
                                         <label className='bluetxt fs-13'>City</label>
                                         <select class="form-control form-control-sm" onClick={this.setCitySort}>
-                                            <option>Ascending</option>
+                                            <option>All</option>
                                         </select>
                                     </div>
                                 </div>
@@ -203,6 +203,7 @@ class Aprecation extends React.Component {
                                 </div>
                             </div>
                             <Table columns={columns}
+                            
                                 colors={['#123123', 'rgba(123,123,123,12)']}
                                 averageDuplicates
                                 inferBlanks
