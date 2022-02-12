@@ -7,7 +7,6 @@ import PersonalInfo from './PersonalInfo'
 import Acount from '../Api/Acount'
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 import next from 'next'
-import AvatarUploader from 'react-avatar-uploader';
 
 
 const UserDetails = ({ nextStep, handleChange, values }) => {
@@ -44,10 +43,10 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                 <form onSubmit={Continue} className='p-5'>
                                     <div className="row px-5">
                                         <div className=''>
-                                            <AvatarUploader
+                                            {/* <AvatarUploader
                                                 size={150}
                                                 uploadURL="http://localhost:3000"
-                                                fileType={"image/png"} />
+                                                fileType={"image/png"} /> */}
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input

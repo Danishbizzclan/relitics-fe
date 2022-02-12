@@ -20,8 +20,10 @@ function Foter() {
         const response = GetData.BlogCatagory();
         console.log(response)
         response.then(value => {
-            console.log('dfgh',value.data.categories)
+            // console.log('dfgh',value.data.categories)
+            if(value){
           setData(value?.data?.categories)
+        }
         })
       }, [])
 
