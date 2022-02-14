@@ -46,7 +46,7 @@ class Aprecation extends React.Component {
             },
         });
     };
-    componentDidMount() {
+    componentDidMount () {
         const response = GetData.RentalGrowth();
         console.log(response)
         response.then(value => {
