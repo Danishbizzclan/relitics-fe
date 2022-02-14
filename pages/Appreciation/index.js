@@ -5,11 +5,16 @@ import { Table, Button, Space, Select } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import ApreciationData from '../../Component/Data/ApericiationData';
+import GetData from '../../Api/GetData';
+import { Spin } from 'antd';
+
 
 class Aprecation extends React.Component {
   state = {
     filteredInfo: null,
     sortedInfo: null,
+    data: [],
+    loading: true
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -39,6 +44,15 @@ class Aprecation extends React.Component {
       },
     });
   };
+  componentDidMount() {
+    const response = GetData.Aprecation();
+    console.log(response)
+    response.then(value => {
+        console.log('dfgh', value)
+        this.setState({ data: value?.data?.allRecords})
+        this.setState({ loading: false })
+    })
+}
 
   render() {
     let { sortedInfo, filteredInfo } = this.state;
@@ -46,10 +60,10 @@ class Aprecation extends React.Component {
     filteredInfo = filteredInfo || {};
     const columns = [
       {
-        title: 'Regionn',
+        title: 'Region',
         info:"zxcvbn",
         fixed: 'left',
-        key: 'Region',
+        key: 'region',
         width: '15%',
         // filters: [
         //   { text: 'Joe', value: 'Joe' },
@@ -57,18 +71,18 @@ class Aprecation extends React.Component {
         // ],
         filteredValue: filteredInfo.name || null,
         // onFilter: (value, record) => record.name.includes(value),
-        sorter: (a, b) => a.Region.length - b.Region.length,
-        sortOrder: sortedInfo.columnKey === 'Region' && sortedInfo.order,
+        sorter: (a, b) => a.region.length - b.region.length,
+        sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
         ellipsis: true,
         render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto'>{record.Region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
+          <p className='my-auto'>{record.region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
         </div>
       },
       {
         title: 'Overall Average Aprecation',
         fixed: 'left',
-        dataIndex: 'AverageAppreciation',
-        key: 'AverageAppreciation',
+        dataIndex: 'avgGrowth',
+        key: 'avgGrowth',
         width: '15%',
         sorter: (a, b) => a.age - b.AverageAppreciation,
         sortOrder: sortedInfo.columnKey === 'AverageAppreciation' && sortedInfo.order,
@@ -76,8 +90,8 @@ class Aprecation extends React.Component {
       },
       {
         title: '2018',
-        dataIndex: '2018',
-        key: '2018',
+        dataIndex: 'y2018',
+        key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -90,8 +104,8 @@ class Aprecation extends React.Component {
       },
       {
         title: '2019',
-        dataIndex: '2019',
-        key: '2019',
+        dataIndex: 'y2019',
+        key: 'y2019',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -104,8 +118,8 @@ class Aprecation extends React.Component {
       },
       {
         title: '2020',
-        dataIndex: '2020',
-        key: '2020',
+        dataIndex: 'y2020',
+        key: 'y2020',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -118,8 +132,8 @@ class Aprecation extends React.Component {
       },
       {
         title: '2021',
-        dataIndex: '2021',
-        key: '2021',
+        dataIndex: 'y2021',
+        key: 'y2021',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -132,8 +146,8 @@ class Aprecation extends React.Component {
       },
       {
         title: 'Median Sale Price',
-        dataIndex: 'mediansaleprice',
-        key: 'mediansaleprice',
+        dataIndex: 'median',
+        key: 'median',
         width: '11%',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -147,8 +161,8 @@ class Aprecation extends React.Component {
       },
       {
         title: 'Acerage State Property Tax',
-        dataIndex: 'Averagepropertytax',
-        key: 'Averagepropertytax',
+        dataIndex: 'avgTax',
+        key: 'avgTax',
         width: '13%',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -205,13 +219,16 @@ class Aprecation extends React.Component {
                   <button className='btn bluebtn px-4 fs-14 ms-2'>Download PDF</button>
                 </div>
               </div>
+              {this.state.loading ? (<Spin />) : (
+
               <Table columns={columns}
                 colors={['#123123', 'rgba(123,123,123,12)']}
                 averageDuplicates
                 inferBlanks
-                dataSource={ApreciationData} onChange={this.handleChange}
+                dataSource={this.state.data} onChange={this.handleChange}
                 scroll={{ x: 1000 }}
               />
+              )}
             </div>
           </div>
           {/* </div>    */}

@@ -84,8 +84,8 @@ class Aprecation extends React.Component {
             {
                 title: 'Overall AVERAGE RENTAL GROWTH',
                 width: '15%',
-                dataIndex: 'AverageRentalGrowth',
-                key: 'AverageRentalGrowth',
+                dataIndex: 'avgGrowth',
+                key: 'avgGrowth',
                 sorter: (a, b) => a.age - b.AverageRentalGrowth,
                 sortOrder: sortedInfo.columnKey === 'AverageRentalGrowth' && sortedInfo.order,
                 ellipsis: true,
