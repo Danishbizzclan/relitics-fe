@@ -18,7 +18,7 @@ class Acount {
           state: data.state,
           dob: data.dob,
           phone: data.phone,
-          image: data.image,
+          image: data.profilePic,
           packageID: data.pkgId,
           email: data.email,
           password: data.password

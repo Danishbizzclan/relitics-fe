@@ -46,7 +46,8 @@ class Aprecation extends React.Component {
     filteredInfo = filteredInfo || {};
     const columns = [
       {
-        title: 'Region',
+        title: 'Regionn',
+        info:"zxcvbn",
         fixed: 'left',
         key: 'Region',
         width: '15%',

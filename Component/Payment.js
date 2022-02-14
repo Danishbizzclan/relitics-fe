@@ -166,6 +166,19 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
 
 
 
+let formData = new FormData();
+
+formData.append("first name", values.firstName )
+formData.append("familyName", values.familyName )
+formData.append("userName", values.username )
+formData.append("city", values.city )
+formData.append("state", values.state )
+formData.append("dob", values.dob )
+formData.append("phone", values.phone )
+formData.append("image", values.image )
+formData.append("pkgId", values.pkgId )
+formData.append("email", values.email )
+formData.append("password", values.password )
 
 
     useEffect(() => {
@@ -191,17 +204,7 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
         // res
         axios
         .post("/users", {
-          firstName: values.firstName,
-          lastName: values.familyName,
-          username: values.username,
-          city: values.city,
-          state: values.state,
-          dob: values.dob,
-          phone: values.phone,
-          image: values.image,
-          packageID: values.pkgId,
-          email: values.email,
-          password: values.password
+       formData
         }).then(value => {
             setSuccess(value.data.message)
             localStorage.setItem('user', JSON.stringify(value.data.user))
