@@ -191,10 +191,8 @@ class Aprecation extends React.Component {
         ];
         return (
             <>
-
                 <div className="d-inline-flex w-100">
                     <Sidebar />
-
                     <div style={{ width: "inherit" }}>
                         <Dashnav />
                         {/* <div className='container'> */}
@@ -231,7 +229,6 @@ class Aprecation extends React.Component {
                                         scroll={{ x: 1000 }} />
                                 </>
                             )}
-
                         </div>
                     </div>
                 </div>

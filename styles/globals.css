@@ -396,10 +396,6 @@ textarea {
   border-radius: 1rem !important;
 }
 
-.btn-w {
-  width: 12rem;
-}
-
 .catagory:hover {
   cursor: pointer;
   color : #0F74AF;
@@ -883,7 +879,7 @@ html {
 
 table tr:nth-child(2n) td {
   background-color: #F4F7F9;
-  }
+}
 
 .ant-table-cell-ellipsis {
   overflow     : initial !important;

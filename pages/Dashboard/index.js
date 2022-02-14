@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link"
 import Sidebar from "../../Component/SideNavbar";
-import MaterialDesignSwitchh from "../../Component/Togle1";
+import MaterialDesignSwitch from "../../Component/Togle1";
 import Membership from "../../Component/Data/MembershipData";
 import Dashnav from "../../Component/Dashnav";
 import withAuth from "../../Component/Auth";
@@ -80,7 +80,7 @@ const Dashboard = () => {
                               <div className="col-xl-4 d-flex">
                                 <p className="my-auto fs-14 text-nowrap greyBlack">Auto renew</p>
                                 <div className="mt-2 ms-3">
-                                  <MaterialDesignSwitchh className='mt-3' /></div>
+                                  <MaterialDesignSwitch className='mt-3' /></div>
                               </div>
                               <div className="col-xl-4 ms-auto d-flex">
                                 <button className=" btn mx-2 opac px-4 btnYelow">Deactivate</button>
@@ -105,12 +105,14 @@ const Dashboard = () => {
                       placeholder="select state"
                       onChange={(e) => setState(e.target.value)}
                       className="form-control dash-form  mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    <div className="d-flex mt-3 button-inline">
+                    <div className="row mt-3 ">
+                      <div className="col-sm-12 col-md-8">
                       <input type="text" value={city} name="city"
                         placeholder="select city"
                         onChange={(e) => setCity(e.target.value)}
-                        className="form-control dash-form w-50  " id="exampleInputEmail1" aria-describedby="emailHelp" />
-                      <button className="btn ms-auto fs-15 bluebtn btn-w brdr">Search</button>
+                        className="form-control dash-form  " id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        </div>
+                      <button className="btn ms-auto fs-15 bluebtn col-sm-12 col-md-4 brdr">Search</button>
                     </div>
                   </div>
                 </div>

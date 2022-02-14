@@ -17,10 +17,10 @@ function Dashnav() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-nav ms-auto  mb-lg-0">
-                    <Link href="/" ><div className={`nav-link fs-15  ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/" ? "active" : null}`}>
+                    <Link href="/" ><div className={`nav-link fs-15  ${classes.NavBtnPadding + ' ' + classes.navbarText } ${router.pathname == "/" ? "active" : null}`}>
                       Home</div>
                     </Link>
-                    <Link href="/Pricing" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/BecomeProfessional" ? "active" : null}`}>
+                    <Link href="/#Prices" ><div className={`nav-link fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/" ? "active" : null}`}>
                       Pricing</div></Link>
                     <Link href="/About" ><div className={`nav-link  fs-15 ${classes.NavBtnPadding + ' ' + classes.navbarText} ${router.pathname == "/About" ? "active" : null}`}>
                       About us</div></Link>

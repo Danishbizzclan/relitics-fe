@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Switch from "react-switch";
 
-class MaterialDesignSwitchh extends Component {
+class MaterialDesignSwitch extends Component {
     constructor() {
       super();
       this.state = { checked: false };
@@ -43,4 +43,4 @@ class MaterialDesignSwitchh extends Component {
       )
     }
   }
-  export default MaterialDesignSwitchh
+  export default MaterialDesignSwitch
