@@ -933,4 +933,5 @@ table tr:nth-child(2n) td {
 }
 .upload-avatar{
   width: 100px;
+  background-color: #71ECCF !important;
 }

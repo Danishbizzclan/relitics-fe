@@ -51,8 +51,8 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                                 fileType={"image/png"} /> */}
                                                 {/* <UploadAndDisplayImage /> */}
                                                 {/* <Imagees /> */}
-                                                <img src={values.profilePic} className='avatar-style'  width={'50px'} alt="" />
-                                                <input type="file"  accept='jpg' className='upload-avatar' onChange={handleChange('profilePic')}/>
+                                                <img src={values.profilePic} className='avatar-style'  alt="" />
+                                                <input type="file"  accept='jpg' className='upload-avatar ms-3' onChange={handleChange('profilePic')}/>
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input
