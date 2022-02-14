@@ -21,7 +21,7 @@ export default function GraphComponent(props) {
                 <div className='d-block w-25'>
                     <div className='d-inline-flex w-50'>
                         <label className='fs-14 w-25 my-auto'>Year</label>
-                        <select class="form-control form-control-sm" onClick={yearSort}>
+                        <select class="form-control form-select form-control-sm" onClick={yearSort}>
                             <option>All</option>
                         </select>
                     </div>

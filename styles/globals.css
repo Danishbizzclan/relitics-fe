@@ -862,6 +862,7 @@ html {
   background-color: white !important;
 }
 
+
 .Table .form-control {
   font-size  : 1.4rem !important;
   font-weight: Bold;
@@ -869,6 +870,10 @@ html {
 
 table tr:nth-child(2n) td {
   background-color: #F4F7F9;
+}
+
+.ant-table-column-sorter {
+  color: #0F74AF !important;
 }
 
 .ant-table-cell-ellipsis {
