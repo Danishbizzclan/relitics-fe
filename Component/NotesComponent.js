@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 
 
 export default function NotesComponent() {
-    const [visible, setVisible] = useState(1);
+    const [visible, setVisible] = useState(3);
     const [article, setArticle] = useState([]);
     const loadMore = () => {
-        setVisible(old => old + 1)
+        setVisible(old => old + 4)
     }
     const loadLess = () => {
-        setVisible(old => old - 1)
+        setVisible(old => old - 4)
     }
 
     useEffect(() => {

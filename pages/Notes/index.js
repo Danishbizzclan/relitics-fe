@@ -8,8 +8,8 @@ import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
 
 export default function index() {
-  
-    
+
+
 
 
 
@@ -27,18 +27,20 @@ export default function index() {
                                 <Link href="/EditNotes">
                                     <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
                                         <div className='text-center my-auto'>
-                                            <img src='./addNotes_Icon.svg' />
-                                            <p className='fs-18 Bold mt-3'>Add a Note</p>
+                                            <div className='my-5 py-5'>
+                                                <img src='./addNotes_Icon.svg' />
+                                                <p className='fs-18 Bold mt-3'>Add a Note</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
                             </div>
-                                <NotesComponent
-                                
-                                />
-                      
+                            <NotesComponent
+
+                            />
+
                         </div>
-                     
+
                     </div>
                 </div>
             </div>
