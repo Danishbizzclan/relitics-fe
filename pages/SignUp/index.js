@@ -13,17 +13,18 @@ export default class Signup extends Component {
 
   state = {
     step: 1,
+    profilePic: "",
     email: '',
     state: '',
-    username: '', 
+    username: '',
     password: '',
-    price:"",
+    price: "",
     pkgId: "",
     firstName: '',
     familyName: '',
-    DOB:'',
+    DOB: '',
     country: '',
-   
+
   }
 
   // go back to previous step
@@ -40,62 +41,67 @@ export default class Signup extends Component {
 
   // Handle fields change
   handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+    if (input == "profilePic") {
+      console.log(e.target.files[0])
+      this.setState({[input] : URL.createObjectURL(e.target.files[0])})
+    }
+    else
+      this.setState({ [input]: e.target.value });
   }
 
-  handleDirectChange=(name, value)=>{
+  handleDirectChange = (name, value) => {
     this.setState({ [name]: value });
   }
 
   render() {
-    const { step, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country } = this.state;
-    const values = { step, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country }
-    
-    console.log({values})
-    switch(values.step) {
-      case 1: 
+    const { step, profilePic, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country } = this.state;
+    const values = { step, profilePic, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country }
+
+    console.log({ values })
+    switch (values.step) {
+      case 1:
         return (
           <>
-                   
-          <UserDetails 
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
+
+            <UserDetails
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
           </>
         )
-      case 2: 
+      case 2:
         return (
           <>
-           
-          <PersonalDetails 
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            handleDirectChange={this.handleDirectChange}
-            values={ values }
-          />
+
+            <PersonalDetails
+              prevStep={this.prevStep}
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              handleDirectChange={this.handleDirectChange}
+              values={values}
+            />
           </>
-          
+
         )
-        case 3: 
-        
+      case 3:
+
         return (
           <>
-         
-          <Payment 
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
+
+            <Payment
+              prevStep={this.prevStep}
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
           </>
-          
+
         )
       // case 4: 
       //     return (
       //       <>
-             
+
       //       <Confirmation 
       //         prevStep={ this.prevStep }
       //         nextStep={ this.nextStep }
@@ -103,12 +109,12 @@ export default class Signup extends Component {
       //       />
       //       </>
       //     )
-        case 5: 
-          return (
-            <Success />
-          )
-      default: 
-          // do nothing
+      case 5:
+        return (
+          <Success />
+        )
+      default:
+      // do nothing
     }
   }
 }

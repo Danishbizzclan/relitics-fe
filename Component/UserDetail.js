@@ -7,6 +7,8 @@ import PersonalInfo from './PersonalInfo'
 import Acount from '../Api/Acount'
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 import next from 'next'
+import UploadAndDisplayImage from './Avatarr'
+import { Imagees } from './Avatarr'
 
 
 const UserDetails = ({ nextStep, handleChange, values }) => {
@@ -47,6 +49,10 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                                 size={150}
                                                 uploadURL="http://localhost:3000"
                                                 fileType={"image/png"} /> */}
+                                                {/* <UploadAndDisplayImage /> */}
+                                                {/* <Imagees /> */}
+                                                <img src={values.profilePic} className='avatar-style'  width={'50px'} alt="" />
+                                                <input type="file"  accept='jpg' className='upload-avatar' onChange={handleChange('profilePic')}/>
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input
