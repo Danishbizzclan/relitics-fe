@@ -65,10 +65,11 @@ class Aprecation extends React.Component {
         </div>
       },
       {
-        title: 'Average Aprecation',
+        title: 'Overall Average Aprecation',
         fixed: 'left',
         dataIndex: 'AverageAppreciation',
         key: 'AverageAppreciation',
+        width: '15%',
         sorter: (a, b) => a.age - b.AverageAppreciation,
         sortOrder: sortedInfo.columnKey === 'AverageAppreciation' && sortedInfo.order,
         ellipsis: true,
@@ -130,9 +131,10 @@ class Aprecation extends React.Component {
         ellipsis: true,
       },
       {
-        title: 'Average Sale Price',
-        dataIndex: 'Averagesaleprice',
-        key: 'Averagesaleprice',
+        title: 'Median Sale Price',
+        dataIndex: 'mediansaleprice',
+        key: 'mediansaleprice',
+        width: '11%',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -144,9 +146,10 @@ class Aprecation extends React.Component {
         ellipsis: true,
       },
       {
-        title: 'Acerage Property Tax',
+        title: 'Acerage State Property Tax',
         dataIndex: 'Averagepropertytax',
         key: 'Averagepropertytax',
+        width: '13%',
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -186,14 +189,14 @@ class Aprecation extends React.Component {
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6'>
                     <label className='bluetxt fs-13'>State</label>
-                    <select class="form-control form-control-sm" onClick={this.setRegionSort}>
+                    <select class="form-control form-select form-control-sm" onClick={this.setRegionSort}>
                       <option>All</option>
                     </select>
                   </div>
                   <div className='d-block col-6'>
                     <label className='bluetxt fs-13'>City</label>
-                    <select class="form-control form-control-sm" onClick={this.setCitySort}>
-                      <option>Ascending</option>
+                    <select class="form-control form-select form-control-sm "  onClick={this.setCitySort}>
+                      <option>State</option>
                     </select>
                   </div>
                 </div>
@@ -207,7 +210,8 @@ class Aprecation extends React.Component {
                 averageDuplicates
                 inferBlanks
                 dataSource={ApreciationData} onChange={this.handleChange}
-                scroll={{ x: 1000 }} />
+                scroll={{ x: 1000 }}
+              />
             </div>
           </div>
           {/* </div>    */}

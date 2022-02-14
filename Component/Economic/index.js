@@ -20,14 +20,14 @@ export default function index() {
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
                         <label className='bluetxt fs-13'>State</label>
-                        <select class="form-control form-control-sm" onClick={stateSort}>
+                        <select class="form-control form-select form-control-sm" onClick={stateSort}>
                             <option>All</option>
                         </select>
                     </div>
                     <div className='d-block col-6'>
                         <label className='bluetxt fs-13'>City</label>
-                        <select class="form-control form-control-sm" onClick={CitySort}>
-                            <option>Ascending</option>
+                        <select class="form-control form-select form-control-sm" onClick={CitySort}>
+                            <option>State</option>
                         </select>
                     </div>
                 </div>
