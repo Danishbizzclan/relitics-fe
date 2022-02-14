@@ -14,8 +14,12 @@ const Blog = () => {
         const response = GetData.BlogComponent();
         console.log(response)
         response.then(value => {
-          setData(value.data.articles);
-          console.log(value.data.articles)
+            if(value){
+                setData(value.data.articles);
+                console.log(value.data.articles)
+
+            }
+     
         //   setLoading(false);
         })
       }, [])

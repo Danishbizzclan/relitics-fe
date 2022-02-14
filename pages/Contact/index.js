@@ -10,7 +10,7 @@ import HeadImage from '../../styles/UI/HeadImage';
 import Acount from '../../Api/Acount';
 const ContactUs = () => {
     const [error, setError] = useState('')
-    const [success, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
     
 
@@ -40,9 +40,11 @@ const ContactUs = () => {
         const res = Acount.Contact(user, setError)
         res.then(value => {
             console.log(value)
+            setSuccess(value.data.success)
         })
             .catch(error => {
                 console.log(error)
+                
                 
 
             })
