@@ -33,7 +33,7 @@ class MaterialDesignSwitch extends Component {
               className="react-switch"
               id="material-switch"
             />
-            <div className="text-center ">
+            <div className="text-center fs-15">
              {this.state.checked ? 'on' : 'off'}
             
 

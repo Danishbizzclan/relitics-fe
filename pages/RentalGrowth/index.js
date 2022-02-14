@@ -83,9 +83,9 @@ class Aprecation extends React.Component {
             },
             {
                 title: 'Overall AVERAGE RENTAL GROWTH',
-                fixed: 'left',
-                dataIndex: 'avgGrowth',
-                key: 'avgGrowth',
+                width: '15%',
+                dataIndex: 'AverageRentalGrowth',
+                key: 'AverageRentalGrowth',
                 sorter: (a, b) => a.age - b.AverageRentalGrowth,
                 sortOrder: sortedInfo.columnKey === 'AverageRentalGrowth' && sortedInfo.order,
                 ellipsis: true,
@@ -211,7 +211,7 @@ class Aprecation extends React.Component {
                                     <div className='d-block col-6'>
                                         <label className='bluetxt fs-13'>City</label>
                                         <select class="form-control form-control-sm" onClick={this.setCitySort}>
-                                            <option>Ascending</option>
+                                            <option>All</option>
                                         </select>
                                     </div>
                                 </div>

@@ -881,6 +881,10 @@ html {
   font-weight: Bold;
 }
 
+table tr:nth-child(2n) td {
+  background-color: #F4F7F9;
+  }
+
 .ant-table-cell-ellipsis {
   overflow     : initial !important;
   text-overflow: initial !important;
