@@ -577,7 +577,7 @@ textarea {
   position: fixed !important;
 }
 .pro-sidebar.collapsed > .pro-sidebar-inner > .pro-sidebar-layout {
-  position: relative;
+  position: relative !important;
 }
 
 .pro-sidebar .pro-menu>ul>.pro-sub-menu>.pro-inner-list-item>div>ul {
