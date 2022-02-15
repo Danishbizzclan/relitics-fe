@@ -1,29 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import Avatar from '../../Component/Avatar';
+import GetData from '../../Api/GetData';
 
 
 export default function index() {
-    const [userInput, setuserInput] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        state: "",
-        country: "",
-    })
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('');
+
+
     const handleChange = (event) => {
         setuserInput(event.target.value)
     }
     const submitNotes = (event) => {
         event.preventDefault();
     }
+    useEffect(() => {
+        const response = GetData.EditGet();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+          if(value){
+          setFirstName(value.data.firstName);
+          setLastName(value.data.lastName);
+          setEmail(value.data.email);
+          setPassword(value.data.password);
+          setState(value.data.state);
+          setCountry(value.data.country);
+
+          console.log(value.data)
+    
+        }
+        })
+      }, [])
 
     return (
         <div className="d-inline-flex w-100">
-            {console.log(userInput)}
             <Sidebar />
             <div style={{ width: "inherit" }}>
                 <Dashnav />
@@ -38,10 +57,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.firstName}
+                                    value={firstName}
                                     name="firstName"
                                     id="firstName"
-                                    onChange={handleChange}
+                                    onChange={(e) => setFirstName(e.target.value)}
                                     placeholder="First Name"
                                 />
                             </div>
@@ -52,10 +71,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.email}
+                                    value={email}
                                     name="email"
                                     id="email"
-                                    onChange={handleChange}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Email"
                                 />
 
@@ -67,10 +86,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.state}
+                                    value={state}
                                     name="state"
                                     id="state"
-                                    onChange={handleChange}
+                                    onChange={(e) => setState(e.target.value)}
                                     placeholder="State"
                                 />
                             </div>
@@ -83,10 +102,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.lastName}
+                                    value={lastName}
                                     name="lastName"
                                     id="lastName"
-                                    onChange={handleChange}
+                                    onChange={(e) => setLastName(e.target.value)}
                                     placeholder="Last Name"
                                 />
                             </div>
@@ -97,10 +116,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.password}
+                                    value={password}
                                     name="password"
                                     id="password"
-                                    onChange={handleChange}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Password"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                 />
@@ -112,10 +131,10 @@ export default function index() {
                                     required
                                     autoComplete={false}
                                     className='form-control'
-                                    value={userInput.country}
+                                    value={country}
                                     name="country"
                                     id="country"
-                                    onChange={handleChange}
+                                    onChange={(e) => setCountry(e.target.value)}
                                     placeholder="Country"
                                 />
                             </div>

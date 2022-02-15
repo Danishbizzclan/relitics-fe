@@ -166,21 +166,6 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
 
 
 
-let formData = new FormData();
-
-formData.append("first name", values.firstName )
-formData.append("familyName", values.familyName )
-formData.append("userName", values.username )
-formData.append("city", values.city )
-formData.append("state", values.state )
-formData.append("dob", values.dob )
-formData.append("phone", values.phone )
-formData.append("image", values.image )
-formData.append("pkgId", values.pkgId )
-formData.append("email", values.email )
-formData.append("password", values.password )
-
-
     useEffect(() => {
         const response = GetData.GetMerchantId();
         console.log(response)
@@ -192,34 +177,50 @@ formData.append("password", values.password )
     }, [])
 
     useEffect(() => {
-      if(values.price == 0){
-          SignUp()
-      }
+        if (values.price == 0) {
+            SignUp()
+        }
     }, [values.price]);
-    
+
 
     const SignUp = () => {
-// alert('1')
+        // alert('1')
         // const res = Acount.Registeration(values, handleErrors)
         // res
+
+        console.log({ values })
+        alert('1')
+        let formData = new FormData();
+
+        formData.append("first name", values.firstName)
+        formData.append("familyName", values.familyName)
+        formData.append("userName", values.username)
+        formData.append("city", values.city)
+        formData.append("state", values.state)
+        formData.append("dob", values.dob)
+        formData.append("phone", values.phone)
+        formData.append("image", values.image)
+        formData.append("pkgId", values.pkgId)
+        formData.append("email", values.email)
+        formData.append("password", values.password)
+
         axios
-        .post("/users", {
-       formData
-        }).then(value => {
-            setSuccess(value.data.message)
-            localStorage.setItem('user', JSON.stringify(value.data.user))
-            localStorage.setItem('token', value.data.token)
+            .post("/users", formData)
+            .then(value => {
+                setSuccess(value.data.message)
+                localStorage.setItem('user', JSON.stringify(value.data.user))
+                localStorage.setItem('token', value.data.token)
 
-            console.log('Sign Up res', value)
-            // if (value.data.success) {
+                console.log('Sign Up res', value)
+                // if (value.data.success) {
                 setSuccesModel(true)
-            // }
-            // else {
-            //     alert('4')
-            //     setErrorModel(true)
-            // }
+                // }
+                // else {
+                //     alert('4')
+                //     setErrorModel(true)
+                // }
 
-        })
+            })
             .catch(error => {
                 console.log('error', error.response)
                 setErrorModal(true)
@@ -268,7 +269,7 @@ formData.append("password", values.password )
                         handleOk={nextStep}
                         closable={false}
                     >
-                      <p className="text-white fs-22">  {errorMessage} </p>
+                        <p className="text-white fs-22">  {errorMessage} </p>
                     </CustomModal>
                 </div> : <p>Loading....</p>}</>
     );
