@@ -5,18 +5,6 @@ import MaterialDesignSwitch from "../../Component/Togle1";
 import Membership from "../../Component/Data/MembershipData";
 import Dashnav from "../../Component/Dashnav";
 import withAuth from "../../Component/Auth";
-import {
-  ProSidebar,
-  Menu,
-  MenuItem,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
-} from "react-pro-sidebar";
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
 import "react-pro-sidebar/dist/css/styles.css";
 
 
@@ -42,13 +30,13 @@ const Dashboard = () => {
                   <p className="fs-30 Gothic_3D">Overview</p>
                   <p className="fs-16 greyBlack">Let's start by finding you a city of intrest</p>
                   <div className="row">
-                    <Link href={"./RentalGrowth"}>
+                    <Link href={"./Appreciation"}>
                       <div className="col-sm-12 col-md-6 bg-white text-center p-5 Hover pointer-cursor">
                         <img src={'/development1.svg'} />
                         <p className="my-5 fs-18 Bold greyBlack">Market Aprecation</p>
                       </div>
                     </Link>
-                    <Link href={"./Appreciation"}>
+                    <Link href={"./RentalGrowth"}>
                       <div className="col-sm-12 col-md-6 bg-white text-center p-5 Hover pointer-cursor">
                         <img src={'/chart1.svg'} />
                         <p className="my-5 fs-18 Bold greyBlack">Rental Growth</p>

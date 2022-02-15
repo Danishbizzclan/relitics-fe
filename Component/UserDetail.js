@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Avatarr from './Avatarr'
 import Navbar from './Navbar'
 import Link from "next/link"
+import CustomModal from "./Modal";
 import PersonalInfo from './PersonalInfo'
 // import { makeStyles } from '@material-ui/core/styles';
 import Acount from '../Api/Acount'
@@ -13,11 +14,15 @@ import { Imagees } from './Avatarr'
 
 const UserDetails = ({ nextStep, handleChange, values }) => {
 
+    const [termsModel, settermsModel] = useState(false)
+    const [privacyModel, setPrivacyModel] = useState(false)
+    const [cookiesModel, setCookiesModel] = useState(false)
     // for continue event listener
     const Continue = e => {
         e.preventDefault();
         nextStep();
     }
+
 
 
     return (
@@ -49,10 +54,11 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                                 size={150}
                                                 uploadURL="http://localhost:3000"
                                                 fileType={"image/png"} /> */}
-                                                {/* <UploadAndDisplayImage /> */}
-                                                {/* <Imagees /> */}
-                                                <img src={values.profilePic} className='avatar-style'  alt="" />
-                                                <input type="file"  accept='jpg' className='upload-avatar ms-3' onChange={handleChange('profilePic')}/>
+                                            {/* <UploadAndDisplayImage /> */}
+                                            {/* <Imagees /> */}
+                                            <img src={values.profilePic} className='avatar-style' alt="" />
+                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
+                                            <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <input
@@ -159,12 +165,12 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
 
                                     <div className="form-check mt-3 ms-5">
                                         <input className="form-check-input ms-3" type="checkbox" required value="" id="flexCheckDefault" />
-                                        <label className="form-check-label fs-15 ms-3" htmlFor="flexCheckDefault">
-                                            i agreed to the terms and conditions, Privacy Policy and Cockies Policy
+                                        <label className="form-check-label fs-15 ms-3">
+                                            i agreed to the <span className='bluetxt' onClick={() => { settermsModel(true) }}>Terms of Use</span>, <span className='bluetxt' onClick={() => { setPrivacyModel(true) }}>Privacy Policy</span> and <span className='bluetxt' onClick={() => { setCookiesModel(true) }}> Cookies Policy</span>
                                         </label>
                                     </div>
                                     <div className="form-check mt-3 ms-5">
-                                        <input className="form-check-input ms-3" required type="checkbox" value="" id="flexCheckChecked" />
+                                        <input className="form-check-input ms-3" type="checkbox" value="" id="flexCheckChecked" />
                                         <label className="form-check-label fs-15 ms-3" htmlFor="flexCheckChecked">
                                             i would like to keep up to date on new features and new articles, Privacy Policy
                                         </label>
@@ -197,6 +203,57 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                         </div>
                     </div>
                 </div>
+                <CustomModal
+                    title="Terms of Use"
+                    customClass='modal-white'
+                    isModalVisible={termsModel}
+                    handleOk={settermsModel}
+                    setErrorModel={settermsModel}
+                    closable={true}
+                >
+                    <div className=''>
+                        <p className='fs-22 text-center'>Terms of Use</p>
+                        <ul className='fs-16'>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                        </ul>
+                    </div>
+                </CustomModal>
+                <CustomModal
+                    title="Privacy Policy"
+                    customClass='modal-white'
+                    isModalVisible={privacyModel}
+                    handleOk={setPrivacyModel}
+                    setErrorModel={setPrivacyModel}
+                    closable={true}
+                >
+                    <div className=''>
+                        <p className='fs-22 text-center'>Privacy Policy</p>
+                        <ul className='fs-16'>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                        </ul>
+                    </div>
+                </CustomModal>
+                <CustomModal
+                    title="Cookies Policy"
+                    customClass='modal-white'
+                    isModalVisible={cookiesModel}
+                    handleOk={setCookiesModel}
+                    setErrorModel={setCookiesModel}
+                    closable={true}
+                >
+                    <div className=''>
+                        <p className='fs-22 text-center'>Cookies Policy</p>
+                        <ul className='fs-16'>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                            <li>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+                        </ul>
+                    </div>
+                </CustomModal>
             </div>
         </>
 

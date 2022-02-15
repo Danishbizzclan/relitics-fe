@@ -13,7 +13,7 @@ export default class Signup extends Component {
 
   state = {
     step: 1,
-    profilePic: "",
+    profilePic: "./User.svg",
     email: '',
     state: '',
     username: '',
@@ -42,8 +42,9 @@ export default class Signup extends Component {
   // Handle fields change
   handleChange = input => e => {
     if (input == "profilePic") {
-      console.log(e.target.files[0])
-      this.setState({[input] : URL.createObjectURL(e.target.files[0])})
+      if(e.target.files[0]){
+      this.setState({[input] : URL.createObjectURL(e?.target?.files[0])})
+    }
     }
     else
       this.setState({ [input]: e.target.value });
