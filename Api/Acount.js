@@ -44,7 +44,7 @@ class Acount {
         })
 
         .catch(function (error) {
-          console.log(error.response.data.message);
+          console.log(error.response.data);
           setError(error.response.data.message);
           setModel(true)
 
