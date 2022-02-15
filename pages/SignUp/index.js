@@ -12,7 +12,7 @@ import PersonalInfo from '../../Component/PersonalInfo'
 export default class Signup extends Component {
 
   state = {
-    step: 1,
+    step: 3,
     profilePic: "",
     email: '',
     state: '',
@@ -24,6 +24,7 @@ export default class Signup extends Component {
     familyName: '',
     DOB: '',
     country: '',
+    sendImage:'',
 
   }
 
@@ -43,7 +44,8 @@ export default class Signup extends Component {
   handleChange = input => e => {
     if (input == "profilePic") {
       console.log(e.target.files[0])
-      this.setState({[input] : URL.createObjectURL(e.target.files[0])})
+      this.setState({[input] : URL.createObjectURL(e.target.files[0]),
+      sendImage:e.target.files[0]})
     }
     else
       this.setState({ [input]: e.target.value });
@@ -54,8 +56,8 @@ export default class Signup extends Component {
   }
 
   render() {
-    const { step, profilePic, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country } = this.state;
-    const values = { step, profilePic, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country }
+    const { step, profilePic, sendImage, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country, DOB } = this.state;
+    const values = { step, profilePic, sendImage, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country, DOB }
 
     console.log({ values })
     switch (values.step) {

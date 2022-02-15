@@ -572,6 +572,9 @@ textarea {
 .pro-sidebar > .pro-sidebar-inner {
   min-height: 100vh;
 }
+.pro-sidebar-header{
+  max-width: 25rem;
+}
 
 .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout {
   position: fixed !important;

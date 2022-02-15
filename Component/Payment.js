@@ -153,7 +153,8 @@ import Link from "next/link"
 import Acount from "../Api/Acount";
 import CustomModal from "./Modal";
 import axios from "axios";
-
+import PersonalInfo from "./PersonalInfo";
+import Navbar from "./Navbar";
 
 const Payment = ({ prevStep, nextStep, handleChange, values }) => {
     const [clientId, setClientId] = useState('')
@@ -189,18 +190,17 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
         // res
 
         console.log({ values })
-        alert('1')
         let formData = new FormData();
 
-        formData.append("first name", values.firstName)
-        formData.append("familyName", values.familyName)
-        formData.append("userName", values.username)
+        formData.append("firstName", values.firstName)
+        formData.append("lastName", values.familyName)
+        formData.append("username", values.username)
         formData.append("city", values.city)
         formData.append("state", values.state)
         formData.append("dob", values.dob)
         formData.append("phone", values.phone)
-        formData.append("image", values.image)
-        formData.append("pkgId", values.pkgId)
+        formData.append("image", values.sendImage)
+        formData.append("packageID", values.pkgId)
         formData.append("email", values.email)
         formData.append("password", values.password)
 
@@ -232,23 +232,57 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
 
     return (
         <>
+        <Navbar />
+
             {clientId ?
                 <div className="App">
-                    <PayPalButton
-                        shippingPreference="NO_SHIPPING"
-                        amount={values.price}
-                        options={{
-                            clientId: clientId
-                        }}
-                        onSuccess={(details, data) => {
-                            console.log("Details---------->", details);
-                            console.log("Data------------->", data);
-                            SignUp()
-                        }
-                        }
+                    <div className="container-fluid theme_bg p-5">
+                        <div className="py-5">
+                            <div className='mb-5'>
+                                <PersonalInfo
+                                    values={values.step}
+                                    prevStep={prevStep}
+                                    nextStep={nextStep}
+                                />
+                            </div>
+                            <div className="container">
+                                <div className="col-sm-8 mt-3 mx-auto">
+                                    <div className="row bg-pric brdr_div">
+                                        <div className="uper-color p-4 mb-4">
+                                            <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Payment</p>
+
+                                        </div>
+                                        <div className="row bg-pric p-3 "></div>
+
+                                            <div className="text-center">
+
+                                        <PayPalButton
+                                            shippingPreference="NO_SHIPPING"
+                                            amount={values.price}
+                                            className="mt-5"
+                                            options={{
+                                                clientId: clientId
+                                            }}
+                                            onSuccess={(details, data) => {
+                                                console.log("Details---------->", details);
+                                                console.log("Data------------->", data);
+                                                SignUp()
+                                            }
+                                            }
 
 
-                    />
+                                        />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
                     <CustomModal
                         title="Succefull"
                         isModalVisible={succesModel}
@@ -266,12 +300,14 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
                     <CustomModal
                         title="Succefull"
                         isModalVisible={errorModal}
+                        setErrorModal={setErrorModal}
                         handleOk={nextStep}
                         closable={false}
                     >
                         <p className="text-white fs-22">  {errorMessage} </p>
                     </CustomModal>
-                </div> : <p>Loading....</p>}</>
+                </div> : <p>Loading....</p>}
+        </>
     );
 
 };

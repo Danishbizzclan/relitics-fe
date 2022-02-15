@@ -27,6 +27,9 @@ const Dashboard = () => {
   const menuIconClick = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+  let firstName = JSON.parse(localStorage.getItem('user')).firstName;
+
+
   return (
     <>
       <div className="d-inline-flex w-100">
@@ -34,7 +37,7 @@ const Dashboard = () => {
         <div style={{ width: "inherit" }}>
           <Dashnav />
           <div className='container mx-auto mt-3'>
-            <p className="fs-40 Gothic_3D">Hi Tabish</p>
+            <p className="fs-40 Gothic_3D">Hi {firstName}</p>
             <p className="fs-16">Welcome back to your dashboard</p>
             <div className="row g-5">
               <div className="col-lg-8">

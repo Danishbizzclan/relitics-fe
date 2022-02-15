@@ -1,10 +1,22 @@
-import React, { activeClassName } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/router"
 import classes from "../Component/Navbar.module.css"
 import Link from "next/link"
 
 function Dashnav() {
   const router = useRouter();
+  const [user, setUser] = useState('')
+  useEffect(() => {
+
+  if (typeof window !== 'undefined') {
+
+    setUser(JSON.parse(localStorage.getItem('user')))
+  }
+})
+  
+
+
+
   return (
     <div className={classes.dashNavColor}>
       <div className="container mx-auto">
@@ -32,8 +44,8 @@ function Dashnav() {
                       <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
                     <Link href="/Dashboard">
                       <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
-                        <img src={'/Mask Group 23.png'} style={{ width: '4.6rem' }} />
-                        <p className="text-white my-auto px-sm-0 px-md-4 fs-15">Tabish</p>
+                        <img src={user?.image} style={{ width: '4.6rem' }} />
+                        <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
                       </div>
                     </Link>
                   </ul>

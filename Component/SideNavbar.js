@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -30,6 +30,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 const Sidebar = () => {
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
+  const [user, setUser] = useState('')
 
 
 
@@ -46,6 +47,14 @@ const Sidebar = () => {
   const toggleOpen = () => {
     setIsOpen = !isOpen
   }
+  useEffect(() => {
+
+  if (typeof window !== 'undefined') {
+
+    setUser(JSON.parse(localStorage.getItem('user')))
+  }
+})
+
   return (
     <>
       <div id="header">
@@ -69,10 +78,10 @@ const Sidebar = () => {
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">
-                <p className={`text-white fs-18 mb-1 pointer-cursor ${router.pathname == "/EditProfile" ? "active" : null}`}>Tabish bin Tahir<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
+                <p className={`text-white fs-18 mb-1 pointer-cursor ${router.pathname == "/EditProfile" ? "active" : null}`}>{user?.firstName} {user?.lastName}<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
               </div>
             </Link>
-            <p className="fs-16 text-center disp-none">tabish614@gmail.com</p>
+            <p className="fs-16 text-center disp-none">{user?.email}</p>
             {/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
           </SidebarHeader>
           <SidebarContent>
