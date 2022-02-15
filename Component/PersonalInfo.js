@@ -1,6 +1,10 @@
 import React from 'react'
 
 const PersonalInfo = (props) => {
+    // const stepOne = e => {
+    //     props.values(1)
+      
+    // }
 
  
     return (
@@ -9,7 +13,7 @@ const PersonalInfo = (props) => {
                 <div onClick={props.nextStep} className='d-flex justify-content-center mt-3'>
 
                     <div>
-                       <div onClick={props.nextStep} className={props.values == 1 ? " pink-color" : " gray-color"}
+                       <div  className={props.values == 1 ? " pink-color" : " gray-color"}
                         ></div>
                     </div>
                     <div>

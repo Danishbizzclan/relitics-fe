@@ -54,6 +54,10 @@ const Sidebar = () => {
     setUser(JSON.parse(localStorage.getItem('user')))
   }
 })
+const Logout = () => {
+  localStorage.clear();
+  window.location.href = '/';
+}
 
   return (
     <>
@@ -74,7 +78,7 @@ const Sidebar = () => {
               </div>
             </Link>
             <div className="text-center my-3">
-              <img src={'/profileAvatar.png'} className="imgw" />
+              <img src={user.image} className="imgw w-50" />
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">
@@ -112,7 +116,7 @@ const Sidebar = () => {
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+              <MenuItem onClick={Logout} icon={<FiLogOut />}>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

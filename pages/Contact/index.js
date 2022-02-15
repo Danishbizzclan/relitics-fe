@@ -40,7 +40,9 @@ const ContactUs = () => {
         const res = Acount.Contact(user, setError)
         res.then(value => {
             console.log(value)
+            if(value.data.success){
             setSuccess(value.data.success)
+            }
         })
             .catch(error => {
                 console.log(error)
@@ -71,6 +73,7 @@ const ContactUs = () => {
                         </div>
                     </div>
                 </div>
+                {success}
             </div>
             <Foter />
         </>
