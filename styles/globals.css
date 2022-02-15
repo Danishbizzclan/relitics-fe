@@ -229,6 +229,7 @@ textarea {
   background-color: #F2F8FF !important;
   border          : .2rem solid #0F74AF !important;
   border-radius   : 1rem !important;
+  width: 14rem;
 }
 
 .bg-pay {
@@ -604,82 +605,24 @@ textarea {
   /* border   : none; */
 }
 
-/* #header .pro-sidebar {
-  width    : 100%;
-  min-width: 100%;
-} */
-
-/* #header .pro-sidebar.collapsed {
-  width    : 8.0rem;
-  min-width: 8.0rem;
-} */
-
 #header .pro-sidebar-inner {
   background-color: #022945;
   box-shadow      : 0..5rem 0.86.6rem .2rem .0rem rgba(0, 0, 0, 0.15);
 }
 
-/* #header .pro-sidebar-inner .pro-sidebar-layout {
-  overflow-y: hidden;
-} */
-
-/* #header .pro-sidebar-inner .pro-sidebar-layout .logotext p {
-  font-size  : 2.0rem;
-  padding    : 0 2.0rem;
-  color      : rgb(8, 8, 8);
-  font-weight: bold;
-} */
-
-/* #header .pro-sidebar-inner .pro-sidebar-layout ul {
-  padding: 0 .5rem;
-} */
-
-/* #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
-  color    : rgb(255, 255, 255);
-  margin   : .0rem .0rem;
-  font-size: 1.7rem;
-} */
-
 #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
   background-color: transparent;
 }
 
-/* #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
-  color: white;
-} */
-
-/* #header .pro-sidebar-inner .pro-sidebar-layout .active {
-  background-color: #111f38;
-} */
-
-/* #header .logo {
-  padding: 2.0rem;
-} */
-
-/* .pro-sidebar .pro-menu .pro-menu-item>.pro-inner-item {
-  padding: .4rem 3.5rem 1.4rem 2.0rem !important;
-} */
-
-
 .collapsed .disp-none {
   display: none !important;
 }
-
-/* .collapsed .display_block {
-  display    : block !important;
-  margin-left: 2.4rem !important;
-} */
 
 @media only screen and (max-width: 720px) {
   html {
     overflow: hidden;
   }
 }
-
-
-/* .pro-sidebar.collapsed small {
-  display: none;
-} */
 
 .pro-sidebar.collapsed .imgw {
   width: 40%;
@@ -908,6 +851,10 @@ table tr:nth-child(2n) td {
 
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
+}
+
+.modal-white .ant-modal-body{
+  background-color: white !important;
 }
 
 .otpcenter div {
