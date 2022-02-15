@@ -53,7 +53,7 @@ const Sidebar = () => {
 
     setUser(JSON.parse(localStorage.getItem('user')))
   }
-})
+}, [typeof window])
 
   return (
     <>
@@ -74,7 +74,7 @@ const Sidebar = () => {
               </div>
             </Link>
             <div className="text-center my-3">
-              <img src={'/profileAvatar.png'} className="imgw" />
+              <img src={user?.image} className="w-50" />
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">

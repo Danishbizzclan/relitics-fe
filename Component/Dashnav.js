@@ -12,7 +12,7 @@ function Dashnav() {
 
     setUser(JSON.parse(localStorage.getItem('user')))
   }
-})
+},[typeof window])
   
 
 
