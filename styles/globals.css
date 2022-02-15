@@ -229,6 +229,7 @@ textarea {
   background-color: #F2F8FF !important;
   border          : .2rem solid #0F74AF !important;
   border-radius   : 1rem !important;
+  width           : 14rem;
 }
 
 .bg-pay {
@@ -569,18 +570,21 @@ textarea {
 .pro-sidebar.collapsed {
   width: 7rem !important;
 }
-.pro-sidebar > .pro-sidebar-inner {
+
+.pro-sidebar>.pro-sidebar-inner {
   min-height: 100vh;
 }
-.pro-sidebar-header{
-  max-width: 25rem;
+
+.pro-sidebar-header {
+  max-width : 25rem;
   line-break: anywhere;
 }
 
-.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout {
+.pro-sidebar>.pro-sidebar-inner>.pro-sidebar-layout {
   position: fixed !important;
 }
-.pro-sidebar.collapsed > .pro-sidebar-inner > .pro-sidebar-layout {
+
+.pro-sidebar.collapsed>.pro-sidebar-inner>.pro-sidebar-layout {
   position: relative !important;
 }
 
@@ -683,9 +687,9 @@ textarea {
 
 .pro-sidebar.collapsed .imgw {
   width: 40%;
-} */
+}
 
-.pro-sidebar .active,
+*/ .pro-sidebar .active,
 .active .pro-inner-item {
   background-color: #041E31;
   color           : #FFDA5F !important;
@@ -910,6 +914,12 @@ table tr:nth-child(2n) td {
   background-color: #022945 !important;
 }
 
+.modal-white .ant-modal-body {
+  background-color: white !important;
+  overflow        : hidden;
+  border-radius   : 2rem !important;
+}
+
 .otpcenter div {
   justify-content: center !important;
 }
@@ -931,12 +941,14 @@ table tr:nth-child(2n) td {
 .textera-bg {
   background-color: white !important;
 }
-.avatar-style{
-  width: 100px;
-  height: 100px;
+
+.avatar-style {
+  width        : 100px;
+  height       : 100px;
   border-radius: 50%;
 }
-.upload-avatar{
-  width: 100px;
+
+.upload-avatar {
+  width           : 100px;
   background-color: #71ECCF !important;
 }

@@ -57,7 +57,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             {/* <UploadAndDisplayImage /> */}
                                             {/* <Imagees /> */}
                                             <img src={values.profilePic} className='avatar-style' alt="" />
-                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
+                                            <input type="file" required accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
                                             <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
