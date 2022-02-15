@@ -53,11 +53,7 @@ const Sidebar = () => {
 
     setUser(JSON.parse(localStorage.getItem('user')))
   }
-})
-const Logout = () => {
-  localStorage.clear();
-  window.location.href = '/';
-}
+}, [typeof window])
 
   return (
     <>
