@@ -574,6 +574,7 @@ textarea {
 }
 .pro-sidebar-header{
   max-width: 25rem;
+  line-break: anywhere;
 }
 
 .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout {
