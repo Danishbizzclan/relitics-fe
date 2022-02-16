@@ -7,18 +7,19 @@ import Acount from '../../Api/Acount';
 import { Modal, Button } from 'antd';
 import Otp from './Otp';
 
-const LoginModal = (props) => {
+const OtpModal = (props) => {
   console.log(props)
   const [otp, setOtp] = useState('')
 
 
   const handleOk = (e) => {
     e.preventDefault();
+    console.log(e)
+    // alert('3')
     props.verifyOtp(otp)
   }
 
   const handleChange = (e) => {
-    console.log(e)
     setOtp(e)
   }
 
@@ -38,10 +39,12 @@ const LoginModal = (props) => {
               onChange={handleChange}
               numInputs={6}
             />
-            <p className='text-danger'>{props.OtpError}</p>
+            <p className='text-danger mx-auto mt-3'>{props.OtpError}</p>
             <div className='text-center mt-5'>
+              <p className='text-danger'>{props.error}</p>
               <button className='btn btn-warning px-5 btnYelow mx-auto py-3' type='submit'>Verify</button>
               <button onClick={props.Resend} className='btn btn-warning px-5 ms-3 btnYelow mx-auto py-3' type='button'>Resend otp</button>
+              <p className='text-success'>{props.otp}</p>
 
             </div>
           </form>
@@ -53,4 +56,4 @@ const LoginModal = (props) => {
     </>
   );
 };
-export default LoginModal
+export default OtpModal

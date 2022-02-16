@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import CustomModal from '../../Component/Modal'
 import Link from "next/link"
 import LoginModal from '../../Component/Login/EnterEmail'
-import Otp from '../../Component/Login/Otp'
+import OtpModal from '../../Component/Login/Otp'
 import NewPassword from "../../Component/Login/NewPassword"
 import Modal from 'antd/lib/modal/Modal'
 import { useRouter } from "next/router";
@@ -18,7 +18,6 @@ import { Spin } from 'antd';
 
 
 const Login = () => {
-    const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
@@ -26,6 +25,10 @@ const Login = () => {
     const [otpModal, setOtpModal] = useState(false)
     const [passwordModel, setPasswordModel] = useState(false)
     const [otp, setOtp] = useState('')
+    const [OtpError, setOtpError] = useState("")
+    const [route, setroute] = useState("")
+    const [reset, setReset] = useState("")
+
     const [isLoading, setIsLoading] = useState(false)
 
     var input = document.getElementById("myInput");
@@ -56,8 +59,7 @@ const Login = () => {
         setIsLoading(true)
         e.preventDefault();
         // nextStep();
-
-        const res = Acount.Login(userName, password, setError, setErrorModel)
+        const res = Acount.Login(email, password, setError, setErrorModel, setOtpModal)
         res.then(value => {
             console.log(value)
             setSuccess(value.data.message)
@@ -73,7 +75,6 @@ const Login = () => {
             }
         })
             .catch(error => {
-                setIsLoading(false)
                 console.log({ error })
             })
 
@@ -100,7 +101,12 @@ const Login = () => {
         res.then(value => {
             console.log('value', value.data)
             if (value.data.success) {
-                setPasswordModel(true)
+                if (route === 'forget') {
+                    setPasswordModel(true)
+                }
+                else {
+                    setOtpModal(false)
+                }
             }
 
         })
@@ -109,6 +115,20 @@ const Login = () => {
             })
 
     }
+    const ResendOtp = () => {
+        // nextStep();
+        // setEmail(email)
+        const res = Acount.EnterEmail(email)
+        res.then(value => {
+            console.log('value', value.data)
+            setReset(value.data.message)
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     const confirmPassword = (Password, PasswordNew) => {
         const res = Acount.confirmPassword(Password, otp, email, setError, setErrorModel)
         res.then(value => {
@@ -134,6 +154,9 @@ const Login = () => {
     //   Router.replace("/Dashboard");
     //   return null;
     // }
+    const GotoLogin =() => {
+        window.location.href = '/Login';
+      }
 
 
     return (
@@ -163,8 +186,8 @@ const Login = () => {
                                                 className="form-control w-100 form-bg my-2"
                                                 aria-describedby="passwordHelpInline"
                                                 name="firstName"
-                                                onChange={(e) => setUserName(e.target.value)}
-                                                value={userName}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                value={email}
                                                 required
                                                 placeholder="Enter User Name"
                                             />
@@ -181,7 +204,7 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-                                                    <a className='blueColor ms-2' type="primary" onClick={() => setResetModel(true)}>
+                                                    <a className='blueColor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
                                                         Reset Now
                                                     </a></p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
@@ -239,12 +262,23 @@ const Login = () => {
             >
                 <p className='text-white'>{error}</p>
             </CustomModal>
-            <Otp
+            <LoginModal
                 isModalVisible={otpModal}
-                isModalVisiblee={resetModel}
-                closable={false}
-                setResetModel={setResetModel}
                 verifyOtp={verifyOtp}
+                OtpError={OtpError}
+                closable={false}
+                Resend={ResendOtp}
+            />
+            <OtpModal
+                isModalVisible={otpModal}
+                verifyOtp={verifyOtp}
+                OtpError={OtpError}
+                otp={reset}
+                error={error}
+                closable={false}
+                Resend={ResendOtp}
+            // isModalVisiblee={resetModel}
+            // setResetModel={setResetModel}
 
             />
             <NewPassword
@@ -261,6 +295,9 @@ const Login = () => {
                 closable={true}
             >
                 <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
+                <div className='mx-auto text-center'>
+                <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 btn-info email-buuton'>Got to Login</button>
+                </div>
             </CustomModal>
 
         </div>
