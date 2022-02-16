@@ -94,7 +94,7 @@ class Acount {
     };
     return res();
   };
-  verifyOtp = (email, otp, setError, errorModal) => {
+  verifyOtp = (email, otp, setError) => {
     const res = async () => {
       const resp = await axios
         .post("/users/verifycode", {
@@ -106,7 +106,6 @@ class Acount {
           console.log(error.response.data.message);
           // alert(1)
           setError(error.response.data.message);
-          errorModal(true)
         });
       return resp;
     };

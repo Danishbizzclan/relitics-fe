@@ -18,7 +18,7 @@ export default class Signup extends Component {
     state: '',
     username: '',
     password: '',
-    price: "",
+    price: -1,
     pkgId: "",
     firstName: '',
     familyName: '',
