@@ -7,6 +7,7 @@ import CustomModal from "./Modal";
 import axios from "axios";
 import PersonalInfo from "./PersonalInfo";
 import Navbar from "./Navbar";
+import LoginModal from "./Login/Otp";
 
 const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     const [clientId, setClientId] = useState('')
@@ -14,6 +15,8 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     const [success, setSuccess] = useState('')
     const [errorModal, setErrorModal] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
+    const [otpModal, setotpModal] = useState(false)
+    const [OtpError, setOtpError] = useState("")
 
 
 
@@ -65,7 +68,8 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
 
                 console.log('Sign Up res', value)
                 // if (value.data.success) {
-                setSuccesModel(true)
+                // setSuccesModel(true)
+                setotpModal(true)
                 // }
                 // else {
                 //     alert('4')
@@ -82,6 +86,34 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
             })
     }
 
+    
+    const verifyOtp = () => {
+        const res = Acount.verifyOtp(values.email)
+        res.then(value => {
+            console.log('value', value.data)
+            if (value.data.success) {
+                //redirect to login Screen
+            }
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
+    const ResendOtp = () => {
+        // nextStep();
+        // setEmail(email)
+        const res = Acount.EnterEmail(values.email)
+        res.then(value => {
+            console.log('value', value.data)
+    
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     return (
         <>
         <Navbar />
@@ -95,6 +127,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                             values={values.step}
                         handleStep={handleStep}
                                 />
+                                
                             </div>
                             <div className="container">
                                 <div className="col-sm-8 mt-3 mx-auto">
@@ -157,7 +190,16 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                     >
                         <p className="text-white fs-22">  {errorMessage} </p>
                     </CustomModal>
+                    {console.log('OTPP',OtpError)}
+                    <LoginModal 
+                    isModalVisible={otpModal}
+                    verifyOtp={verifyOtp}
+                    OtpError={OtpError}
+                    closable={false}
+                    Resend={ResendOtp}
+                    />
                 </div> : <p>Loading....</p>}
+
         </>
     );
 
