@@ -154,6 +154,9 @@ const Login = () => {
     //   Router.replace("/Dashboard");
     //   return null;
     // }
+    const GotoLogin =() => {
+        window.location.href = '/Login';
+      }
 
 
     return (
@@ -271,6 +274,7 @@ const Login = () => {
                 verifyOtp={verifyOtp}
                 OtpError={OtpError}
                 otp={reset}
+                error={error}
                 closable={false}
                 Resend={ResendOtp}
             // isModalVisiblee={resetModel}
@@ -291,6 +295,9 @@ const Login = () => {
                 closable={true}
             >
                 <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
+                <div className='mx-auto text-center'>
+                <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 btn-info email-buuton'>Got to Login</button>
+                </div>
             </CustomModal>
 
         </div>

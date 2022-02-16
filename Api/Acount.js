@@ -134,6 +134,25 @@ class Acount {
     };
     return res();
   };
+  userValidation = () => {
+    console.log({ email })
+    const res = async () => {
+      const resp = await axios
+        .put("/users", {
+          email: email,
+          confirmation_code: otp,
+          newPassword: Password
+        })
+
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+          errorModal(true)
+        });
+      return resp;
+    };
+    return res();
+  };
 
 
 
