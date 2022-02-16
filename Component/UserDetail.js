@@ -208,7 +208,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={termsModel}
                     handleOk={settermsModel}
-                    setErrorModel={settermsModel}
+                    handleClose={()=>settermsModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -225,7 +225,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={privacyModel}
                     handleOk={setPrivacyModel}
-                    setErrorModel={setPrivacyModel}
+                    handleClose={()=>setPrivacyModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -242,7 +242,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={cookiesModel}
                     handleOk={setCookiesModel}
-                    setErrorModel={setCookiesModel}
+                    handleClose={()=>setCookiesModel(false)}
                     closable={true}
                 >
                     <div className=''>

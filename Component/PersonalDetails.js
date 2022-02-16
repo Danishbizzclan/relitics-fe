@@ -124,7 +124,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
             title="Error"
             isModalVisible={errorModel}
             handleOk={prevStep}
-            handleCancel={() => setErrorModel(false)}
+            handleClose={()=>setErrorModel(false)}
             closable={true}
           >
             {error}

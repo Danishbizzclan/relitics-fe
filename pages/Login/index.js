@@ -216,7 +216,7 @@ const Login = () => {
                 setErrorModel={setErrorModel}
 
                 isModalVisible={errorModel}
-                handleCancel={() => setErrorModel(false)}
+                handleClose={() => setErrorModel(false)}
                 closable={true}
             >
                 <p className='text-white'>{error}</p>
@@ -239,7 +239,7 @@ const Login = () => {
                 title="Error"
                 isModalVisible={passwordChanged}
                 setPasswordChanged={setPasswordChanged}
-                handleCancel={() => setErrorModel(false)}
+                handleClose={() => setPasswordChanged(false)}
                 closable={true}
             >
                 <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
