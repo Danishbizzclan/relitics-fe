@@ -3,6 +3,32 @@ body {
   cursor  : default;
 }
 
+
+/* for scroll bar */
+.ScrollBar {
+  padding-right: 1.0rem;
+  height       : 30.0rem;
+  overflow-y   : auto;
+  overflow-x   : hidden;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background   : rgb(240, 242, 245);
+  border-radius: 1.0rem;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background   : #022945;
+  border-radius: 1.0rem;
+}
+
 * {
   font-family: 'Poppins';
 }
