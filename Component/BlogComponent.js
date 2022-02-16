@@ -7,7 +7,7 @@ const BlogCompnnent = ({ data }) => {
         <>
         {console.log(data)}
             <Link href={`/Blog/${data._id}`} >
-                <div className="d-flex flex-column h-100 hover">
+                <div className="d-flex flex-column h-100 graph_hover">
                     <div className='shadow' style={{ flex: "1 1 auto" }}>
                         <img src={'/Mask Group 138.png'} alt="photo" className='w-100 mt-3' />
                         <div className='p-4'>

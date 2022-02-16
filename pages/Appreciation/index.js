@@ -14,11 +14,16 @@ class Aprecation extends React.Component {
     filteredInfo: null,
     sortedInfo: null,
     data: [],
+    currentPage: 1,
+    totalPages: 1,
     loading: true
   };
 
   handleChange = (pagination, filters, sorter) => {
     console.log('Various parameters', pagination, filters, sorter);
+    if (pagination.current !== 1) {
+      this.tableData(pagination.current)
+    }
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -45,14 +50,29 @@ class Aprecation extends React.Component {
     });
   };
   componentDidMount() {
-    const response = GetData.Aprecation();
-    console.log(response)
-    response.then(value => {
-        console.log('dfgh', value)
-        this.setState({ data: value?.data?.allRecords})
-        this.setState({ loading: false })
-    })
+    this.tableData(1)
 }
+tableData = (pageNo) => {
+  const response = GetData.Aprecation(pageNo);
+  console.log(response)
+  response.then(value => {
+      console.log('dfgh', value)
+      this.setState({
+          data: value?.data?.allRecords,
+          totalPages:value?.data?.pages,
+          loading: false
+      })
+  })
+}
+  // componentDidMount() {
+  //   const response = GetData.Aprecation();
+  //   console.log(response)
+  //   response.then(value => {
+  //     console.log('dfgh', value)
+  //     this.setState({ data: value?.data?.allRecords })
+  //     this.setState({ loading: false })
+  //   })
+  // }
 
   render() {
     let { sortedInfo, filteredInfo } = this.state;
@@ -61,7 +81,7 @@ class Aprecation extends React.Component {
     const columns = [
       {
         title: 'Region',
-        info:"zxcvbn",
+        info: "zxcvbn",
         fixed: 'left',
         key: 'region',
         width: '15%',
@@ -145,6 +165,20 @@ class Aprecation extends React.Component {
         ellipsis: true,
       },
       {
+        title: '2022',
+        dataIndex: 'y2022',
+        key: 'y2022',
+        // filters: [
+        //   { text: 'London', value: 'London' },
+        //   { text: 'New York', value: 'New York' },
+        // ],
+        // filteredValue: filteredInfo.address || null,
+        // onFilter: (value, record) => record.address.includes(value),
+        sorter: (a, b) => a.address.length - b.address.length,
+        sortOrder: sortedInfo.columnKey === 2022 && sortedInfo.order,
+        ellipsis: true,
+      },
+      {
         title: 'Median Sale Price',
         dataIndex: 'median',
         key: 'median',
@@ -209,7 +243,7 @@ class Aprecation extends React.Component {
                   </div>
                   <div className='d-block col-6'>
                     <label className='bluetxt fs-13'>City</label>
-                    <select class="form-control form-select form-control-sm "  onClick={this.setCitySort}>
+                    <select class="form-control form-select form-control-sm " onClick={this.setCitySort}>
                       <option>State</option>
                     </select>
                   </div>
@@ -221,13 +255,14 @@ class Aprecation extends React.Component {
               </div>
               {this.state.loading ? (<Spin />) : (
 
-              <Table columns={columns}
-                colors={['#123123', 'rgba(123,123,123,12)']}
-                averageDuplicates
-                inferBlanks
-                dataSource={this.state.data} onChange={this.handleChange}
-                scroll={{ x: 1000 }}
-              />
+                <Table columns={columns}
+                  colors={['#123123', 'rgba(123,123,123,12)']}
+                  averageDuplicates
+                  inferBlanks
+                  pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages*10 }}
+                  dataSource={this.state.data} onChange={this.handleChange}
+                  scroll={{ x: 1000 }}
+                />
               )}
             </div>
           </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from "../../Component/Navbar"
 import classes from "./Login.module.css"
 import Acount from '../../Api/Acount'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CustomModal from '../../Component/Modal'
 import Link from "next/link"
 import LoginModal from '../../Component/Login/EnterEmail'
@@ -12,6 +12,7 @@ import Modal from 'antd/lib/modal/Modal'
 import { useRouter } from "next/router";
 import axios from 'axios'
 import withAuth from '../../Component/unAuth'
+import { Spin } from 'antd';
 
 
 
@@ -28,7 +29,9 @@ const Login = () => {
     const [route, setroute] = useState("")
     const [reset, setReset] = useState("")
 
+    const [isLoading, setIsLoading] = useState(false)
 
+    var input = document.getElementById("myInput");
     const [successMessage, setSuccessMessage] = useState('')
 
     const [passwordChanged, setPasswordChanged] = useState(false)
@@ -39,8 +42,21 @@ const Login = () => {
     const [errorModel, setErrorModel] = useState(false)
     const [succesModel, setSuccesModel] = useState(false)
 
+    useEffect(() => {
+
+        var input = document.getElementById("inputPassword6");
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+    }, [])
+
+
 
     const loginHandler = e => {
+        setIsLoading(true)
         e.preventDefault();
         // nextStep();
         const res = Acount.Login(email, password, setError, setErrorModel, setOtpModal)
@@ -191,7 +207,7 @@ const Login = () => {
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
-                                                <button className="btn btn-primary login-button fs-15" type='submit'>Log in</button>
+                                                <button id="myBtn" className="btn btn-primary login-button fs-15" type='submit'>{isLoading ? (<Spin />) : ' Log in'}</button>
                                             </div>
                                         </form>
                                         <div className="text-center my-4">

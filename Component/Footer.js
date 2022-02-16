@@ -10,6 +10,7 @@ import { FaFacebook, FaPinterest, FaTwitter, FaLinkedinIn, FaInstagram } from "r
 function Foter() {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState('');
+    const [categoriesVisible, setcategoriesVisible] = useState(3)
 
     const [settingErrors, setSettingErrors] = useState('');
     const [data, setData] = useState([]);
@@ -21,13 +22,13 @@ function Foter() {
         console.log(response)
         response.then(value => {
             // console.log('dfgh',value.data.categories)
-            if(value){
-          setData(value?.data?.categories)
-        }
+            if (value) {
+                setData(value?.data?.categories)
+            }
         })
-      }, [])
+    }, [])
 
-      const NewsLetter = e => {
+    const NewsLetter = e => {
         e.preventDefault();
         // nextStep();
         const res = PostData.CreateNewsLetter(email, settingErrors)
@@ -48,25 +49,29 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3 col-sm-6">
                                 <p className={classes.fontbold}>Categories</p>
-                                {data.map((x) => {
+                                {data.slice(0, categoriesVisible).map((x) => {
                                     // console.log(x)
                                     return (
                                         <>
 
-                                            <Link href={`/BlogCategory/${x.name}`}>
-                                            <p className='fs-17 catagory'>{x.name}</p>
-                                            </Link>
+                                            <a href={`/BlogCategory/${x.name}`}>
+                                                <p className='fs-17 catagory'>{x.name}</p>
+                                            </a>
                                         </>
                                     )
                                 })}
 
-
-                                {/* <Link href="/RealState">
-                                    <a className={classes.footerp}><p>Category 1</p></a>
-                                </Link>
-                                <Link href="/Dashboard">
-                                    <a className={classes.footerp}> <p>Category 2</p></a>
-                                </Link> */}
+                                {data.length > 3 && (
+                                    categoriesVisible < data.length ? (
+                                        <a className="" onClick={(() => setcategoriesVisible(categoriesVisible + 4))} style={{ cursor: "pointer" }}>
+                                            load More
+                                        </a>
+                                    ) : (
+                                        <a className="" onClick={(() => setcategoriesVisible(categoriesVisible - 4))} style={{ cursor: "pointer" }}>
+                                            Show Less
+                                        </a>
+                                    )
+                                )}
                             </div>
 
 
@@ -101,14 +106,14 @@ function Foter() {
                             <div className="col-lg-3 col-sm-6 pb-5">
                                 <p className={classes.fontbold}>Subscribe to our newsletter</p>
                                 <form onSubmit={NewsLetter}>
-                                <p className="mx-auto Bold fs-16">Email</p>
-                                <input type="email" value={email} name="email" 
-                                    placeholder="Enter your Email"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    <p className="mx-auto Bold fs-16">Email</p>
+                                    <input type="email" value={email} name="email"
+                                        placeholder="Enter your Email"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     {settingErrors}
                                     <p className='fs-19 text-success'>{success}</p>
-                                <button type="submit" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
+                                    <button type="submit" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
                                 </form>
 
                             </div>

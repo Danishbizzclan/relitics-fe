@@ -8,7 +8,6 @@ import Foter from '../../Component/Footer';
 import Categories from '../../Component/Categories';
 
 function CategorisedBlogDetail() {
-
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     
@@ -28,7 +27,7 @@ function CategorisedBlogDetail() {
                     <div className='row gx-5'>
                         <div className='col-sm-8'>
                             <div className='row mt-5'>
-                                <p className='fs-40 Gothic_3D text-center'>CATEGORY ARCHIVES: {eventCategory} </p>
+                                <p className='fs-40 Gothic_3D text-center col-12'>CATEGORY ARCHIVES: {eventCategory} </p>
                                 <Pagination data={event} class='col-sm-6' perpage='6' />
                             </div>
 
