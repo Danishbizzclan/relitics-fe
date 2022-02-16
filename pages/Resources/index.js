@@ -73,7 +73,7 @@ export default function index() {
                 <Dashnav />
                 <div className='container mx-auto mt-3 Table' >
                     <p className='fs-40 Gothic_3D'>Resources</p>
-                    <div className='bg-dash brdr p-4'>
+                    <div className='bg-dash brdr p-4 my-3'>
                         <p className='fs-20'>Books</p>
                         <div className='row my-4 g-4'>
                             {RenderingBooks}
@@ -92,7 +92,7 @@ export default function index() {
                             )}
                         </div>
                     </div>
-                    <div className='bg-dash brdr p-4'>
+                    <div className='bg-dash brdr p-4 my-3'>
                         <p className='fs-20'>Podcasts</p>
                         <div className='row my-4 g-4'>
                             {RenderingPodcasts}
@@ -111,7 +111,7 @@ export default function index() {
                             )}
                         </div>
                     </div>
-                    <div className='bg-dash brdr p-4'>
+                    <div className='bg-dash brdr p-4 my-3'>
                         <p className='fs-20'>Downloads</p>
                         <div className='row my-4 g-4'>
                             {RenderingDownloads}
