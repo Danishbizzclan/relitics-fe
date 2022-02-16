@@ -20,7 +20,7 @@ const PriceCard = () => {
             {data.map(data => {
                 return (
                     <>
-                        <div className="col-lg-4 col-md-6 my-5 " >
+                        <div className="col-lg-4 col-md-6 my-5 mx-auto" >
                             <div className=" zoom d-flex text-center h-100 Card-color flex-column shadow p-3 brdr" >
                                 <div className='px-3' style={{ flex: "1 1 auto" }}>
                                     <p className="fs-30-normal Gothic_3D  my-auto ">{data.name}</p>

@@ -54,20 +54,20 @@ function Foter() {
                                     return (
                                         <>
 
-                                            <a href={`/BlogCategory/${x.name}`}>
+                                            <Link href={`/BlogCategory/${x.name}`}>
                                                 <p className='fs-17 catagory'>{x.name}</p>
-                                            </a>
+                                            </Link>
                                         </>
                                     )
                                 })}
 
                                 {data.length > 3 && (
                                     categoriesVisible < data.length ? (
-                                        <a className="" onClick={(() => setcategoriesVisible(categoriesVisible + 4))} style={{ cursor: "pointer" }}>
+                                        <a className="text-decoration-none" onClick={(() => setcategoriesVisible(categoriesVisible + 4))} style={{ cursor: "pointer" }}>
                                             load More
                                         </a>
                                     ) : (
-                                        <a className="" onClick={(() => setcategoriesVisible(categoriesVisible - 4))} style={{ cursor: "pointer" }}>
+                                        <a className="text-decoration-none" onClick={(() => setcategoriesVisible(categoriesVisible - 4))} style={{ cursor: "pointer" }}>
                                             Show Less
                                         </a>
                                     )
