@@ -6,7 +6,7 @@ import { useState } from 'react'
 import CustomModal from '../../Component/Modal'
 import Link from "next/link"
 import LoginModal from '../../Component/Login/EnterEmail'
-import Otp from '../../Component/Login/Otp'
+import OtpModal from '../../Component/Login/Otp'
 import NewPassword from "../../Component/Login/NewPassword"
 import Modal from 'antd/lib/modal/Modal'
 import { useRouter } from "next/router";
@@ -17,7 +17,6 @@ import withAuth from '../../Component/unAuth'
 
 
 const Login = () => {
-    const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
@@ -25,6 +24,10 @@ const Login = () => {
     const [otpModal, setOtpModal] = useState(false)
     const [passwordModel, setPasswordModel] = useState(false)
     const [otp, setOtp] = useState('')
+    const [OtpError, setOtpError] = useState("")
+    const [route, setroute] = useState("")
+    const [reset, setReset] = useState("")
+
 
     const [successMessage, setSuccessMessage] = useState('')
 
@@ -40,7 +43,7 @@ const Login = () => {
     const loginHandler = e => {
         e.preventDefault();
         // nextStep();
-        const res = Acount.Login(userName, password, setError, setErrorModel)
+        const res = Acount.Login(email, password, setError, setErrorModel, setOtpModal)
         res.then(value => {
             console.log(value)
             setSuccess(value.data.message)
@@ -56,7 +59,7 @@ const Login = () => {
             }
         })
             .catch(error => {
-                console.log({error})
+                console.log({ error })
             })
 
     }
@@ -67,7 +70,7 @@ const Login = () => {
         res.then(value => {
             console.log('value', value.data)
             if (value.data.success) {
-                
+
                 setOtpModal(true)
             }
 
@@ -82,7 +85,12 @@ const Login = () => {
         res.then(value => {
             console.log('value', value.data)
             if (value.data.success) {
-            setPasswordModel(true)
+                if (route === 'forget') {
+                    setPasswordModel(true)
+                }
+                else {
+                    setOtpModal(false)
+                }
             }
 
         })
@@ -91,13 +99,27 @@ const Login = () => {
             })
 
     }
+    const ResendOtp = () => {
+        // nextStep();
+        // setEmail(email)
+        const res = Acount.EnterEmail(email)
+        res.then(value => {
+            console.log('value', value.data)
+            setReset(value.data.message)
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     const confirmPassword = (Password, PasswordNew) => {
         const res = Acount.confirmPassword(Password, otp, email, setError, setErrorModel)
         res.then(value => {
             console.log('value', value.data.message)
             setSuccessMessage(value.data.message)
             if (value.data.success) {
-            setPasswordChanged(true)
+                setPasswordChanged(true)
             }
 
         })
@@ -106,7 +128,7 @@ const Login = () => {
             })
 
     }
- 
+
 
     // console
     // const accessToken = localStorage.getItem("user");
@@ -145,8 +167,8 @@ const Login = () => {
                                                 className="form-control w-100 form-bg my-2"
                                                 aria-describedby="passwordHelpInline"
                                                 name="firstName"
-                                                onChange={(e) => setUserName(e.target.value)}
-                                                value={userName}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                value={email}
                                                 required
                                                 placeholder="Enter User Name"
                                             />
@@ -163,7 +185,7 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-                                                    <a className='blueColor ms-2' type="primary" onClick={() => setResetModel(true)}>
+                                                    <a className='blueColor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
                                                         Reset Now
                                                     </a></p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
@@ -221,21 +243,31 @@ const Login = () => {
             >
                 <p className='text-white'>{error}</p>
             </CustomModal>
-            <Otp
+            <LoginModal
                 isModalVisible={otpModal}
-                isModalVisiblee={resetModel}
-                closable={false}
-                setResetModel={setResetModel}
                 verifyOtp={verifyOtp}
+                OtpError={OtpError}
+                closable={false}
+                Resend={ResendOtp}
+            />
+            <OtpModal
+                isModalVisible={otpModal}
+                verifyOtp={verifyOtp}
+                OtpError={OtpError}
+                otp={reset}
+                closable={false}
+                Resend={ResendOtp}
+            // isModalVisiblee={resetModel}
+            // setResetModel={setResetModel}
 
             />
-            <NewPassword 
-           isModalVisible={passwordModel}
-           setPasswordModel={setPasswordModel}
-           confirmPassword={confirmPassword}
-           />
+            <NewPassword
+                isModalVisible={passwordModel}
+                setPasswordModel={setPasswordModel}
+                confirmPassword={confirmPassword}
+            />
             {/* confirm password */}
-              <CustomModal
+            <CustomModal
                 title="Error"
                 isModalVisible={passwordChanged}
                 setPasswordChanged={setPasswordChanged}

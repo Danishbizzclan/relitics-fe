@@ -7,7 +7,7 @@ class Acount {
   }
 
   Registeration = (data, id, settingErrors) => {
-// alert('1')
+    // alert('1')
     const res = async () => {
       const resp = await axios
         .post("/users", {
@@ -33,7 +33,7 @@ class Acount {
     };
     return res();
   };
-  Login = (username, password, setError, setModel) => {
+  Login = (username, password, setError, setModel, setOtpModal) => {
     const res = async () => {
 
       const resp = await axios
@@ -46,7 +46,11 @@ class Acount {
         .catch(function (error) {
           console.log(error.response.data);
           setError(error.response.data.message);
-          setModel(true)
+          if (error.response.data.message == "Email is not verified!") {
+            setOtpModal(true)
+          }
+          else
+            setModel(true)
 
         });
       return resp;
@@ -111,31 +115,31 @@ class Acount {
     };
     return res();
   };
-    confirmPassword = (Password, otp, email, setError, setErrorModel) => {
-      console.log({ email })
-      const res = async () => {
-        const resp = await axios
-          .put("/users/changepassword", {
-            email: email,
-            confirmation_code: otp,
-            newPassword: Password
-          })
+  confirmPassword = (Password, otp, email, setError, setErrorModel) => {
+    console.log({ email })
+    const res = async () => {
+      const resp = await axios
+        .put("/users/changepassword", {
+          email: email,
+          confirmation_code: otp,
+          newPassword: Password
+        })
 
-          .catch(function (error) {
-            console.log(error.response.data.message);
-            setError(error.response.data.message);
-            errorModal(true)
-          });
-        return resp;
-      };
-      return res();
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+          errorModal(true)
+        });
+      return resp;
     };
-    
+    return res();
+  };
 
 
 
-    Return() {
-      return this.result;
-    }
+
+  Return() {
+    return this.result;
   }
+}
 export default new Acount();

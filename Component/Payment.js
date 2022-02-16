@@ -7,7 +7,7 @@ import CustomModal from "./Modal";
 import axios from "axios";
 import PersonalInfo from "./PersonalInfo";
 import Navbar from "./Navbar";
-import LoginModal from "./Login/Otp";
+import OtpModal from "./Login/Otp";
 
 const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     const [clientId, setClientId] = useState('')
@@ -63,18 +63,11 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
             .post("/users", formData)
             .then(value => {
                 setSuccess(value.data.message)
-                localStorage.setItem('user', JSON.stringify(value.data.user))
-                localStorage.setItem('token', value.data.token)
+                // localStorage.setItem('user', JSON.stringify(value.data.user))
+                // localStorage.setItem('token', value.data.token)
 
                 console.log('Sign Up res', value)
-                // if (value.data.success) {
-                // setSuccesModel(true)
                 setotpModal(true)
-                // }
-                // else {
-                //     alert('4')
-                //     setErrorModel(true)
-                // }
 
             })
             .catch(error => {
@@ -87,12 +80,12 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     }
 
     
-    const verifyOtp = () => {
-        const res = Acount.verifyOtp(values.email)
+    const verifyOtp = (otp) => {
+        const res = Acount.verifyOtp(values.email, otp, setOtpError)
         res.then(value => {
             console.log('value', value.data)
             if (value.data.success) {
-                //redirect to login Screen
+                setSuccesModel(true)
             }
 
         })
@@ -176,8 +169,8 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                         <div className='p-5'>
                             <p className='fs-22 text-white text-center p-5'>{success}</p>
                             <div className='text-center'>
-                                <Link href="/Dashboard">
-                                    <button className='btn login-button fs-14 px-5 mx-auto'>View your dashboard</button></Link>
+                                <Link href="/Login">
+                                    <button className='btn login-button fs-14 px-5 mx-auto'>Login Now</button></Link>
                             </div>
                         </div>
                     </CustomModal>
@@ -191,7 +184,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                         <p className="text-white fs-22">  {errorMessage} </p>
                     </CustomModal>
                     {console.log('OTPP',OtpError)}
-                    <LoginModal 
+                    <OtpModal 
                     isModalVisible={otpModal}
                     verifyOtp={verifyOtp}
                     OtpError={OtpError}
