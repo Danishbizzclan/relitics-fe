@@ -83,10 +83,10 @@ AllPackeges = () => {
     };
     return res();
   };
-  RentalGrowth = () => {
+  RentalGrowth = (pageNo) => {
     const res = async () => {
       const resp = await axios
-        .get('/stats/rentalGrowth?pageNumber=3')
+        .get(`/stats/rentalGrowth?pageNumber=${pageNo}`)
         .catch(function (error) {
           console.log(error);
         });
@@ -94,10 +94,10 @@ AllPackeges = () => {
     };
     return res();
   };
-  Aprecation = () => {
+  Aprecation = (pageNo) => {
     const res = async () => {
       const resp = await axios
-        .get('/stats/appreciation?pageNumber=3')
+        .get(`/stats/appreciation?pageNumber=${pageNo}`)
         .catch(function (error) {
           console.log(error);
         });

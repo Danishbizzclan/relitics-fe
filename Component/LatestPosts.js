@@ -22,7 +22,7 @@ const LatestPosts = () => {
     return (
         <div>
             {data.slice(0, 4).map(posts => {
-                const date = new Date(posts.date)
+                const date = new Date(posts.updatedAt)
                 const month = date.toLocaleDateString("en-US", { month: "short" });
                 const day = date.toLocaleDateString("en-US", { day: "numeric" });
                 // var lastPosts = blogData.slice(1, 3)

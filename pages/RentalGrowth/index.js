@@ -16,11 +16,16 @@ class Aprecation extends React.Component {
         filteredInfo: null,
         sortedInfo: null,
         data: [],
+        currentPage: 1,
+        totalPages: 1,
         loading: true
     };
 
     handleChange = (pagination, filters, sorter) => {
         console.log('Various parameters', pagination, filters, sorter);
+        if (pagination.current !== 1) {
+            this.tableData(pagination.current)
+        }
         this.setState({
             filteredInfo: filters,
             sortedInfo: sorter,
@@ -46,13 +51,20 @@ class Aprecation extends React.Component {
             },
         });
     };
-    componentDidMount () {
-        const response = GetData.RentalGrowth();
+    componentDidMount() {
+        this.tableData(1)
+    }
+
+    tableData = (pageNo) => {
+        const response = GetData.RentalGrowth(pageNo);
         console.log(response)
         response.then(value => {
             console.log('dfgh', value)
-            this.setState({ data: value?.data?.rentalGrowth })
-            this.setState({ loading: false })
+            this.setState({
+                data: value?.data?.rentalGrowth,
+                totalPages:value?.data?.pages,
+                loading: false
+            })
         })
     }
 
@@ -225,6 +237,7 @@ class Aprecation extends React.Component {
                                         colors={['#123123', 'rgba(123,123,123,12)']}
                                         averageDuplicates
                                         inferBlanks
+                                        pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages*10 }}
                                         dataSource={this.state.data} onChange={this.handleChange}
                                         scroll={{ x: 1000 }} />
                                 </>

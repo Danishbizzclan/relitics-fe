@@ -913,9 +913,10 @@ table tr:nth-child(2n) td {
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
 }
-.ant-modal-content{
+
+.ant-modal-content {
   border-radius: 1rem !important;
-  overflow        : hidden;
+  overflow     : hidden;
 }
 
 .modal-white .ant-modal-body {

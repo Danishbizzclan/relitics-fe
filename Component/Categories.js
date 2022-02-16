@@ -6,31 +6,45 @@ import React, { useEffect, useState } from 'react'
 
 function Categories() {
     const [data, setData] = useState([]);
+    const [categoriesVisible, setcategoriesVisible] = useState(4)
 
-    
-  useEffect(() => {
-    const response = GetData.BlogComponent();
-    console.log(response)
-    response.then(value => {
-        console.log(value)
-      setData(value.data.articles);
-      console.log(value.data.articles)
-   })
-  }, [])
-    
+
+    useEffect(() => {
+        const response = GetData.BlogComponent();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            setData(value.data.articles);
+            console.log(value.data.articles)
+        })
+    }, [])
+
     // const uniqueCategories = [...new Set( blogData.map(obj => obj.category)) ];
     return (
         <div>
-            {data.map((x) => {
+            {data.slice(0, categoriesVisible).map((x) => {
                 console.log(x)
                 return (
                     <>
-                       <Link href={`/BlogCategory/${x.name}`}>
-                                            <p className='fs-17 catagory'>{x.title}</p>
-                                            </Link>
+                        <Link href={`/BlogCategory/${x.name}`}>
+                            <p className='fs-17 catagory'>{x.title}</p>
+                        </Link>
                     </>
                 )
             })}
+            <div className="text-center mt-5">
+                            {data.length > 3 && (
+                                categoriesVisible < data.length ? (
+                                    <button className="bg_theme brdr text-white no_brdr" onClick={(() => setcategoriesVisible(categoriesVisible + 4))} style={{ cursor: "pointer" }}>
+                                        load More
+                                    </button>
+                                ) : (
+                                    <button className="bg_theme brdr text-white no_brdr" onClick={(() => setcategoriesVisible(categoriesVisible - 4))} style={{ cursor: "pointer" }}>
+                                        Show Less
+                                    </button>
+                                )
+                            )}
+                        </div>
         </div>
     )
 }
