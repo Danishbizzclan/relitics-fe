@@ -24,8 +24,12 @@ export default class Signup extends Component {
     familyName: '',
     DOB: '',
     country: '',
-    sendImage:'',
+    sendImage: '',
 
+  }
+
+  handleStep = (value) => {
+    this.setState({ step: value })
   }
 
   // go back to previous step
@@ -43,9 +47,12 @@ export default class Signup extends Component {
   // Handle fields change
   handleChange = input => e => {
     if (input == "profilePic") {
-      if(e.target.files[0]){
-      this.setState({[input] : URL.createObjectURL(e?.target?.files[0])})
-    }
+      if (e.target.files[0]) {
+        this.setState({
+          [input]: URL.createObjectURL(e?.target?.files[0]),
+          sendImage: e?.target?.files[0]
+        })
+      }
     }
     else
       this.setState({ [input]: e.target.value });
@@ -66,6 +73,7 @@ export default class Signup extends Component {
           <>
 
             <UserDetails
+              handleStep={this.handleStep}
               nextStep={this.nextStep}
               handleChange={this.handleChange}
               values={values}
@@ -77,6 +85,7 @@ export default class Signup extends Component {
           <>
 
             <PersonalDetails
+              handleStep={this.handleStep}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
               handleChange={this.handleChange}
@@ -92,6 +101,7 @@ export default class Signup extends Component {
           <>
 
             <Payment
+              handleStep={this.handleStep}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
               handleChange={this.handleChange}

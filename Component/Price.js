@@ -3,7 +3,7 @@ import React from 'react'
 
 const Price = (props) => {
     return (
-        <div className='card'>
+        <div className='card graph_hover my-2'>
             <div className="mx-auto text-center w-100 Card-color">
                 <p className="my-auto fs-30 Gothic_3D">{props.Price}</p>
                 <div className="text-center w-75 price-border div-color edge px-4  mx-auto">

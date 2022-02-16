@@ -12,7 +12,7 @@ import UploadAndDisplayImage from './Avatarr'
 import { Imagees } from './Avatarr'
 
 
-const UserDetails = ({ nextStep, handleChange, values }) => {
+const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
 
     const [termsModel, settermsModel] = useState(false)
     const [privacyModel, setPrivacyModel] = useState(false)
@@ -32,7 +32,8 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                 <div className="py-5">
                     <div className='mb-5'>
                         <PersonalInfo
-                            values={values.step} />
+                            values={values.step}
+                        handleStep={handleStep} />
                     </div>
                     <div className="container">
                         {/* email address */}
@@ -57,7 +58,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
                                             {/* <UploadAndDisplayImage /> */}
                                             {/* <Imagees /> */}
                                             <img src={values.profilePic} className='avatar-style' alt="" />
-                                            <input type="file" required accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
+                                            <input type="file" required={values.sendImage?false:true} accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none'/>
                                             <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
@@ -165,7 +166,7 @@ const UserDetails = ({ nextStep, handleChange, values }) => {
 
                                     <div className="form-check mt-3 ms-5">
                                         <input className="form-check-input ms-3" type="checkbox" required value="" id="flexCheckDefault" />
-                                        <label className="form-check-label fs-15 ms-3">
+                                        <label className="form-check-label fs-15 ms-3" htmlFor='flexCheckDefault'>
                                             i agreed to the <span className='bluetxt' onClick={() => { settermsModel(true) }}>Terms of Use</span>, <span className='bluetxt' onClick={() => { setPrivacyModel(true) }}>Privacy Policy</span> and <span className='bluetxt' onClick={() => { setCookiesModel(true) }}> Cookies Policy</span>
                                         </label>
                                     </div>

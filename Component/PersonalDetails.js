@@ -14,7 +14,7 @@ import { Spin } from 'antd';
 import { each } from 'jquery';
 
 
-const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange, values, props }) => {
+const PersonalDetails = ({ handleStep, prevStep, nextStep, handleChange, handleDirectChange, values, props }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
@@ -66,8 +66,7 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
           <div className='mb-5'>
             <PersonalInfo
               values={values.step}
-              prevStep={prevStep}
-              nextStep={nextStep}
+              handleStep={handleStep}
             />
           </div>
           <div className="container">
@@ -77,13 +76,13 @@ const PersonalDetails = ({ prevStep, nextStep, handleChange, handleDirectChange,
                   <p className="text-white fs-40 Gothic_3D mb-0 p-4 ms-5">Select Package</p>
 
                 </div>
-                <div className="row bg-pric p-3 ">
+                <div className="row bg-pric p-3">
                   {loading ? (<Spin />) : (
                     <>
                       {console.log('per', data)}
                       {data.map(x => {
                         return (
-                          <div className='col-sm-4'>
+                          <div className='col-sm-4 mx-auto'>
                             {console.log(x.price)}
                             <Price
                               Continue={Continue}

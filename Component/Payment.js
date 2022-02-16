@@ -8,7 +8,7 @@ import axios from "axios";
 import PersonalInfo from "./PersonalInfo";
 import Navbar from "./Navbar";
 
-const Payment = ({ prevStep, nextStep, handleChange, values }) => {
+const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     const [clientId, setClientId] = useState('')
     const [succesModel, setSuccesModel] = useState(false)
     const [success, setSuccess] = useState('')
@@ -92,9 +92,8 @@ const Payment = ({ prevStep, nextStep, handleChange, values }) => {
                         <div className="py-5">
                             <div className='mb-5'>
                                 <PersonalInfo
-                                    values={values.step}
-                                    prevStep={prevStep}
-                                    nextStep={nextStep}
+                            values={values.step}
+                        handleStep={handleStep}
                                 />
                             </div>
                             <div className="container">
