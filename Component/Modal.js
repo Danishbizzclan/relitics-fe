@@ -6,7 +6,7 @@ import { Modal, Button } from 'antd';
 const CustomModal = (props) => {
   return (
     <>
-        <Modal visible={props.isModalVisible} className={`modal-bg ${props.customClass}`} onOk={props.handleOk} footer={false} onCancel={() => props.setErrorModel(false)} closable={props.closable}>
+        <Modal visible={props.isModalVisible} className={`modal-bg ${props.customClass}`} onOk={props.handleOk} footer={false} onCancel={props.handleClose} closable={props.closable}>
 
           {props.children}
 
