@@ -9,6 +9,7 @@ const PriceCard = () => {
         const response = GetData.AllPackeges();
         console.log(response)
         response.then(value => {
+            console.log(value)
             if(value){
           setData(value?.data?.packages);
           console.log(value.data.packages)
@@ -17,40 +18,31 @@ const PriceCard = () => {
       }, [])
     return (
         <>
-            {data.map(data => {
+        
+            {data.map((each, index) => {
                 return (
-                    <>
-                        <div className="col-lg-4 col-md-6 my-5 mx-auto" >
+                        <div className="col-lg-4 col-md-6 my-5 mx-auto" key={Math.random()}>
                             <div className=" zoom d-flex text-center h-100 Card-color flex-column shadow p-3 brdr" >
                                 <div className='px-3' style={{ flex: "1 1 auto" }}>
-                                    <p className="fs-30-normal Gothic_3D  my-auto ">{data.name}</p>
+                                    <p className="fs-30-normal Gothic_3D  my-auto ">{each.name}</p>
                                     <div className="text-center w-75 price-border div-color edge px-4  mx-auto">
-                                        <p className="my-auto Gothic_3D fs-40" >{data.price}</p>
-                                        <p className="mt-2 fs-22 Gothic_3D mb-0" >{data.packageType}</p>
+                                        <p className="my-auto Gothic_3D fs-40" >{each.price}</p>
+                                        <p className="mt-2 fs-22 Gothic_3D mb-0" >{each.packageType}</p>
                                         <div className="price-line my-5 mx-auto"></div>
-                                        <div className="d-flex mt-3">
-                                            <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
-                                            <p className="my-auto ms-2 fs-15" >{data.options[0]}</p>
-                                        </div>
-                                        <div className="d-flex mt-3">
-                                            <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
-                                            <p className="my-auto ms-2 fs-15" >{data.options[1]}</p>
-                                        </div>
-                                        <div className="d-flex mt-3">
-                                            <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
-                                            <p className="my-auto ms-2 fs-15" >{data.options[2]}</p>
-                                        </div>
-                                        <div className="d-flex mt-3 mb-4">
-                                            <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
-                                            <p className="my-auto ms-2 fs-15">{data.options[3]}</p>
-                                        </div>
+                                        {each.options.map(eachOption=>{
+                                            return(
+                                                <div className="d-flex mt-3" key={eachOption}>
+                                                    <img src={"check-circle-fill.png"} className="img-fluid" style={{ objectFit: "contain" }} alt="..." />
+                                                    <p className="my-auto ms-2 fs-15" >{eachOption}</p>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                     <button type="button" className="btn btn_width btnYelow zoom buy-color mb-5 fs-15 mt-5">Buy Now</button>
                                 </div>
                             </div>
 
                         </div>
-                    </>
                 )
             })}
 

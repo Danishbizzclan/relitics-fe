@@ -219,7 +219,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 </div>
                 <CustomModal
                     title="Terms of Use"
-                    customClass='modal-white'
+                    customclassName='modal-white'
                     isModalVisible={termsModel}
                     handleOk={settermsModel}
                     handleClose={()=>settermsModel(false)}
@@ -236,7 +236,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 </CustomModal>
                 <CustomModal
                     title="Privacy Policy"
-                    customClass='modal-white'
+                    customclassName='modal-white'
                     isModalVisible={privacyModel}
                     handleOk={setPrivacyModel}
                     handleClose={()=>setPrivacyModel(false)}
@@ -253,7 +253,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 </CustomModal>
                 <CustomModal
                     title="Cookies Policy"
-                    customClass='modal-white'
+                    customclassName='modal-white'
                     isModalVisible={cookiesModel}
                     handleOk={setCookiesModel}
                     handleClose={()=>setCookiesModel(false)}

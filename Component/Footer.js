@@ -21,6 +21,7 @@ function Foter() {
         const response = GetData.BlogCatagory();
         console.log(response)
         response.then(value => {
+            console.log(value)
             // console.log('dfgh',value.data.categories)
             if (value) {
                 setData(value?.data?.categories)
@@ -49,17 +50,20 @@ function Foter() {
                         <div className='row'>
                             <div className="col-md-3 col-sm-6">
                                 <p className={classes.fontbold}>Categories</p>
-                                {data.slice(0, categoriesVisible).map((x) => {
-                                    // console.log(x)
-                                    return (
-                                        <>
-
-                                            <Link href={`/BlogCategory/${x.name}`}>
-                                                <p className='fs-17 catagory'>{x.name}</p>
-                                            </Link>
-                                        </>
-                                    )
-                                })}
+                                <div>
+                                    {data.slice(0, categoriesVisible).map((x, index) => {
+                                        // console.log(x)
+                                        return (
+                                            <div key={Math.random()}>
+                                                <Link href={`/BlogCategory/${x.name}`}>
+                                                    <div>
+                                                        <p className='fs-17 catagory'>{x.name}</p>
+                                                    </div>
+                                                </Link>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
 
                                 {data.length > 3 && (
                                     categoriesVisible < data.length ? (
