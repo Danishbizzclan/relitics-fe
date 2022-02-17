@@ -50,7 +50,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
         formData.append("firstName", values.firstName)
         formData.append("lastName", values.familyName)
         formData.append("username", values.username)
-        formData.append("city", values.city)
+        formData.append("country", values.country)
         formData.append("state", values.state)
         formData.append("dob", values.dob)
         formData.append("phone", values.phone)

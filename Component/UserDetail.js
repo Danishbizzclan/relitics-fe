@@ -61,7 +61,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={VerifyUser} className='p-5'>
+                                <form onSubmit={Continue} className='p-5'>
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader

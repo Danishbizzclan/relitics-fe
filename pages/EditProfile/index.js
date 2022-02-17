@@ -14,6 +14,8 @@ export default function EditProfile() {
     const [password, setPassword] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
+    const [image, setImage] = useState('');
+
 
 
     const handleChange = (event) => {
@@ -34,6 +36,8 @@ export default function EditProfile() {
           setPassword(value.data.password);
           setState(value.data.state);
           setCountry(value.data.country);
+          setImage(value.data.image);
+
 
           console.log(value.data)
     
@@ -47,7 +51,9 @@ export default function EditProfile() {
             <div style={{ width: "inherit" }}>
                 <Dashnav />
                 <form className='container mx-auto my-5 py-5' onSubmit={submitNotes}>
-                    <Avatar />
+                    <Avatar 
+                    image = {image}
+                    />
                     <div className='row gx-5 py-5 my-5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">
@@ -109,7 +115,7 @@ export default function EditProfile() {
                                     placeholder="Last Name"
                                 />
                             </div>
-                            <div className="form-group my-4">
+                            {/* <div className="form-group my-4">
                                 <label className='fs-17'>Password</label>
                                 <input
                                     type="password"
@@ -123,7 +129,7 @@ export default function EditProfile() {
                                     placeholder="Password"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                 />
-                            </div>
+                            </div> */}
                             <div className="form-group my-4">
                                 <label className='fs-17'>Country</label>
                                 <input
