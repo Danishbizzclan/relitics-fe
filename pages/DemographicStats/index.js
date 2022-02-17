@@ -5,7 +5,7 @@ import SecondNavbar from '../../Component/secondNavbar';
 import Demographic from '../../Component/Demographic';
 
 
-export default function index() {
+export default function Demographi() {
     return <div>
         <div className="d-inline-flex w-100">
             <Sidebar />

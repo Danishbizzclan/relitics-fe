@@ -4,7 +4,7 @@ import SecondNavbar from '../../Component/secondNavbar';
 import Sidebar from '../../Component/SideNavbar';
 import Market from '../../Component/Market'
 
-export default function index() {
+export default function MarketStats() {
     
     return (
         <div>

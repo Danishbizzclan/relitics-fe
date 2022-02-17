@@ -28,7 +28,7 @@ function CategorisedBlogDetail() {
                         <div className='col-sm-8'>
                             <div className='row mt-5'>
                                 <p className='fs-40 Gothic_3D text-center col-12'>CATEGORY ARCHIVES: {eventCategory} </p>
-                                <Pagination data={event} className='col-sm-6' perpage='6' />
+                                <Pagination data={event} class='col-sm-6' perpage='6' />
                             </div>
 
                         </div>

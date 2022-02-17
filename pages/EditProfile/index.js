@@ -6,7 +6,7 @@ import Avatar from '../../Component/Avatar';
 import GetData from '../../Api/GetData';
 
 
-export default function index() {
+export default function EditProfile() {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

@@ -28,14 +28,14 @@ const NewPassword = (props) => {
       <Modal visible={props.isModalVisible} className='modal-bg' onOk={handleOk} footer={false} onCancel={() => props.setPasswordModel(false)}>
         <form onSubmit={handleOk}>
           <p className='text-white fs-21'>Enter New Password</p>
-          <input value={Password} onChange={(e) => setPassword(e.target.value)} className="form-control w-100" />
+          <input value={Password} onChange={(e) => setPassword(e.target.value)} class="form-control w-100" />
           <p className='text-white fs-21 mt-3'>Confirm New Password</p>
-          <input onChange={(e) => setPasswordNew(e.target.value)} value={PasswordNew} className="form-control w-100" />
+          <input onChange={(e) => setPasswordNew(e.target.value)} value={PasswordNew} class="form-control w-100" />
           {Password && PasswordNew ?
             Password === PasswordNew ? <p className='text-white'>Password Matched</p> : <p className='text-danger'>Password does not Match</p> : null}
           {/* <p>{Password == PasswordNew ? "passwordmatch" : "password does not match"}</p> */}
-          <div className="d-grid gap-2">
-            <button className="btn btn-primary mt-5 py-4"
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary mt-5 py-4"
               disabled={!(Password && PasswordNew && Password === PasswordNew)}
               type="submit">Verify</button>
           </div>

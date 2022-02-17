@@ -5,7 +5,7 @@ import SecondNavbar from '../../Component/secondNavbar';
 import Economic from '../../Component/Economic';
 
 
-export default function index() {
+export default function EconomicStats() {
     return <div>
         <div className="d-inline-flex w-100">
             <Sidebar />

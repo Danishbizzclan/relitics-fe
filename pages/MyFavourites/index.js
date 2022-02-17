@@ -4,7 +4,7 @@ import { getEventByFav } from '../../Component/Data/RentalGrowthData';
 import Sidebar from '../../Component/SideNavbar';
 import FavCard from '../../Component/FavCard';
 
-function index() {
+function MyFavourite() {
     const [visible, setVisible] = useState(12);
     const loadMore = () => {
         setVisible(old => old + 4)
@@ -54,7 +54,7 @@ function index() {
             </>)
     }
 }
-export default index;
+export default MyFavourite;
  // <div className="text-center my-4">
                                 //     <button className="bg_theme brdr text-white no_brdr " onClick={loadMore} style={{ cursor: "pointer" }}>
                                 //         load More

@@ -31,7 +31,7 @@ const Dashboard = () => {
               <div className="col-lg-8">
                 <div className="bg-dash p-5">
                   <p className="fs-30 Gothic_3D">Overview</p>
-                  <p className="fs-16 greyBlack">Let's start by finding you a city of intrest</p>
+                  <p className="fs-16 greyBlack">Let&#39;s start by finding you a city of intrest</p>
                   <div className="row">
                     <Link href={"./Appreciation"}>
                       <div className="col-sm-12 col-md-6 bg-white text-center p-5 Hover pointer-cursor">

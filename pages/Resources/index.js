@@ -9,7 +9,7 @@ import DocumnetsData from '../../Component/Data/DocumentsData';
 import DownloadsComponent from '../../Component/DownloadsComponent';
 
 
-export default function index() {
+export default function Resources() {
     const [booksvisible, setbooksvisible] = useState(6)
     const [podcastsvisible, setpodcastsvisible] = useState(6)
     const [documenrtsvisible, setdocumenrtsvisible] = useState(6)

@@ -29,7 +29,7 @@ const Blog = () => {
             <HeadImage header='ARTICLES' />
             <div className='container'>
                 <div className='row my-3 gx-4 gy-3'>
-                    <Pagination id={data._id} data={data} className='col-sm-4' perpage='9' />
+                    <Pagination id={data._id} data={data} class='col-sm-4' perpage='9' />
                 </div>
             </div>
             <Foter />

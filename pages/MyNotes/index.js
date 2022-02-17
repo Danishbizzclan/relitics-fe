@@ -6,7 +6,7 @@ import NotesComponent from '../../Component/NotesComponent';
 import Sidebar from '../../Component/SideNavbar';
 
 
-export default function index() {
+export default function MyNotes() {
 
 
 

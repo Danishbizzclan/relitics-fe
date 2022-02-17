@@ -7,7 +7,7 @@ import SecondNavbar from '../../Component/secondNavbar';
 import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
 
-export default function index() {
+export default function Notes() {
 
 
 
