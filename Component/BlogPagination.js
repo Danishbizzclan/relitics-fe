@@ -12,7 +12,7 @@ const Pagination = (props) => {
 
     const displayUsers = props.data.slice(pagesVisited, pagesVisited + userPerPage).map((user) => {
         return (
-            <div className={props.class}>
+            <div className={props.className}>
                 <BlogCompnnent data={user} />
             </div>
         );
