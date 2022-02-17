@@ -138,13 +138,13 @@ function Foter() {
 
 
                                     <div className="col-sm-6  ms-auto">
-                                        <diV className="float-end">
+                                        <div className="float-end">
                                             <img className='my-4' src={"/circleFb.svg"} alt="facebook" />
                                             <img className="ms-3 my-4" src={"/circlePinterest.svg"} alt="pinterest" />
                                             <img className="ms-3 my-4" src={"/circleTwitter.svg"} alt="twitter" />
                                             <img className="ms-3 my-4" src={"/circleLinkedin.svg"} alt="linkedin" />
                                             <img className="ms-3 my-4" src={"/circleInstagram.svg"} alt="instagram" />
-                                        </diV>
+                                        </div>
 
 
                                     </div>
