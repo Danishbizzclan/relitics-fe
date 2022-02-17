@@ -22,6 +22,19 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
         e.preventDefault();
         nextStep();
     }
+    const VerifyUser = () => {
+        // nextStep();
+        // setEmail(email)
+        const res = Acount.userValidation(email)
+        res.then(value => {
+            console.log('value', value.data)
+            setReset(value.data.message)
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
 
 
@@ -48,7 +61,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={Continue} className='p-5'>
+                                <form onSubmit={VerifyUser} className='p-5'>
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader
