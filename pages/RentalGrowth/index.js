@@ -214,13 +214,13 @@ class Aprecation extends React.Component {
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
                                         <label className='bluetxt fs-13'>State</label>
-                                        <select class="form-control form-select form-control-sm" onClick={this.setStateSort}>
+                                        <select className="form-control form-select form-control-sm" onClick={this.setStateSort}>
                                             <option>All</option>
                                         </select>
                                     </div>
                                     <div className='d-block col-6'>
                                         <label className='bluetxt fs-13'>City</label>
-                                        <select class="form-control form-select form-control-sm" onClick={this.setCitySort}>
+                                        <select className="form-control form-select form-control-sm" onClick={this.setCitySort}>
                                             <option>All</option>
                                         </select>
                                     </div>

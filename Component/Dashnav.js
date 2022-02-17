@@ -49,7 +49,7 @@ function Dashnav() {
                       </div>
                     </Link>
                   </ul>
-                  <img className="p-2 rounded-pill" src="Path 188.png" alt="" />
+                  {/* <img className="p-2 rounded-pill" src="Path 188.png" alt="" /> */}
                 </div>
               </div>
             </nav>

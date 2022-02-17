@@ -37,7 +37,7 @@ function Navbar() {
                     <Link href="/SignUp">
                       <button type="button" className={`${classes.sign} py-0 mx-0 btn ms-3 hover`}>Sign up</button></Link>
                   </ul>
-                  <img className="p-2 rounded-pill" src="Path 188.png" alt="" />
+                  {/* <img className="p-2 rounded-pill" src="Path 188.png" alt="" /> */}
                 </div>
               </div>
             </nav>
