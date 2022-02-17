@@ -2,10 +2,10 @@ import React from 'react';
 import { useState } from "react";
 
 import classes from './ContactUs.module.css'
-import EmailForm from './EmailForm';
+import EmailForm from '../../Component/ContactUS/EmailForm';
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
-import MessageForm from './MessageForm';
+import MessageForm from '../../Component/ContactUS/MessageForm';
 import HeadImage from '../../styles/UI/HeadImage';
 import Acount from '../../Api/Acount';
 const ContactUs = () => {

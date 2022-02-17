@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classes from './Notifications.module.css'
-import NotificationsContent from './NotificationsContent';
+import NotificationsContent from '../../Component/Notification/NotificationsContent';
 import NotificationsData from '../../Component/Data/NotificationsData';
 import MaterialDesignSwitch from '../../Component/Toggle';
 import Navbar from '../../Component/Navbar';
