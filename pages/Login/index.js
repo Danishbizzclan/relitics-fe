@@ -154,9 +154,9 @@ const Login = () => {
     //   Router.replace("/Dashboard");
     //   return null;
     // }
-    const GotoLogin =() => {
+    const GotoLogin = () => {
         window.location.href = '/Login';
-      }
+    }
 
 
     return (
@@ -204,9 +204,12 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-                                                    <a className='blueColor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
-                                                        Reset Now
-                                                    </a></p>
+                                                    <Link>
+                                                        <a className='blueColor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
+                                                            Reset Now
+                                                        </a>
+                                                    </Link>
+                                                </p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<a href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</a></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
@@ -296,7 +299,7 @@ const Login = () => {
             >
                 <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
                 <div className='mx-auto text-center'>
-                <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 btn-info email-buuton'>Got to Login</button>
+                    <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 btn-info email-buuton'>Got to Login</button>
                 </div>
             </CustomModal>
 

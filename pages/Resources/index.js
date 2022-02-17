@@ -39,9 +39,10 @@ export default function Resources() {
     //         return { [name]: 6 };
     //     });
     // }
-    const RenderingBooks = BooksData.slice(0, booksvisible).map((books) => {
+    const RenderingBooks = BooksData.slice(0, booksvisible).map((books, index) => {
         return (
             <BooksComponent
+            key={index}
                 Imgsrc={books.imgSrc}
                 title={books.title}
                 authur={books.authur}
@@ -49,18 +50,20 @@ export default function Resources() {
             />
         )
     });
-    const RenderingPodcasts = PodcastsData.slice(0, podcastsvisible).map((podcasts) => {
+    const RenderingPodcasts = PodcastsData.slice(0, podcastsvisible).map((podcasts, index) => {
         return (
             <PodcastsComponent
+            key={index}
                 Imgsrc={podcasts.imgSrc}
                 title={podcasts.title}
                 showBy={podcasts.showBy}
             />
         )
     });
-    const RenderingDownloads = DocumnetsData.slice(0, documenrtsvisible).map((pdf) => {
+    const RenderingDownloads = DocumnetsData.slice(0, documenrtsvisible).map((pdf, index) => {
         return (
             <DownloadsComponent
+            key={index}
                 Imgsrc={pdf.imgSrc}
                 fileName={pdf.fileName}
             />

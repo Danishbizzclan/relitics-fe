@@ -10,7 +10,7 @@ const HomePage = () => {
                 <div className="container">
                     <div className="row default-padding">
                         <div className="col-sm-8 py-5">
-                            <p className="text-white Gothic_3D fs-70">WE'RE HERE TO SIMPLIFY THE MARKET RESEARCH</p>
+                            <p className="text-white Gothic_3D fs-70">WE&#39;RE HERE TO SIMPLIFY THE MARKET RESEARCH</p>
                             <p className="text-white fs-17">Eliminate hours of pain-staking research with a single platform that has updated market, economic, and demographic data for the top metro markets across the United States.</p>
                             <a href='#Prices' className="mt-4"> <button type="button" className="btn fs-15 home-button">See Pricing</button></a>
 

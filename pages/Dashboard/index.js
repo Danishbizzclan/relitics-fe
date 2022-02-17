@@ -89,7 +89,7 @@ const Dashboard = () => {
               <div className="col-lg-4">
                 <div className="bg-dash p-3">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
-                  <p className="fs-16 greyBlack">Let's go to the city statistics</p>
+                  <p className="fs-16 greyBlack">Let&#39;s go to the city statistics</p>
                   <div className="bg-white text-center px-3 mx-auto p-3">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
                     <input type="text" value={state} name="state"
