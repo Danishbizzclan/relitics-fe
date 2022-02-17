@@ -1,4 +1,4 @@
-import React, { activeClassName } from 'react'
+import React, { useEffect, useState, activeClassName } from 'react'
 import Link from "next/link"
 import { useRouter } from "next/router"
 import classes from "./Navbar.module.css"
@@ -7,8 +7,17 @@ import { colors } from '@material-ui/core';
 
 function Navbar() {
   const router = useRouter();
+  const [user, setUser] = useState('')
+  useEffect(() => {
+
+    if (typeof window !== 'undefined') {
+
+      setUser(JSON.parse(localStorage.getItem('user')))
+    }
+  }, [typeof window])
   return (
     <div className={classes.navcolor}>
+      {console.log('sahfsegf', user)}
       <div className="container ">
         <div className="row ms-0 ">
           <div className="col-12 ms-0 p-0 m-0">
@@ -32,10 +41,26 @@ function Navbar() {
                       Articles</div></Link>
                     <Link href="/Contact" ><div className={`nav-link nav-set navbar-text text-white fs-15 ${classes.NavBtnPadding} ${router.pathname == "/Contact" ? "active" : null}`}>
                       Contact</div></Link>
-                    <Link href="/Login">
-                      <button type="button" className={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
-                    <Link href="/SignUp">
-                      <button type="button" className={`${classes.sign} py-0 mx-0 btn ms-3 hover`}>Sign up</button></Link>
+                    {
+                      user ?
+                     ( <>
+                      <Link href="/Notifications">
+                        <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
+                      <Link href="/Dashboard">
+                        <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
+                          <img src={user?.image} style={{ width: '4.6rem' }} />
+                          <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
+                        </div>
+                      </Link>
+                      </>)
+                      :
+                        <>
+                          <Link href="/Login">
+                            <button type="button" className={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
+                          <Link href="/SignUp">
+                            <button type="button" className={`${classes.sign} py-0 mx-0 btn ms-3 hover`}>Sign up</button></Link>
+                        </>
+                    }
                   </ul>
                   <img className="p-2 rounded-pill" src="Path 188.png" alt="" />
                 </div>
