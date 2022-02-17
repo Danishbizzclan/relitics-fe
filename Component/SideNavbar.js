@@ -78,7 +78,7 @@ const Logout =() => {
               </div>
             </Link>
             <div className="text-center my-3">
-              <img src={user.image} className="imgw w-50" />
+              <img src={user.image} className="imgw img-radius w-50" />
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">

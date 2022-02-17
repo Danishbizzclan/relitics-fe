@@ -51,9 +51,7 @@ export default function EditProfile() {
             <div style={{ width: "inherit" }}>
                 <Dashnav />
                 <form className='container mx-auto my-5 py-5' onSubmit={submitNotes}>
-                    <Avatar 
-                    image = {image}
-                    />
+                    <Avatar image = {image} />
                     <div className='row gx-5 py-5 my-5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">

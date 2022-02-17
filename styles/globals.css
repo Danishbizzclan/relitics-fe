@@ -987,3 +987,6 @@ table tr:nth-child(2n) td {
   width           : 100px;
   background-color: #71ECCF !important;
 }
+.img-radius{
+  border-radius: 50%;
+}

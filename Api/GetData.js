@@ -117,5 +117,16 @@ AllPackeges = () => {
     };
     return res();
   };
+  Resource = () => {
+    const res = async () => {
+      const resp = await axios
+        .get("/resource")
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 }
 export default new GetData();

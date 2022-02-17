@@ -230,7 +230,10 @@ class Aprecation extends React.Component {
                                     <button className='btn bluebtn px-4 fs-14 ms-2'>Download PDF</button>
                                 </div>
                             </div>
-                            {this.state.loading ? (<Spin />) : (
+                            {this.state.loading ? (
+                            <div className='text-center mt-5'><Spin /></div>
+                            
+                            ) : (
                                 <>
                                     {console.log(this.state.data)}
                                     <Table columns={columns}
