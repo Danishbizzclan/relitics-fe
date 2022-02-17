@@ -1,6 +1,4 @@
 import React from 'react'
-import classes from './Notifications.module.css'
-import Navbar from '../Navbar'
 
 
 export default function NotificationsContent(props) {

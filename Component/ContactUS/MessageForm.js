@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import classes from './ContactUs.module.css';
-import ReCAPTCHA from "react-google-recaptcha";
 import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input'
-import { message } from "antd";
 
 
 const MessageForm = (props) => {
