@@ -210,7 +210,7 @@ const Login = () => {
                                                         </span>
                                                     {/* </Link> */}
                                                 </p>
-                                                <p className="fs-13 text-nowrap ms-auto">Not a Member<Link to='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</Link></p>
+                                                <p className="fs-13 text-nowrap ms-auto">Not a Member<Link href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</Link></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
                                                 <button id="myBtn" className="btn btn-primary login-button fs-15" type='submit'>{isLoading ? (<Spin />) : ' Log in'}</button>
