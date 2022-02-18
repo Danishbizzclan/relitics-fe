@@ -43,17 +43,17 @@ function Navbar() {
                       Contact</div></Link>
                     {
                       user ?
-                     ( <>
-                      <Link href="/Notifications">
-                        <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
-                      <Link href="/Dashboard">
-                        <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
-                          <img src={user?.image} className='rounded_img' style={{ width: '4.6rem' }} />
-                          <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
-                        </div>
-                      </Link>
-                      </>)
-                      :
+                        (<>
+                          <Link href="/Notifications">
+                            <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} /></Link>
+                          <Link href="/Dashboard">
+                            <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
+                              <img src={user?.image} className='rounded_img' style={{ width: '4.6rem' }} />
+                              <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
+                            </div>
+                          </Link>
+                        </>)
+                        :
                         <>
                           <Link href="/Login">
                             <button type="button" className={`${classes.login} py-0 mx-0 btn-primary btn ms-3`}>Log in</button></Link>
