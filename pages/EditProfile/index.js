@@ -4,6 +4,7 @@ import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import Avatar from '../../Component/Avatar';
 import GetData from '../../Api/GetData';
+import Acount from '../../Api/Acount';
 
 
 export default function EditProfile() {
@@ -45,15 +46,28 @@ export default function EditProfile() {
         })
       }, [])
 
+      const changeData = () => {
+        const res = Acount.changeProfile(firstName, lastName, email, password, state, country)
+        res.then(value => {
+            console.log('value', value.data)
+            if (value.data.success) {
+                setSuccesModel(true)
+            }
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
+
     return (
         <div className="d-inline-flex w-100">
             <Sidebar />
             <div style={{ width: "inherit" }}>
                 <Dashnav />
-                <form className='container mx-auto my-5 py-5' onSubmit={submitNotes}>
-                    <Avatar 
-                    image = {image}
-                    />
+                <form className='container mx-auto my-5 py-5' onSubmit={changeData}>
+                    <Avatar image = {image} />
                     <div className='row gx-5 py-5 my-5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">

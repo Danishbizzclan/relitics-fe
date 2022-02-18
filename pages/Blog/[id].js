@@ -6,6 +6,8 @@ import Foter from '../../Component/Footer';
 import Categories from '../../Component/Categories';
 import LatestPosts from '../../Component/LatestPosts';
 import GetData from '../../Api/GetData';
+import { Spin } from 'antd';
+
 
 
 
@@ -34,7 +36,9 @@ const BlogDetail = () => {
 
   if (loading) {
     return(
-    <h1>Loading</h1>
+      <div className='text-center mt-5'>
+    <Spin />
+    </div>
     )
   }
 

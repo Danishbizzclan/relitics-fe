@@ -7,11 +7,14 @@ import BooksData from '../../Component/Data/BooksData'
 import PodcastsData from '../../Component/Data/PodcastsData';
 import DocumnetsData from '../../Component/Data/DocumentsData';
 import DownloadsComponent from '../../Component/DownloadsComponent';
+import GetData from '../../Api/GetData';
 
 
 export default function Resources() {
     const [booksvisible, setbooksvisible] = useState(6)
     const [podcastsvisible, setpodcastsvisible] = useState(6)
+    const [data, setData] = useState([]);
+
     const [documenrtsvisible, setdocumenrtsvisible] = useState(6)
     const [state, setState] = useState({
         PodcastsData: PodcastsData,
@@ -39,11 +42,26 @@ export default function Resources() {
     //         return { [name]: 6 };
     //     });
     // }
-    const RenderingBooks = BooksData.slice(0, booksvisible).map((books, index) => {
+    useEffect(() => {
+        const response = GetData.Resource();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if(value){
+                setData(value.data.resources);
+                console.log(value.data.resources)
+
+            }
+     
+        //   setLoading(false);
+        })
+      }, [])
+
+    const RenderingBooks = data.slice(0, booksvisible).map((books, index) => {
         return (
             <BooksComponent
             key={index}
-                Imgsrc={books.imgSrc}
+                Imgsrc={books.imageUrl}
                 title={books.title}
                 authur={books.authur}
                 cost={books.cost}

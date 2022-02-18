@@ -190,6 +190,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                     OtpError={OtpError}
                     closable={false}
                     Resend={ResendOtp}
+                    title="verify your password"
                     />
                 </div> : <p>Loading....</p>}
 

@@ -11,7 +11,7 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 //   reader.readAsDataURL(img);
 // }
 
-function beforeUpload(file) {
+function beforeUpload({file, props}) {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
   if (!isJpgOrPng) {
     message.error('You can only upload JPG/PNG file!');
@@ -52,7 +52,7 @@ class Avatarr extends React.Component {
           :
           <div className='d-lg-inline-flex ps-5 ms-5 gx-5'>
             <div className='col-sm-3 w-100'>
-              <img src={"./User.svg"} className="img-fluid avatar-radius w-75" alt="..." ></img>
+              <img src={this.props.image} className="img-fluid avatar-radius w-75" alt="..." ></img>
             </div>
             <div className='col-sm-3 w-100 my-auto'>
               <p className='fs-40 Gothic_3D dash-text my-3 mx-5 text-nowrap'>Edit Profile</p>
