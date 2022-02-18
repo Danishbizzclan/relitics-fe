@@ -40,6 +40,24 @@ class PostData {
     };
     return res();
   };
+  AddNotes = (detail, title) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/note", {
+          title: title,
+          detail: detail,
+          city:"lahore", 
+          state:"pakistan"
+        })
+
+        .catch(function (error) {
+          console.log(error.response)
+          settingErrors(error.response.data.message);
+        });
+      return resp;
+    };
+    return res();
+  };
     Return() {
       return this.result;
     }

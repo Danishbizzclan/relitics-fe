@@ -1,11 +1,12 @@
 import Link from "next/link"
 import GetData from '../Api/GetData';
 import React, { useEffect, useState } from 'react'
+import DeleteData from '../Api/DeleteData'
 
 
 export default function NotesComponent() {
     const [visible, setVisible] = useState(3);
-    const [article, setArticle] = useState([]);
+    const [notes, setNotes] = useState([]);
     const loadMore = () => {
         setVisible(old => old + 4)
     }
@@ -14,22 +15,38 @@ export default function NotesComponent() {
     }
 
     useEffect(() => {
+        getNotes()
+      }, [])
+
+      const getNotes =()=>{
         const response = GetData.AllNotes();
-        console.log(response)
         response.then(value => {
-          setArticle(value.data.articles);
-          console.log(value.data.articles)
+            
+        console.log(value)
+          setNotes(value.data.notes);
+          console.log(value.data.notess)
         //   setLoading(false);
         })
-      }, [])
+      }
+      const DeleteNote =(id)=>{
+        const response = DeleteData.DeleteNote(id);
+        response.then(value => {
+            
+        console.log(value)
+        getNotes()
+        //   setLoading(false);
+        })
+      }
+
+
     return (
         <>
-          {article.slice(0, visible).map((x) =>
+          {notes.slice(0, visible).map((x) =>
             <div className='col-lg-3 col-md-4 col-6'>
                 <div className='bg-dash brdr d-flex flex-column h-100 overflow-hidden'>
                     <div className='d-inline-flex w-100 mt-2 p-3' style={{ flex: "1 1 auto" }}>
                         <p className='fs-18 Bold greyBlack w-75'>{x.title}</p>
-                        <img src='./deleteIcon.svg' className='mb-auto ms-auto' />
+                        <img onClick={()=>DeleteNote(x._id)} src='./deleteIcon.svg' className='mb-auto ms-auto' />
                     </div>
                     <p className='fs-16 p-3'>{
                         x.detail?.length > 25
@@ -50,8 +67,8 @@ export default function NotesComponent() {
              )}
              <div className="text-center mt-5">
                       
-               {article.length > 1 && (
-                                visible < article.length ? (
+               {notes.length > 1 && (
+                                visible < notes.length ? (
                                         <button className="bg_theme brdr text-white no_brdr" onClick={loadMore} style={{ cursor: "pointer" }}>
                                             load More
                                         </button>

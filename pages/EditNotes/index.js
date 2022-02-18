@@ -2,20 +2,37 @@ import React, { useState } from 'react';
 import Sidebar from '../../Component/SideNavbar';
 import Dashnav from '../../Component/Dashnav';
 import Link from "next/link"
+import PostData from '../../Api/PostData';
 import { useRouter } from "next/router";
 
 export default function EditNotes() {
     const router = useRouter();
     const [userInput, setuserInput] = useState({
         details: "",
-        title: ""
+        title: "",
+        noteMessage:""
     })
 
     const handleChange = (e) => {
-        setuserInput(e.target.value)
+        setuserInput({...userInput, [e.target.name]:e.target.value})
     }
     const submitNotes = (e) => {
         e.preventDefault();
+    }
+    const AddNotes = (e) => {
+        // nextStep();
+        // setEmail(email)
+        e.preventDefault();
+
+        const res = PostData.AddNotes(userInput.details, userInput.title)
+        res.then(value => {
+            console.log('value', value.data)
+            setuserInput({...userInput, noteMessage:value.data.message})
+
+        })
+            .catch(err => {
+                console.log(err)
+            })
     }
     return (
         <div>
@@ -29,7 +46,7 @@ export default function EditNotes() {
                         <p className='fs-30 Gothic_3D my-3'>City State</p>
                         <div className='div_grey p-5 notes_form'>
                             <p className='fs-22 Bold greyBlack my-3'>Notes</p>
-                            <form className='row form' onSubmit={submitNotes} >
+                            <form className='row form' onSubmit={AddNotes} >
                                 <div className="form-group  my-2">
                                     <input
                                         type="text"
@@ -57,7 +74,8 @@ export default function EditNotes() {
                                     />
                                 </div>
                                 <div className='mx-auto text-center'>
-                                    <Link href='/MyNotes'><button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button></Link>
+                                    <p className='text-success fs-18'>{userInput.noteMessage}</p>
+                                   <button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button>
                                     <button onClick={() => router.back()} className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Cancel</button>
                                 </div>
                             </form>

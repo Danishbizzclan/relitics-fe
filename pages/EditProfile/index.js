@@ -5,6 +5,7 @@ import Sidebar from '../../Component/SideNavbar';
 import Avatar from '../../Component/Avatar';
 import GetData from '../../Api/GetData';
 import Acount from '../../Api/Acount';
+import axios from "axios";
 
 
 export default function EditProfile() {
@@ -15,13 +16,24 @@ export default function EditProfile() {
     const [password, setPassword] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
-    const [image, setImage] = useState('');
+    const [profileImage, setProfileImage] = useState('');
+    const [sendImage, setSendImage] = useState('');
+    const [userId, setUserId] = useState();
+    const [sucessMessage, setSuccessMessage] = useState("");
 
 
 
-    const handleChange = (event) => {
-        setuserInput(event.target.value)
+    const handleChange = input => e => {
+        if (input == "profilePic") {
+            if (e.target.files[0]) {
+                setProfileImage(URL.createObjectURL(e?.target?.files[0]))
+                setSendImage(e?.target?.files[0])
+
+            }
+        }
     }
+
+
     const submitNotes = (event) => {
         event.preventDefault();
     }
@@ -30,35 +42,55 @@ export default function EditProfile() {
         console.log(response)
         response.then(value => {
             console.log(value)
-          if(value){
-          setFirstName(value.data.firstName);
-          setLastName(value.data.lastName);
-          setEmail(value.data.email);
-          setPassword(value.data.password);
-          setState(value.data.state);
-          setCountry(value.data.country);
-          setImage(value.data.image);
+            if (value) {
+                setFirstName(value.data.user.firstName);
+                setLastName(value.data.user.lastName);
+                setEmail(value.data.user.email);
+                setPassword(value.data.user.password);
+                setState(value.data.user.state);
+                setCountry(value.data.user.country);
+                setProfileImage(value.data.user.image);
+                setUserId(value.data.user._id)
 
+                console.log(value.data.user)
 
-          console.log(value.data)
-    
-        }
-        })
-      }, [])
-
-      const changeData = () => {
-        const res = Acount.changeProfile(firstName, lastName, email, password, state, country)
-        res.then(value => {
-            console.log('value', value.data)
-            if (value.data.success) {
-                setSuccesModel(true)
             }
-
         })
-            .catch(err => {
-                console.log(err)
-            })
+    }, [])
 
+   
+    const updateUser = (e) => {
+        // alert('1')
+        // const res = Acount.Registeration(values, handleErrors)
+        // res
+e.preventDefault()
+        let formData = new FormData();
+
+        formData.append("firstName", firstName)
+        formData.append("lastName", lastName)
+        formData.append("email", email)
+        formData.append("state", state)
+        formData.append("country", country)
+        formData.append("image", sendImage)
+     
+
+        axios
+            .put(`users/${userId}`, formData)
+            .then(value => {
+                console.log(value)
+                if(value.data.success==true) {
+                    setSuccessMessage("Profile Edited Successfuly")
+                }
+              
+
+            })
+            .catch(error => {
+                console.log('error', error.response)
+                // setErrorModal(true)
+                // setErrorMessage(error.response.data.message)
+
+
+            })
     }
 
     return (
@@ -66,8 +98,19 @@ export default function EditProfile() {
             <Sidebar />
             <div style={{ width: "inherit" }}>
                 <Dashnav />
-                <form className='container mx-auto my-5 py-5' onSubmit={changeData}>
-                    <Avatar image = {image} />
+                <form className='container mx-auto my-5 py-5' onSubmit={updateUser}>
+                    <p className="fs-21 text-center">EDIT PROFILE</p>
+                    <div className=''>
+                        {/* <AvatarUploader
+                                                size={150}
+                                                uploadURL="http://localhost:3000"
+                                                fileType={"image/png"} /> */}
+                        {/* <UploadAndDisplayImage /> */}
+                        {/* <Imagees /> */}
+                        <img src={profileImage} className='avatar-style' alt="" />
+                        <input type="file" required={sendImage ? false : true} accept='jpg, png, jpeg' onChange={handleChange('profilePic')} id="img" className='d-none' />
+                        <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
+                    </div>
                     <div className='row gx-5 py-5 my-5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">
@@ -161,9 +204,10 @@ export default function EditProfile() {
                         </div>
                     </div>
                     <div className='text-center'>
-                        <Link href='/Dashboard'>
+                        {/* <Link href='/Dashboard'> */}
+                        <p className='text-success fs-19'>{sucessMessage}</p>
                             <button className='no_brdr fs-15 btn_width btnYelow' type='submit'>Change</button>
-                        </Link>
+                        {/* </Link> */}
                     </div>
                 </form>
             </div>

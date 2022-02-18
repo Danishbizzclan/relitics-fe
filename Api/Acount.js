@@ -153,6 +153,25 @@ class Acount {
     };
     return res();
   };
+  updateAccount = (userId, firstName, lastName, email, password, state, country) => {
+    console.log({ email })
+    const res = async () => {
+      const resp = await axios
+        .put(`users/${userId}`, {
+          email: email,
+          confirmation_code: otp,
+          newPassword: Password
+        })
+
+        .catch(function (error) {
+          console.log(error.response.data.message);
+          setError(error.response.data.message);
+          errorModal(true)
+        });
+      return resp;
+    };
+    return res();
+  };
 
 
 

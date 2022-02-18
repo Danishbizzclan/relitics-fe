@@ -15,17 +15,21 @@ export default function EditNotes() {
 
     const router = useRouter();
     const eventId = router.query.id
+    {console.log(eventId)}
 
-    useEffect(() => {
-        const response = GetData.NotesDetail(eventId);
+    const getNotes =(eventId)=>{
+        const response = GetData.showNotes(eventId);
         response.then(value => {
-          console.log(value)
-          setData(value.data.article);
-          setLoading(false)
-          console.log(value?.data?.article)
-          //   setLoading(false);
+            
+        console.log(value)
+        //   setNotes(value.data.notes);
+        //   console.log(value.data.notess)
+        //   setLoading(false);
         })
-      }, [eventId]);
+      }
+      useEffect(() => {
+        getNotes()
+      }, [])
     return (
         eventId && !data ?
             <h1>Not Found</h1>
@@ -37,11 +41,11 @@ export default function EditNotes() {
                             <Dashnav />
                             <div className='container mx-auto py-3'>
                                 <p className='fs-40 Gothic_3D my-3'>My Notes</p>
-                                <p className='fs-30 Gothic_3D my-3'>{data.city}</p>
+                                <p className='fs-30 Gothic_3D my-3'>{data?.city}</p>
                                 <div className='p-5 card'>
                                     <p className='fs-22 Bold greyBlack my-3'>Notes</p>
-                                    <p className='fs-22 Bolder my-4'>{data.title}</p>
-                                    <p className='fs-16'>{data.details}</p>
+                                    <p className='fs-22 Bolder my-4'>{data?.title}</p>
+                                    <p className='fs-16'>{data?.details}</p>
                                     <div className='mx-auto text-center'>
                                         <button onClick={() => router.back()} className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Back</button>
                                     </div>

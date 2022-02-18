@@ -66,9 +66,9 @@ const Logout =() => {
           <SidebarHeader>
             <div className="closemenu text-center" onClick={menuIconClick}>
               {menuCollapse ? (
-                <img src="./collapseIcon.svg" style={{ width: '2.5rem' }} />
+                <img src={"/collapseIcon.svg"} style={{ width: '2.5rem' }} />
               ) : (
-                <img src="./collapseIcon.svg" style={{ width: '2.5rem' }} />
+                <img src={'/collapseIcon.svg'} style={{ width: '2.5rem' }} />
               )}
             </div>
             <Link href="/Dashboard" >

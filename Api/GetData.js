@@ -64,7 +64,7 @@ AllPackeges = () => {
   AllNotes = () => {
     const res = async () => {
       const resp = await axios
-        .get('/article?keyword=name2')
+        .get('/note')
         .catch(function (error) {
           console.log(error);
         });
@@ -121,6 +121,17 @@ AllPackeges = () => {
     const res = async () => {
       const resp = await axios
         .get("/resource")
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  showNotes = (eventId) => {
+    const res = async (eventId) => {
+      const resp = await axios
+        .get(`/note/${eventId}`)
         .catch(function (error) {
           console.log(error);
         });
