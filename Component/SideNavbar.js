@@ -71,14 +71,12 @@ const Logout =() => {
                 <img src={'/collapseIcon.svg'} style={{ width: '2.5rem' }} />
               )}
             </div>
-            <Link href="/Dashboard" >
-              <div className={`logotext text-center ${router.pathname == "/Dashboard" ? "active" : null}`} style={{ width: "inherit" }}>
+              <div className={`logotext text-center `} style={{ width: "inherit" }}>
                 <img className="my-2 disp-none" src={'/Image 1.png'} />
                 <img className="my-2 d-none display_block imgw" src={'/LogoOnly.png'} />
               </div>
-            </Link>
             <div className="text-center my-3">
-              <img src={user.image} className="imgw img-radius w-50" />
+              <img src={user?.image} className="rounded_img imgw w-50" />
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">
