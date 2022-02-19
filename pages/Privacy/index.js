@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
             <Navbar />
             <HeadImage header='PRIVACY POLICY' />
             <div className='container my-5'>
-            <div className="line_height div_grey py-5 px-2 mx-auto">
+            <div className="line_height  py-5 px-2 mx-auto">
                     <p className='fs-16 pb-3'>
                         orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.                    </p>
                     <p className='fs-16 pb-3'>

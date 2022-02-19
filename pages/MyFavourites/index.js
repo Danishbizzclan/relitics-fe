@@ -25,7 +25,7 @@ function MyFavourite() {
 
                     <div style={{ width: "inherit" }}>
                         <Dashnav />
-                        <div className='container mx-auto mt-3 p-4 Table' >
+                        <div className='container mx-auto mt-3 px-md-4 Table' >
                             <p className='fs-40 Gothic_3D'>My Favourites</p>
                             <div className='row my-4 g-4'>
                                 {event.slice(0, visible).map((fav, index) => {

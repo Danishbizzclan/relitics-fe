@@ -55,7 +55,7 @@ const BlogDetail = () => {
               <div className='shadow p-5'>
                 {/* <a className='text-link pointer-cursor fs-13 Bold'>{event.category}</a> */}
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
-                <div className='blog-line mt-0 mb-3'></div>
+                <div className='blog-line mt-0 mb-5'></div>
                 <p className='fs-13'>Posted on {fullDate} by Admin</p>
                 <div className='text-center mb-3'>
                   <img className='m-2 hover' src={"/facebook-rect.svg"} />

@@ -226,12 +226,12 @@ textarea {
 }
 
 .brdr_div {
-  border-radius: 1.5rem;
+  border-radius: 0.4rem;
   overflow     : hidden;
 }
 
 .bottom_radius {
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 0.4rem 0.4rem;
 }
 
 .form-bg {
@@ -267,27 +267,30 @@ textarea {
 
 .card {
   border       : .2rem solid #E8F2FF !important;
-  border-radius: 1.5rem !important;
+  border-radius: 0.4rem !important;
   padding      : 3rem !important;
 }
 
 .card-border {
   border       : .2rem solid #0F74AF;
   width        : 20rem;
-  border-radius: 1.0rem;
+  border-radius: 0.4rem;
   padding      : auto;
 }
 
 .brdr {
-  border-radius: 1.0rem;
+  border-radius: 0.4rem;
+}
+.brdr_card {
+  border : 0.1rem solid #E8F2FF;
 }
 
 .brdr-2 {
-  border-radius: 3.0rem;
+  border-radius: 0.5rem;
 }
 
 .brdr_2 {
-  border-radius: 5.0rem;
+  border-radius: 0.5rem;
 }
 
 .no_brdr {
@@ -351,14 +354,8 @@ textarea {
   border-right: .1rem solid #153952;
 }
 
-.nav-link.active {
-  background-color: #041E31;
-  color           : #FFDA5F !important;
-}
-
-.nav-link:hover {
-  background-color: #041E31;
-  color           : #FFDA5F !important;
+.nav-link {
+  cursor: pointer;
 }
 
 .y_center {
@@ -368,16 +365,6 @@ textarea {
 .zoom {
   transition: 400ms ease-in-out;
   margin    : 0 auto;
-}
-
-.zoom:hover {
-  transform       : scale(1.04);
-  background-color: #022945;
-  color           : white;
-}
-
-.zoom:hover path {
-  stroke: white !important;
 }
 
 ::placeholder {
@@ -427,48 +414,9 @@ textarea {
 .btn_width {
   padding      : 1.7rem 2rem;
   width        : 17rem;
-  border-radius: 1rem !important;
+  border-radius: 0.4rem !important;
 }
 
-.catagory:hover {
-  cursor: pointer;
-  color : #0F74AF;
-}
-
-.btnYelow:hover {
-  transform: scale(1.05);
-}
-
-.hover,
-.graph_hover,
-.hover_btn {
-  transition: 300ms ease-in-out;
-
-}
-
-.Hover:hover {
-  font-weight: bolder !important;
-  opacity    : 0.8 !important;
-}
-
-.hover:hover {
-  transform : scale(1.04);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.graph_hover:hover {
-  transform : scale(1.01);
-  box-shadow: rgba(2, 41, 69, 0.2) 0px 20px 90px;
-}
-
-.hover_btn:hover {
-  transform: scale(1.05);
-  color    : white !important;
-}
-
-.opac:hover {
-  opacity: 0.8;
-}
 
 .fs-21 {
   font-size: 2.1rem;
@@ -516,11 +464,6 @@ textarea {
   justify-content: center;
 }
 
-
-.paginationBtn a:hover {
-  color  : rgba(255, 255, 255, 0.712);
-  opacity: 0.7;
-}
 
 .paginationDisabled a {
   color           : white;
@@ -619,7 +562,7 @@ textarea {
 .pro-sidebar-header {
   max-width : 25rem;
   line-break: anywhere;
-  margin: 0 auto;
+  margin    : 0 auto;
 }
 
 .pro-sidebar>.pro-sidebar-inner>.pro-sidebar-layout {
@@ -720,8 +663,11 @@ textarea {
   html {
     overflow: hidden;
   }
+  
+.theme_bg {
+  background-image: none !important;
 }
-
+}
 
 /* .pro-sidebar.collapsed small {
   display: none;
@@ -971,7 +917,7 @@ table tr:nth-child(2n) td {
 }
 
 .ant-modal-content {
-  border-radius: 1rem !important;
+  border-radius: 0.4rem !important;
   overflow     : hidden;
 }
 
@@ -990,7 +936,7 @@ table tr:nth-child(2n) td {
 .otpcenter input {
   width        : 4rem !important;
   height       : 4rem;
-  border-radius: 5px;
+  border-radius: 0.4rem;
 }
 
 .email-buuton {
@@ -1014,4 +960,67 @@ table tr:nth-child(2n) td {
 
 .img-radius {
   border-radius: 50%;
+}
+
+
+@media only screen and (min-width: 720px) {
+
+  .nav-link:hover {
+    background-color: #041E31;
+    color           : white !important;
+  }
+  .zoom:hover {
+    transform       : scale(1.04);
+    background-color: #022945;
+    color           : white;
+  }
+  
+  
+  .zoom:hover path {
+    stroke: white !important;
+  }
+  
+.catagory:hover {
+  cursor: pointer;
+  color : #0F74AF;
+}
+
+.btnYelow:hover {
+  transform: scale(1.05);
+}
+
+.hover,
+.graph_hover,
+.hover_btn {
+  transition: 300ms ease-in-out;
+
+}
+
+.Hover:hover {
+  font-weight: bolder !important;
+  opacity    : 0.8 !important;
+}
+
+.hover:hover {
+  transform : scale(1.04);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.graph_hover:hover {
+  transform : scale(1.01);
+  box-shadow: rgba(2, 41, 69, 0.2) 0px 20px 90px;
+}
+
+.hover_btn:hover {
+  transform: scale(1.05);
+  color    : white !important;
+}
+
+.opac:hover {
+  opacity: 0.8;
+}
+.paginationBtn a:hover {
+  color  : rgba(255, 255, 255, 0.712);
+  opacity: 0.7;
+}
 }
