@@ -128,10 +128,10 @@ AllPackeges = () => {
     };
     return res();
   };
-  showNotes = (eventId) => {
-    const res = async (eventId) => {
+  showNotes = (id) => {
+    const res = async () => {
       const resp = await axios
-        .get(`/note/${eventId}`)
+        .get(`/note/${id}`)
         .catch(function (error) {
           console.log(error);
         });
