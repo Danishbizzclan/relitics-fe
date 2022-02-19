@@ -737,8 +737,8 @@ textarea {
 }
 
 .Img_size {
-  height: 13rem !important;
-  width: 15rem !important;
+  height: 10rem !important;
+  width: 10rem !important;
 }
 .pro-sidebar.collapsed .Img_size {
   height: 4rem !important;
