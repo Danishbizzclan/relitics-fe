@@ -206,7 +206,7 @@ const Login = () => {
                                                 placeholder="Enter Password"
                                             />
                                             <div className="mt-2 d-flex">
-                                                <p className="fs-13 ">Forgot Password?
+                                                <p className="fs-13">Forgot Password?
                                                     <span className='link_color pointer-cursor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
                                                         Reset Now
                                                     </span>

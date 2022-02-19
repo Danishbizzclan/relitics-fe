@@ -6,10 +6,10 @@ body {
 
 /* for scroll bar */
 .ScrollBar {
-  padding-right: 1.0rem;
-  height       : 30.0rem;
-  overflow-y   : auto;
-  overflow-x   : hidden;
+  /* padding-right: 1.0rem; */
+  height    : 30.0rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -19,14 +19,14 @@ body {
 /* Track */
 
 ::-webkit-scrollbar-track {
-  background   : rgb(240, 242, 245);
+  background   : transparent;
   border-radius: 1.0rem;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background   : #022945;
+  background   : #0F74AF;
   border-radius: 1.0rem;
 }
 
@@ -209,9 +209,9 @@ textarea {
 .theme_bg {
   background-image     : linear-gradient(to bottom, rgba(180, 203, 221, 0.8) 0%, rgba(52, 107, 145, 0.9) 100%), url('/Bg_Theme.png');
   background-size      : cover;
-  height               : 100vh;
+  min-height           : 100vh;
   background-attachment: fixed;
-  min-height           : 101.6rem;
+  height               : 101.6rem;
   background-repeat    : no-repeat;
 }
 
@@ -328,7 +328,8 @@ textarea {
 .bluetxt {
   color: #0F74AF;
 }
-.link_color{
+
+.link_color {
   color: #1890FF !important;
 }
 
@@ -618,6 +619,7 @@ textarea {
 .pro-sidebar-header {
   max-width : 25rem;
   line-break: anywhere;
+  margin: 0 auto;
 }
 
 .pro-sidebar>.pro-sidebar-inner>.pro-sidebar-layout {
@@ -741,11 +743,12 @@ textarea {
 
 .Img_size {
   height: 10rem !important;
-  width: 10rem !important;
+  width : 10rem !important;
 }
+
 .pro-sidebar.collapsed .Img_size {
   height: 4rem !important;
-  width: 4rem !important;
+  width : 4rem !important;
 }
 
 .nav-bor {

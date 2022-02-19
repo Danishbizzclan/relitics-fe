@@ -52,6 +52,12 @@ const Sidebar = () => {
     if (typeof window !== 'undefined') {
 
       setUser(JSON.parse(localStorage.getItem('user')))
+      // function handleResize() {
+      // Set window width/height to state
+      if (window.innerWidth < 786) {
+        setMenuCollapse(true)
+      }
+      // }
     }
   }, [typeof window])
   const Logout = () => {
@@ -62,7 +68,7 @@ const Sidebar = () => {
   return (
     <>
       <div id="header">
-        <ProSidebar collapsed={menuCollapse}>
+        <ProSidebar md collapsed={menuCollapse}>
           <SidebarHeader>
             <div className="closemenu text-center" onClick={menuIconClick}>
               {menuCollapse ? (
@@ -88,7 +94,7 @@ const Sidebar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <SubMenu title="Dashboard overview" icon={<img src={'/Icon material-dashboard.png'} />}>
+              <SubMenu title="Dashboard overview" defaultOpen='true' icon={<img src={'/Icon material-dashboard.png'} />}>
                 <Link href="/Appreciation" className="dropdown-item">
                   <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
                 </Link>
