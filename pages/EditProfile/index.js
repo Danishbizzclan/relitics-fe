@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
-import Avatar from '../../Component/Avatar';
 import GetData from '../../Api/GetData';
-import Acount from '../../Api/Acount';
 import axios from "axios";
+
+
 
 
 export default function EditProfile() {
@@ -16,12 +16,11 @@ export default function EditProfile() {
     const [password, setPassword] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
+    const [image, setImage] = useState('');
     const [profileImage, setProfileImage] = useState('');
     const [sendImage, setSendImage] = useState('');
     const [userId, setUserId] = useState();
     const [sucessMessage, setSuccessMessage] = useState("");
-
-
 
     const handleChange = input => e => {
         if (input == "profilePic") {
@@ -34,9 +33,8 @@ export default function EditProfile() {
     }
 
 
-    const submitNotes = (event) => {
-        event.preventDefault();
-    }
+
+  
     useEffect(() => {
         const response = GetData.EditGet();
         console.log(response)
@@ -56,14 +54,12 @@ export default function EditProfile() {
 
             }
         })
-    }, [])
-
-   
-    const updateUser = (e) => {
+      }, [])
+      const updateUser = (e) => {
         // alert('1')
         // const res = Acount.Registeration(values, handleErrors)
-        // res
-e.preventDefault()
+      e.preventDefault()  // res
+
         let formData = new FormData();
 
         formData.append("firstName", firstName)
@@ -72,26 +68,26 @@ e.preventDefault()
         formData.append("state", state)
         formData.append("country", country)
         formData.append("image", sendImage)
-     
 
         axios
-            .put(`users/${userId}`, formData)
+            .put(`/users/${userId}`, formData)
             .then(value => {
-                console.log(value)
-                if(value.data.success==true) {
-                    setSuccessMessage("Profile Edited Successfuly")
-                }
-              
+                setSuccessMessage(value.data.message)
+                // localStorage.setItem('user', JSON.stringify(value.data.user))
+                // localStorage.setItem('token', value.data.token)
+
+                console.log('Sign Up res', value)
+                // setotpModal(true)
 
             })
             .catch(error => {
-                console.log('error', error.response)
-                // setErrorModal(true)
-                // setErrorMessage(error.response.data.message)
+                console.log('er', error)
+               
 
 
             })
     }
+    
 
     return (
         <div className="d-inline-flex w-100">
@@ -99,16 +95,10 @@ e.preventDefault()
             <div style={{ width: "inherit" }}>
                 <Dashnav />
                 <form className='container mx-auto my-5 py-5' onSubmit={updateUser}>
-                    <p className="fs-21 text-center">EDIT PROFILE</p>
+                    
                     <div className=''>
-                        {/* <AvatarUploader
-                                                size={150}
-                                                uploadURL="http://localhost:3000"
-                                                fileType={"image/png"} /> */}
-                        {/* <UploadAndDisplayImage /> */}
-                        {/* <Imagees /> */}
                         <img src={profileImage} className='avatar-style' alt="" />
-                        <input type="file" required={sendImage ? false : true} accept='jpg, png, jpeg' onChange={handleChange('profilePic')} id="img" className='d-none' />
+                        <input type="file" accept='jpg, png, jpeg' onChange={handleChange('profilePic')} id="img" className='d-none' />
                         <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                     </div>
                     <div className='row gx-5 py-5 my-5'>
@@ -117,7 +107,7 @@ e.preventDefault()
                                 <label className='fs-17'>First Name</label>
                                 <input
                                     type="text"
-                                    required
+                                    
                                     autoComplete={false}
                                     className='form-control'
                                     value={firstName}
@@ -131,7 +121,7 @@ e.preventDefault()
                                 <label className='fs-17'>Email</label>
                                 <input
                                     type="email"
-                                    required
+                                    
                                     autoComplete={false}
                                     className='form-control'
                                     value={email}
@@ -146,7 +136,7 @@ e.preventDefault()
                                 <label className='fs-17'>State</label>
                                 <input
                                     type="text"
-                                    required
+                                    
                                     autoComplete={false}
                                     className='form-control'
                                     value={state}
@@ -162,7 +152,7 @@ e.preventDefault()
                                 <label className='fs-17'>Last Name</label>
                                 <input
                                     type="text"
-                                    required
+                                    
                                     autoComplete={false}
                                     className='form-control'
                                     value={lastName}
@@ -191,7 +181,7 @@ e.preventDefault()
                                 <label className='fs-17'>Country</label>
                                 <input
                                     type="text"
-                                    required
+                                    
                                     autoComplete={false}
                                     className='form-control'
                                     value={country}
@@ -204,10 +194,9 @@ e.preventDefault()
                         </div>
                     </div>
                     <div className='text-center'>
-                        {/* <Link href='/Dashboard'> */}
-                        <p className='text-success fs-19'>{sucessMessage}</p>
+                        <p className='text-success fs-20'>{sucessMessage}</p>
                             <button className='no_brdr fs-15 btn_width btnYelow' type='submit'>Change</button>
-                        {/* </Link> */}
+                        
                     </div>
                 </form>
             </div>

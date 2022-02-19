@@ -119,7 +119,7 @@ class Acount {
     console.log({ email })
     const res = async () => {
       const resp = await axios
-        .post("/users/changepassword", {
+        .put("/users/changepassword", {
           email: email,
           confirmation_code: otp,
           newPassword: Password

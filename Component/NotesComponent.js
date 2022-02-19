@@ -14,31 +14,28 @@ export default function NotesComponent() {
         setVisible(old => old - 4)
     }
 
-    useEffect(() => {
-        getNotes()
-      }, [])
-
-      const getNotes =()=>{
+    const getNotes =()=>{
         const response = GetData.AllNotes();
         response.then(value => {
-            
-        console.log(value)
+            console.log(value)
           setNotes(value.data.notes);
           console.log(value.data.notess)
+         
         //   setLoading(false);
         })
-      }
+    } 
+    useEffect(() => {
+        getNotes()
+      }, [])     
       const DeleteNote =(id)=>{
         const response = DeleteData.DeleteNote(id);
         response.then(value => {
-            
+
         console.log(value)
         getNotes()
         //   setLoading(false);
         })
       }
-
-
     return (
         <>
           {notes.slice(0, visible).map((x) =>

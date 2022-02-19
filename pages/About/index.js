@@ -12,7 +12,7 @@ const AboutUs = () => {
             <div className='container mb-5'>
             <div className="line_height div_grey py-5 px-2 mx-auto">
                     <p className='fs-16'>
-                        At REI Litics, we&#39;re a ttteam of real estate professionals who developed this platform to help real estate investors with market research.  Armed with data and valuable insights, we&#39;ve brought everything together in one place, so you don&#39;t have to spend time jumping back and forth from platform to platform and website to website.
+                        At REI Litics, we&#39;re a team of real estate professionals who developed this platform to help real estate investors with market research.  Armed with data and valuable insights, we&#39;ve brought everything together in one place, so you don&#39;t have to spend time jumping back and forth from platform to platform and website to website.
                     </p>
                     <p className='Gothic_3D fs-30'>
                         We wanted a tool that would give investors a bird&#39;s eye view of the top metro areas in the US.

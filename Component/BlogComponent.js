@@ -13,7 +13,7 @@ const BlogCompnnent = ({ data }) => {
                         <div className='p-4'>
                             <b className='my-auto fs-17 Bolder'>{data.title}</b>
                             <div className='blog-line mt-1 mb-3'></div>
-                            <p className='fs-16'>{data?.detail?.length > 50
+                            <p className='fs-16'>{data.detail.length > 50
                                 ? data.detail.substring(0, 60) + ' [...]'
                                 : data.detail}</p>
                         </div>

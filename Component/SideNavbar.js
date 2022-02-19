@@ -88,7 +88,7 @@ const Logout =() => {
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <SubMenu title="Dashboared overview" icon={<img src={'/Icon material-dashboard.png'} />}>
+              <SubMenu title="Dashboard overview" icon={<img src={'/Icon material-dashboard.png'} />}>
                 <Link href="/Appreciation" className="dropdown-item">
                   <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
                 </Link>

@@ -22,4 +22,4 @@ class DeleteData {
       return this.result;
     }
   }
-export default new DeleteData();
+export default new DeleteData(); 
