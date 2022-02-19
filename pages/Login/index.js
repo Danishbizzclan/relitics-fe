@@ -57,10 +57,12 @@ const Login = () => {
 
     const loginHandler = e => {
         setIsLoading(true)
+
         e.preventDefault();
         // nextStep();
         const res = Acount.Login(email, password, setError, setErrorModel, setOtpModal)
         res.then(value => {
+            setIsLoading(false)
             console.log(value)
             setSuccess(value.data.message)
             localStorage.setItem('user', JSON.stringify(value.data.user))
@@ -75,6 +77,7 @@ const Login = () => {
             }
         })
             .catch(error => {
+                setIsLoading(false)
                 console.log({ error })
             })
 
@@ -204,11 +207,9 @@ const Login = () => {
                                             />
                                             <div className="mt-2 d-flex">
                                                 <p className="fs-13 ">Forgot Password?
-                                                    {/* <Link> */}
-                                                        <span className='blueColor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
-                                                            Reset Now
-                                                        </span>
-                                                    {/* </Link> */}
+                                                    <span className='link_color pointer-cursor ms-2' type="primary" onClick={() => { setroute('forget'), setResetModel(true) }}>
+                                                        Reset Now
+                                                    </span>
                                                 </p>
                                                 <p className="fs-13 text-nowrap ms-auto">Not a Member<Link href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor">Sign up</Link></p>
                                             </div>
