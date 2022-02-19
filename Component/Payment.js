@@ -16,6 +16,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
     const [errorModal, setErrorModal] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     const [otpModal, setotpModal] = useState(false)
+    const [reset, setReset] = useState("")
     const [OtpError, setOtpError] = useState("")
 
 
@@ -81,6 +82,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
 
     
     const verifyOtp = (otp) => {
+        setReset('')
         const res = Acount.verifyOtp(values.email, otp, setOtpError)
         res.then(value => {
             console.log('value', value.data)
@@ -100,6 +102,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
         const res = Acount.EnterEmail(values.email)
         res.then(value => {
             console.log('value', value.data)
+            setReset(value.data.message)
     
         })
             .catch(err => {
@@ -167,7 +170,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                         closable={false}
                     >
                         <div className='p-5'>
-                            <p className='fs-22 text-white text-center p-5'>{success}</p>
+                            <p className='fs-22 text-white text-center p-5'>Your Account Has Been Created Succefully</p>
                             <div className='text-center'>
                                 <Link href="/Login">
                                     <button className='btn login-button fs-14 px-5 mx-auto'>Login Now</button></Link>
@@ -190,7 +193,8 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
                     OtpError={OtpError}
                     closable={false}
                     Resend={ResendOtp}
-                    title="verify your password"
+                    otp={reset}
+                    title="Verify your Email"
                     />
                 </div> : <p>Loading....</p>}
 
