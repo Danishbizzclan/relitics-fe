@@ -49,15 +49,15 @@ const Sidebar = () => {
   }
   useEffect(() => {
 
-  if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
 
-    setUser(JSON.parse(localStorage.getItem('user')))
+      setUser(JSON.parse(localStorage.getItem('user')))
+    }
+  }, [typeof window])
+  const Logout = () => {
+    localStorage.clear();
+    window.location.href = '/';
   }
-}, [typeof window])
-const Logout =() => {
-  localStorage.clear();
-  window.location.href = '/';
-}
 
   return (
     <>
@@ -71,12 +71,12 @@ const Logout =() => {
                 <img src={'/collapseIcon.svg'} style={{ width: '2.5rem' }} />
               )}
             </div>
-              <div className={`logotext text-center `} style={{ width: "inherit" }}>
-                <img className="my-2 disp-none" src={'/Image 1.png'} />
-                <img className="my-2 d-none display_block imgw" src={'/LogoOnly.png'} />
-              </div>
+            <div className={`logotext text-center `} style={{ width: "inherit" }}>
+              <img className="my-2 disp-none" src={'/Image 1.png'} />
+              <img className="my-2 d-none display_block imgw" src={'/LogoOnly.png'} />
+            </div>
             <div className="text-center my-3">
-              <img src={user?.image} className="rounded_img imgw w-50" />
+              <img src={user?.image} className="rounded_img Img_size" />
             </div>
             <Link href="/EditProfile">
               <div className="disp-none text-center mt-3">

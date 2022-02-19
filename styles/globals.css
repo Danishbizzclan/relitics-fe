@@ -11,6 +11,7 @@ body {
   overflow-y   : auto;
   overflow-x   : hidden;
 }
+
 ::-webkit-scrollbar {
   width: 1rem;
 }
@@ -487,7 +488,7 @@ textarea {
   color           : white !important;
 }
 
-.anticon{
+.anticon {
   vertical-align: 0.125em !important;
 }
 
@@ -731,8 +732,17 @@ textarea {
   color           : #FFDA5F !important;
 }
 
-.rounded_img{
+.rounded_img {
   border-radius: 50% !important;
+}
+
+.Img_size {
+  height: 13rem !important;
+  width: 15rem !important;
+}
+.pro-sidebar.collapsed .Img_size {
+  height: 4rem !important;
+  width: 4rem !important;
 }
 
 .nav-bor {
@@ -995,6 +1005,7 @@ table tr:nth-child(2n) td {
   width           : 100px;
   background-color: #71ECCF !important;
 }
-.img-radius{
+
+.img-radius {
   border-radius: 50%;
 }
