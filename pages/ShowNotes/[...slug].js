@@ -14,27 +14,27 @@ export default function EditNotes() {
 
 
     const router = useRouter();
-    const eventId = router.query.id
-    {console.log(eventId)}
-
-    const getNotes =(eventId)=>{
-        const response = GetData.showNotes(eventId);
+    const eventId = router.query.slug
+    const getNote = () => {
+        const response = GetData.showNotes(eventId[0]);
         response.then(value => {
-            
-        console.log(value)
-        //   setNotes(value.data.notes);
-        //   console.log(value.data.notess)
-        //   setLoading(false);
+
+            console.log(value)
+              setData(value.data.noteDetail);
+            //   console.log(value.data.notess)
+            //   setLoading(false);
         })
-      }
-      useEffect(() => {
-        getNotes()
-      }, [])
+    }
+    useEffect(() => {
+        if (eventId) {
+        getNote()
+        }
+    }, [eventId])
     return (
         eventId && !data ?
             <h1>Not Found</h1>
             : <>
-            <div>
+                <div>
                     <div className="d-inline-flex w-100">
                         <Sidebar />
                         <div style={{ width: "inherit" }}>
@@ -44,8 +44,8 @@ export default function EditNotes() {
                                 <p className='fs-30 Gothic_3D my-3'>{data?.city}</p>
                                 <div className='p-5 card'>
                                     <p className='fs-22 Bold greyBlack my-3'>Notes</p>
-                                    <p className='fs-22 Bolder my-4'>{data?.title}</p>
-                                    <p className='fs-16'>{data?.details}</p>
+                                    <p className='fs-17 my-4'>{data?.title}</p>
+                                    <p className='fs-17'>{data?.detail}</p>
                                     <div className='mx-auto text-center'>
                                         <button onClick={() => router.back()} className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Back</button>
                                     </div>

@@ -72,7 +72,10 @@ export default function EditProfile() {
         axios
             .put(`/users/${userId}`, formData)
             .then(value => {
-                setSuccessMessage(value.data.message)
+                if(value.data.success==true){
+                    setSuccessMessage('Profile Edited Successfully')
+
+                }
                 // localStorage.setItem('user', JSON.stringify(value.data.user))
                 // localStorage.setItem('token', value.data.token)
 
