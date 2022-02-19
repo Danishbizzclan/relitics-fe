@@ -44,8 +44,8 @@ export default function EditNotes() {
                                 <p className='fs-30 Gothic_3D my-3'>{data?.city}</p>
                                 <div className='p-5 card'>
                                     <p className='fs-22 Bold greyBlack my-3'>Notes</p>
-                                    <p className='fs-22 Bolder my-4'>{data?.title}</p>
-                                    <p className='fs-22'>{data?.detail}</p>
+                                    <p className='fs-17 my-4'>{data?.title}</p>
+                                    <p className='fs-17'>{data?.detail}</p>
                                     <div className='mx-auto text-center'>
                                         <button onClick={() => router.back()} className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Back</button>
                                     </div>

@@ -6,25 +6,6 @@ class PostData {
     this.result = [];
   }
 
-  EditNotes = (title, detail, settingErrors) => {
-    const res = async () => {
-      const resp = await axios
-        .post("/note", {
-          title: title,
-          detail:  detail,
-          city:"lahore", 
-          state:"pakistan"
-         
-        })
-
-        .catch(function (error) {
-          console.log(error.response)
-          settingErrors(error.response.data.message);
-        });
-      return resp;
-    };
-    return res();
-  };
   CreateNewsLetter = (email, settingErrors) => {
     const res = async () => {
       const resp = await axios
