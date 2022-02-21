@@ -24,29 +24,29 @@ const Dashboard = () => {
         <Sidebar />
         <div style={{ width: "inherit" }}>
           <Dashnav />
-          <div className='container mx-auto mt-3 px-md-4'>
+          <div className='container mx-auto mt-3 px-md-5'>
             <p className="fs-40 Gothic_3D">Hi {firstName}</p>
             <p className="fs-16">Welcome back to your dashboard</p>
             <div className="row g-5">
-              <div className="col-lg-8 px-0">
-                <div className="bg-dash p-5">
-                  <p className="fs-30 Gothic_3D">Overview</p>
+              <div className="col-lg-7 px-0">
+                <div className="bg-dash p-3">
+                  <p className="fs-30 mb-0 Gothic_3D">Overview</p>
                   <p className="fs-16 greyBlack">Let&#39;s start by finding you a city of intrest</p>
                   <div className="row">
                     <Link href={"./Appreciation"}>
                       <div className="col-sm-12 col-md-6 p-3">
-                        <div className="bg-white text-center p-5 Hover pointer-cursor brdr_card brdr">
+                        <div className="bg-white text-center p-3 Hover pointer-cursor brdr_card brdr">
                           <img src={'/development1.svg'} />
-                          <p className="my-5 fs-18 Bold greyBlack">Market Aprecation</p>
+                          <p className="my-3 fs-18 Bold greyBlack">Market Aprecation</p>
 
                         </div>
                       </div>
                     </Link>
                     <Link href={"./RentalGrowth"}>
                       <div className="col-sm-12 col-md-6 p-3">
-                        <div className="bg-white text-center p-5 Hover pointer-cursor brdr_card brdr">
+                        <div className="bg-white text-center p-3 Hover pointer-cursor brdr_card brdr">
                           <img src={'/chart1.svg'} />
-                          <p className="my-5 fs-18 Bold greyBlack">Rental Growth</p>
+                          <p className="my-3 fs-18 Bold greyBlack">Rental Growth</p>
                         </div>
                       </div>
                     </Link>
@@ -55,9 +55,9 @@ const Dashboard = () => {
                 {Membership.map(mem => {
                   return (
                     <>
-                      <div className="bg-dash mt-3 p-5">
-                        <p className="fs-30 Gothic_3D mb-2">MEMBERSHIP Details</p>
-                        <div className="bg-white p-5">
+                      <div className="bg-dash mt-3 p-3">
+                        <p className="fs-30 mb-0 Gothic_3D">MEMBERSHIP Details</p>
+                        <div className="bg-white">
                           <p className="fs-16 greyBlack">Membership Package</p>
                           <div className="d-flex mt-3">
                             <p className=" fs-20 Bold greyBlack">Paid</p>
@@ -71,17 +71,17 @@ const Dashboard = () => {
                             <p className="my-auto fs-16 greyBlack">Membership Renewdate</p>
                             <p className="ms-auto my-auto fs-16 greyBlack">{mem.date}</p>
                           </div>
-                          <div className="d-flex  mt-2">
-                            <div className="row">
-                              <div className="col-xl-4 d-flex brdr_card brdr">
+                          <div className="d-flex mt-2">
+                            <div className="row w-100">
+                              <div className="col-lg-4 d-flex brdr_card brdr">
                                 <p className="my-auto fs-14 text-nowrap greyBlack">Auto renew</p>
                                 <div className="mt-2 ms-3">
                                   <MaterialDesignSwitch className='mt-3' /></div>
                               </div>
-                              <div className="col-xl-4 ms-auto d-flex">
-                                <button className=" btn mx-2 opac px-4 btnYelow">Deactivate</button>
-                                <button className=" btn mx-2 opac px-4 btnYelow">Downground</button>
-                                <button className=" btn mx-2 opac px-4 btnYelow">Renew</button>
+                              <div className="col-lg-8 p-0 text-end">
+                                  <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Deactivate</button>
+                                  <button className="btn mx-2 my-2 fs-14 opac px-4 btnYelow">Downground</button>
+                                  <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Renew</button>
                               </div>
                             </div>
                           </div>
@@ -91,7 +91,7 @@ const Dashboard = () => {
                   )
                 })}
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-5">
                 <div className="bg-dash p-3">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
                   <p className="fs-16 greyBlack">Let&#39;s go to the city statistics</p>
@@ -102,7 +102,7 @@ const Dashboard = () => {
                       onChange={(e) => setState(e.target.value)}
                       className="form-control dash-form  mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
                     <div className="row mt-3 ">
-                      <div className="col-sm-12 col-md-8">
+                      <div className="col-sm-12 col-md-8 px-0">
                         <input type="text" value={city} name="city"
                           placeholder="select city"
                           onChange={(e) => setCity(e.target.value)}

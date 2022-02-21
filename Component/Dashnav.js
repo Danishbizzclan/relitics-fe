@@ -45,7 +45,7 @@ function Dashnav() {
                     <Link href="/Dashboard">
                       <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
                         <img src={user?.image} className='rounded_img' style={{ width: '4.6rem' }} />
-                        <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
+                        <p className="text-white my-auto px-sm-0 px-md-5 fs-15">{user?.username}</p>
                       </div>
                     </Link>
                   </ul>
@@ -89,7 +89,7 @@ export default Dashnav
     //                   <img src={'/NotificationNav.svg'} className="mx-3 text-lg-start noti-w" style={{ objectFit: 'contain' }} />
     //                   <div className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto`}>
     //                     <img src={'/Mask Group 23.png'} style={{ width: '4.6rem' }} />
-    //                     <p className="text-white my-auto px-sm-0 px-md-4 fs-15">Tabish</p>
+    //                     <p className="text-white my-auto px-sm-0 px-md-5 fs-15">Tabish</p>
     //                   </div>
     //                 </ul>
     //               </div>

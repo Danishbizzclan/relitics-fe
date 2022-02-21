@@ -208,7 +208,7 @@ class Aprecation extends React.Component {
                     <div style={{ width: "inherit" }}>
                         <Dashnav />
                         {/* <div className='container'> */}
-                        <div className='container mx-auto mt-3 px-md-4 Table' >
+                        <div className='container mx-auto mt-3 px-md-5 Table' >
                             <p className='fs-40 Gothic_3D'>Rental Growth</p>
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
