@@ -662,10 +662,6 @@ textarea {
 } */
 
 @media only screen and (max-width: 720px) {
-  html {
-    overflow: hidden;
-  }
-
   .theme_bg {
     background-image: none !important;
   }
