@@ -52,14 +52,6 @@ body {
   border-radius   : 1.0rem;
 }
 
-.fs-12 {
-  font-size: 1.2rem;
-}
-
-.fs-13 {
-  font-size: 1.3rem;
-}
-
 /* contact Us */
 
 .greyBlack {
@@ -166,9 +158,6 @@ textarea {
   height          : 5.3rem;
 }
 
-.font-11 {
-  font-size: 1.1rem !important;
-}
 
 .text-link {
   color          : #1890FF !important;
@@ -281,8 +270,9 @@ textarea {
 .brdr {
   border-radius: 0.4rem;
 }
+
 .brdr_card {
-  border : 0.1rem solid #E8F2FF;
+  border: 0.1rem solid #E8F2FF;
 }
 
 .brdr-2 {
@@ -295,6 +285,18 @@ textarea {
 
 .no_brdr {
   border: none;
+}
+
+.font-11 {
+  font-size: 1.1rem !important;
+}
+
+.fs-12 {
+  font-size: 1.2rem;
+}
+
+.fs-13 {
+  font-size: 1.3rem;
 }
 
 .fs-17 {
@@ -663,10 +665,10 @@ textarea {
   html {
     overflow: hidden;
   }
-  
-.theme_bg {
-  background-image: none !important;
-}
+
+  .theme_bg {
+    background-image: none !important;
+  }
 }
 
 /* .pro-sidebar.collapsed small {
@@ -969,58 +971,60 @@ table tr:nth-child(2n) td {
     background-color: #041E31;
     color           : white !important;
   }
+
   .zoom:hover {
     transform       : scale(1.04);
     background-color: #022945;
     color           : white;
   }
-  
-  
+
+
   .zoom:hover path {
     stroke: white !important;
   }
-  
-.catagory:hover {
-  cursor: pointer;
-  color : #0F74AF;
-}
 
-.btnYelow:hover {
-  transform: scale(1.05);
-}
+  .catagory:hover {
+    cursor: pointer;
+    color : #0F74AF;
+  }
 
-.hover,
-.graph_hover,
-.hover_btn {
-  transition: 300ms ease-in-out;
+  .btnYelow:hover {
+    transform: scale(1.05);
+  }
 
-}
+  .hover,
+  .graph_hover,
+  .hover_btn {
+    transition: 300ms ease-in-out;
 
-.Hover:hover {
-  font-weight: bolder !important;
-  opacity    : 0.8 !important;
-}
+  }
 
-.hover:hover {
-  transform : scale(1.04);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
+  .Hover:hover {
+    font-weight: bolder !important;
+    opacity    : 0.8 !important;
+  }
 
-.graph_hover:hover {
-  transform : scale(1.01);
-  box-shadow: rgba(2, 41, 69, 0.2) 0px 20px 90px;
-}
+  .hover:hover {
+    transform : scale(1.04);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
 
-.hover_btn:hover {
-  transform: scale(1.05);
-  color    : white !important;
-}
+  .graph_hover:hover {
+    transform : scale(1.01);
+    box-shadow: rgba(2, 41, 69, 0.2) 0px 20px 90px;
+  }
 
-.opac:hover {
-  opacity: 0.8;
-}
-.paginationBtn a:hover {
-  color  : rgba(255, 255, 255, 0.712);
-  opacity: 0.7;
-}
+  .hover_btn:hover {
+    transform: scale(1.05);
+    color    : white !important;
+  }
+
+  .opac:hover {
+    opacity: 0.8;
+  }
+
+  .paginationBtn a:hover {
+    color  : rgba(255, 255, 255, 0.712);
+    opacity: 0.7;
+  }
 }
