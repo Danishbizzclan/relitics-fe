@@ -3,20 +3,22 @@ import Sidebar from '../../Component/SideNavbar';
 import Dashnav from '../../Component/Dashnav';
 import Link from "next/link"
 import PostData from '../../Api/PostData';
-import Router,{ useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 export default function EditNotes() {
     const router = useRouter();
     // const {pathname} = Router
     const [userInput, setuserInput] = useState({
-        details: "",
         title: "",
-        noteMessage:""
+        City: "",
+        State: "",
+        details: "",
+        noteMessage: ""
     })
-    const [userMessage, setUserMessage] =useState('')
+    const [userMessage, setUserMessage] = useState('')
 
     const handleChange = (e) => {
-        setuserInput({...userInput, [e.target.name]:e.target.value})
+        setuserInput({ ...userInput, [e.target.name]: e.target.value })
     }
     const submitNotes = (e) => {
         e.preventDefault();
@@ -28,56 +30,68 @@ export default function EditNotes() {
             window.location.href = '/MyNotes'
         })
             .catch(error => {
-                console.log("Error",error)
+                console.log("Error", error)
             })
     }
     return <div>
-    {/* {console.log(userInput)} */}
-    <div className="d-inline-flex w-100">
-        <Sidebar />
-        <div style={{ width: "inherit" }}>
-            <Dashnav />
-            <div className='container py-3'>
-                <p className='fs-40 Gothic_3D my-3'>My Notes</p>
-                <p className='fs-30 Gothic_3D my-3'>City State</p>
-                <div className='div_grey p-5'>
-                    <p className='fs-22 Bold greyBlack my-3'>Notes</p>
-                    <form className='row form' onSubmit={submitNotes} >
-                        <div className="form-group my-2">
-                            <input
-                                type="text"
-                                required
-                                autoComplete={false}
-                                className='form-control textera-bg'
-                                value={userInput.title}
-                                id="title"
-                                name="title"
-                                onChange={handleChange}
-                                placeholder="Subject line/Title"
-                            />
-                        </div>
-                        <div className="form-group my-2">
-                            <textarea
-                                type="text"
-                                required
-                                className='form-control textera-bg'
-                                rows={13}
-                                name="details"
-                                value={userInput.details}
-                                id="details"
-                                onChange={handleChange}
-                                placeholder="Add notes details"
-                            />
-                        </div>
-                        <div className='mx-auto text-center'>
-                        <p className='text-success fs-21'>  {userMessage}</p>
-                           <button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button>
-                            <Link href='/MyNotes'><button className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Cancel</button></Link>
-                        </div>
-                    </form>
+        {/* {console.log(userInput)} */}
+        <div className="d-inline-flex w-100">
+            <Sidebar />
+            <div style={{ width: "inherit" }}>
+                <Dashnav />
+                <div className='container py-3'>
+                    <p className='fs-40 Gothic_3D my-3'>My Notes</p>
+                    <p className='fs-30 Gothic_3D my-3'>City State</p>
+                    <div className='div_grey p-5'>
+                        <p className='fs-22 Bold greyBlack my-3'>Notes</p>
+                        <form className='row form' onSubmit={submitNotes} >
+                            <div className="form-group my-2 row">
+                                <div className='col-sm-12 col-md-6'>
+                                    <select className="form-control form-select mx-2">
+                                        <option>City</option>
+                                    </select>
+                                </div>
+                                <div className='col-sm-12 col-md-6'>
+                                    <select className="form-control form-select mx-2">
+                                        <option>state</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="form-group my-2">
+                                <input
+                                    type="text"
+                                    required
+                                    autoComplete={false}
+                                    className='form-control textera-bg'
+                                    value={userInput.title}
+                                    id="title"
+                                    name="title"
+                                    onChange={handleChange}
+                                    placeholder="Subject line/Title"
+                                />
+                            </div>
+                            <div className="form-group my-2">
+                                <textarea
+                                    type="text"
+                                    required
+                                    className='form-control textera-bg'
+                                    rows={13}
+                                    name="details"
+                                    value={userInput.details}
+                                    id="details"
+                                    onChange={handleChange}
+                                    placeholder="Add notes details"
+                                />
+                            </div>
+                            <div className='mx-auto text-center'>
+                                <p className='text-success fs-21'>  {userMessage}</p>
+                                <button type='submit' className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Save</button>
+                                <Link href='/MyNotes'><button className='btnYelow fs-16 brdr no_brdr py-3 px-5 mx-2'>Cancel</button></Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>;
+    </div>;
 }

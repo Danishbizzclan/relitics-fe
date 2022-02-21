@@ -29,7 +29,7 @@ const Dashboard = () => {
             <p className="fs-16">Welcome back to your dashboard</p>
             <div className="row g-5">
               <div className="col-lg-7 px-0">
-                <div className="bg-dash p-3">
+                <div className="bg-dash px-5 py-3">
                   <p className="fs-30 mb-0 Gothic_3D">Overview</p>
                   <p className="fs-16 greyBlack">Let&#39;s start by finding you a city of intrest</p>
                   <div className="row">
@@ -55,7 +55,7 @@ const Dashboard = () => {
                 {Membership.map(mem => {
                   return (
                     <>
-                      <div className="bg-dash mt-3 p-3">
+                      <div className="bg-dash mt-3 px-5 py-3">
                         <p className="fs-30 mb-0 Gothic_3D">MEMBERSHIP Details</p>
                         <div className="bg-white">
                           <p className="fs-16 greyBlack">Membership Package</p>
@@ -79,9 +79,9 @@ const Dashboard = () => {
                                   <MaterialDesignSwitch className='mt-3' /></div>
                               </div>
                               <div className="col-lg-8 p-0 text-end">
-                                  <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Deactivate</button>
-                                  <button className="btn mx-2 my-2 fs-14 opac px-4 btnYelow">Downground</button>
-                                  <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Renew</button>
+                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Deactivate</button>
+                                <button className="btn mx-2 my-2 fs-14 opac px-4 btnYelow">Downground</button>
+                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Renew</button>
                               </div>
                             </div>
                           </div>
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 })}
               </div>
               <div className="col-lg-5">
-                <div className="bg-dash p-3">
+                <div className="bg-dash px-5 py-3">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
                   <p className="fs-16 greyBlack">Let&#39;s go to the city statistics</p>
                   <div className="bg-white text-center px-3 mx-auto p-3">
