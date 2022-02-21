@@ -92,7 +92,7 @@ export default function Resources() {
             <Sidebar />
             <div style={{ width: "inherit" }}>
                 <Dashnav />
-                <div className='container mx-auto mt-3 Table' >
+                <div className='container mx-auto mt-3 px-md-4 Table' >
                     <p className='fs-40 Gothic_3D'>Resources</p>
                     <div className='bg-dash brdr p-4 my-3'>
                         <p className='fs-20'>Books</p>

@@ -41,7 +41,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
     return (
         <>
             <Navbar />
-            <div className='container-fluid theme_bg p-5'>
+            <div className='container-fluid theme_bg p-3'>
                 <div className="py-5">
                     <div className='mb-5'>
                         <PersonalInfo
@@ -61,7 +61,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={Continue} className='p-5'>
+                                <form onSubmit={Continue} className='py-3 px-5'>
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader
@@ -71,7 +71,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                             {/* <UploadAndDisplayImage /> */}
                                             {/* <Imagees /> */}
                                             <img src={values.profilePic} className='avatar-style' alt="" />
-                                            <input type="file" required={values.sendImage?false:true} accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none'/>
+                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none'/>
                                             <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
@@ -207,7 +207,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                 <div className="text-center my-3">
                                     <p className='fs-15'>Sign up with a Social Media</p>
                                 </div>
-                                <div className="text-center pb-5 mt-2">
+                                <div className="text-center pb-4 mt-2">
                                     <img src={"squareFb.svg"} className="ms-2 s-social" alt="facebook" />
                                     <img src={"squareTwitter.svg"} className="ms-3 s-social" alt="facebook" />
                                     <img src={"squareGmail.svg"} className="ms-3 s-social" alt="facebook" />

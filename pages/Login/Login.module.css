@@ -7,6 +7,12 @@
     height               : 100vh;
 }
 
+@media only screen and (max-width: 720px) {
+    .bgLogin {
+        background-image: none !important;
+    }
+}
+
 .bgBlue {
     background-color: #022945 !important;
     border-radius   : 1rem;

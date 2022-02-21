@@ -91,8 +91,8 @@ tableData = (pageNo) => {
         // ],
         filteredValue: filteredInfo.name || null,
         // onFilter: (value, record) => record.name.includes(value),
-        sorter: (a, b) => a.region.length - b.region.length,
         sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
+        sorter: (a, b) => a.region.length - b.region.length,
         ellipsis: true,
         render: (record, text, index) => <div className='d-flex my-auto'>
           <p className='my-auto'>{record.region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
@@ -104,7 +104,7 @@ tableData = (pageNo) => {
         dataIndex: 'avgGrowth',
         key: 'avgGrowth',
         width: '15%',
-        sorter: (a, b) => a.age - b.AverageAppreciation,
+        sorter: (a, b) => a.avgGrowth - b.avgGrowth,
         sortOrder: sortedInfo.columnKey === 'AverageAppreciation' && sortedInfo.order,
         ellipsis: true,
       },
@@ -118,7 +118,7 @@ tableData = (pageNo) => {
         // ],
         // filteredValue: filteredInfo.2018 || null,
         // onFilter: (value, record) => record.address.includes(value),
-        sorter: (a, b) => a.address.length - b.address.length,
+        sorter: (a, b) => a.y2018 - b.y2018,
         sortOrder: sortedInfo.columnKey === 2018 && sortedInfo.order,
         ellipsis: true,
       },
@@ -231,7 +231,7 @@ tableData = (pageNo) => {
           <div style={{ width: "inherit" }}>
             <Dashnav />
             {/* <div className='container'> */}
-            <div className='container mx-auto mt-3' >
+            <div className='container mx-auto mt-3 px-md-4' >
               <p className='fs-40 Gothic_3D'>Market Appreciation</p>
               <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
