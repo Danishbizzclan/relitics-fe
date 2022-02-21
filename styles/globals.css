@@ -283,6 +283,10 @@ textarea {
   border-radius: 0.5rem;
 }
 
+.brdr_btm {
+  border-bottom: 0.1rem solid #D5EFFF;
+}
+
 .no_brdr {
   border: none;
 }
@@ -671,6 +675,36 @@ textarea {
   display: none;
 } */
 
+.notifications_popUp {
+  position        : absolute;
+  top             : 7rem;
+  right           : 15rem;
+  background-color: #fff;
+  width           : 32rem;
+  height          : auto;
+  border          : 0.1rem solid #c7d8e2;
+  border-radius   : 0.5rem;
+  box-shadow      : 1rem 1rem 3rem rgba(0, 0, 0, 0.125),
+    -1rem -1rem 3rem rgba(0, 0, 0, 0.125);
+  z-index: 99;
+  cursor : pointer !important;
+}
+
+.dashboard_popUp {
+  position        : absolute;
+  top             : 7rem;
+  right           : 5rem;
+  background-color: #fff;
+  width           : 32rem;
+  height          : auto;
+  border          : 0.1rem solid #c7d8e2;
+  border-radius   : 0.5rem;
+  box-shadow      : 1rem 1rem 3rem rgba(0, 0, 0, 0.125),
+    -1rem -1rem 3rem rgba(0, 0, 0, 0.125);
+  z-index: 99;
+  cursor : pointer !important;
+}
+
 .pro-sidebar.collapsed .imgw {
   width: 40%;
 }
@@ -867,6 +901,11 @@ html {
 @media(max-width:998px) {
   html {
     font-size: 55%;
+  }
+  .notifications_popUp,
+  .dashboard_popUp{
+    top             : 20rem;
+  right           : 0rem;
   }
 }
 
