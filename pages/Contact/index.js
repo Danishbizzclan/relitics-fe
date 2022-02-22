@@ -41,7 +41,7 @@ const ContactUs = () => {
         res.then(value => {
             console.log(value)
             if(value.data.success){
-            setSuccess(value.data.success)
+            setSuccess("Your Message has been sent successfully!")
             }
         })
             .catch(error => {
@@ -66,6 +66,7 @@ const ContactUs = () => {
                                 user={user}
                                 handleChange={getUserData}
                                 messagee={SendMessage}
+                                success={success}
                             />
                         </div>
                         <div className="col-lg-4 col-md-4 col-12 my-5 px-5">
