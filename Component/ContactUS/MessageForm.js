@@ -112,6 +112,8 @@ const MessageForm = (props) => {
                         </div>
                         <div className='col-lg-3 col-md-2 col-3 my-auto'>
                             <button type="submit" className='btn fs-15 w-100 py-4 btnYelow'>Send</button>
+                            <p className='text-success mt-3 fs-19'>{props.success}</p>
+
                         </div>
                     </div>
                 </form>

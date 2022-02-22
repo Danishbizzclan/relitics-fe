@@ -8,6 +8,7 @@ import RentalGrowthData from '../../Component/Data/RentalGrowthData';
 import GetData from '../../Api/GetData';
 import { componentDidMount } from "react"
 import { Spin } from 'antd';
+import withAuth from "../../Component/Auth"
 
 
 
@@ -252,4 +253,4 @@ class Aprecation extends React.Component {
         );
     }
 }
-export default Aprecation
+export default withAuth(Aprecation)

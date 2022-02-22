@@ -52,7 +52,7 @@ const BlogDetail = () => {
 
           <div className='row'>
             <div className='col-md-8'>
-              <div className='shadow p-5'>
+              <div className='blog-shadow p-5'>
                 {/* <a className='text-link pointer-cursor fs-13 Bold'>{event.category}</a> */}
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
                 <div className='blog-line mt-0 mb-5'></div>
@@ -78,17 +78,17 @@ const BlogDetail = () => {
               </div>
             </div>
             <div className='col-md-4 mt-5'>
-              <div className=' px-3'>
-                <p className='fs-40 Gothic_3D my-auto pb-0'>ABOUT</p>
+              <div className='blog-left px-3'>
+                <p className='fs-30 Gothic_3D my-auto pb-0'>ABOUT</p>
                 <div className='blog-line my-3'></div>
                 <p className='mt-2 fs-16'>We keep you update with the latest news and information in  the Apple world. Everything you are looking for related to Mac, iMac and iPhone.</p>
-                <p className='fs-40 Gothic_3D my-auto'>LATEST POSTS</p>
+                <p className='fs-30 Gothic_3D my-auto'>LATEST POSTS</p>
                 <div className='blog-line mt-1 '></div>
                 <div className="my-3">
                   <LatestPosts />
                 </div>
                 <div className="mt-3">
-                  <p className='fs-40 Gothic_3D'>Catagories</p>
+                  <p className='fs-30 Gothic_3D'>Catagories</p>
                   <div className='blog-line my-3 '></div>
                   <Categories />
                 </div>

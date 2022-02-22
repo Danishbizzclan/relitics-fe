@@ -134,7 +134,7 @@ class Acount {
     };
     return res();
   };
-  userValidation = (firstName, lastName, email, password, state, country, username, DOB) => {
+  userValidation = (firstName, lastName, email, password, state, country, username, DOB, Error) => {
     console.log({ email })
     const res = async () => {
       const resp = await axios
@@ -151,7 +151,7 @@ class Acount {
 
         .catch(function (error) {
           console.log(error.response.data.message);
-          setError(error.response.data.message);
+          Error(error.response.data.message);
           errorModal(true)
         });
       return resp;

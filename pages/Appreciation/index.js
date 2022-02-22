@@ -7,6 +7,7 @@ import Sidebar from '../../Component/SideNavbar';
 import ApreciationData from '../../Component/Data/ApericiationData';
 import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
+import withAuth from '../../Component/Auth';
 
 
 class Aprecation extends React.Component {
@@ -274,4 +275,4 @@ tableData = (pageNo) => {
     );
   }
 }
-export default Aprecation
+export default withAuth(Aprecation);

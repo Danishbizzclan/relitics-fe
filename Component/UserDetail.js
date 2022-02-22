@@ -18,6 +18,9 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
     const [privacyModel, setPrivacyModel] = useState(false)
     const [cookiesModel, setCookiesModel] = useState(false)
     const [successMessage, setSuccessMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+
+    
 
     // for continue event listener
     const Continue = e => {
@@ -28,7 +31,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
         // setEmail(email)
         e.preventDefault();
 
-        const res = Acount.userValidation(values.firstName, values.familyName, values.email, values.password, values.state, values.country, values.username, values.DOB)
+        const res = Acount.userValidation(values.firstName, values.familyName, values.email, values.password, values.state, values.country, values.username, values.DOB, setErrorMessage)
         res.then(value => {
 
             console.log('value', value.data)
@@ -197,7 +200,8 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                     </div>
                                     <br />
                                     <div className="text-center">
-                                        <p className="text-success fs-19">{successMessage}</p>
+                                        {console.log({errorMessage})}
+                                        <p className="text-danger fs-19">{errorMessage}</p>
                                         <Button
 
                                             type="submit"
