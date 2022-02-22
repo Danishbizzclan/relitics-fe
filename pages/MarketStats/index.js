@@ -3,8 +3,9 @@ import Dashnav from '../../Component/Dashnav';
 import SecondNavbar from '../../Component/secondNavbar';
 import Sidebar from '../../Component/SideNavbar';
 import Market from '../../Component/Market'
+import withAuth from '../../Component/Auth'
 
-export default function MarketStats() {
+const MarketStats = ()=> {
     
     return (
         <div>
@@ -21,3 +22,4 @@ export default function MarketStats() {
         </div >
     )
 }
+export default withAuth(MarketStats)
