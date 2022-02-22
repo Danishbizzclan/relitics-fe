@@ -19,6 +19,11 @@ function Navbar() {
     }
   }, [typeof window])
 
+  const Logout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  }
+
   function notificationExpand() {
     setNotificationOpen(true);
   }
@@ -60,77 +65,83 @@ function Navbar() {
                     {
                       user ?
                         (<>
-                          <div
-                            tabIndex={0}
-                            className='my-auto'
-                            onFocus={notificationExpand}
-                            onBlur={notificationClose}>
-                            <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
-                          </div>
-                          <>
-                            {notificationOPen ? (
-                              <div className="notifications_popUp">
-                                <div className='p-4'>
-                                  <div className='d-inline-flex w-100 px-3 py-2 brdr_btm'>
-                                    <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                    <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
-                                  </div>
-                                  <div className='d-inline-flex w-100 px-3 py-2 brdr_btm'>
-                                    <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                    <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
-                                  </div>
-                                  <div className='d-inline-flex w-100 px-3 py-2 brdr_btm'>
-                                    <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                    <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
-                                  </div>
-                                  <div className='d-inline-flex w-100 px-3 py-2 brdr_btm'>
-                                    <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                    <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
-                                  </div>
-                                  <Link href="/Notifications">
-                                    <div className='fs-15 mt-4 text-center bluetxt'>show full notifications</div>
-                                  </Link>
+                          <details className="dropdown my-auto">
+                            <summary role="button">
+                              <span className="button">
+                                <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w py-md-4 ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
+                              </span>
+                            </summary>
+                            <ul className='p-5'>
+                              <li>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                  <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd skl aw;sd s</p>
                                 </div>
-                              </div>
-                            ) : null}
-                          </>
-                          <div
-                            tabIndex={0}
-                            className='my-auto'
-                            onFocus={dashboardExpand}
-                            onBlur={dashboardClose}
-                            className={`d-flex rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
-                            <img src={user?.image} className='rounded_img' style={{ width: '4.6rem', height: '4.6rem' }} />
-                            <p className="text-white my-auto px-sm-0 px-md-4 fs-15">{user?.username}</p>
-                          </div>
-                          <>
-                            {dashboardOpen ? (
-                              <div className="dashboard_popUp">
-                                <div className='p-4'>
-                                  <Link href="/Dashboard" >
-                                    <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
-                                      <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-15 ms-5 mb-0'>My Dashboard</p>
-                                    </div></Link>
-                                  <Link href="/Blog" >
-                                    <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
-                                      <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-15 ms-5 mb-0'>Edit Profile</p>
-                                    </div></Link>
-                                  <Link href="/Blog" >
-                                    <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
-                                      <img src={"/heart_black.svg"} className='mx-3 my-auto' /><p className='fs-15 ms-5 mb-0'>My Favourites</p>
-                                    </div></Link>
-                                  <Link href="/Blog" >
-                                    <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
-                                      <img src={"/bell_black.svg"} className='mx-3 my-auto' /><p className='fs-15 ms-5 mb-0'>Notifications</p>
-                                    </div></Link>
-                                  <Link href="/Blog" >
-                                    <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
-                                      <img src={"/Logout_black.svg"} className='mx-3 my-auto' /><p className='fs-15 ms-5 mb-0'>Log Out</p>
-                                    </div></Link>
+                              </li>
+                              <li>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                  <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw lsdjd ss</p>
                                 </div>
-                              </div>
-                            ) : null}
-                          </>
+                              </li>
+                              <li>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                  <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw sjkdh s</p>
+                                </div>
+                              </li>
+                              <li>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                  <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd aldh ikss</p>
+                                </div>
+                              </li>
+                              <Link href="/Notifications">
+                                <div className='fs-15 text-center bluetxt'>show full notifications</div>
+                              </Link>
+                            </ul>
+                          </details>
+
+                          <details className="dropdown my-auto">
+                            <summary role="button">
+                              <span className={`d-flex button rounded-pill name-bg my-sm-2 my-md-auto ${classes.profileBtn}`}>
+                                <img src={user?.image} className='rounded_img' style={{ width: '4.6rem' }} />
+                                <p className="text-white my-auto px-sm-0 ps-md-3 pe-md-5 fs-15">{user?.username}</p>
+                              </span>
+                            </summary>
+                            <ul >
+                              <li>
+                                <Link href="/Dashboard" >
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                    <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>My Dashboard</p>
+                                  </div></Link>
+                              </li>
+                              <li>
+                                <Link href="/EditProfile" >
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                    <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Edit Profile</p>
+                                  </div></Link>
+                              </li>
+                              <li>
+                                <Link href="/MyFavourites" >
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                    <img src={"/heart_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>My Favourites</p>
+                                  </div></Link>
+                              </li>
+                              <li>
+                                <Link href="/Notifications" >
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                    <img src={"/bell_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Notifications</p>
+                                  </div></Link>
+                              </li>
+                              <li>
+                                <Link href="/Blog" >
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm" onClick={Logout}>
+                                    <img src={"/Logout_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Log Out</p>
+                                  </div></Link>
+                              </li>
+                            </ul>
+                          </details>
                         </>)
                         :
                         <>

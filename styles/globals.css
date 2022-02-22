@@ -67,6 +67,10 @@ body {
   margin-right: 0 !important;
 }
 
+.light_font{
+  font-weight: 300;
+}
+
 .Bold {
   font-weight: 500;
 }
@@ -902,10 +906,11 @@ html {
   html {
     font-size: 55%;
   }
+
   .notifications_popUp,
-  .dashboard_popUp{
-    top             : 20rem;
-  right           : 0rem;
+  .dashboard_popUp {
+    top  : 20rem;
+    right: 0rem;
   }
 }
 
@@ -1069,4 +1074,67 @@ border-left: 1px solid #ececec;
     color  : rgba(255, 255, 255, 0.712);
     opacity: 0.7;
   }
+}
+
+span.button {
+  cursor: pointer;
+}
+
+span.button:active {
+  filter: brightness(75%);
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+
+summary::after {
+  content: ' ►';
+}
+
+::marker, summary::-webkit-details-marker, .navbar-dark summary::after{
+  color: transparent !important;
+}
+
+.dropdown ul {
+  position     : absolute;
+  width        : 30rem;
+  right        : 5rem;
+  z-index      : 2;
+  padding      : 0.3rem;
+  color        : black;
+  background   : #FFFFFF;
+  border       : 0.1rem solid #ECEFF3;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 0.4rem;
+  list-style   : none;
+}
+
+.dropdown ul li {
+  padding: 0.2rem;
+}
+
+/* Dropdown triangle */
+
+
+/* Close the dropdown with outside clicks */
+.dropdown>summary::before {
+  display: none;
+}
+
+.dropdown[open]>summary::before {
+  content : ' ';
+  display : block;
+  position: fixed;
+  top     : 0;
+  right   : 0;
+  left    : 0;
+  bottom  : 0;
+  z-index : 1;
 }

@@ -27,7 +27,7 @@ function CategorisedBlogDetail() {
                     <div className='row gx-5'>
                         <div className='col-sm-8'>
                             <div className='row mt-5'>
-                                <p className='fs-40 Gothic_3D text-center col-12'>CATEGORY ARCHIVES: {eventCategory} </p>
+                                <p className='fs-30 Gothic_3D text-center col-12'>CATEGORY ARCHIVES: {eventCategory} </p>
                                 <Pagination data={event} className='col-sm-6' perpage='6' />
                             </div>
 
@@ -36,17 +36,17 @@ function CategorisedBlogDetail() {
 
                         <div className='col-md-4 mt-5'>
                             <div className=' px-3'>
-                                <p className='fs-40 Gothic_3D my-auto pb-0'>ABOUT</p>
-                                <div className='blog-line'></div>
+                                <p className='fs-30 Gothic_3D'>ABOUT</p>
+                                <div className='blog-line my-3'></div>
                                 <p className='mt-2 fs-16'>We keep you update with the latest news and information in  the Apple world. Everything you are looking for related to Mac, iMac and iPhone.</p>
-                                <p className='fs-40 Gothic_3D my-auto'>LATEST POSTS</p>
-                                <div className='blog-line mt-1 '></div>
+                                <p className='fs-30 Gothic_3D'>LATEST POSTS</p>
+                                <div className='blog-line my-3'></div>
                                 <div className="mt-3">
                                     <LatestPosts />
                                 </div>
                                 <div className="mt-3">
-                                    <p className='fs-40 Gothic_3D'>Catagories</p>
-                                    <div className='blog-line mt-2 '></div>
+                                    <p className='fs-30 Gothic_3D'>Catagories</p>
+                                    <div className='blog-line my-3'></div>
                                     <Categories />
                                 </div>
                             </div>
