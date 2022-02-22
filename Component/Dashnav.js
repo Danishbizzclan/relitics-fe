@@ -60,32 +60,32 @@ function Dashnav() {
                     <details className="dropdown text-white my-auto">
                       <summary role="button">
                         <span className="button">
-                          <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
+                          <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w py-md-4 ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
                         </span>
                       </summary>
                       <ul>
                         <li>
                           <div className='d-inline-flex w-100 px-3 brdr_btm'>
                             <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka kawjdsklaj akjdn s</p>
+                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka akjdn s</p>
                           </div>
                         </li>
                         <li>
                           <div className='d-inline-flex w-100 px-3 brdr_btm'>
                             <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka kawjdsklaj akjdn s</p>
+                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka akjdn s</p>
                           </div>
                         </li>
                         <li>
                           <div className='d-inline-flex w-100 px-3 brdr_btm'>
                             <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka kawjdsklaj akjdn s</p>
+                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka akjdn s</p>
                           </div>
                         </li>
                         <li>
                           <div className='d-inline-flex w-100 px-3 brdr_btm'>
                             <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka kawjdsklaj akjdn s</p>
+                            <p className='my-auto fs-14 light_font ms-3'>ksajhdi soakf sjka akjdn s</p>
                           </div>
                         </li>
                         <Link href="/Notifications">
@@ -127,7 +127,7 @@ function Dashnav() {
                             </div></Link>
                         </li>
                         <li>
-                          <Link href="/Blog" >
+                          <Link href="" >
                             <div className="d-inline-flex w-100  px-3 py-4 brdr_btm"  onClick={Logout}>
                               <img src={"/Logout_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Log Out</p>
                             </div></Link>

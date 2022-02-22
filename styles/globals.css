@@ -1107,7 +1107,7 @@ summary::after {
   width        : 30rem;
   right        : 5rem;
   z-index      : 2;
-  padding      : 1rem;
+  padding      : 0.3rem;
   color        : black;
   background   : #FFFFFF;
   border       : 0.1rem solid #ECEFF3;

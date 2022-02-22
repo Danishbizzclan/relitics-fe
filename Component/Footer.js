@@ -80,8 +80,8 @@ function Foter() {
 
 
                             <div className="col-md-3 col-sm-6">
-                                <Link href="/Dashboard">
-                                    <a className={classes.fontbold}><p>About us (Dashboard)</p></a>
+                                <Link href="/About">
+                                    <a className={classes.fontbold}><p>About us</p></a>
                                 </Link>
                                 <Link href="/Terms">
                                     <a className={classes.footerp}><p>Terms of Use</p></a>
@@ -107,7 +107,7 @@ function Foter() {
                                 </Link>
                             </div>
 
-                            <div className="col-lg-3 col-sm-6 pb-5">
+                            <div className="col-lg-3 col-sm-6">
                                 <p className={classes.fontbold}>Subscribe to our newsletter</p>
                                 <form onSubmit={NewsLetter}>
                                     <p className="mx-auto Bold fs-16">Email</p>

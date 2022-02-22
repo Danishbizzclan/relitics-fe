@@ -55,7 +55,7 @@ const BlogDetail = () => {
               <div className='blog-shadow p-5'>
                 {/* <a className='text-link pointer-cursor fs-13 Bold'>{event.category}</a> */}
                 <h2 className='mb-0 fs-40'>{event.title}</h2>
-                <div className='blog-line mt-0 mb-5'></div>
+                <div className='blog-line my-3'></div>
                 <p className='fs-13'>Posted on {fullDate} by Admin</p>
                 <div className='text-center mb-3'>
                   <img className='m-2 hover' src={"/facebook-rect.svg"} />
@@ -79,17 +79,17 @@ const BlogDetail = () => {
             </div>
             <div className='col-md-4 mt-5'>
               <div className='blog-left px-3'>
-                <p className='fs-30 Gothic_3D my-auto pb-0'>ABOUT</p>
+                <p className='fs-30 Gothic_3D'>ABOUT</p>
                 <div className='blog-line my-3'></div>
                 <p className='mt-2 fs-16'>We keep you update with the latest news and information in  the Apple world. Everything you are looking for related to Mac, iMac and iPhone.</p>
-                <p className='fs-30 Gothic_3D my-auto'>LATEST POSTS</p>
-                <div className='blog-line mt-1 '></div>
+                <p className='fs-30 Gothic_3D'>LATEST POSTS</p>
+                <div className='blog-line my-3'></div>
                 <div className="my-3">
                   <LatestPosts />
                 </div>
                 <div className="mt-3">
                   <p className='fs-30 Gothic_3D'>Catagories</p>
-                  <div className='blog-line my-3 '></div>
+                  <div className='blog-line my-3'></div>
                   <Categories />
                 </div>
               </div>

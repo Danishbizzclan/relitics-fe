@@ -75,25 +75,25 @@ function Navbar() {
                               <li>
                                 <div className='d-inline-flex w-100 px-3 brdr_btm'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd skl aw;sd s</p>
                                 </div>
                               </li>
                               <li>
                                 <div className='d-inline-flex w-100 px-3 brdr_btm'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw lsdjd ss</p>
                                 </div>
                               </li>
                               <li>
                                 <div className='d-inline-flex w-100 px-3 brdr_btm'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw sjkdh s</p>
                                 </div>
                               </li>
                               <li>
                                 <div className='d-inline-flex w-100 px-3 brdr_btm'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
-                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjdsklaj akjdn askd aw;sd s</p>
+                                  <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd aldh ikss</p>
                                 </div>
                               </li>
                               <Link href="/Notifications">
