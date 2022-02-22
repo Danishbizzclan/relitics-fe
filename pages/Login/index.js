@@ -119,8 +119,6 @@ const Login = () => {
 
     }
     const ResendOtp = () => {
-        // nextStep();
-        // setEmail(email)
         const res = Acount.EnterEmail(email)
         res.then(value => {
             console.log('value', value.data)

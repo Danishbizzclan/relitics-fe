@@ -17,18 +17,24 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
     const [termsModel, settermsModel] = useState(false)
     const [privacyModel, setPrivacyModel] = useState(false)
     const [cookiesModel, setCookiesModel] = useState(false)
+    const [successMessage, setSuccessMessage] = useState("")
+
     // for continue event listener
     const Continue = e => {
-        e.preventDefault();
         nextStep();
     }
-    const VerifyUser = () => {
+    const VerifyUser = (e) => {
         // nextStep();
         // setEmail(email)
-        const res = Acount.userValidation(email)
+        e.preventDefault();
+
+        const res = Acount.userValidation(values.firstName, values.familyName, values.email, values.password, values.state, values.country, values.username, values.DOB)
         res.then(value => {
+
             console.log('value', value.data)
-            setReset(value.data.message)
+            setSuccessMessage(value.data.message)
+            Continue();
+
 
         })
             .catch(err => {
@@ -61,7 +67,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={Continue} className='py-3 px-5'>
+                                <form onSubmit={VerifyUser} className='py-3 px-5'>
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader
@@ -191,6 +197,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                     </div>
                                     <br />
                                     <div className="text-center">
+                                        <p className="text-success fs-19">{successMessage}</p>
                                         <Button
 
                                             type="submit"

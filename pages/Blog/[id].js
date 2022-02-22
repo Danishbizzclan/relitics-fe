@@ -66,7 +66,7 @@ const BlogDetail = () => {
                   <img className='m-2 hover' src={"/copylink_.png"} />
                 </div>
                 <img src={event.image} className='w-100 mt-2' />
-                <p className='mt-3 fs-17'>{event.data}</p>
+                <p className='mt-3 fs-17'>{event.detail}</p>
                 {/* <div className='text-center'>
                   <img className='m-2 hover' src={"/facebook_.png"} />
                   <img className='m-2 hover' src={"/linkedin_.png"} />

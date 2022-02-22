@@ -134,14 +134,19 @@ class Acount {
     };
     return res();
   };
-  userValidation = () => {
+  userValidation = (firstName, lastName, email, password, state, country, username, DOB) => {
     console.log({ email })
     const res = async () => {
       const resp = await axios
         .post("/users/verifysignup", {
+          firstName: firstName,
+          lastName: lastName,
           email: email,
-          confirmation_code: otp,
-          newPassword: Password
+          password:password,
+          username: username,
+          country: country,
+          state: state,
+          dob: DOB
         })
 
         .catch(function (error) {
