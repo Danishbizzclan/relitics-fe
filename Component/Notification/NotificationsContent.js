@@ -14,7 +14,7 @@ export default function NotificationsContent(props) {
                     return (
                         <div className='d-inline-flex w-100 px-5' key={index}>
                             <>
-                                <img src={y.img} style={{ width: "10%" }} alt={y.altImg} />
+                                <img src={y.img} style={{ width: "7%" }} alt={y.altImg} />
                                 <p className='my-auto fs-16 ms-3'>{y.text}</p>
                             </>
                         </div>

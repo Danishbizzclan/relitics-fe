@@ -488,7 +488,7 @@ textarea {
 }
 
 .privacy {
-  background     : linear-gradient(0deg, rgba(33, 33, 43, 0.8), rgba(28, 28, 32, 0.8)), url("/Mask Group 116.png");
+  background     : linear-gradient(0deg, rgba(33, 33, 43, 0.8), rgba(28, 28, 32, 0.8)), url("/Mask Group 116.svg");
   background-size: cover;
   height         : 20.0rem;
 }
@@ -563,6 +563,10 @@ textarea {
 
 .pro-sidebar.collapsed {
   width: 7rem !important;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item{
+  margin: 1rem 0;
 }
 
 .pro-sidebar>.pro-sidebar-inner {
