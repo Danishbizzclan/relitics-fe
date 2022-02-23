@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import DeleteData from '../Api/DeleteData'
 
 
+
 export default function NotesComponent() {
     const [visible, setVisible] = useState(3);
     const [notes, setNotes] = useState([]);

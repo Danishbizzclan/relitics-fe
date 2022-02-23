@@ -76,6 +76,7 @@ export default class Signup extends Component {
               handleStep={this.handleStep}
               nextStep={this.nextStep}
               handleChange={this.handleChange}
+              handleDirectChange={this.handleDirectChange}
               values={values}
             />
           </>

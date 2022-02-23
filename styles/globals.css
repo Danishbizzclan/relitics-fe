@@ -1138,3 +1138,10 @@ summary::after {
   bottom  : 0;
   z-index : 1;
 }
+.select-set{
+  border: 0px !important;
+  background-color: #FAFAFA !important;
+  height: 100%;
+  font-size: 1.4rem !important;
+  color: grey !important;
+}

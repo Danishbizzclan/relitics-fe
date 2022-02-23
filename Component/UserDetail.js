@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatarr from './Avatarr'
 import Navbar from './Navbar'
 import Link from "next/link"
@@ -10,17 +10,33 @@ import { Container, Typography, Grid, TextField, Button } from '@material-ui/cor
 import next from 'next'
 import UploadAndDisplayImage from './Avatarr'
 import { Imagees } from './Avatarr'
+import GetData from '../Api/GetData'
+import axios from 'axios';
 
 
-const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
+const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, values }) => {
 
     const [termsModel, settermsModel] = useState(false)
     const [privacyModel, setPrivacyModel] = useState(false)
     const [cookiesModel, setCookiesModel] = useState(false)
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [countrydata, setCountryData] = useState([]);
+    const [statesdata, setStatesData] = useState([]);
 
-    
+
+    const onhandleChange = (e) => {
+        handleDirectChange('country', e.target.value)
+        const response = GetData.StatesData(e.target.value);
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setStatesData(value?.data?.state);
+            }
+        })
+    }
+
 
     // for continue event listener
     const Continue = e => {
@@ -44,6 +60,16 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 console.log(err)
             })
     }
+    useEffect(() => {
+        const response = GetData.CountryData();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setCountryData(value?.data?.contry);
+            }
+        })
+    }, [])
 
 
 
@@ -55,7 +81,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     <div className='mb-5'>
                         <PersonalInfo
                             values={values.step}
-                        handleStep={handleStep} />
+                            handleStep={handleStep} />
                     </div>
                     <div className="container">
                         {/* email address */}
@@ -80,7 +106,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                             {/* <UploadAndDisplayImage /> */}
                                             {/* <Imagees /> */}
                                             <img src={values.profilePic} className='avatar-style' alt="" />
-                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none'/>
+                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
                                             <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
@@ -145,28 +171,25 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                             />
                                         </div>
                                         <div className="col-sm-6 my-3">
-                                            <input
-                                                placeholder="Country*"
-                                                className="form-control form-bg w-100"
-                                                onChange={handleChange('country')}
-                                                defaultValue={values.country}
-                                                type="text"
-                                                // variant="outlined"
-                                                required
-                                            />
+                                            <select className="form-select select-set" name="country" onChange={onhandleChange} aria-label="Default select example">
+                                            <option value=''>Select Country</option>
+                                                {countrydata.map((country) => {
+                                                    return (
+                                                        <option value={country.isoCode}>{country.name}</option>
+                                                    )
+                                                })}
+                                            </select>
                                         </div>
                                     </div>
                                     <div className="row px-5">
                                         <div className="col-sm-6 my-3">
-                                            <input
-                                                placeholder="state*"
-                                                className="form-control form-bg w-100"
-                                                required
-                                                onChange={handleChange('state')}
-                                                defaultValue={values.state}
-                                                // variant="outlined"  
-                                                type="text"
-                                            />
+                                            {statesdata.length ? <select className="form-select select-set" onChange={handleChange('state')} aria-label="Default select example">
+                                                {statesdata.map((state) => {
+                                                    return (
+                                                        <option value={state.isoCode}>{state.name}</option>
+                                                    )
+                                                })}
+                                            </select> : <p>No states Available for this country</p>}
                                         </div>
                                         <div className="col-sm-6 my-3">
 
@@ -200,7 +223,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                     </div>
                                     <br />
                                     <div className="text-center">
-                                        {console.log({errorMessage})}
+                                        {console.log({ errorMessage })}
                                         <p className="text-danger fs-19">{errorMessage}</p>
                                         <Button
 
@@ -233,7 +256,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={termsModel}
                     handleOk={settermsModel}
-                    handleClose={()=>settermsModel(false)}
+                    handleClose={() => settermsModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -250,7 +273,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={privacyModel}
                     handleOk={setPrivacyModel}
-                    handleClose={()=>setPrivacyModel(false)}
+                    handleClose={() => setPrivacyModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -267,7 +290,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={cookiesModel}
                     handleOk={setCookiesModel}
-                    handleClose={()=>setCookiesModel(false)}
+                    handleClose={() => setCookiesModel(false)}
                     closable={true}
                 >
                     <div className=''>
