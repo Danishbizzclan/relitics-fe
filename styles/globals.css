@@ -299,6 +299,10 @@ textarea {
   font-size: 1.1rem !important;
 }
 
+.fs-6 {
+  font-size: 0.6rem;
+}
+
 .fs-12 {
   font-size: 1.2rem;
 }
@@ -402,7 +406,7 @@ textarea {
   border          : .0rem !important;
   height          : 5.3rem;
   color           : #041E31 !important;
-  border-radius   : .8rem !important;
+  border-radius   : 1.2rem !important;
 }
 
 .btnYelow {
@@ -890,7 +894,7 @@ textarea {
   width           : 16.0rem;
   color           : #022945 !important;
   background-color: #FFDA5F !important;
-  border-radius   : .5rem !important;
+  border-radius   : 1.2rem !important;
   border          : .0rem !important;
 }
 
@@ -987,6 +991,7 @@ table tr:nth-child(2n) td {
 
 .email-buuton {
   background-color: #ffda5f !important;
+  border-radius: 1.2rem;
 }
 
 .textera-bg {

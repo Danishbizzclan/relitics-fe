@@ -23,7 +23,7 @@ const handleChange =(e)=>{
        <form onSubmit={handleOk} >
        <input type="email" className="form-control" value={email} onChange={handleChange}/>
        <div className='text-center mt-3'>
-       <button className='btn p-3 px-5 fs-22 btn-info email-buuton' type='submit'>Send</button>
+       <button className='btn p-3 px-5 fs-22 email-buuton' type='submit'>Send</button>
        </div>
        </form>
 

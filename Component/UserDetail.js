@@ -19,8 +19,9 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
     const [cookiesModel, setCookiesModel] = useState(false)
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [PasswordNew, setPasswordNew] = useState("")
 
-    
+
 
     // for continue event listener
     const Continue = e => {
@@ -44,7 +45,10 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 console.log(err)
             })
     }
-
+    const handleOk = (e) => {
+        e.preventDefault();
+        confirmPassword(PasswordNew, Password)
+    }
 
 
     return (
@@ -55,7 +59,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     <div className='mb-5'>
                         <PersonalInfo
                             values={values.step}
-                        handleStep={handleStep} />
+                            handleStep={handleStep} />
                     </div>
                     <div className="container">
                         {/* email address */}
@@ -70,7 +74,9 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={VerifyUser} className='py-3 px-5'>
+                                <form onSubmit={VerifyUser} className='py-3 px-5'
+                                // oninput='confirmPassword.setCustomValidity(values.confirmPassword != values.password ? "Passwords do not match." : "")'
+                                >
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader
@@ -80,7 +86,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                             {/* <UploadAndDisplayImage /> */}
                                             {/* <Imagees /> */}
                                             <img src={values.profilePic} className='avatar-style' alt="" />
-                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none'/>
+                                            <input type="file" accept='jpg' onChange={handleChange('profilePic')} id="img" className='d-none' />
                                             <label htmlFor="img" className='btn UploadBtn fs-15 ms-3 my-2'>Upload</label>
                                         </div>
                                         <div className="col-sm-6 my-3">
@@ -96,7 +102,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                         {/* username */}
                                         <div className="col-sm-6 my-3">
                                             <input
-                                                placeholder="Family Name*"
+                                                placeholder="Last Name*"
                                                 className="form-control form-bg"
                                                 onChange={handleChange('familyName')}
                                                 defaultValue={values.familyName}
@@ -168,7 +174,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                                 type="text"
                                             />
                                         </div>
-                                        <div className="col-sm-6 my-3">
+                                        <div className="col-sm-3 my-3">
 
                                             <input
                                                 placeholder="Password*"
@@ -179,9 +185,22 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                 // variant="outlined"
                                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-
+                                                name='password'
                                                 type="password"
                                             />
+                                        </div>
+                                        <div className="col-sm-3 my-3">
+                                            <input
+                                                placeholder="Confirm Password*"
+                                                className="form-control form-bg w-100"
+                                                required
+                                                onChange={(e) => setPasswordNew(e.target.value)} value={PasswordNew}
+                                                defaultValue={values.confirmPassword}
+                                                name='confirmPassword'
+                                                type="password"
+                                            />
+                                            {values.password && PasswordNew ?
+                                                values.password === PasswordNew ? <p className='text-success fs-6 px-2'>Password Matched</p> : <p className='text-danger fs-6 mb-0 px-2'>Password does not Match</p> : null}
                                         </div>
 
                                     </div>
@@ -200,15 +219,15 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                     </div>
                                     <br />
                                     <div className="text-center">
-                                        {console.log({errorMessage})}
+                                        {console.log({ errorMessage })}
                                         <p className="text-danger fs-19">{errorMessage}</p>
                                         <Button
 
                                             type="submit"
                                             className="w-50 login-button fs-15 mx-auto"
-
                                             variant="contained"
                                             color="primary"
+                                            disabled={!(values.password && PasswordNew && values.password === PasswordNew)}
                                         >
                                             Create Account
                                         </Button>
@@ -233,7 +252,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={termsModel}
                     handleOk={settermsModel}
-                    handleClose={()=>settermsModel(false)}
+                    handleClose={() => settermsModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -250,7 +269,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={privacyModel}
                     handleOk={setPrivacyModel}
-                    handleClose={()=>setPrivacyModel(false)}
+                    handleClose={() => setPrivacyModel(false)}
                     closable={true}
                 >
                     <div className=''>
@@ -267,7 +286,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                     customClass='modal-white'
                     isModalVisible={cookiesModel}
                     handleOk={setCookiesModel}
-                    handleClose={()=>setCookiesModel(false)}
+                    handleClose={() => setCookiesModel(false)}
                     closable={true}
                 >
                     <div className=''>
