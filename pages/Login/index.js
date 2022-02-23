@@ -298,7 +298,7 @@ const Login = () => {
             >
                 <p className='text-white text-center my-5 fs-30'>{successMessage}</p>
                 <div className='mx-auto text-center'>
-                    <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 btn-info email-buuton'>Got to Login</button>
+                    <button onClick={GotoLogin} className='btn p-3 px-5 fs-22 email-buuton'>Got to Login</button>
                 </div>
             </CustomModal>
 

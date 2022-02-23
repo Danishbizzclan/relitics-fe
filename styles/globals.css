@@ -299,6 +299,10 @@ textarea {
   font-size: 1.1rem !important;
 }
 
+.fs-6 {
+  font-size: 0.6rem;
+}
+
 .fs-12 {
   font-size: 1.2rem;
 }
@@ -402,7 +406,7 @@ textarea {
   border          : .0rem !important;
   height          : 5.3rem;
   color           : #041E31 !important;
-  border-radius   : .8rem !important;
+  border-radius   : 1.2rem !important;
 }
 
 .btnYelow {
@@ -488,7 +492,7 @@ textarea {
 }
 
 .privacy {
-  background     : linear-gradient(0deg, rgba(33, 33, 43, 0.8), rgba(28, 28, 32, 0.8)), url("/Mask Group 116.png");
+  background     : linear-gradient(0deg, rgba(33, 33, 43, 0.8), rgba(28, 28, 32, 0.8)), url("/Mask Group 116.svg");
   background-size: cover;
   height         : 20.0rem;
 }
@@ -563,6 +567,10 @@ textarea {
 
 .pro-sidebar.collapsed {
   width: 7rem !important;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item{
+  margin: 1rem 0;
 }
 
 .pro-sidebar>.pro-sidebar-inner {
@@ -886,7 +894,7 @@ textarea {
   width           : 16.0rem;
   color           : #022945 !important;
   background-color: #FFDA5F !important;
-  border-radius   : .5rem !important;
+  border-radius   : 1.2rem !important;
   border          : .0rem !important;
 }
 
@@ -983,6 +991,7 @@ table tr:nth-child(2n) td {
 
 .email-buuton {
   background-color: #ffda5f !important;
+  border-radius: 1.2rem;
 }
 
 .textera-bg {

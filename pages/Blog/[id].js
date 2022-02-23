@@ -77,7 +77,7 @@ const BlogDetail = () => {
                 </div> */}
               </div>
             </div>
-            <div className='col-md-4 mt-5'>
+            <div className='col-md-4 mt-5 ps-5'>
               <div className='blog-left px-3'>
                 <p className='fs-30 Gothic_3D'>ABOUT</p>
                 <div className='blog-line my-3'></div>

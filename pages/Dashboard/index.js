@@ -29,12 +29,12 @@ const Dashboard = () => {
             <p className="fs-16">Welcome back to your dashboard</p>
             <div className="row g-5">
               <div className="col-lg-7 px-0">
-                <div className="bg-dash px-5 py-3">
+                <div className="bg-dash p-5">
                   <p className="fs-30 mb-0 Gothic_3D">Overview</p>
                   <p className="fs-16 greyBlack">Let&#39;s start by finding you a city of intrest</p>
                   <div className="row">
                     <Link href={"./Appreciation"}>
-                      <div className="col-sm-12 col-md-6 p-3">
+                      <div className="col-sm-12 col-md-6 p-3 ps-0">
                         <div className="bg-white text-center p-3 Hover pointer-cursor brdr_card brdr">
                           <img src={'/development1.svg'} />
                           <p className="my-3 fs-18 Bold greyBlack">Market Aprecation</p>
@@ -55,9 +55,9 @@ const Dashboard = () => {
                 {Membership.map(mem => {
                   return (
                     <>
-                      <div className="bg-dash mt-3 px-5 py-3">
-                        <p className="fs-30 mb-0 Gothic_3D">MEMBERSHIP Details</p>
-                        <div className="bg-white">
+                      <div className="bg-dash mt-3 p-5">
+                        <p className="fs-30 Gothic_3D">MEMBERSHIP Details</p>
+                        <div className="bg-white p-5">
                           <p className="fs-16 greyBlack">Membership Package</p>
                           <div className="d-flex mt-3">
                             <p className=" fs-20 Bold greyBlack">Paid</p>
@@ -92,10 +92,10 @@ const Dashboard = () => {
                 })}
               </div>
               <div className="col-lg-5">
-                <div className="bg-dash px-5 py-3">
+                <div className="bg-dash p-5">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
                   <p className="fs-16 greyBlack">Let&#39;s go to the city statistics</p>
-                  <div className="bg-white text-center px-3 mx-auto p-3">
+                  <div className="bg-white text-center mx-auto p-3">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
                     <input type="text" value={state} name="state"
                       placeholder="select state"

@@ -107,7 +107,7 @@ export default function EditProfile() {
                     <div className='row gx-5 py-5 my-5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">
-                                <label className='fs-17'>First Name</label>
+                                <label className='fs-17 mb-2'>First Name</label>
                                 <input
                                     type="text"
                                     
@@ -121,7 +121,7 @@ export default function EditProfile() {
                                 />
                             </div>
                             <div className="form-group my-4">
-                                <label className='fs-17'>Email</label>
+                                <label className='fs-17 mb-2'>Email</label>
                                 <input
                                     type="email"
                                     
@@ -136,7 +136,7 @@ export default function EditProfile() {
 
                             </div>
                             <div className="form-group my-4">
-                                <label className='fs-17'>State</label>
+                                <label className='fs-17 mb-2'>State</label>
                                 <input
                                     type="text"
                                     
@@ -152,7 +152,7 @@ export default function EditProfile() {
                         </div>
                         <div className='col-md-6 col-sm-12'>
                             <div className="form-group my-4">
-                                <label className='fs-17'>Last Name</label>
+                                <label className='fs-17 mb-2'>Last Name</label>
                                 <input
                                     type="text"
                                     
@@ -166,7 +166,7 @@ export default function EditProfile() {
                                 />
                             </div>
                             {/* <div className="form-group my-4">
-                                <label className='fs-17'>Password</label>
+                                <label className='fs-17 mb-2'>Password</label>
                                 <input
                                     type="password"
                                     required
@@ -181,7 +181,7 @@ export default function EditProfile() {
                                 />
                             </div> */}
                             <div className="form-group my-4">
-                                <label className='fs-17'>Country</label>
+                                <label className='fs-17 mb-2'>Country</label>
                                 <input
                                     type="text"
                                     

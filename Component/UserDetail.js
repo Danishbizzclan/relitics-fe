@@ -96,7 +96,9 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                         </Link>
                                     </div>
                                 </div>
-                                <form onSubmit={VerifyUser} className='py-3 px-5'>
+                                <form onSubmit={VerifyUser} className='py-3 px-5'
+                                // oninput='confirmPassword.setCustomValidity(values.confirmPassword != values.password ? "Passwords do not match." : "")'
+                                >
                                     <div className="row px-5">
                                         <div className=''>
                                             {/* <AvatarUploader
@@ -122,7 +124,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                         {/* username */}
                                         <div className="col-sm-6 my-3">
                                             <input
-                                                placeholder="Family Name*"
+                                                placeholder="Last Name*"
                                                 className="form-control form-bg"
                                                 onChange={handleChange('familyName')}
                                                 defaultValue={values.familyName}
@@ -191,7 +193,7 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                                 })}
                                             </select> : <p>No states Available for this country</p>}
                                         </div>
-                                        <div className="col-sm-6 my-3">
+                                        <div className="col-sm-3 my-3">
 
                                             <input
                                                 placeholder="Password*"
@@ -202,9 +204,22 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                 // variant="outlined"
                                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-
+                                                name='password'
                                                 type="password"
                                             />
+                                        </div>
+                                        <div className="col-sm-3 my-3">
+                                            <input
+                                                placeholder="Confirm Password*"
+                                                className="form-control form-bg w-100"
+                                                required
+                                                onChange={(e) => setPasswordNew(e.target.value)} value={PasswordNew}
+                                                defaultValue={values.confirmPassword}
+                                                name='confirmPassword'
+                                                type="password"
+                                            />
+                                            {values.password && PasswordNew ?
+                                                values.password === PasswordNew ? <p className='text-success fs-6 px-2'>Password Matched</p> : <p className='text-danger fs-6 mb-0 px-2'>Password does not Match</p> : null}
                                         </div>
 
                                     </div>
@@ -229,9 +244,9 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
 
                                             type="submit"
                                             className="w-50 login-button fs-15 mx-auto"
-
                                             variant="contained"
                                             color="primary"
+                                            disabled={!(values.password && PasswordNew && values.password === PasswordNew)}
                                         >
                                             Create Account
                                         </Button>
