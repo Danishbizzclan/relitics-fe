@@ -23,6 +23,8 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
     const [errorMessage, setErrorMessage] = useState("")
     const [countrydata, setCountryData] = useState([]);
     const [statesdata, setStatesData] = useState([]);
+    const [PasswordNew, setPasswordNew] = useState("");
+
 
 
     const onhandleChange = (e) => {
