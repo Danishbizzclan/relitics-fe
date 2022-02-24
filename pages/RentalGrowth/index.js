@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { CSVLink } from "react-csv"
 import 'antd/dist/antd.css';
-import { Table, Button, Space, Select } from 'antd';
+import { Table, Button, Space, Select, message } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
-import RentalGrowthData from '../../Component/Data/RentalGrowthData';
 import GetData from '../../Api/GetData';
 import { componentDidMount } from "react"
 import { Spin } from 'antd';
@@ -19,7 +18,7 @@ class Aprecation extends React.Component {
         data: [],
         currentPage: 1,
         totalPages: 1,
-        loading: true
+        loading: true,
     };
 
     handleChange = (pagination, filters, sorter) => {
@@ -63,12 +62,21 @@ class Aprecation extends React.Component {
             console.log('dfgh', value)
             this.setState({
                 data: value?.data?.rentalGrowth,
-                totalPages:value?.data?.pages,
+                totalPages: value?.data?.pages,
                 loading: false
             })
         })
     }
 
+    print() {
+        var content = document.getElementsByClassName('ant-table-content');
+        var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+        pri.document.open();
+        pri.document.write(content[0].innerHTML);
+        pri.document.close();
+        pri.focus();
+        pri.print();
+    }
 
     render() {
 
@@ -102,6 +110,8 @@ class Aprecation extends React.Component {
                 sorter: (a, b) => a.age - b.AverageRentalGrowth,
                 sortOrder: sortedInfo.columnKey === 'AverageRentalGrowth' && sortedInfo.order,
                 ellipsis: true,
+                fixed: 'left',
+                bordered: true,
             },
             {
                 title: '2018',
@@ -227,23 +237,41 @@ class Aprecation extends React.Component {
                                     </div>
                                 </div>
                                 <div className='ms-auto my-auto'>
-                                    <button className='btn bluebtn px-4 fs-14'>Print</button>
-                                    <button className='btn bluebtn px-4 fs-14 ms-2'>Download PDF</button>
+                                    <button className='btn bluebtn px-4 fs-14' onClick={this.print}>Print</button>
+                                    <CSVLink
+                                        filename={"Rental_Growth_Table.csv"}
+                                        className='btn bluebtn px-4 fs-14 ms-2'
+                                        data={this.state.data}
+                                        onClick={() => {
+                                            message.success("The file is downloading")
+                                        }}
+                                    >
+                                        Download CSV
+                                    </CSVLink>
                                 </div>
                             </div>
                             {this.state.loading ? (
-                            <div className='text-center mt-5'><Spin /></div>
-                            
+                                <div className='text-center mt-5'><Spin /></div>
+
                             ) : (
                                 <>
-                                    {console.log(this.state.data)}
-                                    <Table columns={columns}
-                                        colors={['#123123', 'rgba(123,123,123,12)']}
-                                        averageDuplicates
-                                        inferBlanks
-                                        pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages*10 }}
-                                        dataSource={this.state.data} onChange={this.handleChange}
-                                        scroll={{ x: 1000 }} />
+                                    <div >
+                                        {console.log(this.state.data)}
+                                        <Table columns={columns}
+                                            colors={['#123123', 'rgba(123,123,123,12)']}
+                                            averageDuplicates
+                                            inferBlanks
+                                            pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 10 }}
+                                            dataSource={this.state.data} onChange={this.handleChange}
+                                            scroll={{ x: 768 }} />
+                                    </div>
+
+                                    <iframe id="ifmcontentstoprint" style={{
+                                        height: '100%',
+                                        width: '100%',
+                                        position: 'absolute',
+                                        display: 'none',
+                                    }}></iframe>
                                 </>
                             )}
                         </div>

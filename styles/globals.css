@@ -67,7 +67,7 @@ body {
   margin-right: 0 !important;
 }
 
-.light_font{
+.light_font {
   font-weight: 300;
 }
 
@@ -184,6 +184,14 @@ textarea {
 
 .paginetion_none td.ant-table-cell.ant-table-cell-fix-left.ant-table-cell-fix-left-last {
   border-right: 0.2rem #0F74AF solid;
+}
+.ant-table-cell-ellipsis.ant-table-cell-fix-left-last, .ant-table-cell-ellipsis.ant-table-cell-fix-right-first {
+  border-right: 0.2rem #0F74AF solid;
+  text-align: center;
+}
+
+.ant-table-thead th.ant-table-column-has-sorters{
+  border: none;
 }
 
 .paginetion_none .ant-table-small .ant-table-thead>tr>th {
@@ -569,7 +577,7 @@ textarea {
   width: 7rem !important;
 }
 
-.pro-sidebar .pro-menu .pro-menu-item{
+.pro-sidebar .pro-menu .pro-menu-item {
   margin: 1rem 0;
 }
 
@@ -991,7 +999,7 @@ table tr:nth-child(2n) td {
 
 .email-buuton {
   background-color: #ffda5f !important;
-  border-radius: 1.2rem;
+  border-radius   : 1.2rem;
 }
 
 .textera-bg {
@@ -1071,12 +1079,13 @@ table tr:nth-child(2n) td {
   .opac:hover {
     opacity: 0.8;
   }
-  .blog-shadow{
-    box-shadow:0px 30px 40px 0px rgb(0 0 0 / 8%)
-    
+
+  .blog-shadow {
+    box-shadow: 0px 30px 40px 0px rgb(0 0 0 / 8%)
   }
-  .blog-left{
-border-left: 1px solid #ececec;
+
+  .blog-left {
+    border-left: 1px solid #ececec;
   }
 
   .paginationBtn a:hover {
@@ -1107,7 +1116,9 @@ summary::after {
   content: ' ►';
 }
 
-::marker, summary::-webkit-details-marker, .navbar-dark summary::after{
+::marker,
+summary::-webkit-details-marker,
+.navbar-dark summary::after {
   color: transparent !important;
 }
 
@@ -1120,7 +1131,7 @@ summary::after {
   color        : black;
   background   : #FFFFFF;
   border       : 0.1rem solid #ECEFF3;
-  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  box-shadow   : rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
   border-radius: 0.4rem;
   list-style   : none;
 }
@@ -1146,4 +1157,18 @@ summary::after {
   left    : 0;
   bottom  : 0;
   z-index : 1;
+}
+
+.printme {
+  display: block;
+}
+
+@media print {
+  .no_printme {
+    display: none;
+  }
+  
+  .printme {
+    display: block;
+  }
 }
