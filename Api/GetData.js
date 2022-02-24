@@ -139,5 +139,28 @@ AllPackeges = () => {
     };
     return res();
   };
+  CountryData = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .get('/countries')
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  StatesData = (country) => {
+    const res = async () => {
+      const resp = await axios
+        .get(`states/${country}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  
 }
 export default new GetData();

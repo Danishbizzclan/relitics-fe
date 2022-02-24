@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatarr from './Avatarr'
 import Navbar from './Navbar'
 import Link from "next/link"
@@ -10,17 +10,34 @@ import { Container, Typography, Grid, TextField, Button } from '@material-ui/cor
 import next from 'next'
 import UploadAndDisplayImage from './Avatarr'
 import { Imagees } from './Avatarr'
+import GetData from '../Api/GetData'
+import axios from 'axios';
 
 
-const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
+const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, values }) => {
 
     const [termsModel, settermsModel] = useState(false)
     const [privacyModel, setPrivacyModel] = useState(false)
     const [cookiesModel, setCookiesModel] = useState(false)
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
-    const [PasswordNew, setPasswordNew] = useState("")
+    const [countrydata, setCountryData] = useState([]);
+    const [statesdata, setStatesData] = useState([]);
+    const [PasswordNew, setPasswordNew] = useState("");
 
+
+
+    const onhandleChange = (e) => {
+        handleDirectChange('country', e.target.value)
+        const response = GetData.StatesData(e.target.value);
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setStatesData(value?.data?.state);
+            }
+        })
+    }
 
 
     // for continue event listener
@@ -45,10 +62,17 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                 console.log(err)
             })
     }
-    const handleOk = (e) => {
-        e.preventDefault();
-        confirmPassword(PasswordNew, Password)
-    }
+    useEffect(() => {
+        const response = GetData.CountryData();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setCountryData(value?.data?.contry);
+            }
+        })
+    }, [])
+
 
 
     return (
@@ -151,28 +175,25 @@ const UserDetails = ({ handleStep, nextStep, handleChange, values }) => {
                                             />
                                         </div>
                                         <div className="col-sm-6 my-3">
-                                            <input
-                                                placeholder="Country*"
-                                                className="form-control form-bg w-100"
-                                                onChange={handleChange('country')}
-                                                defaultValue={values.country}
-                                                type="text"
-                                                // variant="outlined"
-                                                required
-                                            />
+                                            <select className="form-select select-set" name="country" onChange={onhandleChange} aria-label="Default select example">
+                                            <option value=''>Select Country</option>
+                                                {countrydata.map((country) => {
+                                                    return (
+                                                        <option value={country.isoCode}>{country.name}</option>
+                                                    )
+                                                })}
+                                            </select>
                                         </div>
                                     </div>
                                     <div className="row px-5">
                                         <div className="col-sm-6 my-3">
-                                            <input
-                                                placeholder="state*"
-                                                className="form-control form-bg w-100"
-                                                required
-                                                onChange={handleChange('state')}
-                                                defaultValue={values.state}
-                                                // variant="outlined"  
-                                                type="text"
-                                            />
+                                            {statesdata.length ? <select className="form-select select-set" onChange={handleChange('state')} aria-label="Default select example">
+                                                {statesdata.map((state) => {
+                                                    return (
+                                                        <option value={state.isoCode}>{state.name}</option>
+                                                    )
+                                                })}
+                                            </select> : <p>No states Available for this country</p>}
                                         </div>
                                         <div className="col-sm-3 my-3">
 

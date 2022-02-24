@@ -113,7 +113,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2018',
-        dataIndex: 'y2018',
+        render: (record, text, index) => Math.round(record.y2018 * 100) / 100 ,
         key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -127,7 +127,8 @@ class Aprecation extends React.Component {
       },
       {
         title: '2019',
-        dataIndex: 'y2019',
+        // dataIndex: 'y2019',
+        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</> ,
         key: 'y2019',
         // filters: [
         //   { text: 'London', value: 'London' },

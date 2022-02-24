@@ -4,6 +4,8 @@ import Sidebar from '../../Component/SideNavbar';
 import Dashnav from '../../Component/Dashnav';
 import Link from "next/link"
 import GetData from '../../Api/GetData';
+import { Spin } from 'antd';
+
 import UpdateData from '../../Api/UpdateData';
 import { getEventById } from '../../Component/Data/NotesData';
 
@@ -65,7 +67,8 @@ console.log(eventId)
                         <p className='fs-40 Gothic_3D my-3'>My Notes</p>
                         {
                             eventId && !data ?
-                                <h1>Not Found</h1>
+                            <div class="spinner-border text-center mt-5" role="status">
+                          </div>
                                 : <>
                                     <p className='fs-30 Gothic_3D my-3'>City State</p>
                                     <div className='div_grey p-5 notes_form'>
