@@ -111,7 +111,7 @@ tableData = (pageNo) => {
       },
       {
         title: '2018',
-        dataIndex: 'y2018',
+        render: (record, text, index) => Math.round(record.y2018 * 100) / 100 ,
         key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -125,7 +125,8 @@ tableData = (pageNo) => {
       },
       {
         title: '2019',
-        dataIndex: 'y2019',
+        // dataIndex: 'y2019',
+        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</> ,
         key: 'y2019',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -257,7 +258,7 @@ tableData = (pageNo) => {
               {this.state.loading ? (
               <div className='text-center mt-5'><Spin /></div>
               ) : (
-
+                <>
                 <Table columns={columns}
                   colors={['#123123', 'rgba(123,123,123,12)']}
                   averageDuplicates
@@ -266,6 +267,8 @@ tableData = (pageNo) => {
                   dataSource={this.state.data} onChange={this.handleChange}
                   scroll={{ x: 1000 }}
                 />
+                </>
+
               )}
             </div>
           </div>
