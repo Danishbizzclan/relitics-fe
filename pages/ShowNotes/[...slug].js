@@ -22,19 +22,21 @@ export default function EditNotes() {
         response.then(value => {
 
             console.log(value)
-              setData(value.data.noteDetail);
+            setData(value.data.noteDetail);
             //   console.log(value.data.notess)
             //   setLoading(false);
         })
     }
     useEffect(() => {
         if (eventId) {
-        getNote()
+            getNote()
         }
     }, [eventId])
     return (
         eventId && !data ?
-            <h1>Not Found</h1>
+
+            <div class="spinner-border mx-auto" role="status">
+            </div>
             : <>
                 <div>
                     <div className="d-inline-flex w-100">
