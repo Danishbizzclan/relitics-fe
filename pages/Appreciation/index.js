@@ -259,7 +259,7 @@ class Aprecation extends React.Component {
                     className='btn bluebtn px-4 fs-14 ms-2'
                     data={this.state.data}
                     onClick={() => {
-                      message.success("The file is downloading")
+                      message.success("The file is downloading...")
                     }}
                   >
                     Download CSV
