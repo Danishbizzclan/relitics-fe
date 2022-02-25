@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react"
+import { CSVLink } from "react-csv"
 import 'antd/dist/antd.css';
 // import './index.css';
-import { Table, Button, Space, Select } from 'antd';
+import { Table, Button, Space, Select, message } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import ApreciationData from '../../Component/Data/ApericiationData';
@@ -52,28 +53,28 @@ class Aprecation extends React.Component {
   };
   componentDidMount() {
     this.tableData(1)
-}
-tableData = (pageNo) => {
-  const response = GetData.Aprecation(pageNo);
-  console.log(response)
-  response.then(value => {
+  }
+  tableData = (pageNo) => {
+    const response = GetData.Aprecation(pageNo);
+    console.log(response)
+    response.then(value => {
       console.log('dfgh', value)
       this.setState({
-          data: value?.data?.allRecords,
-          totalPages:value?.data?.pages,
-          loading: false
+        data: value?.data?.allRecords,
+        totalPages: value?.data?.pages,
+        loading: false
       })
-  })
-}
-  // componentDidMount() {
-  //   const response = GetData.Aprecation();
-  //   console.log(response)
-  //   response.then(value => {
-  //     console.log('dfgh', value)
-  //     this.setState({ data: value?.data?.allRecords })
-  //     this.setState({ loading: false })
-  //   })
-  // }
+    })
+  }
+  print() {
+    var content = document.getElementsByClassName('ant-table-content');
+    var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+    pri.document.open();
+    pri.document.write(content[0].innerHTML);
+    pri.document.close();
+    pri.focus();
+    pri.print();
+  }
 
   render() {
     let { sortedInfo, filteredInfo } = this.state;
@@ -96,12 +97,13 @@ tableData = (pageNo) => {
         sorter: (a, b) => a.region.length - b.region.length,
         ellipsis: true,
         render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto'>{record.region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
+          <p className='my-auto mx-2'>{record.region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
         </div>
       },
       {
         title: 'Overall Average Aprecation',
         fixed: 'left',
+        bordered: true,
         dataIndex: 'avgGrowth',
         key: 'avgGrowth',
         width: '15%',
@@ -196,7 +198,7 @@ tableData = (pageNo) => {
         ellipsis: true,
       },
       {
-        title: 'Acerage State Property Tax',
+        title: 'Average State Property Tax',
         dataIndex: 'avgTax',
         key: 'avgTax',
         width: '13%',
@@ -251,24 +253,40 @@ tableData = (pageNo) => {
                   </div>
                 </div>
                 <div className='ms-auto my-auto'>
-                  <button className='btn bluebtn px-4 fs-14'>Print</button>
-                  <button className='btn bluebtn px-4 fs-14 ms-2'>Download PDF</button>
+                  <button className='btn bluebtn px-4 fs-14' onClick={this.print}>Print</button>
+                  <CSVLink
+                    filename={"Market_Appreciation_Table.csv"}
+                    className='btn bluebtn px-4 fs-14 ms-2'
+                    data={this.state.data}
+                    onClick={() => {
+                      message.success("The file is downloading...")
+                    }}
+                  >
+                    Download CSV
+                  </CSVLink>
                 </div>
               </div>
               {this.state.loading ? (
-              <div className='text-center mt-5'><Spin /></div>
+                <div className='text-center mt-5'><Spin /></div>
               ) : (
-                <>
-                <Table columns={columns}
-                  colors={['#123123', 'rgba(123,123,123,12)']}
-                  averageDuplicates
-                  inferBlanks
-                  pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages*10 }}
-                  dataSource={this.state.data} onChange={this.handleChange}
-                  scroll={{ x: 1000 }}
-                />
-                </>
 
+                <div >
+                    <Table columns={columns}
+                      colors={['#123123', 'rgba(123,123,123,12)']}
+                      averageDuplicates
+                      inferBlanks
+                      pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 10 }}
+                      dataSource={this.state.data} onChange={this.handleChange}
+                      scroll={{ x: 768 }}
+                    />
+
+                  <iframe id="ifmcontentstoprint" style={{
+                    height: '100%',
+                    width: '100%',
+                    position: 'absolute',
+                    display: 'none',
+                  }}></iframe>
+                </div>
               )}
             </div>
           </div>
