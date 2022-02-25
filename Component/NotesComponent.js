@@ -45,7 +45,7 @@ export default function NotesComponent() {
     return (
         <>
             {loading ? (
-                <div class="spinner-border mx-auto" role="status">
+                <div className="spinner-border mx-auto" role="status">
               </div>
             ) : (
                 <>
