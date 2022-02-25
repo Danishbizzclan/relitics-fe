@@ -35,7 +35,7 @@ export default function EditNotes() {
     return (
         eventId && !data ?
 
-            <div class="spinner-border mx-auto" role="status">
+            <div className="spinner-border mx-auto" role="status">
             </div>
             : <>
                 <div>

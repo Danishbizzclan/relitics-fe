@@ -67,7 +67,7 @@ console.log(eventId)
                         <p className='fs-40 Gothic_3D my-3'>My Notes</p>
                         {
                             eventId && !data ?
-                            <div class="spinner-border text-center mt-5" role="status">
+                            <div className="spinner-border text-center mt-5" role="status">
                           </div>
                                 : <>
                                     <p className='fs-30 Gothic_3D my-3'>City State</p>
