@@ -10,6 +10,7 @@ import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
 import withAuth from '../../Component/Auth';
 import PostData from "../../Api/PostData";
+import DeleteData from "../../Api/DeleteData"
 
 
 class Aprecation extends React.Component {
@@ -111,6 +112,20 @@ class Aprecation extends React.Component {
               console.log(err)
           })
   }
+
+   DeleteFavrt = (id) => {
+    const response = DeleteData.DeleteFavourite(id);
+    response.then(value => {
+
+        console.log(value)
+        if(value){
+        message.success('Remove from favourites')
+
+        this.favourites()
+        }
+        //   setLoading(false);
+    })
+}
   
 
   render() {
@@ -135,7 +150,7 @@ class Aprecation extends React.Component {
         sorter: (a, b) => a.region.length - b.region.length,
         ellipsis: true,
         render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto mx-2'>{record.region}</p>{this.state.favourite.some(el => el.regionID === record._id) ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' onClick={()=>this.AddFavourite(record)}  className='ms-auto' />}
+          <p className='my-auto mx-2'>{record.region}</p>{this.state.favourite.some(el => el.regionID === record._id) ? <img src='./filledHeart.svg' onClick={() => this.DeleteFavrt(record._id)} className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' onClick={()=>this.AddFavourite(record)}  className='ms-auto' />}
         </div>
       },
       {

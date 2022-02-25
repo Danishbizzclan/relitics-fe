@@ -6,7 +6,7 @@ import FavCard from '../../Component/FavCard';
 import GetData from '../../Api/GetData';
 
 function MyFavourite() {
-    const [visible, setVisible] = useState(12);
+    const [visible, setVisible] = useState(9);
     const [favourite, setFavourite] = useState([]);
 
     const loadMore = () => {

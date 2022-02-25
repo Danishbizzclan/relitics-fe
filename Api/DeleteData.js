@@ -18,6 +18,19 @@ class DeleteData {
     };
     return res();
   };
+  DeleteFavourite = (id) => {
+    console.log(id)
+    const res = async () => {
+      const resp = await axios
+        .delete(`/favorite/${id}`)
+
+        .catch(function (error) {
+          console.log(error.response)
+        });
+      return resp;
+    };
+    return res();
+  };
     Return() {
       return this.result;
     }
