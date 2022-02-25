@@ -68,10 +68,10 @@ function Navbar() {
                           <details className="dropdown my-auto">
                             <summary role="button">
                               <span className="button">
-                                <img src={'/NotificationNav.svg'} className={`mx-3 text-lg-start noti-w py-md-4 ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
+                                <img src={'/NotificationNav.svg'} className={`text-lg-start noti-w py-md-4 ${classes.notiBtn}`} style={{ objectFit: 'contain' }} />
                               </span>
                             </summary>
-                            <ul className='p-5'>
+                            <ul className='py-5'>
                               <li>
                                 <div className='d-inline-flex w-100 px-3 brdr_btm'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
