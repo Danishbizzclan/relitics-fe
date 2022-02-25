@@ -104,7 +104,7 @@ function Dashnav() {
                       <ul>
                         <li>
                           <Link href="/Dashboard" >
-                            <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                            <div className="d-inline-flex w-100 px-3 py-4 brdr_btm">
                               <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>My Dashboard</p>
                             </div></Link>
                         </li>

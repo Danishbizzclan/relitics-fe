@@ -1132,7 +1132,7 @@ summary::-webkit-details-marker,
   width        : 30rem;
   right        : 5rem;
   z-index      : 2;
-  padding      : 0.3rem;
+  padding      : 0rem;
   color        : black;
   background   : #FFFFFF;
   border       : 0.1rem solid #ECEFF3;
