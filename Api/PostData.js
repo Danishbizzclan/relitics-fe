@@ -39,6 +39,22 @@ class PostData {
     };
     return res();
   };
+  AddFavouriteCity = (detail) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/favorite", {
+          regionID: detail._id,
+          regionName: detail.region,
+        })
+
+        .catch(function (error) {
+          console.log(error.response)
+          settingErrors(error.response.data.message);
+        });
+      return resp;
+    };
+    return res();
+  };
     Return() {
       return this.result;
     }

@@ -9,6 +9,7 @@ import ApreciationData from '../../Component/Data/ApericiationData';
 import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
 import withAuth from '../../Component/Auth';
+import PostData from "../../Api/PostData";
 
 
 class Aprecation extends React.Component {
@@ -18,7 +19,11 @@ class Aprecation extends React.Component {
     data: [],
     currentPage: 1,
     totalPages: 1,
-    loading: true
+    favourite:[],
+    loading: true,
+    region: true,
+
+
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -53,6 +58,7 @@ class Aprecation extends React.Component {
   };
   componentDidMount() {
     this.tableData(1)
+    this.favourites()
   }
   tableData = (pageNo) => {
     const response = GetData.Aprecation(pageNo);
@@ -76,7 +82,39 @@ class Aprecation extends React.Component {
     pri.print();
   }
 
+  favourites=()=> {
+    const response = GetData.Favourite();
+    console.log(response)
+    response.then(value => {
+        console.log(value)
+        this.setState({
+          favourite: value?.data?.favoriteRegions
+        })
+            console.log(value.data.favoriteRegions)
+
+        }
+ 
+    //   setLoading(false);
+    )}
+
+     AddFavourite = (e) => {
+      const res = PostData.AddFavouriteCity(e)
+      res.then(value => {
+          console.log('value', value.data)
+          if (value.data.success) {
+              message.success('Added to favourites')
+              this.favourites()
+          }
+
+      })
+          .catch(err => {
+              console.log(err)
+          })
+  }
+  
+
   render() {
+    console.log('asdfgh', this.state)
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
@@ -97,7 +135,7 @@ class Aprecation extends React.Component {
         sorter: (a, b) => a.region.length - b.region.length,
         ellipsis: true,
         render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto mx-2'>{record.region}</p>{!record.isFavourite ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' className='ms-auto' />}
+          <p className='my-auto mx-2'>{record.region}</p>{this.state.favourite.some(el => el.regionID === record._id) ? <img src='./filledHeart.svg' className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' onClick={()=>this.AddFavourite(record)}  className='ms-auto' />}
         </div>
       },
       {
