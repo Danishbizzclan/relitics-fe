@@ -82,7 +82,8 @@ export default function EditNotes() {
                                             <option value=''>Select Country</option>
                                                 {countryData.map((country) => {
                                                     return (
-                                                        <option value={country.isoCode}>{country.name}</option>
+
+                                                        <option key={country.name} value={country.isoCode}>{country.name}</option>
                                                     )
                                                 })}
                                             </select>

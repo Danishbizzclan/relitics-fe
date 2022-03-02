@@ -6,9 +6,10 @@ import NotificationsData from '../../Component/Data/NotificationsData';
 import MaterialDesignSwitch from '../../Component/Toggle';
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
+import withAuth from '../../Component/Auth';
 // import Switch from "react-switch";
 // import { Switch } from '@material-ui/core';
-export default function Notifications() {
+ function Notifications() {
     const [online, setOnline] = useState(false)
     const [notificationData, setNotificationData] = useState([])
     const [user, setUser] = useState('')
@@ -63,6 +64,7 @@ export default function Notifications() {
                                     {notificationData.map((item) => {
                                         return (
                                             <NotificationsContent
+                                            key={item._id}
                                                 subject={item.subject}
                                                 description={item.description}
                                             />
@@ -89,3 +91,5 @@ export default function Notifications() {
 
     )
 }
+export default withAuth(Notifications);
+
