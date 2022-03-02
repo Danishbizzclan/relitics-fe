@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import GetData from '../../Api/GetData'
 import classes from './Notifications.module.css'
 import NotificationsContent from '../../Component/Notification/NotificationsContent';
 import NotificationsData from '../../Component/Data/NotificationsData';
@@ -9,9 +10,40 @@ import Foter from '../../Component/Footer';
 // import { Switch } from '@material-ui/core';
 export default function Notifications() {
     const [online, setOnline] = useState(false)
+    const [notificationData, setNotificationData] = useState([])
+    const [user, setUser] = useState('')
+
+
     const handleChange = () => {
         setOnline(!online)
     }
+    useEffect(() => {
+
+        if (typeof window !== 'undefined') {
+
+            setUser(JSON.parse(localStorage.getItem('user')))
+            //   console.log(user)
+            getNotifications(JSON.parse(localStorage.getItem('user')).packageID)
+
+        }
+
+    },
+
+        [typeof window])
+
+
+    const getNotifications = (id) => {
+        const response = GetData.NotificationsData(id);
+        response.then(value => {
+            console.log("VALUE:", value)
+            if (value) {
+                setNotificationData(value.data.reverseNotification)
+            }
+
+            //   setLoading(false);
+        })
+    }
+
 
     return (
         <>
@@ -28,9 +60,21 @@ export default function Notifications() {
                                     </div>
                                 </div>
                                 <div className='min-vh-50'>
-                                    <NotificationsContent
-                                        data={NotificationsData}
-                                    />
+                                    {notificationData.map((item) => {
+                                        return (
+                                            <NotificationsContent
+                                                subject={item.subject}
+                                                description={item.description}
+                                            />
+                                        )
+                                    })}
+
+                                    {/* <NotificationsContent
+                                          data={notificationData}
+                                      /> */}
+
+
+
                                 </div>
                             </div>
                         </div>

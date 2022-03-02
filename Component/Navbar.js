@@ -38,7 +38,6 @@ function Navbar() {
   }
   return (
     <div className={classes.navcolor}>
-      {console.log('sahfsegf', user)}
       <div className="container ">
         <div className="row ms-0 ">
           <div className="col-12 ms-0 p-0 m-0">

@@ -183,6 +183,18 @@ AllPackeges = () => {
     };
     return res();
   };
+  NotificationsData = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .get(`/notification/${id}`)
+        .catch(function (error) {
+          console.log("Error:",error);
+        });
+        console.log("result:",resp)
+      return resp;
+    };
+    return res();
+  };
 
   
 }
