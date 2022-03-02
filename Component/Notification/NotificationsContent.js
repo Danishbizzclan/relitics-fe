@@ -9,7 +9,7 @@ export default function NotificationsContent(props) {
             </div>
             <div className='d-inline-flex w-100 px-5' >
 
-                <img src=""style={{ width: "7%" }} alt="" />
+                <img src={"/notificationImg.png"} style={{ width: "7%" }} alt="" />
                 <p className='my-auto fs-16 ms-3'>{props.description}</p>
             </div>
         </>
