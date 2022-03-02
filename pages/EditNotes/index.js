@@ -92,7 +92,7 @@ export default function EditNotes() {
                                 {statesdata.length ? <select className="form-select select-set" name='State' onChange={handleChange} aria-label="Default select example">
                                                 {statesdata.map((state) => {
                                                     return (
-                                                        <option value={state.isoCode}>{state.name}</option>
+                                                        <option key={state.name} value={state.isoCode}>{state.name}</option>
                                                     )
                                                 })}
                                             </select> : <p>No states Available for this country</p>}
