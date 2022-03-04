@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../../Component/SideNavbar';
 import Dashnav from '../../Component/Dashnav';
 import Link from "next/link"
+import GetData from '../../Api/GetData'
 import PostData from '../../Api/PostData';
 import Router, { useRouter } from "next/router";
 
@@ -13,13 +14,22 @@ export default function EditNotes() {
         City: "",
         State: "",
         details: "",
-        noteMessage: ""
+        noteMessage: "",
+
     })
     const [userMessage, setUserMessage] = useState('')
+    const [countryData, setCountryData] = useState([])
+    const [statesdata, setStatesData] = useState([])
+
+
 
     const handleChange = (e) => {
         setuserInput({ ...userInput, [e.target.name]: e.target.value })
     }
+    
+//   const handleDirectChange = (name, value) => {
+//     setuserInput({ ...userInput, [name]: value });
+//   }
     const submitNotes = (e) => {
         e.preventDefault();
         // nextStep();
@@ -32,6 +42,27 @@ export default function EditNotes() {
             .catch(error => {
                 console.log("Error", error)
             })
+    }
+    useEffect(() => {
+        const response = GetData.CountryData();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setCountryData(value?.data?.contry);
+            }
+        })
+    }, [])
+    const onhandleChange = (e) => {
+        // handleDirectChange('country', e.target.value)
+        const response = GetData.StatesData(e.target.value);
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setStatesData(value?.data?.state);
+            }
+        })
     }
     return <div>
         {/* {console.log(userInput)} */}
@@ -47,14 +78,24 @@ export default function EditNotes() {
                         <form className='row form' onSubmit={submitNotes} >
                             <div className="form-group my-2 row">
                                 <div className='col-sm-12 col-md-6'>
-                                    <select className="form-control form-select mx-2">
-                                        <option>City</option>
-                                    </select>
+                                <select className="form-select select-set" name="country" onChange={onhandleChange} aria-label="Default select example">
+                                            <option value=''>Select Country</option>
+                                                {countryData.map((country) => {
+                                                    return (
+
+                                                        <option key={country.name} value={country.isoCode}>{country.name}</option>
+                                                    )
+                                                })}
+                                            </select>
                                 </div>
                                 <div className='col-sm-12 col-md-6'>
-                                    <select className="form-control form-select mx-2">
-                                        <option>state</option>
-                                    </select>
+                                {statesdata.length ? <select className="form-select select-set" name='State' onChange={handleChange} aria-label="Default select example">
+                                                {statesdata.map((state) => {
+                                                    return (
+                                                        <option key={state.name} value={state.isoCode}>{state.name}</option>
+                                                    )
+                                                })}
+                                            </select> : <p>No states Available for this country</p>}
                                 </div>
                             </div>
                             <div className="form-group my-2">

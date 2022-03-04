@@ -1,17 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import GetData from '../../Api/GetData'
 import classes from './Notifications.module.css'
 import NotificationsContent from '../../Component/Notification/NotificationsContent';
 import NotificationsData from '../../Component/Data/NotificationsData';
 import MaterialDesignSwitch from '../../Component/Toggle';
 import Navbar from '../../Component/Navbar';
 import Foter from '../../Component/Footer';
+import withAuth from '../../Component/Auth';
 // import Switch from "react-switch";
 // import { Switch } from '@material-ui/core';
-export default function Notifications() {
+ function Notifications() {
     const [online, setOnline] = useState(false)
+    const [notificationData, setNotificationData] = useState([])
+    const [user, setUser] = useState('')
+
+
     const handleChange = () => {
         setOnline(!online)
     }
+    useEffect(() => {
+
+        if (typeof window !== 'undefined') {
+
+            setUser(JSON.parse(localStorage.getItem('user')))
+            //   console.log(user)
+            getNotifications(JSON.parse(localStorage.getItem('user')).packageID)
+
+        }
+
+    },
+
+        [typeof window])
+
+
+    const getNotifications = (id) => {
+        const response = GetData.NotificationsData(id);
+        response.then(value => {
+            console.log("VALUE:", value)
+            if (value) {
+                setNotificationData(value.data.reverseNotification)
+            }
+
+            //   setLoading(false);
+        })
+    }
+
 
     return (
         <>
@@ -28,9 +61,22 @@ export default function Notifications() {
                                     </div>
                                 </div>
                                 <div className='min-vh-50'>
-                                    <NotificationsContent
-                                        data={NotificationsData}
-                                    />
+                                    {notificationData.map((item) => {
+                                        return (
+                                            <NotificationsContent
+                                            key={item._id}
+                                                subject={item.subject}
+                                                description={item.description}
+                                            />
+                                        )
+                                    })}
+
+                                    {/* <NotificationsContent
+                                          data={notificationData}
+                                      /> */}
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -45,3 +91,5 @@ export default function Notifications() {
 
     )
 }
+export default withAuth(Notifications);
+
