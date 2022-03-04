@@ -251,6 +251,10 @@ textarea {
   font-family: 'Poppins' !important;
 }
 
+.apexcharts-legend-marker {
+  border-radius: 1.2rem !important;
+}
+
 .bg-pric {
   background-color: #FAFAFA;
   padding         : .0rem !important;
@@ -1103,6 +1107,7 @@ span.button {
 span.button:active {
   filter: brightness(75%);
 }
+
 span.button:hover {
   filter: brightness(75%);
 }
@@ -1119,6 +1124,13 @@ summary::-webkit-details-marker {
 
 summary::after {
   content: ' ►';
+}
+
+.btn_tags {
+  color        : #022945;
+  min-height   : 0.55rem;
+  border       : none;
+  border-radius: 0.4rem;
 }
 
 ::marker,

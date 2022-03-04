@@ -1,5 +1,7 @@
 import React from 'react';
-import DemographicGraphs from './DemographicGraphs';
+import Population from './Population';
+import PopulationByAge from './PopulationByAge';
+
 
 export default function Demographic() {
     const stateSort = (event) => [
@@ -46,7 +48,10 @@ export default function Demographic() {
                 </div>
             </div>
             <div className='card p-3 bg_light'>
-                <DemographicGraphs />
+                <Population />
+            </div>
+            <div className='card p-3 my-4 bg_light'>
+                <PopulationByAge />
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
