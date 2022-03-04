@@ -12,7 +12,7 @@ class PopulationGraph extends Component {
                 {
                     name: "Population",
                     data: [2, 23, 19, 45, 38, 52, 45],
-                    color: '#0F74AF'
+                    color: '#0F74AF',
                 }
             ],
             options: {
