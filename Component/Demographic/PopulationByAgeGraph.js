@@ -32,6 +32,9 @@ class PopulationByAgeGraph extends Component {
                         show: false,
                     },
                 },
+                fill: {
+                    opacity: 1
+                },
                 legend: {
                     show: true,
                     showForSingleSeries: true,
@@ -62,6 +65,7 @@ class PopulationByAgeGraph extends Component {
                         text: 'Growth',
                     },
                     labels: {
+                        rotate: 330,
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -73,7 +77,7 @@ class PopulationByAgeGraph extends Component {
                     categories: [
                         '2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01', '2011-05-01', '2011-06-01',
                         '2011-07-01', '2011-08-01', '2011-09-01', '2011-10-01', '2011-11-01', '2011-12-01',
-                        '2012-01-01', '2012-02-01', '2012-03-01','2012-04-01','2012-05-01','2012-06-01'
+                        '2012-01-01', '2012-02-01', '2012-03-01', '2012-04-01', '2012-05-01', '2012-06-01'
                     ],
                     labels: {
                         style: {

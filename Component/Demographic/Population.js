@@ -20,7 +20,10 @@ export default function Population() {
                 </div>
                 <div className='col-sm-12 col-md-6 btn_tags d-inline-flex py-4'>
                     <span className='fs-16 Bold'>County</span>
-                    <span className='ms-auto w-25 fs-16'>Hamilton County Marion County</span>
+                    <span className='ms-auto w-50 fs-16'>
+                        <p className='text-end'>Hamilton County</p>
+                        <p className='text-end'>Marion County</p>
+                    </span>
                 </div>
                 <div className='col-sm-12 col-md-6 btn_tags d-inline-flex py-4'>
                     <span className='fs-16 Bold'>Rank in State</span>
