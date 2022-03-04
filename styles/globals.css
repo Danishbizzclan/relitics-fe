@@ -274,7 +274,7 @@ textarea {
 
 .card {
   border       : .2rem solid #E8F2FF !important;
-  border-radius: 0.4rem !important;
+  border-radius: 1rem !important;
   padding      : 3rem !important;
 }
 
@@ -293,44 +293,21 @@ textarea {
   border: 0.1rem solid #E8F2FF;
 }
 
-.brdr-2 {
-  border-radius: 0.5rem;
-}
-
 .brdr_2 {
   border-radius: 0.5rem;
 }
 
-.brdr_btm {
+.brdr_btm1 {
   border-bottom: 0.1rem solid #D5EFFF;
+}
+
+.brdr-btm {
+  border-bottom-left-radius : 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .no_brdr {
   border: none;
-}
-
-.font-11 {
-  font-size: 1.1rem !important;
-}
-
-.fs-6 {
-  font-size: 0.6rem;
-}
-
-.fs-12 {
-  font-size: 1.2rem;
-}
-
-.fs-13 {
-  font-size: 1.3rem;
-}
-
-.fs-17 {
-  font-size: 1.7rem;
-}
-
-.fs-19 {
-  font-size: 1.9rem;
 }
 
 .s-social {
@@ -445,10 +422,6 @@ textarea {
   border-radius: 0.4rem !important;
 }
 
-
-.fs-21 {
-  font-size: 2.1rem;
-}
 
 /* Pagination */
 
@@ -838,16 +811,36 @@ textarea {
   font-weight: bold;
 }
 
-.fs-25 {
-  font-size: 2.5rem;
+.fs-6 {
+  font-size: 0.6rem;
+}
+
+.font-11 {
+  font-size: 1.1rem !important;
+}
+
+.fs-12 {
+  font-size: 1.2rem;
+}
+
+.fs-13 {
+  font-size: 1.3rem;
+}
+
+.fs-14 {
+  font-size: 1.4rem !important;
+}
+
+.fs-15 {
+  font-size: 1.5rem !important;
 }
 
 .fs-16 {
   font-size: 1.6rem;
 }
 
-.fs-23 {
-  font-size: 2.3rem;
+.fs-17 {
+  font-size: 1.7rem;
 }
 
 .fs-18 {
@@ -855,38 +848,32 @@ textarea {
   font-weight: medium;
 }
 
+.fs-19 {
+  font-size: 1.9rem;
+}
+
 .fs-20 {
   font-size: 2rem;
 }
 
+.fs-21 {
+  font-size: 2.1rem;
+}
+
 .fs-22 {
   font-size: 2.2rem;
 }
 
-.fs-14 {
-  font-size: 1.4rem !important;
+.fs-23 {
+  font-size: 2.3rem;
 }
 
-.fs-40 {
-  font-size    : 4rem;
-  margin-bottom: 0rem !important;
-}
-
-.fs-32 {
-  font-size  : 3.2rem;
-  font-weight: 500;
+.fs-25 {
+  font-size: 2.5rem;
 }
 
 .fs-29 {
   font-size: 2.9rem;
-}
-
-.fs-22 {
-  font-size: 2.2rem;
-}
-
-.fs-15 {
-  font-size: 1.5rem !important;
 }
 
 .fs-30 {
@@ -896,6 +883,16 @@ textarea {
 
 .fs-30-normal {
   font-size: 3.0rem;
+}
+
+.fs-32 {
+  font-size  : 3.2rem;
+  font-weight: 500;
+}
+
+.fs-40 {
+  font-size    : 4rem;
+  margin-bottom: 0rem !important;
 }
 
 .fs-70 {

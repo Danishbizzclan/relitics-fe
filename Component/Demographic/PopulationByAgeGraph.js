@@ -48,7 +48,7 @@ class PopulationByAgeGraph extends Component {
                     enabled: false,
                 },
                 stroke: {
-                    width: 10,
+                    width: 1,
                     lineCap: 'round',
                     colors: ["#fff"]
                 },
@@ -93,7 +93,7 @@ class PopulationByAgeGraph extends Component {
     render() {
         return (
 
-            <div id="chart">
+            <div id="chart" className='p-5'>
                 <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
             </div>
         );
