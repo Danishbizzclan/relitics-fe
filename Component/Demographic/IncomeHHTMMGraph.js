@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-class HouseholdTypesGraph extends Component {
+class IncomeHHTMMGraph extends Component {
     constructor(props) {
         super(props);
 
@@ -9,22 +9,20 @@ class HouseholdTypesGraph extends Component {
 
             series: [
                 {
-                    name: "Population",
-                    data: [2, 40, 9, 45, 18, 32, 45],
+                    name: "Mean",
+                    data: [2, 40, 9, 45],
                     color: '#0F74AF',
                 },
                 {
-                    name: "Population",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    name: "Median",
+                    data: [2, 23, 19, 45],
                     color: '#5EB5E8',
                 }
             ],
             options: {
                 chart: {
                     height: 350,
-                    type: 'area',
-                    stacked: true,
-                    stackType: '100%',
+                    type: 'bar',
                     toolbar: {
                         show: false,
                     },
@@ -32,11 +30,17 @@ class HouseholdTypesGraph extends Component {
                 fill: {
                     opacity: 1
                 },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        columnWidth: '100%'
+                    }
+                },
                 legend: {
                     show: true,
                     showForSingleSeries: true,
-                    position: 'bottom',
-                    horizontalAlign: 'left',
+                    position: 'top',
+                    horizontalAlign: 'right',
                     fontSize: '16',
                     offsetY: 10,
                 },
@@ -44,7 +48,12 @@ class HouseholdTypesGraph extends Component {
                     enabled: false
                 },
                 stroke: {
-                    curve: 'smooth'
+                    width: 1,
+                    colors: ["#fff"]
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false
                 },
                 grid: {
                     show: false,
@@ -55,7 +64,7 @@ class HouseholdTypesGraph extends Component {
                         rotate: 330,
                         style: {
                             colors: ['#555555'],
-                            fontSize: '12px',
+                            fontSize: '10px',
                         },
                     }
                 },
@@ -65,7 +74,7 @@ class HouseholdTypesGraph extends Component {
                     labels: {
                         style: {
                             colors: ['#555555'],
-                            fontSize: '12px',
+                            fontSize: '10px',
                         },
                         rotate: 330,
                     }
@@ -84,4 +93,4 @@ class HouseholdTypesGraph extends Component {
     }
 }
 
-export default HouseholdTypesGraph
+export default IncomeHHTMMGraph

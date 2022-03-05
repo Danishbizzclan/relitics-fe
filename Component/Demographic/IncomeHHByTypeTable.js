@@ -1,12 +1,10 @@
-import React from 'react';
+import React from 'react'
 import 'antd/dist/antd.css';
 import { Table, Button, Space, Select, message } from 'antd';
 import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
 
-
-
-class HouseholdTypesTable extends React.Component {
+class IncomeHHByTypeTable extends React.Component {
     state = {
         loading: true,
     };
@@ -34,44 +32,53 @@ class HouseholdTypesTable extends React.Component {
                 dataIndex: 'type',
             },
             {
-                title: 'Owner',
-                dataIndex: 'owner',
+                title: 'Count',
+                dataIndex: 'count',
             },
             {
-                title: 'Renter',
-                dataIndex: 'renter',
+                title: 'Average Size',
+                dataIndex: 'avgSize',
+            },
+            {
+                title: 'Owned',
+                dataIndex: 'owned',
             },
         ];
         const data = [
             {
                 key: '1',
                 type: 'All',
-                owner: '60.90 %',
-                renter: '60.90%',
+                count: '29,660',
+                avgSize: '60.90',
+                owned: '60.90',
             },
             {
                 key: '2',
                 type: 'Female',
-                owner: '28.55%',
-                renter: '28.55%',
+                count: '29,660',
+                avgSize: '28.55',
+                owned: '28.55',
             },
             {
                 key: '3',
                 type: 'Male',
-                owner: '3.47%',
-                renter: '3.47%',
+                count: '29,660',
+                avgSize: '3.47',
+                owned: '3.47',
+            },
+            {
+                key: '3',
+                type: 'Married',
+                count: '29,660',
+                avgSize: '3.47',
+                owned: '3.47',
             },
             {
                 key: '4',
-                type: 'Married',
-                owner: '3.44%',
-                renter: '3.43%',
-            },
-            {
-                key: '5',
                 type: 'Non Family',
-                owner: '3.44%',
-                renter: '3.43%',
+                count: '29,660',
+                avgSize: '3.43',
+                owned: '3.43',
             },
         ];
         return (
@@ -93,4 +100,4 @@ class HouseholdTypesTable extends React.Component {
         );
     }
 }
-export default HouseholdTypesTable
+export default IncomeHHByTypeTable

@@ -1,5 +1,7 @@
 import React from 'react';
 import HouseholdTypes from './HouseholdTypes';
+import IncomeHHByType from './IncomeHHByType';
+import IncomeHHT from './IncomeHHT';
 import Population from './Population';
 import PopulationByAge from './PopulationByAge';
 
@@ -56,6 +58,12 @@ export default function Demographic() {
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <HouseholdTypes />
+            </div>
+            <div className='card p-3 my-4 bg_light'>
+                <IncomeHHT />
+            </div>
+            <div className='card p-3 my-4 bg_light'>
+                <IncomeHHByType />
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>

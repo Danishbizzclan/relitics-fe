@@ -1,12 +1,10 @@
-import React from 'react';
+import React from 'react'
 import 'antd/dist/antd.css';
 import { Table, Button, Space, Select, message } from 'antd';
 import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
 
-
-
-class HouseholdTypesTable extends React.Component {
+class IncomeHHTTable extends React.Component {
     state = {
         loading: true,
     };
@@ -30,48 +28,42 @@ class HouseholdTypesTable extends React.Component {
     render() {
         const columns = [
             {
-                title: 'Type',
-                dataIndex: 'type',
+                title: 'Name',
+                dataIndex: 'name',
             },
             {
-                title: 'Owner',
-                dataIndex: 'owner',
+                title: 'Median',
+                dataIndex: 'median',
             },
             {
-                title: 'Renter',
-                dataIndex: 'renter',
+                title: 'Mean',
+                dataIndex: 'mean',
             },
         ];
         const data = [
             {
                 key: '1',
-                type: 'All',
-                owner: '60.90 %',
-                renter: '60.90%',
+                name: 'Households',
+                median: '60.90 %',
+                mean: '60.90%',
             },
             {
                 key: '2',
-                type: 'Female',
-                owner: '28.55%',
-                renter: '28.55%',
+                name: 'Families',
+                median: '28.55%',
+                mean: '28.55%',
             },
             {
                 key: '3',
-                type: 'Male',
-                owner: '3.47%',
-                renter: '3.47%',
+                name: 'Married Families',
+                median: '3.47%',
+                mean: '3.47%',
             },
             {
                 key: '4',
-                type: 'Married',
-                owner: '3.44%',
-                renter: '3.43%',
-            },
-            {
-                key: '5',
-                type: 'Non Family',
-                owner: '3.44%',
-                renter: '3.43%',
+                name: 'Non Families',
+                median: '3.44%',
+                mean: '3.43%',
             },
         ];
         return (
@@ -93,4 +85,4 @@ class HouseholdTypesTable extends React.Component {
         );
     }
 }
-export default HouseholdTypesTable
+export default IncomeHHTTable

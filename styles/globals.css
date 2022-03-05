@@ -191,6 +191,27 @@ textarea {
   background-color: white;
 }
 
+.Income_table .bg_table .ant-table-tbody>tr>td,
+.Income_table table tr:nth-child(odd) td{
+  background-color: #0F74AF !important;
+  border: none !important;
+}
+
+.Income_table .ant-table.ant-table-middle,
+.Income_table table tr:nth-child(2n) td,
+.Income_table .ant-table-thead > tr > th{
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+
+.Income_table,
+.Income_table .ant-table.ant-table-middle {
+  background-color: #075785;
+  padding         : 1rem;
+  border-radius   : 1rem;
+}
+
 .social {
   height: 5.2rem !important;
 }
@@ -660,6 +681,7 @@ textarea {
     background-image: none !important;
   }
 }
+
 .notifications_popUp {
   position        : absolute;
   top             : 7rem;
