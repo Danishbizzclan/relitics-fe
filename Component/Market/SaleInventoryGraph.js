@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import { Component, ComponentDidMount } from 'react';
+import GraphData from '../../Api/Grapgh'
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 class SaleInventoryGraph extends Component {
@@ -56,6 +57,7 @@ class SaleInventoryGraph extends Component {
         };
     }
     render() {
+     
         return (
 
 

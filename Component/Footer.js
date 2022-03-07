@@ -117,7 +117,7 @@ function Foter() {
                                         className="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     {settingErrors}
                                     <button type="submit" className={`btn py-3 mt-2 btn-lg fs-15 semi-bold w-100 btn-block ${classes.btninfo}`} >Subscribe</button>
-                                    <p className='fs-19 text-success'>{success}</p>
+                                    <p className='fs-19 mt-2 text-success'>{success}</p>
 
                                 </form>
 
