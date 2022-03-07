@@ -1,8 +1,7 @@
-
 import { Component } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-class PopulationGraph extends Component {
+class MedianDaystoPendingGraph extends Component {
     constructor(props) {
         super(props);
 
@@ -10,28 +9,20 @@ class PopulationGraph extends Component {
 
             series: [
                 {
-                    name: "Population",
+                    name: "Rental Growth",
                     data: [2, 23, 19, 45, 38, 52, 45],
-                    color: '#0F74AF',
+                    color: '#0F74AF'
                 }
             ],
             options: {
                 chart: {
-                    zoom: {
-                        enabled: false
-                    },
                     height: 350,
                     type: 'area',
                     toolbar: {
                         show: false,
                     },
                 },
-                fill: {
-                    opacity: 1
-                },
                 legend: {
-                    show: true,
-                    showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
                     fontSize: '16'
@@ -45,7 +36,6 @@ class PopulationGraph extends Component {
                 yaxis: {
                     show: true,
                     labels: {
-                        rotate: 330,
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -56,8 +46,6 @@ class PopulationGraph extends Component {
                     type: 'datetime',
                     categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
                     labels: {
-                        show: true,
-                        rotate: 30,
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -78,4 +66,4 @@ class PopulationGraph extends Component {
     }
 }
 
-export default PopulationGraph
+export default MedianDaystoPendingGraph

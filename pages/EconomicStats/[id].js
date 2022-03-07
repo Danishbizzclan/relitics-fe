@@ -1,11 +1,17 @@
 import React from 'react';
+import { useRouter } from "next/router";
 import Sidebar from '../../Component/SideNavbar';
 import Dashnav from '../../Component/Dashnav';
 import SecondNavbar from '../../Component/secondNavbar';
-import Demographic from '../../Component/Demographic';
+import Economic from '../../Component/Economic';
 
 
-export default function Demographi() {
+export default function EconomicStats() {
+    
+    const router = useRouter();
+
+    const eventId = router.query.id
+     const eventCategory = router.query.slug ? router.query.slug[0] : '';
     return <div>
         <div className="d-inline-flex w-100">
             <Sidebar />
@@ -13,7 +19,7 @@ export default function Demographi() {
                 <Dashnav />
                 <SecondNavbar />
                 <div className='container mx-auto p-4'>
-                    <Demographic />
+                    <Economic />
                 </div>
             </div>
         </div>

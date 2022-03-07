@@ -1,16 +1,15 @@
 import React from "react"
 import { CSVLink } from "react-csv"
 import 'antd/dist/antd.css';
-// import './index.css';
 import { Table, Button, Space, Select, message } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
-import ApreciationData from '../../Component/Data/ApericiationData';
 import GetData from '../../Api/GetData';
 import { Spin } from 'antd';
 import withAuth from '../../Component/Auth';
 import PostData from "../../Api/PostData";
 import DeleteData from "../../Api/DeleteData"
+import TableRegionComponent from "../../Component/TableRegionComponent";
 
 
 class Aprecation extends React.Component {
@@ -20,11 +19,9 @@ class Aprecation extends React.Component {
     data: [],
     currentPage: 1,
     totalPages: 1,
-    favourite:[],
+    favourite: [],
     loading: true,
     region: true,
-
-
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -83,50 +80,56 @@ class Aprecation extends React.Component {
     pri.print();
   }
 
-  favourites=()=> {
+  favourites = () => {
     const response = GetData.Favourite();
     console.log(response)
     response.then(value => {
-        console.log(value)
-        this.setState({
-          favourite: value?.data?.favoriteRegions
-        })
-            console.log(value.data.favoriteRegions)
-
-        }
- 
-    //   setLoading(false);
-    )}
-
-     AddFavourite = (e) => {
-      const res = PostData.AddFavouriteCity(e)
-      res.then(value => {
-          console.log('value', value.data)
-          if (value.data.success) {
-              message.success('Added to favourites')
-              this.favourites()
-          }
-
+      console.log(value)
+      this.setState({
+        favourite: value?.data?.favoriteRegions
       })
-          .catch(err => {
-              console.log(err)
-          })
+      console.log(value.data.favoriteRegions)
+
+    }
+
+      //   setLoading(false);
+    )
   }
 
-   DeleteFavrt = (id) => {
+  AddFavourite = (e) => {
+    const res = PostData.AddFavouriteCity(e)
+    res.then(value => {
+      console.log('value', value.data)
+      if (value.data.success) {
+        message.success('Added to favourites')
+        this.favourites()
+      }
+
+    })
+      .catch(err => {
+        console.log(err)
+        this.favourites()
+      })
+  }
+
+  DeleteFavrt = (id) => {
     const response = DeleteData.DeleteFavourite(id);
     response.then(value => {
 
-        console.log(value)
-        if(value){
+      console.log(value)
+      if (value) {
         message.success('Remove from favourites')
 
         this.favourites()
-        }
-        //   setLoading(false);
+      }
+      //   setLoading(false);
     })
-}
-  
+      .catch(err => {
+        console.log(err)
+        this.favourites()
+      })
+  }
+
 
   render() {
     console.log('asdfgh', this.state)
@@ -149,9 +152,7 @@ class Aprecation extends React.Component {
         sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
         sorter: (a, b) => a.region.length - b.region.length,
         ellipsis: true,
-        render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto mx-2'>{record.region}</p>{this.state.favourite.some(el => el.regionID === record._id) ? <img src='./filledHeart.svg' onClick={() => this.DeleteFavrt(record._id)} className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' onClick={()=>this.AddFavourite(record)}  className='ms-auto' />}
-        </div>
+        render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
       },
       {
         title: 'Overall Average Aprecation',
@@ -166,7 +167,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2018',
-        render: (record, text, index) => Math.round(record.y2018 * 100) / 100 ,
+        render: (record, text, index) => Math.round(record.y2018 * 100) / 100,
         key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -181,7 +182,7 @@ class Aprecation extends React.Component {
       {
         title: '2019',
         // dataIndex: 'y2019',
-        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</> ,
+        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</>,
         key: 'y2019',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -293,15 +294,9 @@ class Aprecation extends React.Component {
               <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6'>
-                    <label className='bluetxt fs-13'>State</label>
+                    <label className='bluetxt fs-13'>Region Name</label>
                     <select className="form-control form-select form-control-sm" onClick={this.setRegionSort}>
                       <option>All</option>
-                    </select>
-                  </div>
-                  <div className='d-block col-6'>
-                    <label className='bluetxt fs-13'>City</label>
-                    <select className="form-control form-select form-control-sm " onClick={this.setCitySort}>
-                      <option>State</option>
                     </select>
                   </div>
                 </div>
@@ -324,14 +319,14 @@ class Aprecation extends React.Component {
               ) : (
 
                 <div >
-                    <Table columns={columns}
-                      colors={['#123123', 'rgba(123,123,123,12)']}
-                      averageDuplicates
-                      inferBlanks
-                      pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 10 }}
-                      dataSource={this.state.data} onChange={this.handleChange}
-                      scroll={{ x: 768 }}
-                    />
+                  <Table columns={columns}
+                    colors={['#123123', 'rgba(123,123,123,12)']}
+                    averageDuplicates
+                    inferBlanks
+                    pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 10 }}
+                    dataSource={this.state.data} onChange={this.handleChange}
+                    scroll={{ x: 768 }}
+                  />
 
                   <iframe id="ifmcontentstoprint" style={{
                     height: '100%',

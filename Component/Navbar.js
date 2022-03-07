@@ -72,25 +72,25 @@ function Navbar() {
                             </summary>
                             <ul className='py-5'>
                               <li>
-                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm1'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
                                   <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd skl aw;sd s</p>
                                 </div>
                               </li>
                               <li>
-                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm1'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
                                   <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw lsdjd ss</p>
                                 </div>
                               </li>
                               <li>
-                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm1'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
                                   <p className='my-auto fs-16 ms-3'>ksajhdisjka kaw sjkdh s</p>
                                 </div>
                               </li>
                               <li>
-                                <div className='d-inline-flex w-100 px-3 brdr_btm'>
+                                <div className='d-inline-flex w-100 px-3 brdr_btm1'>
                                   <img src='./notificationImg.png' style={{ width: "20%" }} alt='img' />
                                   <p className='my-auto fs-16 ms-3'>ksajhdisjka kawjd aldh ikss</p>
                                 </div>
@@ -111,31 +111,31 @@ function Navbar() {
                             <ul >
                               <li>
                                 <Link href="/Dashboard" >
-                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm1">
                                     <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>My Dashboard</p>
                                   </div></Link>
                               </li>
                               <li>
                                 <Link href="/EditProfile" >
-                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm1">
                                     <img src={"/editLogo_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Edit Profile</p>
                                   </div></Link>
                               </li>
                               <li>
                                 <Link href="/MyFavourites" >
-                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm1">
                                     <img src={"/heart_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>My Favourites</p>
                                   </div></Link>
                               </li>
                               <li>
                                 <Link href="/Notifications" >
-                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm">
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm1">
                                     <img src={"/bell_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Notifications</p>
                                   </div></Link>
                               </li>
                               <li>
                                 <Link href="/Blog" >
-                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm" onClick={Logout}>
+                                  <div className="d-inline-flex w-100  px-3 py-4 brdr_btm1" onClick={Logout}>
                                     <img src={"/Logout_black.svg"} className='mx-3 my-auto' /><p className='fs-14 ms-3 mb-0'>Log Out</p>
                                   </div></Link>
                               </li>

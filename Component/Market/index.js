@@ -41,10 +41,10 @@ export default function Market() {
                 </div>
             </div>
             <div className='d-lg-inline-flex'>
-                <div className='p-3 mx-2 paginetion_none'>
+                <div className='p-3 mx-2 paginetion_none bg_table'>
                     <ApreciationTableComponent />
                 </div>
-                <div className='p-3 mx-2 paginetion_none'>
+                <div className='p-3 mx-2 paginetion_none bg_table'>
                     <RentalTableComponent />
                 </div>
             </div>

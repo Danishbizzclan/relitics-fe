@@ -1,8 +1,7 @@
-
 import { Component } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-class PopulationGraph extends Component {
+class IncomeHHTMMGraph extends Component {
     constructor(props) {
         super(props);
 
@@ -10,18 +9,20 @@ class PopulationGraph extends Component {
 
             series: [
                 {
-                    name: "Population",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    name: "Mean",
+                    data: [2, 40, 9, 45],
                     color: '#0F74AF',
+                },
+                {
+                    name: "Median",
+                    data: [2, 23, 19, 45],
+                    color: '#5EB5E8',
                 }
             ],
             options: {
                 chart: {
-                    zoom: {
-                        enabled: false
-                    },
                     height: 350,
-                    type: 'area',
+                    type: 'bar',
                     toolbar: {
                         show: false,
                     },
@@ -29,18 +30,33 @@ class PopulationGraph extends Component {
                 fill: {
                     opacity: 1
                 },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        columnWidth: '100%'
+                    }
+                },
                 legend: {
                     show: true,
                     showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize: '16'
+                    fontSize: '16',
+                    offsetY: 10,
                 },
                 dataLabels: {
                     enabled: false
                 },
                 stroke: {
-                    curve: 'smooth'
+                    width: 1,
+                    colors: ["#fff"]
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false
+                },
+                grid: {
+                    show: false,
                 },
                 yaxis: {
                     show: true,
@@ -53,15 +69,14 @@ class PopulationGraph extends Component {
                     }
                 },
                 xaxis: {
-                    type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    show: true,
+                    categories: ["Married", "All", "Male", "Family", "Non Family"],
                     labels: {
-                        show: true,
-                        rotate: 30,
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                        rotate: 330,
                     }
                 },
             },
@@ -72,10 +87,10 @@ class PopulationGraph extends Component {
 
 
             <div id="chart">
-                <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
+                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
             </div>
         );
     }
 }
 
-export default PopulationGraph
+export default IncomeHHTMMGraph

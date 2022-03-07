@@ -172,20 +172,11 @@ textarea {
   cursor: pointer;
 }
 
-.paginetion_none .ant-table-pagination.ant-pagination {
-  display: none;
-}
-
-.paginetion_none .ant-table-tbody>tr>td {
+/* .paginetion_none .ant-table-tbody>tr>td {
   background-color: #F4F7F9;
-}
+} */
 
-
-
-.paginetion_none td.ant-table-cell.ant-table-cell-fix-left.ant-table-cell-fix-left-last {
-  border-right: 0.2rem #0F74AF solid;
-}
-
+.paginetion_none td.ant-table-cell.ant-table-cell-fix-left.ant-table-cell-fix-left-last,
 .ant-table-cell-ellipsis.ant-table-cell-fix-left-last,
 .ant-table-cell-ellipsis.ant-table-cell-fix-right-first {
   border-right: 0.2rem #0F74AF solid;
@@ -198,6 +189,27 @@ textarea {
 
 .paginetion_none .ant-table-small .ant-table-thead>tr>th {
   background-color: white;
+}
+
+.Income_table .bg_table .ant-table-tbody>tr>td,
+.Income_table table tr:nth-child(odd) td{
+  background-color: #0F74AF !important;
+  border: none !important;
+}
+
+.Income_table .ant-table.ant-table-middle,
+.Income_table table tr:nth-child(2n) td,
+.Income_table .ant-table-thead > tr > th{
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+
+.Income_table,
+.Income_table .ant-table.ant-table-middle {
+  background-color: #075785;
+  padding         : 1rem;
+  border-radius   : 1rem;
 }
 
 .social {
@@ -274,7 +286,7 @@ textarea {
 
 .card {
   border       : .2rem solid #E8F2FF !important;
-  border-radius: 0.4rem !important;
+  border-radius: 1rem !important;
   padding      : 3rem !important;
 }
 
@@ -293,44 +305,21 @@ textarea {
   border: 0.1rem solid #E8F2FF;
 }
 
-.brdr-2 {
-  border-radius: 0.5rem;
-}
-
 .brdr_2 {
   border-radius: 0.5rem;
 }
 
-.brdr_btm {
+.brdr_btm1 {
   border-bottom: 0.1rem solid #D5EFFF;
+}
+
+.brdr-btm {
+  border-bottom-left-radius : 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .no_brdr {
   border: none;
-}
-
-.font-11 {
-  font-size: 1.1rem !important;
-}
-
-.fs-6 {
-  font-size: 0.6rem;
-}
-
-.fs-12 {
-  font-size: 1.2rem;
-}
-
-.fs-13 {
-  font-size: 1.3rem;
-}
-
-.fs-17 {
-  font-size: 1.7rem;
-}
-
-.fs-19 {
-  font-size: 1.9rem;
 }
 
 .s-social {
@@ -445,10 +434,6 @@ textarea {
   border-radius: 0.4rem !important;
 }
 
-
-.fs-21 {
-  font-size: 2.1rem;
-}
 
 /* Pagination */
 
@@ -697,10 +682,6 @@ textarea {
   }
 }
 
-/* .pro-sidebar.collapsed small {
-  display: none;
-} */
-
 .notifications_popUp {
   position        : absolute;
   top             : 7rem;
@@ -838,16 +819,36 @@ textarea {
   font-weight: bold;
 }
 
-.fs-25 {
-  font-size: 2.5rem;
+.fs-6 {
+  font-size: 0.6rem;
+}
+
+.font-11 {
+  font-size: 1.1rem !important;
+}
+
+.fs-12 {
+  font-size: 1.2rem;
+}
+
+.fs-13 {
+  font-size: 1.3rem;
+}
+
+.fs-14 {
+  font-size: 1.4rem !important;
+}
+
+.fs-15 {
+  font-size: 1.5rem !important;
 }
 
 .fs-16 {
   font-size: 1.6rem;
 }
 
-.fs-23 {
-  font-size: 2.3rem;
+.fs-17 {
+  font-size: 1.7rem;
 }
 
 .fs-18 {
@@ -855,38 +856,32 @@ textarea {
   font-weight: medium;
 }
 
+.fs-19 {
+  font-size: 1.9rem;
+}
+
 .fs-20 {
   font-size: 2rem;
 }
 
+.fs-21 {
+  font-size: 2.1rem;
+}
+
 .fs-22 {
   font-size: 2.2rem;
 }
 
-.fs-14 {
-  font-size: 1.4rem !important;
+.fs-23 {
+  font-size: 2.3rem;
 }
 
-.fs-40 {
-  font-size    : 4rem;
-  margin-bottom: 0rem !important;
-}
-
-.fs-32 {
-  font-size  : 3.2rem;
-  font-weight: 500;
+.fs-25 {
+  font-size: 2.5rem;
 }
 
 .fs-29 {
   font-size: 2.9rem;
-}
-
-.fs-22 {
-  font-size: 2.2rem;
-}
-
-.fs-15 {
-  font-size: 1.5rem !important;
 }
 
 .fs-30 {
@@ -896,6 +891,16 @@ textarea {
 
 .fs-30-normal {
   font-size: 3.0rem;
+}
+
+.fs-32 {
+  font-size  : 3.2rem;
+  font-weight: 500;
+}
+
+.fs-40 {
+  font-size    : 4rem;
+  margin-bottom: 0rem !important;
 }
 
 .fs-70 {
@@ -952,6 +957,7 @@ html {
   font-weight: Bold;
 }
 
+.bg_table .ant-table-tbody>tr>td,
 table tr:nth-child(2n) td {
   background-color: #F4F7F9;
 }
@@ -1117,11 +1123,6 @@ span.button:hover {
   position: relative;
 }
 
-summary::-webkit-details-marker {
-  display: none;
-}
-
-
 summary::after {
   content: ' ►';
 }
@@ -1167,7 +1168,9 @@ summary::-webkit-details-marker,
 
 
 /* Close the dropdown with outside clicks */
-.dropdown>summary::before {
+.dropdown>summary::before,
+summary::-webkit-details-marker,
+.paginetion_none .ant-table-pagination.ant-pagination {
   display: none;
 }
 

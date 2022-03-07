@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from "next/link"
+import { useRouter } from "next/router";
 import Dashnav from '../../Component/Dashnav';
 import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
@@ -8,10 +9,10 @@ import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
 
 export default function Notes() {
+    const router = useRouter();
 
-
-
-
+    const eventId = router.query.id
+    const eventCategory = router.query.slug ? router.query.slug[0] : '';
 
     return (
         <div>
@@ -28,7 +29,7 @@ export default function Notes() {
                                     <div className='bg-notes brdr d-flex flex-column h-100 pointer-cursor'>
                                         <div className='text-center my-auto'>
                                             <div className='my-5 py-5'>
-                                                <img src='./addNotes_Icon.svg' />
+                                                <img src='/addNotes_Icon.svg' />
                                                 <p className='fs-18 Bold mt-3'>Add a Note</p>
                                             </div>
                                         </div>

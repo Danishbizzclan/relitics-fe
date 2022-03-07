@@ -5,13 +5,11 @@ import { Table, Button, Space, Select, message } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
-import { componentDidMount } from "react"
 import { Spin } from 'antd';
 import withAuth from "../../Component/Auth"
 import PostData from "../../Api/PostData"
 import DeleteData from "../../Api/DeleteData"
-
-
+import TableRegionComponent from "../../Component/TableRegionComponent";
 
 class Aprecation extends React.Component {
     state = {
@@ -21,8 +19,8 @@ class Aprecation extends React.Component {
         currentPage: 1,
         totalPages: 1,
         loading: true,
-        favourite:[],
-    region: true,
+        favourite: [],
+        region: true,
     };
 
     handleChange = (pagination, filters, sorter) => {
@@ -57,6 +55,7 @@ class Aprecation extends React.Component {
     };
     componentDidMount() {
         this.tableData(1)
+        this.favourites()
     }
 
     tableData = (pageNo) => {
@@ -81,48 +80,54 @@ class Aprecation extends React.Component {
         pri.focus();
         pri.print();
     }
-    favourites=()=> {
+    favourites = () => {
         const response = GetData.Favourite();
         console.log(response)
         response.then(value => {
             console.log(value)
             this.setState({
-              favourite: value?.data?.favoriteRegions
+                favourite: value?.data?.favoriteRegions
             })
-                console.log(value.data.favoriteRegions)
-    
+            console.log(value.data.favoriteRegions)
+
+        }
+
+            //   setLoading(false);
+        )
+    }
+
+    AddFavourite = (e) => {
+        const res = PostData.AddFavouriteCity(e)
+        res.then(value => {
+            console.log('value', value.data)
+            if (value.data.success) {
+                message.success('Added to favourites')
+                this.favourites()
             }
-     
-        //   setLoading(false);
-        )}
-    
-         AddFavourite = (e) => {
-          const res = PostData.AddFavouriteCity(e)
-          res.then(value => {
-              console.log('value', value.data)
-              if (value.data.success) {
-                  message.success('Added to favourites')
-                  this.favourites()
-              }
-    
-          })
-              .catch(err => {
-                  console.log(err)
-              })
-      }
-    
-       DeleteFavrt = (id) => {
+
+        })
+        .catch(err => {
+          console.log(err)
+          this.favourites()
+        })
+    }
+
+    DeleteFavrt = (id) => {
         const response = DeleteData.DeleteFavourite(id);
         response.then(value => {
-    
+
             console.log(value)
-            if(value){
-            message.success('Remove from favourites')
-    
-            this.favourites()
+            if (value) {
+                message.success('Remove from favourites')
+
+                this.favourites()
             }
             //   setLoading(false);
         })
+      .catch(err => {
+        console.log(err)
+        this.favourites()
+      })
     }
 
     render() {
@@ -145,9 +150,7 @@ class Aprecation extends React.Component {
                 sorter: (a, b) => a.region.length - b.region.length,
                 sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
                 ellipsis: true,
-                render: (record, text, index) => <div className='d-flex my-auto'>
-          <p className='my-auto mx-2'>{record.region}</p>{this.state.favourite.some(el => el.regionID === record._id) ? <img src='./filledHeart.svg' onClick={() => this.DeleteFavrt(record._id)} className='ms-auto my-auto' /> : <img src='./unfilledHeart.svg' onClick={()=>this.AddFavourite(record)}  className='ms-auto' />}
-        </div>
+                render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
             },
             {
                 title: 'Overall AVERAGE RENTAL GROWTH',
