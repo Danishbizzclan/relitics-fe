@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from "next/link"
+import { useRouter } from "next/router";
 import Dashnav from '../../Component/Dashnav';
 import NotesData from '../../Component/Data/NotesData';
 import NotesComponent from '../../Component/NotesComponent';
@@ -8,10 +9,10 @@ import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
 
 export default function Notes() {
+    const router = useRouter();
 
-
-
-
+    const eventId = router.query.id
+    const eventCategory = router.query.slug ? router.query.slug[0] : '';
 
     return (
         <div>

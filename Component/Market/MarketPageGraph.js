@@ -5,6 +5,7 @@ import SaleInventoryGraph from './SaleInventoryGraph.js';
 import SharePriceCutGraph from './SharePriceCutGraph.js';
 import MedianPriceCut from './MedianPriceCut.js';
 import MedianRental from './MedianRental.js';
+import MedianDaystoPendingGraph from './MedianDaystoPendingGraph.js';
 
 export default function MedianGraph(props) {
     return (<div>
@@ -15,6 +16,10 @@ export default function MedianGraph(props) {
         <GraphComponent
             heading='For Sale Inventory'>
             <SaleInventoryGraph />
+        </GraphComponent>
+        <GraphComponent
+            heading='Median Days to Pending'>
+            <MedianDaystoPendingGraph />
         </GraphComponent>
         <GraphComponent
             heading='SHARE OF LISTINGS WITH PRICE CUT'>
