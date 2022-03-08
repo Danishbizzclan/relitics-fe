@@ -106,10 +106,10 @@ class Aprecation extends React.Component {
             }
 
         })
-        .catch(err => {
-          console.log(err)
-          this.favourites()
-        })
+            .catch(err => {
+                console.log(err)
+                this.favourites()
+            })
     }
 
     DeleteFavrt = (id) => {
@@ -124,10 +124,10 @@ class Aprecation extends React.Component {
             }
             //   setLoading(false);
         })
-      .catch(err => {
-        console.log(err)
-        this.favourites()
-      })
+            .catch(err => {
+                console.log(err)
+                this.favourites()
+            })
     }
 
     render() {
@@ -274,14 +274,8 @@ class Aprecation extends React.Component {
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
-                                        <label className='bluetxt fs-13'>State</label>
+                                        <label className='bluetxt fs-13'>Region Name</label>
                                         <select className="form-control form-select form-control-sm" onClick={this.setStateSort}>
-                                            <option>All</option>
-                                        </select>
-                                    </div>
-                                    <div className='d-block col-6'>
-                                        <label className='bluetxt fs-13'>City</label>
-                                        <select className="form-control form-select form-control-sm" onClick={this.setCitySort}>
                                             <option>All</option>
                                         </select>
                                     </div>

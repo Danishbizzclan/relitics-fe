@@ -1,7 +1,6 @@
 import React from 'react'
 import IncomeHHByTypeGraph from './IncomeHHByTypeGraph'
 import IncomeHHByTypeTable from './IncomeHHByTypeTable'
-import IncomeHHTMMGraph from './IncomeHHTMMGraph'
 
 export default function IncomeHHByType() {
     return (
@@ -9,7 +8,7 @@ export default function IncomeHHByType() {
             <div className='row container p-2 my-5'>
                 <div className='col-sm-12 col-lg-7 my-auto'>
                     <div className='paginetion_none Income_table'>
-                        <p className='fs-30 mb-0 ms-5 Gothic_3D text-light'>Household Types</p>
+                        <p className='fs-30 mb-0 ms-5 Gothic_3D text-light'>Households by Type</p>
                         <IncomeHHByTypeTable />
                     </div>
                 </div>

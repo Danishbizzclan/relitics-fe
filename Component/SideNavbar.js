@@ -101,9 +101,9 @@ const Sidebar = () => {
                 <Link href="/RentalGrowth" className="dropdown-item">
                   <MenuItem className={router.pathname == "/RentalGrowth" ? "active" : null} icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
                 </Link>
-                <Link href="/MarketStats" className="dropdown-item">
+                {/* <Link href="/MarketStats" className="dropdown-item"> */}
                   <MenuItem className={router.pathname == ['/MarketStats' || '/Notes' || '/Economic' || '/DemoGraphic'] ? "active" : null} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
-                </Link>
+                {/* </Link> */}
               </SubMenu>
               <Link href="/Resources" className="dropdown-item">
                 <MenuItem className={router.pathname == "/Resources" ? "active" : null} icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
