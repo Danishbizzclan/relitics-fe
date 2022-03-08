@@ -88,6 +88,8 @@ class SaleInventoryGraph extends Component {
 
 
             <div id="chart">
+                {console.log(this.props)}
+                {this.props.inventaryYear}
                 <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
             </div>
         );

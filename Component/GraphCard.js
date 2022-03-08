@@ -1,13 +1,19 @@
-import React from 'react';
+import {React, useState} from 'react';
 
 export default function GraphComponent(props) {
-    const yearSort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
+    const[year, setYear]= useState('')
+    function handleChange(e) {
+        setYear(e.target.value);
+        // props.inventoryYear(year)
+      }
+
+
+
+  
     return (
         <div className='card p-3 my-4 bg_light'>
+                    {console.log(props)}
+
             <div className='card'>
                 <div className='d-lg-inline-flex w-100'>
                     <div className='w-50'>
@@ -21,8 +27,14 @@ export default function GraphComponent(props) {
                 <div className='d-block w-25'>
                     <div className='d-inline-flex w-50'>
                         <label className='fs-14 w-25 my-auto'>Year</label>
-                        <select className="form-control form-select form-control-sm" onClick={yearSort}>
-                            <option>All</option>
+                        <select className="form-control form-select form-control-sm" name="year" onChange={handleChange} value={year}>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+
                         </select>
                     </div>
                 </div>

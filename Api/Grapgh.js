@@ -19,6 +19,21 @@ class GraphData {
     };
     return res();
   };
+  InventoryYear = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/market/inventry",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 
     Return() {
       return this.result;

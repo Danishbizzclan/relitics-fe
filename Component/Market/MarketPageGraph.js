@@ -44,6 +44,18 @@ export default function MedianGraph(props) {
         })
     }, [eventId])
 
+    // const inventoryYear = (year) => {
+    //     const response = GraphData.InventoryYear(year, eventId);
+    //     response.then(value => {
+    //         console.log(value)
+    //         setNotes(value.data.notes);
+    //         console.log(value.data.notess)
+    //         setLoading(false)
+
+    //         //   setLoading(false);
+    //     })
+    // }
+
 
     return (<div>
         {console.log({inventryDate})}
