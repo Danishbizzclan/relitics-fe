@@ -23,19 +23,27 @@ class EmploymentSectorsGraph extends Component {
                     bar: {
                         borderRadius: 4,
                         horizontal: true,
-                        barHeight: '95',
+                        barHeight: '110',
                     }
+                },
+                grid: {
+                    show: false,
+                },
+                stroke: {
+                    width: 3,
+                    lineCap: 'round',
+                    colors: ["#fff"]
                 },
                 legend: {
                     show: true,
                     showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false,
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 xaxis: {
                     categories: ['Total Nonfarm', 'Mining and Logging', 'Construction', 'Manufacturing',

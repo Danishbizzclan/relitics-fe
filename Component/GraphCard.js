@@ -8,7 +8,7 @@ export default function GraphComponent(props) {
         }]
     return (
         <div className='card p-3 my-4 bg_light'>
-            <div className='card graph_hover '>
+            <div className='card'>
                 <div className='d-lg-inline-flex w-100'>
                     <div className='w-50'>
                         <p className='fs-30 mb-0 Gothic_3D'>{props.heading}</p>
