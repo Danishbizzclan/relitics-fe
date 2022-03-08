@@ -19,10 +19,10 @@ class GraphData {
     };
     return res();
   };
-  InventoryYear = (id) => {
+  Pending = (id) => {
     const res = async () => {
       const resp = await axios
-        .post("/market/inventry",{
+        .post("/market/median_days_to_pending",{
           regionID:id
 
         })
@@ -34,6 +34,7 @@ class GraphData {
     };
     return res();
   };
+
 
     Return() {
       return this.result;

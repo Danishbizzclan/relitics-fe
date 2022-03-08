@@ -10,7 +10,7 @@ class MedianDaystoPendingGraph extends Component {
             series: [
                 {
                     name: "Rental Growth",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    data: this.props.pending,
                     color: '#0F74AF'
                 }
             ],
@@ -44,7 +44,7 @@ class MedianDaystoPendingGraph extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.pendingDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -54,6 +54,29 @@ class MedianDaystoPendingGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.pending !== prevProps.pending || this.props.pendingDate !== prevProps.pendingDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.pendingDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.pending,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            }, ()=>{console.log('new State',this.state)})
+
+        }
     }
     render() {
         return (

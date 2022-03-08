@@ -15,6 +15,10 @@ export default function MedianGraph(props) {
 
     const [inventryDate, setInventryDate] = useState([])
     const [inventry, setInventry] = useState([])
+    const [pending, setPending] = useState([])
+    const [pendingDate, setPendingDate] = useState([])
+
+
     const [id, setId] = useState("")
 
     const router = useRouter();
@@ -30,6 +34,7 @@ export default function MedianGraph(props) {
         response.then(value => {
             console.log(value)
             if (value) {
+                console.log(value.data.Data)
                 let data1 = []
                 let data2 =[]
                 for (const key in value.data.Data) {
@@ -42,24 +47,35 @@ export default function MedianGraph(props) {
                 
             }
         })
+        pendingData();
     }, [eventId])
 
-    // const inventoryYear = (year) => {
-    //     const response = GraphData.InventoryYear(year, eventId);
-    //     response.then(value => {
-    //         console.log(value)
-    //         setNotes(value.data.notes);
-    //         console.log(value.data.notess)
-    //         setLoading(false)
+    const pendingData = () => {
+        const response = GraphData.Pending(eventId);
+        console.log(eventId)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                console.log(value.data.Data)
 
-    //         //   setLoading(false);
-    //     })
-    // }
+                let data1 = []
+                let data2 =[]
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                setPendingDate(data1)
+                setPending(data2)
+                
+            }
+        })
+    }
 
 
     return (<div>
-        {console.log({inventryDate})}
-        {console.log({inventry})}
+        {console.log({pendingDate})}
+        {console.log({pending})}
         <GraphComponent
             heading='MEDIAN List Price Vs MEDIAN Sale Price'>
             <ApexMedianChart />
@@ -70,7 +86,7 @@ export default function MedianGraph(props) {
         </GraphComponent>
         <GraphComponent
             heading='Median Days to Pending'>
-            <MedianDaystoPendingGraph />
+            <MedianDaystoPendingGraph pendingDate={pendingDate} pending={pending}/>
         </GraphComponent>
         <GraphComponent
             heading='SHARE OF LISTINGS WITH PRICE CUT'>
