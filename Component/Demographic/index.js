@@ -1,4 +1,5 @@
 import React from 'react';
+import EduAttainment from './EduAttainment';
 import HouseholdTypes from './HouseholdTypes';
 import IncomeHHByType from './IncomeHHByType';
 import IncomeHHT from './IncomeHHT';
@@ -20,7 +21,7 @@ export default function Demographic() {
 
     return (
         <div>
-            <div className='row my-3'>
+            <div className='row'>
                 <div className='col-lg-3 col-12'>
                     <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
                 </div>
@@ -31,17 +32,12 @@ export default function Demographic() {
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>State</label>
+                        <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select form-control-sm" onClick={stateSort}>
                             <option>All</option>
                         </select>
                     </div>
-                    <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>City</label>
-                        <select className="form-control form-select form-control-sm" onClick={CitySort}>
-                            <option>State</option>
-                        </select>
-                    </div>
+                    
                 </div>
                 <div className='ms-auto my-auto'>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
@@ -64,6 +60,9 @@ export default function Demographic() {
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <IncomeHHByType />
+            </div>
+            <div className='card p-3 my-4 bg_light'>
+                <EduAttainment />
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>

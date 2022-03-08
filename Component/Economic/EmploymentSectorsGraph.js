@@ -43,13 +43,30 @@ class EmploymentSectorsGraph extends Component {
                 },
                 dataLabels: {
                     enabled: false,
-                    fontSize: '16'
+                },
+                yaxis: {
+                    show: true,
+                    labels: {
+                        style: {
+                            colors: ['#555555'],
+                            fontSize: '8px',
+                        },
+                        rotate: 330,
+                    },
                 },
                 xaxis: {
+                    show: true,
                     categories: ['Total Nonfarm', 'Mining and Logging', 'Construction', 'Manufacturing',
                         'Trade, Transportation and Utilities', 'Information', 'Financial Activities',
                         'Professional and Business', 'Education and Health Services', 'Leisure and Hospitality', 'Other Services', 'Government'
                     ],
+                    labels: {
+                        style: {
+                            colors: ['#555555'],
+                            fontSize: '10px',
+                        },
+                        rotate: 330,
+                    },
                 }
             },
 
@@ -64,7 +81,7 @@ class EmploymentSectorsGraph extends Component {
 
 
             <div id="chart">
-                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
+                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={550} />
             </div>
 
 

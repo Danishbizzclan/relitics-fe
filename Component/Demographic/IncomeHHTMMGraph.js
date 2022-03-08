@@ -11,12 +11,12 @@ class IncomeHHTMMGraph extends Component {
                 {
                     name: "Mean",
                     data: [2, 40, 9, 45],
-                    color: '#0F74AF',
+                    color: '#5EB5E8',
                 },
                 {
                     name: "Median",
                     data: [2, 23, 19, 45],
-                    color: '#5EB5E8',
+                    color: '#0B486C',
                 }
             ],
             options: {

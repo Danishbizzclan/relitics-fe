@@ -15,7 +15,7 @@ export default function GraphComponent(props) {
                     </div>
                     <div className='ms-auto d-lg-inline-flex d-md-inline-flex d-sm-block'>
                         <p className='fs-12 my-auto greyBlack'>Provided via the Zillow Public Records API</p>
-                        <img src='./ZilowLogo.svg' className='w-25 ms-auto' />
+                        <img src='/ZilowLogo.svg' className='w-25 ms-auto' />
                     </div>
                 </div>
                 <div className='d-block w-25'>

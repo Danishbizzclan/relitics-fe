@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-class UnemploymentRateGraph extends Component {
+
+class EduAttainmentGraph extends Component {
     constructor(props) {
         super(props);
 
@@ -9,44 +10,59 @@ class UnemploymentRateGraph extends Component {
 
             series: [
                 {
-                    name: "Unemployment",
-                    data: [2, 23, 19, 45, 38, 52, 45],
-                    color: '#0F74AF'
+                    name: "Female",
+                    data: [2, 40, 9, 2, 40, 9, 45],
+                    color: '#5EB5E8',
+                },
+                {
+                    name: "Male",
+                    data: [2, 23, 19, 45, 23, 19, 45],
+                    color: '#0B486C',
                 }
             ],
             options: {
                 chart: {
                     height: 350,
-                    type: 'area',
+                    type: 'bar',
                     toolbar: {
                         show: false,
                     },
+                },
+                fill: {
+                    opacity: 1
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        columnWidth: '100%'
+                    }
                 },
                 legend: {
                     show: true,
                     showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16',
+                    offsetY: 10,
                 },
                 dataLabels: {
                     enabled: false
                 },
                 stroke: {
-                    curve: 'smooth'
+                    width: 1,
+                    colors: ["#fff"]
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false
+                },
+                grid: {
+                    show: false,
                 },
                 yaxis: {
                     show: true,
                     labels: {
-                        style: {
-                            colors: ['#555555'],
-                            fontSize: '10px',
-                        },
-                    }
-                },
-                yaxis: {
-                    labels: {
-                        rotate:'330',
+                        rotate: 330,
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -54,14 +70,14 @@ class UnemploymentRateGraph extends Component {
                     }
                 },
                 xaxis: {
-                    type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    show: true,
+                    categories: ["Less Than 9th Grade", "9th to 12th Grade", "High School Graduate", "Some College", "Associates Degree", "Bachelors Degree",'Graduate Degree'],
                     labels: {
                         style: {
-                            // rotate:'330',
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                        rotate: 330,
                     }
                 },
             },
@@ -72,10 +88,10 @@ class UnemploymentRateGraph extends Component {
 
 
             <div id="chart">
-                <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
+                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={400} />
             </div>
         );
     }
 }
 
-export default UnemploymentRateGraph
+export default EduAttainmentGraph
