@@ -11,7 +11,7 @@ class SaleInventoryGraph extends Component {
             series: [
                 {
                     name: "Series 1",
-                    data: [45, 52, 38, 45, 19, 23, 2],
+                    data: this.props.inventry,
                     color: '#0F74AF'
                 }
             ],
@@ -26,7 +26,7 @@ class SaleInventoryGraph extends Component {
                 legend: {
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false
@@ -45,7 +45,7 @@ class SaleInventoryGraph extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.inventryDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -56,8 +56,34 @@ class SaleInventoryGraph extends Component {
             },
         };
     }
+
+
+    componentDidUpdate(prevProps) {
+        if (this.props.inventry !== prevProps.inventry || this.props.inventryDate !== prevProps.inventryDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.inventryDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.inventry,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            }, ()=>{console.log('new State',this.state)})
+
+        }
+    }
+
     render() {
-     
+
         return (
 
 
