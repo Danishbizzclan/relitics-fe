@@ -54,6 +54,7 @@ const ApreciationTableData = [
     }
 ];
 export default function ApreciationTableComponent() {
+    
     return (<div>
         <Table columns={columns} dataSource={ApreciationTableData} size="small" />
     </div>

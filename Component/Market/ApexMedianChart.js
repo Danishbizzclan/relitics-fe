@@ -11,12 +11,12 @@ class ApexMedianChart extends Component {
             series: [
                 {
                     name: 'Rental Growth',
-                    data: [25, 20, 22, 20, 28, 15, 18],
+                    data: this.props.list,
                     color: '#E027A0'
                 },
                 {
                     name: 'Market Appreciation',
-                    data: [35, 30, 35, 30, 35, 20, 10],
+                    data: this.props.sales,
                     color: '#0F74AF'
                 }],
             options: {
@@ -49,7 +49,7 @@ class ApexMedianChart extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.listDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -59,6 +59,29 @@ class ApexMedianChart extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.list !== prevProps.list || this.props.listDate !== prevProps.listDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.listDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.list,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            }, ()=>{console.log('new State',this.state)})
+
+        }
     }
     render() {
         return (

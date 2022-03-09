@@ -1,9 +1,20 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import ApreciationTableComponent from '../ApreciationTableComponent'
 import RentalTableComponent from '../RentalTableComponent'
 import MedianGraph from './MarketPageGraph';
+import GraphData from "../../Api/Grapgh"
+import { useRouter } from "next/router";
 
-export default function Market() {
+
+export default function Market(props) {
+    {console.log(props)}
+    const[rental, setRental]= useState([])
+    const[Apprecation, setAprecation]= useState([])
+        // const router = useRouter();
+        // const eventId = router.query.id
+        // {console.log({eventId})}
+
+    
     const stateSort = (event) => [
         sortedInfo = {
             order: 'descend',
@@ -14,6 +25,27 @@ export default function Market() {
             order: 'descend',
             columnKey: 'age',
         }]
+    
+
+
+        useEffect(() => {
+            // setLoading(true)
+            // console.log({eventId})
+            const response = GraphData.RentalAprecation(props.id);
+            console.log(props.id)
+            response.then(value => {
+              console.log({ value })
+              setAprecation(value.data.Data.appreciation)
+              setRental(value.data.Data.rental)
+              console.log(rental);
+              console.log(Apprecation);
+
+            //   setEvent(value?.data?.article);
+            //   setLoading(false)
+            //   console.log(value?.data?.article)
+              //   setLoading(false);
+            })
+          }, [props.id]);
 
     return (
         <div>

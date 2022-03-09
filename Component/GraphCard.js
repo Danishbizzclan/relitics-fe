@@ -12,7 +12,7 @@ export default function GraphComponent(props) {
   
     return (
         <div className='card p-3 my-4 bg_light'>
-                    {console.log(props)}
+                    {/* {console.log(props)} */}
 
             <div className='card'>
                 <div className='d-lg-inline-flex w-100'>

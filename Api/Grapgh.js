@@ -34,6 +34,53 @@ class GraphData {
     };
     return res();
   };
+  ListPrice = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/market/median_list_vs_sale_price",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  RentalAprecation = (id) => {
+    console.log(id)
+    const res = async () => {
+      const resp = await axios
+        .post("/market/rental_appreciation",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  ShareListing = (id) => {
+    console.log(id)
+    const res = async () => {
+      const resp = await axios
+        .post("/market/share_price_cut",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 
 
     Return() {

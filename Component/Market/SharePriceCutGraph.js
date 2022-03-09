@@ -10,7 +10,7 @@ class SharePriceCutGraph extends Component {
             series: [
                 {
                     name: "Rental Growth",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    data: this.props.shareList,
                     color: '#0F74AF'
                 }
             ],
@@ -44,7 +44,7 @@ class SharePriceCutGraph extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.shareDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -54,6 +54,30 @@ class SharePriceCutGraph extends Component {
                 },
             },
         };
+
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.shareList !== prevProps.shareList || this.props.shareDate !== prevProps.shareDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.shareDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.shareList,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            }, ()=>{console.log('new State',this.state)})
+
+        }
     }
     render() {
         return (

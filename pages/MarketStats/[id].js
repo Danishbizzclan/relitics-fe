@@ -8,6 +8,7 @@ import withAuth from '../../Component/Auth'
 
 const MarketStats = () => {
     const router = useRouter();
+    
 
     const eventId = router.query.id
      const eventCategory = router.query.slug ? router.query.slug[0] : '';
@@ -19,7 +20,7 @@ const MarketStats = () => {
                         <Dashnav />
                         <SecondNavbar />
                         <div className='container mx-auto p-4'>
-                            <Market />
+                            <Market id={eventId}/>
                         </div>
                     </div>
                 </div>
