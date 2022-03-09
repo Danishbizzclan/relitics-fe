@@ -5,6 +5,7 @@ import IncomeHHByType from './IncomeHHByType';
 import IncomeHHT from './IncomeHHT';
 import Population from './Population';
 import PopulationByAge from './PopulationByAge';
+import PopulationbyRace from './PopulationbyRace';
 
 
 export default function Demographic() {
@@ -63,6 +64,9 @@ export default function Demographic() {
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <EduAttainment />
+            </div>
+            <div className='card p-3 my-4 bg_light'>
+                <PopulationbyRace />
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>

@@ -10,13 +10,13 @@ export default function EduAttainment() {
             <div>
                 <EduAttainmentGraph />
             </div>
-            <div className='row container my-5'>
-                <div className='col-sm-12 col-lg-5 my-auto'>
+            <div className='row container gx-3 my-5'>
+                <div className='col-sm-12 col-lg-7 my-auto'>
                     <div className='paginetion_none Income_table'>
                         <EduAttainmentTable />
                     </div>
                 </div>
-                <div className='col-sm-12 col-lg-7 my-auto'>
+                <div className='col-sm-12 col-lg-5 my-auto'>
                     <EduAttainmentPieGraph />
                 </div>
             </div>
