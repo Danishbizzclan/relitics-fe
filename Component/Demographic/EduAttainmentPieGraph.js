@@ -11,7 +11,7 @@ class EduAttainmentPieGraph extends Component {
     this.state = {
       series: [13, 17, 23, 23, 4, 9, 11],
       options: {
-        labels: ['Less Than 9th Grade', '9th to 12th Grade', 'High School Graduate', 'Some College', 'Associates Degree', 'Bachelors Degree','Graduate Degree'],
+        labels: ['Less Than 9th Grade', '9th to 12th Grade', 'High School Graduate', 'Some College', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
         colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
         chart: {
           width: 380,
@@ -24,6 +24,26 @@ class EduAttainmentPieGraph extends Component {
           horizontalAlign: 'left',
           fontSize: '16'
         },
+        responsive: [{
+          breakpoint: 750,
+          options: {
+            plotOptions: {
+              pie: {
+                expandOnClick: false,
+                dataLabels: {
+                  minAngleToShowLabel: 360
+                },
+                donut: {
+                  size: '55%',
+                  background: 'transparent',
+                  labels: {
+                    show: false,
+                  }
+                },
+              }
+            }
+          },
+        }],
         plotOptions: {
           pie: {
             customScale: 1.5,
@@ -35,32 +55,31 @@ class EduAttainmentPieGraph extends Component {
             customScale: 1,
             dataLabels: {
               offset: 0,
-              minAngleToShowLabel: '40'
+              minAngleToShowLabel: '60'
             },
             donut: {
               size: '55%',
               background: 'transparent',
               labels: {
+                show: true,
+                name: {
                   show: true,
-                  name: {
-                      show: true,
-                      fontSize: '15px',
-                      color: 'black',
-                      fontFamily: 'Helvetica, Arial, sans-serif',
-                      fontWeight: 600,
-                    },
-                    value: {
-                        show: true,
-                        fontSize: '15px',
-                        fontFamily: 'Helvetica, Arial, sans-serif',
-                        fontWeight: 400,
-                    },
-                    total: {
+                  fontSize: '15px',
+                  color: 'black',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontWeight: 600,
+                },
+                value: {
                   show: true,
-                  showAlways: false,
+                  fontSize: '15px',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontWeight: 400,
+                },
+                total: {
+                  show: true,
                   label: 'Education attainment',
                   fontSize: '11px',
-                  textWrap:true,
+                  textWrap: true,
                   fontFamily: 'Helvetica, Arial, sans-serif',
                   fontWeight: 300,
                   color: 'black',
@@ -80,7 +99,7 @@ class EduAttainmentPieGraph extends Component {
 
 
       <div id="chart" className='mx-auto'>
-        <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={480} />
+        <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={'100%'} />
       </div>
     );
   }

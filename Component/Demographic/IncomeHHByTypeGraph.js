@@ -8,10 +8,10 @@ class IncomeHHByTypeGraph extends Component {
     super(props);
 
     this.state = {
-      series: [25, 25, 25, 25],
+      series: [13, 17, 23, 23, 4, 9, 11],
       options: {
         labels: ['Married', 'Male', 'Female', 'Non family'],
-        colors: ['#AED3EA', '#46A1D6', '#1F78B4', '#022945'],
+        colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
         chart: {
           width: 380,
           type: 'donut',
@@ -23,6 +23,26 @@ class IncomeHHByTypeGraph extends Component {
           horizontalAlign: 'left',
           fontSize: '16'
         },
+        responsive: [{
+          breakpoint: 750,
+          options: {
+            plotOptions: {
+              pie: {
+                expandOnClick: false,
+                dataLabels: {
+                  minAngleToShowLabel: 360
+                },
+                donut: {
+                  size: '55%',
+                  background: 'transparent',
+                  labels: {
+                    show: false,
+                  }
+                },
+              }
+            }
+          },
+        }],
         plotOptions: {
           pie: {
             customScale: 1.5,
@@ -34,7 +54,7 @@ class IncomeHHByTypeGraph extends Component {
             customScale: 1,
             dataLabels: {
               offset: 0,
-              minAngleToShowLabel: 10
+              minAngleToShowLabel: '60'
             },
             donut: {
               size: '55%',
@@ -55,11 +75,10 @@ class IncomeHHByTypeGraph extends Component {
                   fontWeight: 400,
                 },
                 total: {
-                  name: 'Households by type',
                   show: true,
-                  showAlways: false,
-                  label: 'Households by type',
-                  fontSize: '13px',
+                  label: 'Education attainment',
+                  fontSize: '11px',
+                  textWrap: true,
                   fontFamily: 'Helvetica, Arial, sans-serif',
                   fontWeight: 300,
                   color: 'black',
@@ -79,10 +98,9 @@ class IncomeHHByTypeGraph extends Component {
 
 
       <div id="chart" className='mx-auto'>
-        <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={380} />
+        <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={'100%'} />
       </div>
     );
   }
 }
-
 export default IncomeHHByTypeGraph
