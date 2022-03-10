@@ -12,7 +12,6 @@ const PriceCard = () => {
             console.log(value)
             if(value){
           setData(value?.data?.packages);
-          console.log(value.data.packages)
         }
         })
       }, [])

@@ -6,57 +6,44 @@ import { Table } from 'antd';
 const columns = [
     {
         title: 'Market Appreciation',
-        dataIndex: 'MarketAppreciation',
-        width: '10%'
+        render: (record, text, index) => <p>Market Appreciation</p>,
+                width: '10%'
     },
     {
         title: null,
-        dataIndex: 'OverallAverage',
+        dataIndex: 'avgGrowth',
         fixed: 'left',
-        bordered:true,
+        bordered: true,
     },
     {
         title: '2018',
-        dataIndex: '2018',
+        dataIndex: 'y2018',
     },
     {
         title: '2019',
-        dataIndex: '2019',
+        dataIndex: 'y2019',
     },
     {
         title: '2020',
-        dataIndex: '2020',
+        dataIndex: 'y2020',
     },
     {
         title: '2021',
-        dataIndex: '2021',
+        dataIndex: 'y2021',
     },
     {
         title: '2022',
-        dataIndex: '2022',
+        dataIndex: 'y2022',
     },
     {
         title: 'Median Sale',
-        dataIndex: 'MedianSale',
+        dataIndex: 'median',
     },
 ];
-const ApreciationTableData = [
-    {
-        key: '1',
-        MarketAppreciation: 'Overall Average',
-        OverallAverage: '20%',
-        2018: '18%',
-        2019: '19%',
-        2020: '20%',
-        2021: '21%',
-        2022: '22%',
-        MedianSale: '$136%',
-    }
-];
-export default function ApreciationTableComponent() {
-    
+export default function ApreciationTableComponent(props) {
+
     return (<div>
-        <Table columns={columns} dataSource={ApreciationTableData} size="small" />
+        <Table columns={columns} dataSource={props.AppreciationData} size="small" />
     </div>
     )
 }

@@ -50,7 +50,7 @@ class GraphData {
     return res();
   };
   RentalAprecation = (id) => {
-    console.log(id)
+    // console.log('Rental Aprecation',id)
     const res = async () => {
       const resp = await axios
         .post("/market/rental_appreciation",{
@@ -70,6 +70,38 @@ class GraphData {
     const res = async () => {
       const resp = await axios
         .post("/market/share_price_cut",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  PriceCut = (id) => {
+    console.log(id)
+    const res = async () => {
+      const resp = await axios
+        .post("/market/median_price_cut",{
+          regionID:id
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  rental = (id) => {
+    console.log(id)
+    const res = async () => {
+      const resp = await axios
+        .post("/market/median_price_cut",{
           regionID:id
 
         })

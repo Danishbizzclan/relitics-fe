@@ -66,7 +66,6 @@ export default class Signup extends Component {
     const { step, profilePic, sendImage, email, cardName, cvv, price, pkgId, year, username, password, firstName, cardNumber, familyName, state, country, DOB } = this.state;
     const values = { step, profilePic, sendImage, email, cvv, price, pkgId, year, cardName, username, familyName, cardNumber, state, password, firstName, country, DOB }
 
-    console.log({ values })
     switch (values.step) {
       case 1:
         return (

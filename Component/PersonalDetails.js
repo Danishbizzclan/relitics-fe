@@ -48,7 +48,6 @@ const PersonalDetails = ({ handleStep, prevStep, nextStep, handleChange, handleD
     response.then(value => {
       if (value) {
         setData(value.data.packages);
-        console.log(value.data.packages)
 
       }
       setLoading(false);
@@ -79,11 +78,9 @@ const PersonalDetails = ({ handleStep, prevStep, nextStep, handleChange, handleD
                 <div className="row bg-pric p-3">
                   {loading ? (<Spin />) : (
                     <>
-                      {console.log('per', data)}
                       {data.map(x => {
                         return (
                           <div className='col-sm-4 mx-auto'>
-                            {console.log(x.price)}
                             <Price
                               Continue={Continue}
                               Price={x.name}

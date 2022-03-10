@@ -240,7 +240,6 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                     </div>
                                     <br />
                                     <div className="text-center">
-                                        {console.log({ errorMessage })}
                                         <p className="text-danger fs-19">{errorMessage}</p>
                                         <Button
 

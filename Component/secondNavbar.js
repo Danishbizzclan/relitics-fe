@@ -6,7 +6,6 @@ import { useRouter } from "next/router"
 export default function SecondNav() {
     const router = useRouter();
     const eventId = router.query.id
-    console.log({ router })
     const eventCategory = router.query.slug ? router.query.slug[0] : '';
     return (
         <div className=' bg-lightBlue'>

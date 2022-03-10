@@ -78,7 +78,6 @@ const Login = () => {
         })
             .catch(error => {
                 setIsLoading(false)
-                console.log({ error })
             })
 
     }
@@ -162,7 +161,6 @@ const Login = () => {
 
     return (
         <div>
-            {/* {console.log({ error })} */}
             <Navbar />
             <div className={`${classes.bgLogin}`}>
                 <div className="container">

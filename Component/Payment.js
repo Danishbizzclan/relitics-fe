@@ -25,11 +25,9 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
 
     useEffect(() => {
         const response = GetData.GetMerchantId();
-        console.log(response)
         response.then(value => {
             console.log(value)
             setClientId(value.data.clientID);
-            console.log(value.data.clientID)
         })
     }, [])
 

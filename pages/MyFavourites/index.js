@@ -30,7 +30,6 @@ function MyFavourite() {
         getNotes()
     }, [])
     // const event = getEventByFav();
-    console.log({ favourite })
     if (!favourite) {
         return <h1 className='text-center mt-5'>No Favourites Found</h1>
     }

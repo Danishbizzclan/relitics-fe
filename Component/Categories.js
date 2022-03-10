@@ -11,11 +11,8 @@ function Categories() {
 
     useEffect(() => {
         const response = GetData.BlogComponent();
-        console.log(response)
         response.then(value => {
-            console.log(value)
             setData(value.data.articles);
-            console.log(value.data.articles)
         })
     }, [])
 
@@ -23,7 +20,6 @@ function Categories() {
     return (
         <div>
             {data.slice(0, categoriesVisible).map((x) => {
-                console.log(x)
                 return (
                     <>
                         <Link href={`/BlogCategory/${x.name}`}>

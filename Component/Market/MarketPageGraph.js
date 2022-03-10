@@ -23,6 +23,9 @@ export default function MedianGraph(props) {
     const [salesDate, setSalesDate] = useState([])
     const [ShareListings, setShareListings] = useState([])
     const [ShareListingDate, setShareListingDate] = useState([])
+    const [priceCut, setPriceCut] = useState([])
+    const [priceCutDate, setPriceCutDate] = useState([])
+
 
 
 
@@ -59,6 +62,7 @@ export default function MedianGraph(props) {
         pendingData();
         listPrice();
         ShareListing();
+        PriceCut();
     }, [eventId])
 
     const pendingData = () => {
@@ -87,7 +91,6 @@ export default function MedianGraph(props) {
         const response = GraphData.ListPrice(eventId);
         // console.log(eventId)
         response.then(value => {
-            console.log(value)
             if (value) {
                 // console.log(value.data.Data.listing)
 
@@ -116,9 +119,7 @@ export default function MedianGraph(props) {
     }
     const ShareListing = () => {
         const response = GraphData.ShareListing(eventId);
-        console.log(eventId)
         response.then(value => {
-            console.log(value)
             if (value) {
                 // console.log(value.data.Data.listing)
 
@@ -138,11 +139,32 @@ export default function MedianGraph(props) {
             }
         })
     }
+    const PriceCut = () => {
+        const response = GraphData.PriceCut(eventId);
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data.listing)
+
+                let data1 = []
+                let data2 =[]
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                setPriceCutDate(data1)
+                setPriceCut(data2)
+
+               
+
+                
+            }
+        })
+    }
 
 
     return (<div>
-        {console.log({ShareListings})}
-        {console.log({ShareListingDate})}
         <GraphComponent
             heading='MEDIAN List Price Vs MEDIAN Sale Price'>
             <ApexMedianChart sales={sales} salesDate={salesDate} list={list} listDate={listDate}/>
@@ -161,7 +183,7 @@ export default function MedianGraph(props) {
         </GraphComponent>
         <GraphComponent
             heading='Median PRICE CUT'>
-            <MedianPriceCut />
+            <MedianPriceCut priceCut={priceCut} priceCutDate={priceCutDate}/>
         </GraphComponent>
         <GraphComponent
             heading='MEDIAN Rental'>

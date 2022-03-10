@@ -19,9 +19,7 @@ function Foter() {
     // console.log(uniqueCategories)
     useEffect(() => {
         const response = GetData.BlogCatagory();
-        console.log(response)
         response.then(value => {
-            console.log(value)
             // console.log('dfgh',value.data.categories)
             if (value) {
                 setData(value?.data?.categories)
@@ -34,7 +32,6 @@ function Foter() {
         // nextStep();
         const res = PostData.CreateNewsLetter(email, settingErrors)
         res.then(value => {
-            console.log(value)
             setSuccess(value.data.message)
         })
             .catch(error => {
