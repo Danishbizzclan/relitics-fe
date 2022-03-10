@@ -25,6 +25,9 @@ export default function MedianGraph(props) {
     const [ShareListingDate, setShareListingDate] = useState([])
     const [priceCut, setPriceCut] = useState([])
     const [priceCutDate, setPriceCutDate] = useState([])
+    const [median, setMedian] = useState([])
+    const [medianDate, setMedianDate] = useState([])
+
 
 
 
@@ -36,7 +39,7 @@ export default function MedianGraph(props) {
     const router = useRouter();
 
     const eventId = router.query.id
-    { console.log(eventId) }
+    // { console.log(eventId) }
 
 
 
@@ -63,6 +66,7 @@ export default function MedianGraph(props) {
         listPrice();
         ShareListing();
         PriceCut();
+        Median();
     }, [eventId])
 
     const pendingData = () => {
@@ -162,6 +166,29 @@ export default function MedianGraph(props) {
             }
         })
     }
+    const Median = () => {
+        const response = GraphData.MedianRental(eventId);
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data.listing)
+
+                let data1 = []
+                let data2 =[]
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                setMedianDate(data1)
+                setMedian(data2)
+
+               
+
+                
+            }
+        })
+    }
 
 
     return (<div>
@@ -187,7 +214,7 @@ export default function MedianGraph(props) {
         </GraphComponent>
         <GraphComponent
             heading='MEDIAN Rental'>
-            <MedianRental />
+            <MedianRental median={median} medianDate={medianDate}/>
         </GraphComponent>
     </div>)
 }

@@ -10,7 +10,7 @@ class MedianRental extends Component {
             series: [
                 {
                     name: "Rental Growth",
-                    data: [50, 25, 30, 38, 44, 52, 65],
+                    data: this.props.median,
                     color: '#0F74AF'
                 }
             ],
@@ -44,7 +44,7 @@ class MedianRental extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.medianDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -54,6 +54,29 @@ class MedianRental extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.median !== prevProps.median || this.props.medianDate !== prevProps.medianDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.medianDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.median,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

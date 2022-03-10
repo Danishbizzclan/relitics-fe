@@ -97,11 +97,11 @@ class GraphData {
     };
     return res();
   };
-  rental = (id) => {
+  MedianRental = (id) => {
     console.log(id)
     const res = async () => {
       const resp = await axios
-        .post("/market/median_price_cut",{
+        .post("/market/median_rental",{
           regionID:id
 
         })
