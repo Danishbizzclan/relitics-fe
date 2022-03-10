@@ -134,18 +134,18 @@ function Foter() {
                                 <div className='row p-0 '>
 
 
-                                    <div className="col-sm-6 my-4">
+                                    <div className="col-sm-6 mt-4">
                                     <p className="col-12 text-center Footer py-auto mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Web Design and Development by<Link href="/https://bizzclan.com/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} > BizzClan </Link></p>
                                         <p className="col-12 text-center Footer pb-3 py-auto  mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Copyright 2021 &copy; <Link href="/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Reilitics</Link> </p>                                    </div>
 
 
                                     <div className="col-sm-6  ms-auto">
                                         <div className="float-end">
-                                            <img className='my-4' src={"/circleFb.svg"} alt="facebook" />
-                                            <img className="ms-3 my-4" src={"/circlePinterest.svg"} alt="pinterest" />
-                                            <img className="ms-3 my-4" src={"/circleTwitter.svg"} alt="twitter" />
-                                            <img className="ms-3 my-4" src={"/circleLinkedin.svg"} alt="linkedin" />
-                                            <img className="ms-3 my-4" src={"/circleInstagram.svg"} alt="instagram" />
+                                            <img className='mt-4' src={"/CircleFb.svg"} alt="facebook" />
+                                            <img className="ms-3 mt-4" src={"/circlePinterest.svg"} alt="pinterest" />
+                                            <img className="ms-3 mt-4" src={"/circleTwitter.svg"} alt="twitter" />
+                                            <img className="ms-3 mt-4" src={"/circleLinkedin.svg"} alt="linkedin" />
+                                            <img className="ms-3 mt-4" src={"/circleInstagram.svg"} alt="instagram" />
                                         </div>
 
 
