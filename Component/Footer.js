@@ -134,9 +134,9 @@ function Foter() {
                                 <div className='row p-0 '>
 
 
-                                    <div className="col-sm-6 mt-3">
-                                        <p className={`${classes.footerp} text-white fs-16 my-auto py-4`}>Copyright 2021 Website.com</p>
-                                    </div>
+                                    <div className="col-sm-6 my-4">
+                                    <p className="col-12 text-center Footer py-auto mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Web Design and Development by<Link href="/https://bizzclan.com/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} > BizzClan </Link></p>
+                                        <p className="col-12 text-center Footer pb-3 py-auto  mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Copyright 2021 &copy; <Link href="/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Reilitics</Link> </p>                                    </div>
 
 
                                     <div className="col-sm-6  ms-auto">
@@ -150,8 +150,12 @@ function Foter() {
 
 
                                     </div>
+                                   
                                 </div>
                             </div>
+                            {/* <div className="pt-3 absolute-footer dark ">
+                                       
+                                    </div> */}
 
                         </div>
 

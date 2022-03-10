@@ -1192,3 +1192,10 @@ summary::-webkit-details-marker,
   font-size       : 1.4rem !important;
   color           : grey !important;
 }
+.absolute-footer{
+  background-color: rgb(36, 47, 132);
+}
+Footer, Footer a{
+  color: rgba(255,255,255,.5) !important;
+  font-family: "Poppins", sans-serif !important;
+}
