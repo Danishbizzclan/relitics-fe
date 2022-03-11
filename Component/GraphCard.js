@@ -4,7 +4,7 @@ export default function GraphComponent(props) {
     const[year, setYear]= useState('')
     function handleChange(e) {
         setYear(e.target.value);
-        // props.inventoryYear(year)
+        props.listPrice(e.target.value)
       }
 
 

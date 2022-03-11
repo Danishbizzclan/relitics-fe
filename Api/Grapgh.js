@@ -4,11 +4,12 @@ class GraphData {
   constructor() {
     this.result = [];
   }
-  Inventory = (id) => {
+  Inventory = (id, year) => {
     const res = async () => {
       const resp = await axios
         .post("/market/inventry",{
-          regionID:id
+          regionID:id,
+          year: year
 
         })
 
@@ -19,11 +20,12 @@ class GraphData {
     };
     return res();
   };
-  Pending = (id) => {
+  Pending = (id, year) => {
     const res = async () => {
       const resp = await axios
         .post("/market/median_days_to_pending",{
-          regionID:id
+          regionID:id,
+          year:year,
 
         })
 
@@ -34,11 +36,13 @@ class GraphData {
     };
     return res();
   };
-  ListPrice = (id) => {
+  ListPrice = (id, year) => {
+    console.log(year)
     const res = async () => {
       const resp = await axios
         .post("/market/median_list_vs_sale_price",{
-          regionID:id
+          regionID:id,
+          year: year
 
         })
 
@@ -65,12 +69,12 @@ class GraphData {
     };
     return res();
   };
-  ShareListing = (id) => {
-    console.log(id)
+  ShareListing = (id, year) => {
     const res = async () => {
       const resp = await axios
         .post("/market/share_price_cut",{
-          regionID:id
+          regionID:id,
+          year: year
 
         })
 
@@ -81,12 +85,12 @@ class GraphData {
     };
     return res();
   };
-  PriceCut = (id) => {
-    console.log(id)
+  PriceCut = (id, yaer) => {
     const res = async () => {
       const resp = await axios
         .post("/market/median_price_cut",{
-          regionID:id
+          regionID:id,
+          year: yaer
 
         })
 
@@ -97,12 +101,13 @@ class GraphData {
     };
     return res();
   };
-  MedianRental = (id) => {
+  MedianRental = (id, year) => {
     console.log(id)
     const res = async () => {
       const resp = await axios
         .post("/market/median_rental",{
-          regionID:id
+          regionID:id,
+          year:year
 
         })
 
@@ -114,6 +119,7 @@ class GraphData {
     return res();
   };
 
+  // data by year
 
     Return() {
       return this.result;
