@@ -195,6 +195,18 @@ AllPackeges = () => {
     };
     return res();
   };
+  Region = (id) => {
+    const res = async () => {
+      const resp = await axios
+        .get('/market/region_names')
+        .catch(function (error) {
+          console.log("Error:",error);
+        });
+        console.log("result:",resp)
+      return resp;
+    };
+    return res();
+  };
 
   
 }

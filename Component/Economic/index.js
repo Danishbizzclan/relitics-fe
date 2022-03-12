@@ -15,7 +15,7 @@ export default function Economic() {
 
     return (
         <div>
-            <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
+            <p className='fs-40 Gothic_3D my-3'>United States</p>
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
