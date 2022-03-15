@@ -1,14 +1,15 @@
 import React from 'react';
 import PopulationGraph from './PopulationGraph';
 
-export default function Population() {
+export default function Population(props) {
+    console.log(props)
     return (
         <div className='card my-4'>
             <div className='w-50'>
                 <p className='fs-30 mb-0 Gothic_3D'>Population</p>
                 <p className='fs-30 mb-0 Gothic_3D'>887,232</p>
             </div>
-            <PopulationGraph />
+            <PopulationGraph population={props.population} populationDate={props.populationDate}/>
             <div className='row container gx-5 my-3'>
                 <div className='col-sm-12 col-md-6 bg_light btn_tags d-inline-flex py-4'>
                     <span className='fs-16 Bold'>State</span>

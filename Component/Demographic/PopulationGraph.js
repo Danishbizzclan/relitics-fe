@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 class PopulationGraph extends Component {
     constructor(props) {
+        console.log(props)
         super(props);
 
         this.state = {
@@ -11,7 +12,7 @@ class PopulationGraph extends Component {
             series: [
                 {
                     name: "Population",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    data: this.props.population,
                     color: '#0F74AF',
                 }
             ],
@@ -54,7 +55,7 @@ class PopulationGraph extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.populationDate,
                     labels: {
                         show: true,
                         rotate: 30,
@@ -66,6 +67,29 @@ class PopulationGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.population !== prevProps.population || this.props.populationDate !== prevProps.populationDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.populationDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.population,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

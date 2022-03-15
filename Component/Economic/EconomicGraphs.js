@@ -1,8 +1,42 @@
 import React from 'react';
 import UnemploymentRateGraph from './UnemploymentRateGraph';
 import EmploymentSectorsGraph from './EmploymentSectorsGraph';
+import GraphData from "../../Api/Grapgh";
+import {useEffect} from 'react';
+import { useRouter } from "next/router";
+
 
 export default function EconomicGraphs() {
+    
+    const router = useRouter();
+
+    const eventId = router.query.id
+    useEffect(() => {
+        unEmployment()
+    }, [eventId])
+
+
+
+   const unEmployment = () => {
+        const response = GraphData.unEmployment();
+        // console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data)
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                // setInventryDate(data1)
+                // setInventry(data2)
+
+            }
+        })
+    }
     return (
         <>
             <div className='card p-3 bg_light'>

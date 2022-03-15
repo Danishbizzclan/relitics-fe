@@ -16,7 +16,6 @@ class HouseholdTypesTable extends React.Component {
 
     tableData = (pageNo) => {
         const response = GetData.RentalGrowth(pageNo);
-        console.log(response)
         response.then(value => {
             console.log('dfgh', value)
             this.setState({

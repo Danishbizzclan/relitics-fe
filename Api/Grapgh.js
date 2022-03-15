@@ -119,8 +119,52 @@ class GraphData {
     return res();
   };
 
-  // data by year
+  unEmployment = () => {
+    const res = async () => {
+      const resp = await axios
+        .post("https://api.bls.gov/publicAPI/v2/timeseries/data/",{
+          seriesid: "LNS14000000",
+          startyear:"2013",
+          endyear:"2022"
+         
 
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+
+  populationRegion = (id, year) => {
+    const res = async () => {
+      const resp = await axios
+        .get("/demographic/regions")
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  population = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/population",{
+          Region:region
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
     Return() {
       return this.result;
     }

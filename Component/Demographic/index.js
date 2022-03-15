@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EduAttainment from './EduAttainment';
 import HouseholdTypes from './HouseholdTypes';
 import IncomeHHByType from './IncomeHHByType';
@@ -6,19 +6,69 @@ import IncomeHHT from './IncomeHHT';
 import Population from './Population';
 import PopulationByAge from './PopulationByAge';
 import PopulationbyRace from './PopulationbyRace';
+import GraphData from '../../Api/Grapgh'
+import { useRouter } from "next/router";
 
 
 export default function Demographic() {
-    const stateSort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
-    const CitySort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
+    const [regionName, setRegionName] = useState([])
+    const [region, setRegion] = useState([])
+    const [population, setPopulation] = useState([])
+    const [populationDate, setPopulationDate] = useState([])
+
+
+    // const stateSort = (event) => [
+    //     sortedInfo = {
+    //         order: 'descend',
+    //         columnKey: 'age',
+    //     }]
+    // const CitySort = (event) => [
+    //     sortedInfo = {
+    //         order: 'descend',
+    //         columnKey: 'age',
+    //     }]
+    function handleChange(e) {
+        setRegion(e.target.value);
+        populationCountary(e.target.value)
+
+    }
+    const router = useRouter();
+
+    const eventId = router.query.id
+    useEffect(() => {
+        Region()
+    }, [eventId]);
+
+    const Region = () => {
+        const response = GraphData.populationRegion();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setRegionName(value.data.Data);
+
+            }
+        })
+    }
+    const populationCountary = (region) => {
+        const response = GraphData.population(region);
+        response.then(value => {
+            console.log('>>>>>>>>>>>',value)
+            if (value) {
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+                
+
+                setPopulationDate(data1)
+                setPopulation(data2)
+
+            }
+        })
+    }
 
     return (
         <div>
@@ -33,12 +83,17 @@ export default function Demographic() {
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Region Name</label>
-                        <select className="form-control form-select form-control-sm" onClick={stateSort}>
-                            <option>All</option>
+                        <label className='bluetxt fs-13'>Region Nameeeee</label>
+                        <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
+                            
+                            {regionName.map((state) => {
+                                return (
+                                    <option value={state}>{state}</option>
+                                )
+                            })}
                         </select>
                     </div>
-                    
+
                 </div>
                 <div className='ms-auto my-auto'>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
@@ -48,7 +103,7 @@ export default function Demographic() {
                 </div>
             </div>
             <div className='card p-3 bg_light'>
-                <Population />
+                <Population population={population} populationDate={populationDate}/>
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <PopulationByAge />
