@@ -5,7 +5,6 @@ const BlogCompnnent = ({ data }) => {
     
     return (
         <>
-        {console.log(data)}
             <Link href={`/Blog/${data._id}`} >
                 <div className="d-flex flex-column h-100 graph_hover">
                     <div className='shadow' style={{ flex: "1 1 auto" }}>

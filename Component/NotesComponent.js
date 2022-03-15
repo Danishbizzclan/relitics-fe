@@ -24,7 +24,6 @@ export default function NotesComponent() {
         response.then(value => {
             console.log(value)
             setNotes(value.data.notes);
-            console.log(value.data.notess)
             setLoading(false)
 
             //   setLoading(false);

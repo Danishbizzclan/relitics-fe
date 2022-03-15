@@ -24,7 +24,6 @@ const BlogDetail = () => {
     setLoading(true)
     const response = GetData.BlogDetail(eventId);
     response.then(value => {
-      console.log({ value })
       setEvent(value?.data?.article);
       setLoading(false)
       console.log(value?.data?.article)

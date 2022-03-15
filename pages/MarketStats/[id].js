@@ -13,6 +13,7 @@ const MarketStats = () => {
     const eventId = router.query.id
      const eventCategory = router.query.slug ? router.query.slug[0] : '';
         return (
+            
             <div>
                 <div className="d-inline-flex w-100">
                     <Sidebar />
@@ -20,7 +21,8 @@ const MarketStats = () => {
                         <Dashnav />
                         <SecondNavbar />
                         <div className='container mx-auto p-4'>
-                            <Market id={eventId}/>
+                            {eventId?<Market id={eventId}/>:<p>Loaading...</p>}
+                            
                         </div>
                     </div>
                 </div>

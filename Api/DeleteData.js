@@ -19,7 +19,6 @@ class DeleteData {
     return res();
   };
   DeleteFavourite = (id) => {
-    console.log(id)
     const res = async () => {
       const resp = await axios
         .delete(`/favorite/${id}`)

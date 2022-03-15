@@ -75,7 +75,7 @@ class SharePriceCutGraph extends Component {
             this.setState({
                 series: c,
                 options: b
-            }, ()=>{console.log('new State',this.state)})
+            })
 
         }
     }

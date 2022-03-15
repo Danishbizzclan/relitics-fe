@@ -63,11 +63,13 @@ class Aprecation extends React.Component {
     console.log(response)
     response.then(value => {
       console.log('dfgh', value)
+      if(value){
       this.setState({
         data: value?.data?.allRecords,
         totalPages: value?.data?.pages,
         loading: false
       })
+    }
     })
   }
   print() {
@@ -85,10 +87,12 @@ class Aprecation extends React.Component {
     console.log(response)
     response.then(value => {
       console.log(value)
+      if(value){
       this.setState({
         favourite: value?.data?.favoriteRegions
       })
       console.log(value.data.favoriteRegions)
+    }
 
     }
 

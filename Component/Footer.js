@@ -19,9 +19,7 @@ function Foter() {
     // console.log(uniqueCategories)
     useEffect(() => {
         const response = GetData.BlogCatagory();
-        console.log(response)
         response.then(value => {
-            console.log(value)
             // console.log('dfgh',value.data.categories)
             if (value) {
                 setData(value?.data?.categories)
@@ -34,7 +32,6 @@ function Foter() {
         // nextStep();
         const res = PostData.CreateNewsLetter(email, settingErrors)
         res.then(value => {
-            console.log(value)
             setSuccess(value.data.message)
         })
             .catch(error => {
@@ -137,24 +134,28 @@ function Foter() {
                                 <div className='row p-0 '>
 
 
-                                    <div className="col-sm-6 mt-3">
-                                        <p className={`${classes.footerp} text-white fs-16 my-auto py-4`}>Copyright 2021 Website.com</p>
-                                    </div>
+                                    <div className="col-sm-6 mt-4">
+                                    <p className="col-12 fs-15 Footer py-auto mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Web Design and Development by<Link href="https://bizzclan.com/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} > BizzClan </Link></p>
+                                        <p className="col-12 fs-15 Footer pb-3 py-auto  mb-1" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Copyright 2022 &copy; <Link href="/" style={{ color: "white", fontFamily: '"Poppins", sans-serif' }} >Reilitics</Link> </p>                                    </div>
 
 
                                     <div className="col-sm-6  ms-auto">
                                         <div className="float-end">
-                                            <img className='my-4' src={"/circleFb.svg"} alt="facebook" />
-                                            <img className="ms-3 my-4" src={"/circlePinterest.svg"} alt="pinterest" />
-                                            <img className="ms-3 my-4" src={"/circleTwitter.svg"} alt="twitter" />
-                                            <img className="ms-3 my-4" src={"/circleLinkedin.svg"} alt="linkedin" />
-                                            <img className="ms-3 my-4" src={"/circleInstagram.svg"} alt="instagram" />
+                                            <img className='mt-4' src={"/CircleFb.svg"} alt="facebook" />
+                                            <img className="ms-3 mt-4" src={"/circlePinterest.svg"} alt="pinterest" />
+                                            <img className="ms-3 mt-4" src={"/circleTwitter.svg"} alt="twitter" />
+                                            <img className="ms-3 mt-4" src={"/circleLinkedin.svg"} alt="linkedin" />
+                                            <img className="ms-3 mt-4" src={"/circleInstagram.svg"} alt="instagram" />
                                         </div>
 
 
                                     </div>
+                                   
                                 </div>
                             </div>
+                            {/* <div className="pt-3 absolute-footer dark ">
+                                       
+                                    </div> */}
 
                         </div>
 

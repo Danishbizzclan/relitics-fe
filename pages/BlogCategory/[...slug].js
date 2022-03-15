@@ -15,7 +15,6 @@ function CategorisedBlogDetail() {
 
     const eventCategory = router.query.slug ? router.query.slug[0] : '';
     const event = getEventByCategory(eventCategory);
-    console.log({ event })
     if (eventCategory && !event) {
         return <h1 className='text-center mt-5'>No Blog Found</h1>
     }

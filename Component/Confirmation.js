@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, Grid, List, ListItem, ListItemText, Button } from '@material-ui/core'
 
 const Confirmation = ({ prevStep, nextStep, values }) => {
-  console.log(values);
   const { firstName, lastName, email, username, country, levelOfEducation } = values
   const Continue = e => {
     e.preventDefault();

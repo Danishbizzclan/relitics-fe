@@ -58,7 +58,7 @@ class Acount {
     return res();
   };
   Contact = (userInput, setError, errorModel) => {
-    console.log({ userInput })
+    
     const res = async () => {
       const resp = await axios
         .post("/contacts", {
@@ -81,7 +81,7 @@ class Acount {
     return res();
   };
   EnterEmail = (email, setError, errorModal) => {
-    console.log({ email })
+    
     const res = async () => {
       const resp = await axios
         .post("/users/sendcode", {
@@ -116,7 +116,7 @@ class Acount {
     return res();
   };
   confirmPassword = (Password, otp, email, setError, setErrorModel) => {
-    console.log({ email })
+    
     const res = async () => {
       const resp = await axios
         .put("/users/changepassword", {
@@ -135,7 +135,7 @@ class Acount {
     return res();
   };
   userValidation = (firstName, lastName, email, password, state, country, username, DOB, Error) => {
-    console.log({ email })
+    
     const res = async () => {
       const resp = await axios
         .post("/users/verifysignup", {
@@ -159,7 +159,7 @@ class Acount {
     return res();
   };
   updateAccount = (userId, firstName, lastName, email, password, state, country) => {
-    console.log({ email })
+    
     const res = async () => {
       const resp = await axios
         .put(`users/${userId}`, {

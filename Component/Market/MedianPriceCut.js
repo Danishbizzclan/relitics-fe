@@ -4,13 +4,15 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 class MedianPriceCut extends Component {
     constructor(props) {
         super(props);
+        {console.log(this.props)}
+
 
         this.state = {
 
             series: [
                 {
                     name: "Rental Growth",
-                    data: [30, 25, 12, 28, 38, 52, 45],
+                    data: this.props.priceCut,
                     color: '#0F74AF'
                 }
             ],
@@ -44,7 +46,7 @@ class MedianPriceCut extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.priceCutDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -54,6 +56,29 @@ class MedianPriceCut extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.priceCut !== prevProps.priceCut || this.props.priceCutDate !== prevProps.priceCutDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.priceCutDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.priceCut,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (
