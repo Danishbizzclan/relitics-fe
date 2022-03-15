@@ -5,7 +5,7 @@ import { Table, Button, Space, Select, message } from 'antd';
 import Dashnav from '../../Component/Dashnav';
 import Sidebar from '../../Component/SideNavbar';
 import GetData from '../../Api/GetData';
-import { Spin } from 'antd';
+import { Spin, Tooltip } from 'antd';
 import withAuth from "../../Component/Auth"
 import PostData from "../../Api/PostData"
 import DeleteData from "../../Api/DeleteData"
@@ -139,6 +139,10 @@ class Aprecation extends React.Component {
         let { sortedInfo, filteredInfo } = this.state;
         sortedInfo = sortedInfo || {};
         filteredInfo = filteredInfo || {};
+        const Info = () => (<svg xmlns="http://www.w3.org/2000/svg" width="14.824" height="14.824" viewBox="0 0 14.824 14.824">
+            <path id="info" d="M11.912,4.5a7.412,7.412,0,1,0,7.412,7.413A7.412,7.412,0,0,0,11.912,4.5Zm.756,11.535a.258.258,0,0,1-.258.258h-1a.258.258,0,0,1-.258-.258V11.248a.258.258,0,0,1,.258-.258h1a.258.258,0,0,1,.258.258Zm-.763-6.113a.9.9,0,0,1-.893-.9.9.9,0,0,1,1.8,0,.9.9,0,0,1-.9.9Z" transform="translate(-4.5 -4.5)" fill="#0f74af" />
+        </svg>
+        )
         const columns = [
             {
                 title: 'Region',
@@ -157,7 +161,12 @@ class Aprecation extends React.Component {
                 render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
             },
             {
-                title: 'Overall AVERAGE RENTAL GROWTH',
+                title: () => {
+                    return <div>Overall AVERAGE RENTAL GROWTH
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                           <Button className="info_class"> <Info /></Button>
+                        </Tooltip></div >
+                },
                 width: '15%',
                 dataIndex: 'avgGrowth',
                 key: 'avgGrowth',
@@ -238,13 +247,18 @@ class Aprecation extends React.Component {
                 ellipsis: true,
             },
             {
-                title: 'Median RENTAL ',
+                title: () => {
+                    return <div>Median RENTAL
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                           <Button className="info_class"> <Info /></Button>
+                        </Tooltip></div >
+                },
                 dataIndex: 'median',
                 key: 'median',
                 // filters: [
-                //   { text: 'London', value: 'London' },
-                //   { text: 'New York', value: 'New York' },
-                // ],
+                    //   { text: 'London', value: 'London' },
+                    //   { text: 'New York', value: 'New York' },
+                    // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
                 sorter: (a, b) => a.address.length - b.address.length,
@@ -252,7 +266,12 @@ class Aprecation extends React.Component {
                 ellipsis: true,
             },
             {
-                title: 'Landlord FRIENDLY SCORE',
+                title: () => {
+                    return <div>Landlord FRIENDLY SCORE
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                           <Button className="info_class"> <Info /></Button>
+                        </Tooltip></div >
+                },
                 dataIndex: 'LLfriendly',
                 key: 'LLfriendly',
                 // filters: [
