@@ -119,14 +119,11 @@ class GraphData {
     return res();
   };
 
-  unEmployment = () => {
-    const res = async () => {
+  unEmployment = (region) => {
+    const res = async (region) => {
       const resp = await axios
-        .post("https://api.bls.gov/publicAPI/v2/timeseries/data/",{
-          seriesid: "LNS14000000",
-          startyear:"2013",
-          endyear:"2022"
-         
+        .post("/economic/unemployment_rate",{
+        Region: region        
 
         })
 
@@ -157,6 +154,18 @@ class GraphData {
           Region:region
 
         })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  populationEconomic = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .get("/economic/regions")
 
         .catch(function (error) {
           console.log(error);

@@ -6,19 +6,20 @@ import {useEffect} from 'react';
 import { useRouter } from "next/router";
 
 
-export default function EconomicGraphs() {
+export default function EconomicGraphs(props) {
+    console.log(props)
     
     const router = useRouter();
 
     const eventId = router.query.id
     useEffect(() => {
         unEmployment()
-    }, [eventId])
+    }, [props.region])
 
 
 
    const unEmployment = () => {
-        const response = GraphData.unEmployment();
+        const response = GraphData.unEmployment(props.region);
         // console.log(response)
         response.then(value => {
             console.log(value)

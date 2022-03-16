@@ -1,17 +1,56 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import EconomicGraphs from './EconomicGraphs';
+import GraphData from "../../Api/Grapgh"
 
 export default function Economic() {
-    const stateSort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
-    const CitySort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
+    const [regionName, setRegionName] = useState([])
+    const [region, setRegion] = useState([])
+
+
+    function handleChange(e) {
+        setRegion(e.target.value);
+        unEmployment(e.target.value);
+
+
+    }
+    // const router = useRouter();
+
+    // const eventId = router.query.id
+    useEffect(() => {
+        RegionGet()
+
+    }, []);
+    const RegionGet = () => {
+        const response = GraphData.populationEconomic();
+        console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                setRegionName(value.data.Data);
+
+            }
+        })
+    }
+    const unEmployment = () => {
+        const response = GraphData.unEmployment(region);
+        // console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data)
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                // setInventryDate(data1)
+                // setInventry(data2)
+
+            }
+        })
+    }
 
     return (
         <div>
@@ -20,8 +59,13 @@ export default function Economic() {
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
                         <label className='bluetxt fs-13'>Region Name</label>
-                        <select className="form-control form-select form-control-sm" onClick={stateSort}>
-                            <option>All</option>
+                        <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
+                            
+                            {regionName.map((state) => {
+                                return (
+                                    <option value={state}>{state}</option>
+                                )
+                            })}
                         </select>
                     </div>
                 </div>
@@ -33,7 +77,7 @@ export default function Economic() {
                 </div>
             </div>
             <div className=''>
-                <EconomicGraphs />
+                <EconomicGraphs region={region}/>
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
