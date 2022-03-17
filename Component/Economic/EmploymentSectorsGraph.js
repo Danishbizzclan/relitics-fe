@@ -9,7 +9,7 @@ class EmploymentSectorsGraph extends Component {
 
             series: [{
                 name: "Number of jobs (in thousands) in OCTOBER",
-                data: [400, 1200, 430, 1100, 448, 870, 540, 580, 690, 1380, 690, 330, 345],
+                data: this.props.sector,
                 color: '#022945',
             }],
             options: {
@@ -56,10 +56,7 @@ class EmploymentSectorsGraph extends Component {
                 },
                 xaxis: {
                     show: true,
-                    categories: ['Total Nonfarm', 'Mining and Logging', 'Construction', 'Manufacturing',
-                        'Trade, Transportation and Utilities', 'Information', 'Financial Activities',
-                        'Professional and Business', 'Education and Health Services', 'Leisure and Hospitality', 'Other Services', 'Government'
-                    ],
+                    categories: this.props.sectorDate,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -72,6 +69,29 @@ class EmploymentSectorsGraph extends Component {
 
 
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.sector !== prevProps.sector || this.props.sectorDate !== prevProps.sectorDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.sectorDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.sector,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
 
 

@@ -46,7 +46,7 @@ export default function EconomicGraphs(props) {
                         <p className='fs-30 mb-0 Gothic_3D'>Unemployment Rate</p>
                     </div>
                     <div>
-                        <UnemploymentRateGraph />
+                        <UnemploymentRateGraph employmentDate={props.employmentDate} unEmploymentData={props.unEmploymentData}/>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ export default function EconomicGraphs(props) {
 
                     </div>
                     <div>
-                        <EmploymentSectorsGraph />
+                        <EmploymentSectorsGraph sector={props.sector} sectorDate={props.sectorDate}/>
                     </div>
                 </div></div>
         </>

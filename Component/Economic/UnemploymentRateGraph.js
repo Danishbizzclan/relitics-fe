@@ -10,7 +10,7 @@ class UnemploymentRateGraph extends Component {
             series: [
                 {
                     name: "Unemployment",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    data: this.props.unEmploymentData,
                     color: '#0F74AF'
                 }
             ],
@@ -55,7 +55,7 @@ class UnemploymentRateGraph extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+                    categories: this.props.employmentDate,
                     labels: {
                         style: {
                             // rotate:'330',
@@ -66,6 +66,29 @@ class UnemploymentRateGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.unEmploymentData !== prevProps.unEmploymentData || this.props.employmentDate !== prevProps.employmentDate) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.employmentDate
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.unEmploymentData,
+                color: '#0F74AF'
+            }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

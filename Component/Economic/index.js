@@ -5,11 +5,18 @@ import GraphData from "../../Api/Grapgh"
 export default function Economic() {
     const [regionName, setRegionName] = useState([])
     const [region, setRegion] = useState([])
+    const [unEmploymentData, setUnEmploymentData] = useState([])
+    const [employmentDate, setEmploymentDate] = useState([])
+    const [sector, setSector] = useState([])
+    const [sectorDate, setSectorDate] = useState([])
+
+
 
 
     function handleChange(e) {
         setRegion(e.target.value);
         unEmployment(e.target.value);
+        industry(e.target.value);
 
 
     }
@@ -31,7 +38,7 @@ export default function Economic() {
             }
         })
     }
-    const unEmployment = () => {
+    const unEmployment = (region) => {
         const response = GraphData.unEmployment(region);
         // console.log(response)
         response.then(value => {
@@ -45,8 +52,28 @@ export default function Economic() {
                     data2.push(value.data.Data[key]);
                 }
 
-                // setInventryDate(data1)
-                // setInventry(data2)
+                setEmploymentDate(data1)
+                setUnEmploymentData(data2)
+
+            }
+        })
+    }
+    const industry = (region) => {
+        const response = GraphData.industary(region);
+        // console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data)
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                setSectorDate(data1)
+                setSector(data2)
 
             }
         })
@@ -77,7 +104,7 @@ export default function Economic() {
                 </div>
             </div>
             <div className=''>
-                <EconomicGraphs region={region}/>
+                <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate}/>
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>

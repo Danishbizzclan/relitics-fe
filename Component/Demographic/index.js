@@ -15,6 +15,11 @@ export default function Demographic() {
     const [region, setRegion] = useState([])
     const [population, setPopulation] = useState([])
     const [populationDate, setPopulationDate] = useState([])
+    // const [race, setRace] = useState([])
+    // const [raceDate, setRaceDate] = useState([])
+    const [educationn, setEducationn] = useState([])
+    const [educationDate, setEducationDate] = useState([])
+
 
 
     // const stateSort = (event) => [
@@ -30,6 +35,8 @@ export default function Demographic() {
     function handleChange(e) {
         setRegion(e.target.value);
         populationCountary(e.target.value)
+        // populationRace(e.target.value)
+        education(e.target.value)
 
     }
     const router = useRouter();
@@ -53,7 +60,7 @@ export default function Demographic() {
     const populationCountary = (region) => {
         const response = GraphData.population(region);
         response.then(value => {
-            console.log('>>>>>>>>>>>',value)
+            // console.log('>>>>>>>>>>>',value)
             if (value) {
                 let data1 = []
                 let data2 = []
@@ -65,6 +72,53 @@ export default function Demographic() {
 
                 setPopulationDate(data1)
                 setPopulation(data2)
+
+            }
+        })
+    }
+    // const populationRace = (region) => {
+    //     const response = GraphData.populationRace(region);
+    //     response.then(value => {
+    //         console.log('>>>>>>>>>>>',value)
+    //         if (value) {
+    //             let data1 = []
+    //             let data2 = []
+    //             for (const key in value.data.Data) {
+    //                 if(index=1){
+
+    //                 }
+    //                 else if(index%2){
+    //                 data1.push(key)
+    //                 data2.push(value.data.Data[key]);
+
+    //                 }
+    //                 else{
+    //                     dataPercentage.push(value.data.Data[key])
+    //                 }
+    //             }
+                
+
+    //             setRaceDate(data1)
+    //             setRace(data2)
+
+    //         }
+    //     })
+    // }
+    const education = (region) => {
+        const response = GraphData.population(region);
+        response.then(value => {
+            console.log('>>>>>>>>>>>',value)
+            if (value) {
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+                
+
+                setEducationDate(data1)
+                setEducationn(data2)
 
             }
         })
@@ -118,7 +172,7 @@ export default function Demographic() {
                 <IncomeHHByType />
             </div>
             <div className='card p-3 my-4 bg_light'>
-                <EduAttainment />
+                <EduAttainment Education={educationn} educationDate={educationDate}/>
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <PopulationbyRace />

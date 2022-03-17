@@ -120,7 +120,7 @@ class GraphData {
   };
 
   unEmployment = (region) => {
-    const res = async (region) => {
+    const res = async () => {
       const resp = await axios
         .post("/economic/unemployment_rate",{
         Region: region        
@@ -166,6 +166,36 @@ class GraphData {
     const res = async () => {
       const resp = await axios
         .get("/economic/regions")
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  industary = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/economic/industry",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  education = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/educational_attainment",{
+        Region: region        
+
+        })
 
         .catch(function (error) {
           console.log(error);
