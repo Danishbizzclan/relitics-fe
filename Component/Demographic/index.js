@@ -98,17 +98,13 @@ export default function Demographic() {
     const populationCountary = (region) => {
         const response = GraphData.population(region);
         response.then(value => {
-            console.log('>>>>>>>>>>>',value)
             if (value) {
                 let data1 = []
                 let data2 = []
                 for (const key in value.data.Data) {
                     data1.push(key.replace(',', ""))
-                    data2.push(parseInt(value.data.Data[key].replace(',', "")));
+                    data2.push(parseInt(value.data.Data[key].replace(',', "").replace(',', "")));
                 }
-                console.log("96", data1)
-                console.log(data2)
-
 
                 setPopulationDate(data1)
                 setPopulation(data2)
@@ -120,10 +116,8 @@ export default function Demographic() {
     const education = (region) => {
         const response = GraphData.education(region);
         response.then(value => {
-            console.log('>>>>>>>>>>>', value)
             if (value) {
                 setEducationn(value.data.Data[0])
-                console.log('edu', educationn)
 
                 let region = []
                 let percentage = []
@@ -207,7 +201,6 @@ export default function Demographic() {
                 })
 
                 for (const key in value.data.Data[0]) {
-                    if(value.data.Data.Region.includes())
 
                     if (key !== 'Region') {
                         Age.push(key)
@@ -253,7 +246,6 @@ export default function Demographic() {
         let Regionn = []
         let OwnTables = []
         response.then(value => {
-            console.log('>>>>>>>>>>>', value)
             if (value) {
                 const newArray = value.data.Data.filter((item => {
                     return item
@@ -277,7 +269,6 @@ export default function Demographic() {
 
 
 
-                console.log({ Owner: Owner, Renter: Renter })
                 setOwner(Owner)
                 setRenter(Renter)
                 setOTable(OwnTables)
@@ -294,7 +285,6 @@ export default function Demographic() {
 
     return (
         <div>
-            {console.log(maleCount)}
             <div className='row'>
                 <div className='col-lg-3 col-12'>
                     <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
