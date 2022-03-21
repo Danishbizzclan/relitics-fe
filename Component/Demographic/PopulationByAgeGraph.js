@@ -104,6 +104,7 @@ class PopulationByAgeGraph extends Component {
     }
     componentDidUpdate(prevProps) {
         if (this.props.male !== prevProps.male || this.props.feMale !== prevProps.feMale) {
+            {console.log('dcd', this.props)}
 
             var b = {
                 ...this.state.options,
@@ -116,7 +117,8 @@ class PopulationByAgeGraph extends Component {
                 name: "Series 1",
                 data: this.props.male,
                 color: '#0F74AF'
-            },{
+            },
+            {
                 name: "Series 1",
                 data: this.props.feMale,
                 color: '#0F74AF'
