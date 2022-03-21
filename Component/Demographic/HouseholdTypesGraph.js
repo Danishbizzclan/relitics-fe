@@ -9,13 +9,13 @@ class HouseholdTypesGraph extends Component {
 
             series: [
                 {
-                    name: "Population",
-                    data: [2, 40, 9, 45, 18, 32, 45],
+                    name: "Owner",
+                    data: this.props.owner,
                     color: '#0F74AF',
                 },
                 {
-                    name: "Population",
-                    data: [2, 23, 19, 45, 38, 52, 45],
+                    name: "Renter",
+                    data: this.props.renter,
                     color: '#5EB5E8',
                 }
             ],
@@ -61,7 +61,7 @@ class HouseholdTypesGraph extends Component {
                 },
                 xaxis: {
                     show: true,
-                    categories: ["Married", "All", "Male", "Family", "Non Family"],
+                    categories: this.props.type,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -72,6 +72,34 @@ class HouseholdTypesGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.owner !== prevProps.owner || this.props.renter !== prevProps.renter) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.type
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.owner,
+                color: '#0F74AF'
+            },{
+                name: "Series 1",
+                data: this.props.renter,
+                color: '#5EB5E8'
+            }
+            
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

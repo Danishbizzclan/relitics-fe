@@ -11,12 +11,12 @@ class EduAttainmentGraph extends Component {
             series: [
                 {
                     name: "Female",
-                    data: [2, 40, 9, 2, 40, 9, 45],
+                    data: this.props.feMale,
                     color: '#5EB5E8',
                 },
                 {
                     name: "Male",
-                    data: [2, 23, 19, 45, 23, 19, 45],
+                    data: this.props.male,
                     color: '#0B486C',
                 }
             ],
@@ -71,7 +71,7 @@ class EduAttainmentGraph extends Component {
                 },
                 xaxis: {
                     show: true,
-                    categories: ["Less Than 9th Grade", "9th to 12th Grade", "High School Graduate", "Some College", "Associates Degree", "Bachelors Degree",'Graduate Degree'],
+                    categories: this.props.grade,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -82,6 +82,35 @@ class EduAttainmentGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.male !== prevProps.male || this.props.feMale !== prevProps.feMale || this.props.grade !== prevProps.grade) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.grade
+                }
+            }
+            var c = [
+                {
+                    name: "Female",
+                    data: this.props.feMale,
+                    color: '#5EB5E8',
+                },
+                {
+                    name: "Male",
+                    data: this.props.male,
+                    color: '#0B486C',
+                }
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

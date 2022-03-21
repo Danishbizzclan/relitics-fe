@@ -6,12 +6,13 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 class EduAttainmentPieGraph extends Component {
   constructor(props) {
+    console.log({props})
     super(props);
 
     this.state = {
-      series: [13, 17, 23, 23, 4, 9, 11],
+      series: this.props.percentage,
       options: {
-        labels: ['Less Than 9th Grade', '9th to 12th Grade', 'High School Graduate', 'Some College', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
+        labels: this.props.grade,
         colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
         chart: {
           width: 380,
@@ -93,6 +94,23 @@ class EduAttainmentPieGraph extends Component {
 
     };
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.percentage !== prevProps.percentage || this.props.grade !== prevProps.grade ) {
+
+        var b = {
+            ...this.state.options,
+            xaxis: {
+                ...this.state.options.xaxis,
+                categories: this.props.grade
+            }
+        }
+        this.setState({
+            series: this.props.percentage,
+            options: b
+        })
+
+    }
+}
 
   render() {
     return (

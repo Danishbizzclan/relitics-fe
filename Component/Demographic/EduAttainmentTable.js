@@ -41,50 +41,6 @@ class EduAttainmentTable extends React.Component {
                 dataIndex: 'percentage',
             },
         ];
-        const data = [
-            {
-                key: '1',
-                name: 'Less Than 9th Grade                ',
-                count: '29,660',
-                percentage: '60.90',
-            },
-            {
-                key: '2',
-                name: '9th to 12th Grade',
-                count: '29,660',
-                percentage: '28.55',
-            },
-            {
-                key: '3',
-                name: 'High School Graduate',
-                count: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '4',
-                name: 'Some College',
-                count: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '5',
-                name: 'Associates Degree',
-                count: '29,660',
-                percentage: '3.43',
-            },
-            {
-                key: '6',
-                name: 'Bachelors Degree',
-                count: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '7',
-                name: 'Graduate Degree',
-                count: '29,660',
-                percentage: '3.47',
-            }
-        ];
         return (
             <>
                 {this.state.loading ? (
@@ -96,7 +52,7 @@ class EduAttainmentTable extends React.Component {
                             <Table columns={columns}
                                 size="middle"
                                 pagination='false'
-                                dataSource={data} />
+                                dataSource={this.props.eduTableData} />
                         </div>
                     </>
                 )}

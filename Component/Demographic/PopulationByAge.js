@@ -1,30 +1,31 @@
 import React from 'react';
 import PopulationByAgeGraph from './PopulationByAgeGraph';
 
-export default function PopulationByAge() {
+export default function PopulationByAge(props) {
+    console.log('Props f',props)
     return (
         <div className='card p-0 my-4'>
             <div className='w-50 p-5'>
                 <p className='fs-30 mb-0 Gothic_3D'>Population By Age</p>
             </div>
-            <PopulationByAgeGraph />
+            {props.male.length>0&&<PopulationByAgeGraph male={props.male} feMale={props.feMale} age={props.age}  lowest={props.lowest} highest={props.highest}/>}
             <div className='bluebtn brdr-btm m-1'>
                 <div className='container row g-5 my-4'>
                     <div className='col-sm-12 col-md-6 col-lg-4'>
                         <p className='fs-30 Gothic_3D'>Median Age</p>
                         <div className='d-flex justify-content-between text-center'>
                             <div className=''>
-                                <img src='./people.svg' />
+                                <img src={'/people.svg'} />
                                 <p className='fs-18'>Total</p>
-                                <p className='fs-29'>34.2</p>
+                                <p className='fs-29'>{props.totalMedian}</p>
                             </div>
                             <div className=''>
-                                <img src='./people.svg' />
+                                <img src={'/people.svg'} />
                                 <p className='fs-18'>Male</p>
                                 <p className='fs-29'>33.1</p>
                             </div>
                             <div className=''>
-                                <img src='./people.svg' />
+                                <img src={'/people.svg'} />
                                 <p className='fs-18'>Female</p>
                                 <p className='fs-29'>35.2</p>
                             </div>

@@ -4,8 +4,8 @@ import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 class PopulationGraph extends Component {
     constructor(props) {
-        console.log(props)
         super(props);
+
 
         this.state = {
 
@@ -69,7 +69,9 @@ class PopulationGraph extends Component {
         };
     }
     componentDidUpdate(prevProps) {
-        if (this.props.population !== prevProps.population || this.props.populationDate !== prevProps.populationDate) {
+        console.log("popsss", this.props)
+
+        if (this.props.population !== prevProps.population) {
 
             var b = {
                 ...this.state.options,

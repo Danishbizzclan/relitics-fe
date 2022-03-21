@@ -13,31 +13,31 @@ export default function EconomicGraphs(props) {
 
     const eventId = router.query.id
     useEffect(() => {
-        unEmployment()
+        // unEmployment()
     }, [props.region])
 
 
 
-   const unEmployment = () => {
-        const response = GraphData.unEmployment(props.region);
-        // console.log(response)
-        response.then(value => {
-            console.log(value)
-            if (value) {
-                // console.log(value.data.Data)
-                let data1 = []
-                let data2 = []
-                for (const key in value.data.Data) {
-                    data1.push(key)
-                    data2.push(value.data.Data[key]);
-                }
+//    const unEmployment = () => {
+//         const response = GraphData.unEmployment(props.region);
+//         // console.log(response)
+//         response.then(value => {
+//             console.log(value)
+//             if (value) {
+//                 // console.log(value.data.Data)
+//                 let data1 = []
+//                 let data2 = []
+//                 for (const key in value.data.Data) {
+//                     data1.push(key)
+//                     data2.push(value.data.Data[key]);
+//                 }
 
-                // setInventryDate(data1)
-                // setInventry(data2)
+//                 // setInventryDate(data1)
+//                 // setInventry(data2)
 
-            }
-        })
-    }
+//             }
+//         })
+//     }
     return (
         <>
             <div className='card p-3 bg_light'>

@@ -3,21 +3,23 @@ import EduAttainmentGraph from './EduAttainmentGraph'
 import EduAttainmentPieGraph from './EduAttainmentPieGraph'
 import EduAttainmentTable from './EduAttainmentTable'
 
-export default function EduAttainment() {
+export default function EduAttainment(props) {
+    {console.log(props)}
     return (
         <div className='card my-4'>
             <p className='fs-30 mb-0 Gothic_3D'>Educational Attainment by Sex (over 25)</p>
             <div>
-                <EduAttainmentGraph />
+                <EduAttainmentGraph male={props.male} feMale={props.feMale} grade={props.grade}/>
             </div>
             <div className='row container gx-3 my-5'>
                 <div className='col-sm-12 col-lg-7 my-auto'>
                     <div className='paginetion_none Income_table'>
-                        <EduAttainmentTable />
+                        <EduAttainmentTable grade={props.grade} eduTableData={props.eduTableData} percentage={props.percentage}/>
                     </div>
                 </div>
                 <div className='col-sm-12 col-lg-5 my-auto'>
-                    <EduAttainmentPieGraph />
+                    {console.log('percentage>>>>', props.percentage)}
+                    <EduAttainmentPieGraph percentage={props.percentage} grade={props.grade} />
                 </div>
             </div>
         </div>

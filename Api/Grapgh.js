@@ -204,6 +204,38 @@ class GraphData {
     };
     return res();
   };
+  populationAge = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/population_by_age",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  Renter = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/renterVsOwner",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+ 
+ 
     Return() {
       return this.result;
     }

@@ -10,16 +10,12 @@ class PopulationByAgeGraph extends Component {
 
             series: [{
                 name: 'Males',
-                data: [5, 4, 4.1, 0.88, 1.5, 2.1, 3, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5,
-                    3.9, 3.5, 3,
-                ],
+                data: this.props.male,
                 color: '#1F78B4',
             },
             {
                 name: 'Females',
-                data: [-5, -4, -4.1, -2.2, -2.85, -1.18, -1.4, -3.7, -3.96, -4.22, -4.3, -4.4, -4.3, -4.4, -4.3, -4.4,
-                -4.1, -4, -4.1
-                ],
+                data: this.props.feMale,
                 color: '#2F97D3'
             }
             ],
@@ -44,7 +40,9 @@ class PopulationByAgeGraph extends Component {
                 },
                 plotOptions: {
                     bar: {
-                        columnWidth: '100%',
+                        horizontal: true,
+                        barHeight: '80%',
+                        // columnWidth: '100%',
                     }
                 },
                 dataLabels: {
@@ -59,8 +57,8 @@ class PopulationByAgeGraph extends Component {
                     show: false,
                 },
                 yaxis: {
-                    min: -5,
-                    max: 5,
+                    min: this.props.lowest,
+                    max: this.props.highest,
                     title: {
                         text: 'Growth',
                     },
@@ -73,23 +71,64 @@ class PopulationByAgeGraph extends Component {
                     }
                 },
                 xaxis: {
-                    type: 'datetime',
-                    categories: [
-                        '2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01', '2011-05-01', '2011-06-01',
-                        '2011-07-01', '2011-08-01', '2011-09-01', '2011-10-01', '2011-11-01', '2011-12-01',
-                        '2012-01-01', '2012-02-01', '2012-03-01', '2012-04-01', '2012-05-01', '2012-06-01'
-                    ],
+                    categories: this.props.age,
                     labels: {
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
                     }
+                },
+                tooltip: {
+                  shared: false,
+                  x: {
+                    formatter: function (val) {
+                      return val
+                    }
+                  },
+                  y: {
+                    formatter: function (val) {
+                      return Math.abs(val)
+                    }
+                  }
+                },
+                labels: {
+                  formatter: function (val) {
+                    return Math.abs(Math.round(val)) + "%"
+                  }
                 }
             },
 
 
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.male !== prevProps.male || this.props.feMale !== prevProps.feMale) {
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.age
+                }
+            }
+            var c = [{
+                name: "Series 1",
+                data: this.props.male,
+                color: '#0F74AF'
+            },{
+                name: "Series 1",
+                data: this.props.feMale,
+                color: '#0F74AF'
+            }
+            
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
 
 

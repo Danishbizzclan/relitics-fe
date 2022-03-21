@@ -41,38 +41,6 @@ class HouseholdTypesTable extends React.Component {
                 dataIndex: 'renter',
             },
         ];
-        const data = [
-            {
-                key: '1',
-                type: 'All',
-                owner: '60.90 %',
-                renter: '60.90%',
-            },
-            {
-                key: '2',
-                type: 'Female',
-                owner: '28.55%',
-                renter: '28.55%',
-            },
-            {
-                key: '3',
-                type: 'Male',
-                owner: '3.47%',
-                renter: '3.47%',
-            },
-            {
-                key: '4',
-                type: 'Married',
-                owner: '3.44%',
-                renter: '3.43%',
-            },
-            {
-                key: '5',
-                type: 'Non Family',
-                owner: '3.44%',
-                renter: '3.43%',
-            },
-        ];
         return (
             <>
                 {this.state.loading ? (
@@ -84,7 +52,7 @@ class HouseholdTypesTable extends React.Component {
                             <Table columns={columns}
                                 size="middle"
                                 pagination='false'
-                                dataSource={data} />
+                                dataSource={this.props.table} />
                         </div>
                     </>
                 )}

@@ -2,7 +2,7 @@ import React from 'react';
 import PopulationGraph from './PopulationGraph';
 
 export default function Population(props) {
-    console.log(props)
+    console.log("population", props)
     return (
         <div className='card my-4'>
             <div className='w-50'>
