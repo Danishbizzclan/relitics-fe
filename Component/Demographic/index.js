@@ -296,7 +296,7 @@ export default function Demographic() {
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Region Nameeeee</label>
+                        <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
                             {regionName.map((state) => {
@@ -319,7 +319,7 @@ export default function Demographic() {
                 <Population population={population} populationDate={populationDate} />
             </div>
             <div className='card p-3 my-4 bg_light'>
-        <PopulationByAge totalMedian={totalMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} maleMedian={maleMedian} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} maleMedian={maleMedian} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />

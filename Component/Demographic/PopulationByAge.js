@@ -2,7 +2,6 @@ import React from 'react';
 import PopulationByAgeGraph from './PopulationByAgeGraph';
 
 export default function PopulationByAge(props) {
-    console.log('Props f',props)
     return (
         <div className='card p-0 my-4'>
             <div className='w-50 p-5'>
@@ -22,12 +21,12 @@ export default function PopulationByAge(props) {
                             <div className=''>
                                 <img src={'/people.svg'} />
                                 <p className='fs-18'>Male</p>
-                                <p className='fs-29'>33.1</p>
+                                <p className='fs-29'>{props.maleMedian}</p>
                             </div>
                             <div className=''>
                                 <img src={'/people.svg'} />
                                 <p className='fs-18'>Female</p>
-                                <p className='fs-29'>35.2</p>
+                                <p className='fs-29'>{props.femaleMedian}</p>
                             </div>
                         </div>
                     </div>
@@ -36,15 +35,15 @@ export default function PopulationByAge(props) {
                         <div className='d-flex flex-column'>
                             <span className='d-inline-flex'>
                                 <p className='fs-15 my-auto'>Age Dependency Ratio</p>
-                                <p className='fs-30 my-auto ms-auto'>58</p>
+                                <p className='fs-30 my-auto ms-auto'>{props.AgeDepend}</p>
                             </span>
                             <span className='d-inline-flex'>
                                 <p className='fs-15 my-auto'>Old Age Dependency Ratio</p>
-                                <p className='fs-30 my-auto ms-auto'>58</p>
+                                <p className='fs-30 my-auto ms-auto'>{props.OldAgeDepend}</p>
                             </span>
                             <span className='d-inline-flex'>
                                 <p className='fs-15 my-auto'>Child Dependency Ratio</p>
-                                <p className='fs-30 my-auto ms-auto'>58</p>
+                                <p className='fs-30 my-auto ms-auto'>{props.ChildAgeDepend}</p>
                             </span>
                         </div>
                     </div>
