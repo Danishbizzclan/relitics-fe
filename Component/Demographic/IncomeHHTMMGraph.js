@@ -10,12 +10,12 @@ class IncomeHHTMMGraph extends Component {
             series: [
                 {
                     name: "Mean",
-                    data: [2, 40, 9, 45],
+                    data: this.props.mean,
                     color: '#5EB5E8',
                 },
                 {
                     name: "Median",
-                    data: [2, 23, 19, 45],
+                    data: this.props.median,
                     color: '#0B486C',
                 }
             ],
@@ -70,7 +70,7 @@ class IncomeHHTMMGraph extends Component {
                 },
                 xaxis: {
                     show: true,
-                    categories: ["Married", "All", "Male", "Family", "Non Family"],
+                    categories: this.props.name,
                     labels: {
                         style: {
                             colors: ['#555555'],
@@ -81,6 +81,36 @@ class IncomeHHTMMGraph extends Component {
                 },
             },
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.mean !== prevProps.mean || this.props.median !== prevProps.median) {
+            {console.log('dcd', this.props)}
+
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.name
+                }
+            }
+            var c = [{
+                name: "Mean",
+                data: this.props.mean,
+                color: '#0F74AF'
+            },
+            {
+                name: "Median",
+                data: this.props.median,
+                color: '#0F74AF'
+            }
+            
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
     render() {
         return (

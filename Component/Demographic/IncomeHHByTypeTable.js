@@ -92,7 +92,7 @@ class IncomeHHByTypeTable extends React.Component {
                             <Table columns={columns}
                                 size="middle"
                                 pagination='false'
-                                dataSource={data} />
+                                dataSource={this.props.table} />
                         </div>
                     </>
                 )}

@@ -8,9 +8,9 @@ class IncomeHHByTypeGraph extends Component {
     super(props);
 
     this.state = {
-      series: [13, 17, 23, 23, 4, 9, 11],
+      series: this.props.AvgHouseHold,
       options: {
-        labels: ['Married', 'Male', 'Female', 'Non family'],
+        labels: this.props.label,
         colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
         chart: {
           width: 380,
@@ -92,6 +92,21 @@ class IncomeHHByTypeGraph extends Component {
 
     };
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.AvgHouseHold !== prevProps.AvgHouseHold ) {
+      console.log("typeee", this.props);
+        console.log("graph", this.props)
+        var b = {
+            ...this.state.options,
+            label: this.props.label
+        }
+        this.setState({
+            series: this.props.AvgHouseHold,
+            options: b
+        })
+
+    }
+}
 
   render() {
     return (

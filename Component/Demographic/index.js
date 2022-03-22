@@ -43,6 +43,31 @@ export default function Demographic() {
     const [MaleRatioVal, setMaleRatioVal]=useState([])
     const [tltAdlt, settltAdlt]=useState([])
     const [Senior, setSenior]=useState([])
+    const [houseHolds, setHouseHolds]=useState([])
+    const [Married, setMarried]=useState([])
+    const [nonFamlies, setNonFamlies]=useState([])
+    const [marriedFamilies, setMarriedFamilies]=useState([])
+    const [income, setIncome]=useState([])
+    const [Table, setTable]=useState([])
+    const [AvgHouseHold, setAvgHouseHold]=useState([])
+    const [label, setLabel]=useState([])
+    const [mean, setMean]=useState([])
+    const [median, setMedian]=useState([])
+    const [medianTable, setMedianTable]=useState([])
+    const [name, setName]=useState([])
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 
@@ -75,6 +100,8 @@ export default function Demographic() {
         education(e.target.value)
         populationAge(e.target.value)
         RenterTable(e.target.value)
+        HouseIncome(e.target.value)
+        HouseType(e.target.value)
 
     }
     const router = useRouter();
@@ -149,13 +176,13 @@ export default function Demographic() {
                 }
                 for (const key in value.data.Data[2]) {
                     if (key !== 'Region') {
-                        male.push(value.data.Data[2][key])
+                        male.push(value.data.Data[2][key].replace(',', "").replace(',', ""))
                     }
 
                 }
                 for (const key in value.data.Data[3]) {
                     if (key !== 'Region') {
-                        feMale.push(value.data.Data[3][key])
+                        feMale.push(value.data.Data[3][key].replace(',', "").replace(',', ""))
                     }
 
                 }
@@ -282,7 +309,138 @@ export default function Demographic() {
         }
         )
     }
+    const HouseIncome = (region) => {
+        const response = GraphData.incomeHouse(region);
+        response.then(value => {
+          if(value){
+            let houseHolde = []
+            let famlies = []
+            let Married = []
+            let NonFamlies = []
+            let income = []
+           let OwnTables= []
+           let mean= []
+           let median= []
+           let name= []
 
+
+
+
+            const newArray = value.data.Data.filter((item => {
+                return item
+            }))
+            for (let array in newArray) {
+                const tableData =
+                {
+                    key: Math.random(),
+                    mean: newArray[array].Mean,
+                    median: newArray[array].Median,
+                    name: newArray[array].Region,
+                    
+                }
+                
+                mean.push(newArray[array].Mean)
+                median.push(newArray[array].Median)
+                OwnTables.push(tableData)
+                name.push(newArray[array].Region)
+            
+
+            }
+            setMean(mean)
+            setMedian(median)
+            setMedianTable(OwnTables)
+            setName(name)
+            
+
+           
+
+            for (const key in value.data.Data[0]) {
+                if (key !== 'Region' && key !=='Total' && key !=="Mean income" && key !=='Median income') {
+                    income.push(key)
+                }
+
+            }
+            for (const key in value.data.Data[0]) {
+                if (key !== 'Region' && key !=='Total' && key !=="Mean income" && key !=='Median income')  {
+                    houseHolde.push(value.data.Data[0][key].replace(',', '').replace(',', ''))
+                }
+
+            }
+            for (const key in value.data.Data[1]) {
+                if (key !== 'Region' && key !=='Total' && key !=="Mean income" && key !=='Median income') {
+                    famlies.push(value.data.Data[1][key].replace(',', '').replace(',', ''))
+                }
+
+            }   for (const key in value.data.Data[2]) {
+                if (key !== 'Region' && key !=='Total' && key !=="Mean income" && key !=='Median income') {
+                    Married.push(value.data.Data[2][key].replace(',', '').replace(',', ''))
+                }
+
+            }
+            for (const key in value.data.Data[3]) {
+                if (key !== 'Region' && key !=='Total' && key !=="Mean income" && key !=='Median income') {
+                    NonFamlies.push(value.data.Data[3][key].replace(',', '').replace(',', ''))
+                }
+
+            }
+            setHouseHolds(houseHolde)
+            setIncome(income)
+            setMarried(Married)
+            setMarriedFamilies(famlies)
+            setNonFamlies(NonFamlies)
+            
+
+          }
+
+
+
+
+        }
+        )
+    }
+    const HouseType = (region) => {
+        const response = GraphData.HouseType(region);
+        response.then(value => {
+            if(value){
+                let OwnTables = []
+                let AvgHouseHold = []
+                let label = []
+
+
+
+                const newArray = value.data.Data.filter((item => {
+                    return item
+                }))
+                for (let array in newArray) {
+                    const tableData =
+                    {
+                        key: Math.random(),
+                        type: newArray[array].Region,
+                        count: newArray[array].TotalHouseholds,
+                        avgSize: newArray[array].AverageHouseholdSize,
+                        owned: newArray[array].Owned,
+    
+                        
+                    }
+                    OwnTables.push(tableData)
+                    AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
+                    label.push(newArray[array].Region)
+                   
+                
+    
+                }
+                setTable(OwnTables)
+                setLabel(label)
+                setAvgHouseHold(AvgHouseHold)
+            }
+         
+
+
+
+
+        }
+        )
+    }
     return (
         <div>
             <div className='row'>
@@ -319,16 +477,16 @@ export default function Demographic() {
                 <Population population={population} populationDate={populationDate} />
             </div>
             <div className='card p-3 my-4 bg_light'>
-        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} maleMedian={maleMedian} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
             </div>
             <div className='card p-3 my-4 bg_light'>
-                <IncomeHHT />
+                <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable}/>
             </div>
             <div className='card p-3 my-4 bg_light'>
-                <IncomeHHByType />
+                <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label}/>
             </div>
             <div className='card p-3 my-4 bg_light'>
                 <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />

@@ -84,8 +84,8 @@ class EduAttainmentGraph extends Component {
         };
     }
     componentDidUpdate(prevProps) {
-        if (this.props.male !== prevProps.male || this.props.feMale !== prevProps.feMale || this.props.grade !== prevProps.grade) {
-
+        if (this.props.male !== prevProps.male || this.props.feMale !== prevProps.feMale) {
+console.log("eduva", this.props)
             var b = {
                 ...this.state.options,
                 xaxis: {

@@ -234,6 +234,36 @@ class GraphData {
     };
     return res();
   };
+  incomeHouse = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/income_by_household_type",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  HouseType = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/household_by_type",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
  
  
     Return() {

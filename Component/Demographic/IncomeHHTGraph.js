@@ -12,22 +12,22 @@ class IncomeHHTGraph extends Component {
             series: [{
                 name: 'Households',
                 color: '#1F78B4',
-                data: [44, 55, 41, 64, 22, 43, 21, 64, 22, 43, 21]
+                data: this.props.houseHolds
             },
             {
                 name: 'Families',
                 color: '#3594CB',
-                data: [0, 32, 64, 22, 43, 21, 33, 52, 13, 44, 32]
+                data: this.props.Married
             },
             {
                 name: 'MarriedFamilies',
                 color: '#5EB5E8',
-                data: [44, 55, 41, 64, 22, 43, 21, 64, 22, 43, 21]
+                data: this.props.marriedFamilies
             },
             {
                 name: 'NonFamilies',
                 color: '#0B486C',
-                data: [53, 64, 22, 43, 21, 32, 33, 52, 13, 44, 32]
+                data: this.props.nonFamlies
             }],
             options: {
                 chart: {
@@ -77,22 +77,62 @@ class IncomeHHTGraph extends Component {
                             fontSize: '10px',
                         },
                     },
-                    categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007],
+                    categories: this.props.income,
                 },
                 yaxis: {
                     show:'true',
                     labels: {
                         rotate: 330,
                         style: {
-                            colors: ['#555555'],
+                            colors: ['#555'],
                             fontSize: '10px',
                         },
                     },
-                    categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007],
+                    categories: this.props.income,
                 },
             },
 
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.houseHolds !== prevProps.houseHolds || this.props.Married !== prevProps.Married || this.props.marriedFamilies !== prevProps.marriedFamilies || this.props.nonFamlies !== prevProps.nonFamlies) {
+            console.log("graphh", this.props)
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.income
+                },
+                yaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.income
+                }
+            }
+            var c = [{
+                name: "House Holds",
+                data: this.props.houseHolds,
+                color: '#0F74AF'
+            },{
+                name: "Married",
+                data: this.props.Married,
+                color: '#5EB5E8'
+            },{
+                name: "Non Famlies",
+                data: this.props.nonFamlies,
+                color: '#5EB5E8'
+            },{
+                name: "Married Famlies",
+                data: this.props.marriedFamilies,
+                color: '#5EB5E8'
+            }
+            
+            ]
+            this.setState({
+                series: c,
+                options: b
+            })
+
+        }
     }
 
     render() {
