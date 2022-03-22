@@ -101,7 +101,7 @@ class IncomeHHTMMGraph extends Component {
             {
                 name: "Median",
                 data: this.props.median,
-                color: '#0F74AF'
+                color: '#0B486C'
             }
             
             ]

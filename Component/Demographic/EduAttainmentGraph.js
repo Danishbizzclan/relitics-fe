@@ -42,7 +42,7 @@ class EduAttainmentGraph extends Component {
                     showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize: '16',
+                    fontSize: '20',
                     offsetY: 10,
                 },
                 dataLabels: {

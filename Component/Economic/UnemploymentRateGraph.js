@@ -78,7 +78,7 @@ class UnemploymentRateGraph extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "umEmployement",
                 data: this.props.unEmploymentData,
                 color: '#0F74AF'
             }

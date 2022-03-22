@@ -71,7 +71,7 @@ class EmploymentSectorsGraph extends Component {
         };
     }
     componentDidUpdate(prevProps) {
-        if (this.props.sector !== prevProps.sector || this.props.sectorDate !== prevProps.sectorDate) {
+        if (this.props.sector !== prevProps.sector) {
 
             var b = {
                 ...this.state.options,
@@ -81,7 +81,7 @@ class EmploymentSectorsGraph extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "Number of Jobs",
                 data: this.props.sector,
                 color: '#0F74AF'
             }

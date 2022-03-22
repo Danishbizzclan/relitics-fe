@@ -102,7 +102,7 @@ export default function Demographic() {
         RenterTable(e.target.value)
         HouseIncome(e.target.value)
         HouseType(e.target.value)
-        populationRace(e.target.value)
+        // populationRace(e.target.value)
 
     }
     const router = useRouter();
@@ -443,53 +443,53 @@ export default function Demographic() {
         )
     }
 
-    const populationRace = (region) => {
-        const response = GraphData.populationRace(region);
-        response.then(value => {
-            if(value){
-                let OwnTables = []
-                let AvgHouseHold = []
-                let label = []
+    // const populationRace = (region) => {
+    //     const response = GraphData.populationRace(region);
+    //     response.then(value => {
+    //         if(value){
+    //             let OwnTables = []
+    //             let AvgHouseHold = []
+    //             let label = []
 
 
 
-                const newArray = value.data.Data.filter((item => {
-                    return item
-                }))
-                for (let array in newArray) {
-                    const tableData =
-                    {
-                        key: Math.random(),
-                        race: newArray[array].Region,
-                        percentage: newArray[array].TotalHouseholds,
-                        population: newArray[array].AverageHouseholdSize,
+    //             const newArray = value.data.Data.map((item => {
+    //                 return item
+    //             }))
+    //             for (let array in newArray) {
+    //                 const tableData =
+    //                 {
+    //                     key: Math.random(),
+    //                     race: newArray[array].Region,
+    //                     percentage: newArray[array].TotalHouseholds,
+    //                     population: newArray[array].AverageHouseholdSize,
     
                         
-                    }
-                    OwnTables.push(tableData)
-                    AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
-                    label.push(newArray[array].Region)
+    //                 }
+    //                 OwnTables.push(tableData)
+    //                 AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
+    //                 label.push(newArray[array].Region)
                    
                 
     
-                }
-                setTable(OwnTables)
-                setLabel(label)
-                setAvgHouseHold(AvgHouseHold)
-            }
+    //             }
+    //             setTable(OwnTables)
+    //             setLabel(label)
+    //             setAvgHouseHold(AvgHouseHold)
+    //         }
          
 
 
 
 
-        }
-        )
-    }
+    //     }
+    //     )
+    // }
     return (
         <div>
             <div className='row'>
                 <div className='col-lg-3 col-12'>
-                    <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
+                    <p className='fs-40 Gothic_3D my-3'>{region}</p>
                 </div>
                 <div className='col-lg-9 col-12 mt-auto'>
                     <p className='fs-17 ms-2'>REI Litics uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.</p>

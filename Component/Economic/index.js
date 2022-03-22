@@ -69,11 +69,12 @@ export default function Economic() {
                 let data2 = []
                 for (const key in value.data.Data) {
                     data1.push(key)
-                    data2.push(value.data.Data[key]);
+                    data2.push(value.data.Data[key].replace(",", "").replace(",", ""));
                 }
 
                 setSectorDate(data1)
                 setSector(data2)
+                console.log('sector', sector)
 
             }
         })
@@ -81,7 +82,7 @@ export default function Economic() {
 
     return (
         <div>
-            <p className='fs-40 Gothic_3D my-3'>United States</p>
+            <p className='fs-40 Gothic_3D my-3'>{region}</p>
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>

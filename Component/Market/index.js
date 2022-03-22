@@ -12,6 +12,8 @@ export default function Market(props) {
     const [rental, setRental] = useState([])
     const [Apprecation, setApprecation] = useState([])
     const [region, setRegion] = useState([])
+    const [regions, setRegions] = useState([])
+
 
     // const router = useRouter();
     // const eventId = router.query.id
@@ -64,6 +66,12 @@ export default function Market(props) {
 
         })
     }
+    function handleChange(e) {
+        setRegions(e.target.value)
+       
+
+
+    }
 
     return (
         <div>
@@ -73,7 +81,7 @@ export default function Market(props) {
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-8'>
                         <label className='bluetxt fs-13'>Region Name</label>
-                        <select className="form-control form-select w-100 form-control-sm" >
+                        <select className="form-control form-select w-100 form-control-sm" onChange={handleChange}>
                             {region.map((reg) => {
                                 return(
                                     <>
