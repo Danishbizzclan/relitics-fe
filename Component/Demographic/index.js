@@ -102,6 +102,7 @@ export default function Demographic() {
         RenterTable(e.target.value)
         HouseIncome(e.target.value)
         HouseType(e.target.value)
+        populationRace(e.target.value)
 
     }
     const router = useRouter();
@@ -441,6 +442,49 @@ export default function Demographic() {
         }
         )
     }
+
+    const populationRace = (region) => {
+        const response = GraphData.populationRace(region);
+        response.then(value => {
+            if(value){
+                let OwnTables = []
+                let AvgHouseHold = []
+                let label = []
+
+
+
+                const newArray = value.data.Data.filter((item => {
+                    return item
+                }))
+                for (let array in newArray) {
+                    const tableData =
+                    {
+                        key: Math.random(),
+                        race: newArray[array].Region,
+                        percentage: newArray[array].TotalHouseholds,
+                        population: newArray[array].AverageHouseholdSize,
+    
+                        
+                    }
+                    OwnTables.push(tableData)
+                    AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
+                    label.push(newArray[array].Region)
+                   
+                
+    
+                }
+                setTable(OwnTables)
+                setLabel(label)
+                setAvgHouseHold(AvgHouseHold)
+            }
+         
+
+
+
+
+        }
+        )
+    }
     return (
         <div>
             <div className='row'>
@@ -468,9 +512,9 @@ export default function Demographic() {
                 </div>
                 <div className='ms-auto my-auto'>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Print <img src='./print.svg' className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src='./Download_Icon1.svg' className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1'>Print <img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src={'/Download_Icon1.svg'} className='ms-2 my-auto' /></button>
                 </div>
             </div>
             <div className='card p-3 bg_light'>

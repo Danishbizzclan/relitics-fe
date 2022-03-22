@@ -264,6 +264,21 @@ class GraphData {
     };
     return res();
   };
+  populationRace = (region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/demographic/population_by_race",{
+        Region: region        
+
+        })
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
  
  
     Return() {

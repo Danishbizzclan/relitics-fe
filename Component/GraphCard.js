@@ -26,7 +26,7 @@ export default function GraphComponent(props) {
                 </div>
                 <div className='d-block w-25'>
                     <div className='d-inline-flex w-50'>
-                        <label className='fs-14 w-25 my-auto'>Year</label>
+                        <label className='fs-14 w-25 my-auto me-3'>Year</label>
                         <select className="form-control form-select form-control-sm" name="year" onChange={handleChange} value={year}>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
