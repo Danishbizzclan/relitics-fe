@@ -74,7 +74,16 @@ const BlogDetail = () => {
                   <img className='m-2 hover' src={"/gmail.png"} />
                   <img className='m-2 hover' src={"/copylink_.png"} />
                 </div> */}
+                  <div className='text-center mb-3'>
+                  <img className='m-2 hover' src={"/facebook-rect.svg"} />
+                  <img className='m-2 hover' src={"/linkedin-square.svg"} />
+                  <img className='m-2 hover' src={"/twitter-square.svg"} />
+                  <img className='m-2 hover' src={"/pinterest-square.svg"} />
+                  <img className='m-2 hover' src={"/gmail.svg"} />
+                  <img className='m-2 hover' src={"/copylink_.png"} />
+                </div>
               </div>
+              
             </div>
             <div className='col-md-4 mt-5 ps-5'>
               <div className='blog-left px-3'>

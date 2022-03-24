@@ -79,9 +79,8 @@ const Dashboard = () => {
                                   <MaterialDesignSwitch className='mt-3' /></div>
                               </div>
                               <div className="col-lg-8 p-0 text-end">
-                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Deactivate</button>
-                                <button className="btn mx-2 my-2 fs-14 opac px-4 btnYelow">Downground</button>
-                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Renew</button>
+                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Up Grade</button>
+                               
                               </div>
                             </div>
                           </div>

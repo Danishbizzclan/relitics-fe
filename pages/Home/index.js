@@ -2,6 +2,8 @@ import React from 'react'
 import classes from "./Home.module.css"
 import FeatureCard from '../../Component/FeatureCard'
 import PriceCard from '../../Component/PriceCard'
+import ReactPlayer from 'react-player'
+
 
 const HomePage = () => {
     return (
@@ -30,8 +32,14 @@ const HomePage = () => {
                         <p className='fs-17 pb-4'>Our mission is simple - To create the most versatile market research platform available for real estate investors.  </p>
                     </div>
                     <div className="col-sm-6 my-5">
-                        <iframe className="embed-responsive-item h-100 w-100" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                        <ReactPlayer
+                            className='react-player '
+                            url='Videos/relitics.mp4'
+                            width='100%'
+                            height='100%'
+                            controls={true}
 
+                        />
                     </div>
                 </div>
 
