@@ -98,10 +98,10 @@ class IncomeHHByTypeGraph extends Component {
         console.log("graph", this.props)
         var b = {
             ...this.state.options,
-            label: this.props.label
+            label: this.props.AvgHouseHold 
         }
         this.setState({
-            series: this.props.AvgHouseHold,
+            series: this.props.label,
             options: b
         })
 

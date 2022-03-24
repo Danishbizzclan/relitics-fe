@@ -84,11 +84,11 @@ class HouseholdTypesGraph extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "Owner",
                 data: this.props.owner,
                 color: '#0F74AF'
             },{
-                name: "Series 1",
+                name: "Renter",
                 data: this.props.renter,
                 color: '#5EB5E8'
             }

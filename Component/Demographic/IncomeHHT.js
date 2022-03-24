@@ -12,7 +12,7 @@ export default function IncomeHHT(props) {
             <IncomeHHTGraph houseHolds={props.houseHolds} Married={props.Married} nonFamlies={props.nonFamlies} marriedFamilies={props.marriedFamilies} income={props.income}/>
             <div className='row container p-5 my-5'>
                 <div className='col-sm-12 col-lg-5 my-auto'>
-                    <div className='paginetion_none Income_table'>
+                    <div className='paginetion_none Income_table overflow-auto'>
                         <IncomeHHTTable table={props.table}/>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ export default function EduAttainment(props) {
             </div>
             <div className='row container gx-3 my-5'>
                 <div className='col-sm-12 col-lg-7 my-auto'>
-                    <div className='paginetion_none Income_table'>
+                    <div className='paginetion_none Income_table overflow-auto'>
                         <EduAttainmentTable grade={props.grade} eduTableData={props.eduTableData} percentage={props.percentage}/>
                     </div>
                 </div>

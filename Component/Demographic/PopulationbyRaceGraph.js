@@ -13,7 +13,7 @@ class PopulationbyRaceGraph extends Component {
                 labels: ['White', 'Black or African American', 'Some Other Race', 'Asian', 'Two or more races', 'American Indian and Alaska Native', 'Native Hawaiian and Other Pacific Islander'],
                 colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
                 chart: {
-                    width: 400,
+                    width: 380,
                     type: 'donut',
                 },
                 legend: {
