@@ -95,7 +95,7 @@ class PopulationbyRaceTable extends React.Component {
                             <Table columns={columns}
                                 size="middle"
                                 pagination='false'
-                                dataSource={data} />
+                                dataSource={this.props.table} />
                         </div>
                     </>
                 )}

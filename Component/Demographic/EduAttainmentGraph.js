@@ -65,7 +65,7 @@ class EduAttainmentGraph extends Component {
                         rotate: 330,
                         style: {
                             colors: ['#555555'],
-                            fontSize: '10px',
+                            fontSize: '13px',
                         },
                     }
                 },
@@ -75,7 +75,7 @@ class EduAttainmentGraph extends Component {
                     labels: {
                         style: {
                             colors: ['#555555'],
-                            fontSize: '10px',
+                            fontSize: '13px',
                         },
                         rotate: 330,
                     }

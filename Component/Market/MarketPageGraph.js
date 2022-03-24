@@ -114,9 +114,9 @@ export default function MedianGraph(props) {
 
                 let data3 = []
                 let data4 = []
-                for (const key in value.data.Data.listing) {
+                for (const key in value.data.Data.sales) {
                     data3.push(key)
-                    data4.push(value.data.Data.listing[key]);
+                    data4.push(value.data.Data.sales[key]);
                 }
                 setSalesDate(data3)
                 setSales(data4)

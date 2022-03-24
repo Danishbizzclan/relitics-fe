@@ -76,12 +76,12 @@ export default function Market(props) {
     return (
         <div>
 
-            <p className='fs-40 Gothic_3D my-3'>New york City, NY</p>
+            {/* <p className='fs-40 Gothic_3D my-3'>{regions}</p> */}
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-8'>
                         <label className='bluetxt fs-13'>Region Name</label>
-                        <select className="form-control form-select w-100 form-control-sm" onChange={handleChange}>
+                        <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={regions}>
                             {region.map((reg) => {
                                 return(
                                     <>

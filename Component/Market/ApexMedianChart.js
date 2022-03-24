@@ -10,12 +10,12 @@ class ApexMedianChart extends Component {
 
             series: [
                 {
-                    name: 'Rental Growth',
+                    name: 'List Price',
                     data: this.props.list,
                     color: '#E027A0'
                 },
                 {
-                    name: 'Market Appreciation',
+                    name: 'Sales Price',
                     data: this.props.sales,
                     color: '#0F74AF'
                 }],
@@ -61,8 +61,8 @@ class ApexMedianChart extends Component {
         };
     }
     componentDidUpdate(prevProps) {
-        if (this.props.list !== prevProps.list || this.props.listDate !== prevProps.listDate) {
-
+        if (this.props.list !== prevProps.list || this.props.sales !== prevProps.sales) {
+            console.log("poi", this.props)
             var b = {
                 ...this.state.options,
                 xaxis: {
@@ -71,8 +71,12 @@ class ApexMedianChart extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "List Price",
                 data: this.props.list,
+                color: '#E027A0'
+            },{
+                name: "Sales Price",
+                data: this.props.sales,
                 color: '#0F74AF'
             }
             ]

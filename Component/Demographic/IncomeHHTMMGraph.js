@@ -64,7 +64,7 @@ class IncomeHHTMMGraph extends Component {
                         rotate: 330,
                         style: {
                             colors: ['#555555'],
-                            fontSize: '10px',
+                            fontSize: '14px',
                         },
                     }
                 },

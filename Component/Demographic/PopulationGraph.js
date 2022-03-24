@@ -81,7 +81,7 @@ class PopulationGraph extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "Population",
                 data: this.props.population,
                 color: '#0F74AF'
             }

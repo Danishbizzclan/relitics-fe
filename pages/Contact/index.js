@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from "react";
+import Router from 'next/router'
+
 
 import classes from './ContactUs.module.css'
 import EmailForm from '../../Component/ContactUS/EmailForm';
@@ -12,6 +14,7 @@ const ContactUs = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
+    const {pathname} = Router
     
 
 
@@ -42,7 +45,10 @@ const ContactUs = () => {
             console.log(value)
             if(value.data.success){
             setSuccess("Your Message has been sent successfully!")
+            Router.push('/ContactSuc')
             }
+           
+
         })
             .catch(error => {
                 console.log(error)

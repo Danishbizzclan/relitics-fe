@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import GetData from "../Api/GetData";
+import Link from "next/link"
+
 
 
 const PriceCard = () => {
@@ -37,7 +39,8 @@ const PriceCard = () => {
                                             )
                                         })}
                                     </div>
-                                    <button type="button" className="btn btn_width btnYelow zoom buy-color mb-5 fs-15 mt-5">Buy Now</button>
+                                    <Link href="/SignUp" >
+                                    <button type="button" className="btn btn_width btnYelow zoom buy-color mb-5 fs-15 mt-5">Register Now</button></Link>
                                 </div>
                             </div>
 

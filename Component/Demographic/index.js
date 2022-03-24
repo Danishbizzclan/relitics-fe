@@ -55,6 +55,13 @@ export default function Demographic() {
     const [median, setMedian]=useState([])
     const [medianTable, setMedianTable]=useState([])
     const [name, setName]=useState([])
+    const [raceTable, setRaceTable]=useState([])
+    const [race, setRace]=useState([])
+    const [percent, setPercent]=useState([])
+
+
+
+
 
 
 
@@ -102,7 +109,8 @@ export default function Demographic() {
         RenterTable(e.target.value)
         HouseIncome(e.target.value)
         HouseType(e.target.value)
-        // populationRace(e.target.value)
+
+        populationRace(e.target.value)
 
     }
     const router = useRouter();
@@ -443,48 +451,40 @@ export default function Demographic() {
         )
     }
 
-    // const populationRace = (region) => {
-    //     const response = GraphData.populationRace(region);
-    //     response.then(value => {
-    //         if(value){
-    //             let OwnTables = []
-    //             let AvgHouseHold = []
-    //             let label = []
+    const populationRace = (region) => {
+        const response = GraphData.populationRace(region);
+        response.then(value => {
+            console.log("poppo", value)
+            let raceTable= []
+            let race= []
+            let percent=[]
+            if(value){
 
-
-
-    //             const newArray = value.data.Data.map((item => {
-    //                 return item
-    //             }))
-    //             for (let array in newArray) {
-    //                 const tableData =
-    //                 {
-    //                     key: Math.random(),
-    //                     race: newArray[array].Region,
-    //                     percentage: newArray[array].TotalHouseholds,
-    //                     population: newArray[array].AverageHouseholdSize,
-    
-                        
-    //                 }
-    //                 OwnTables.push(tableData)
-    //                 AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
-    //                 label.push(newArray[array].Region)
-                   
-                
-    
-    //             }
-    //             setTable(OwnTables)
-    //             setLabel(label)
-    //             setAvgHouseHold(AvgHouseHold)
-    //         }
+               
+                for (let key in value.data.Data) {
+                    if(key !== 'Total' && !key.includes('Percentage')){
+                    let obj={
+                        key: Math.random(),
+                        race: key,
+                        population: value.data.Data[key],
+                        percentage: value.data.Data[key+'Percentage'],
+                    }
+                    console.log({obj})
+                    raceTable.push(obj)
+                    race.push(key)
+                    percent.push(value.data.Data[key+'Percentage'])
+                }
+                }
+                setRaceTable(raceTable)
+            }
          
 
 
 
 
-    //     }
-    //     )
-    // }
+        }
+        )
+    }
     return (
         <div>
             <div className='row'>
@@ -536,7 +536,7 @@ export default function Demographic() {
                 <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
             </div>
             <div className='card p-3 my-4 bg_light'>
-                <PopulationbyRace />
+                <PopulationbyRace table={raceTable}/>
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
