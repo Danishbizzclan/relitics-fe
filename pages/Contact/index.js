@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from "react";
+import Router from 'next/router'
 
 
 import classes from './ContactUs.module.css'
@@ -13,7 +14,6 @@ const ContactUs = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
-    const {pathname} = Router
     
 
 
