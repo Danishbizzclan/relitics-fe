@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import Router from 'next/router'
 
 
 import classes from './ContactUs.module.css'
