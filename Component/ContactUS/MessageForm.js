@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import 'react-phone-number-input/style.css';
+import ReCAPTCHA from "react-google-recaptcha";
+
 import Link from "next/link"
 
 
@@ -10,9 +12,9 @@ const MessageForm = (props) => {
     // const [value, setValue] = useState('')
 
 
-    // const onChangeRecaptcha = (value) => {
-    //     console.log("Captcha value:", value);
-    // }
+    const onChangeRecaptcha = (value) => {
+        console.log("Captcha value:", value);
+    }
 
     return (
         <>
@@ -102,14 +104,14 @@ const MessageForm = (props) => {
                         <div className="col-lg-9 col-md-9 col-12">
                             <h6 className="mb-0 fs-14 mt-2">Please check the box below to complete</h6>
                             <div className="ps-0">
-                                {/* <ReCAPTCHA
-                                    sitekey="6LdlkHUdAAAAAMp28lUJMQixeXECX2BU4VkJvUYl"
+                                <ReCAPTCHA
+                                    sitekey="6LcCqw0fAAAAAMNjLqljaXFNAsAwVowqgjcHyL6P"
                                     id="reCaptcha"
                                     style={{ transform: 'scale(0.7)', transformOrigin: 'left' }}
                                     onChange={onChangeRecaptcha}
                                     name="reCaptcha"
                                     value={props.state}
-                                /> */}
+                                />
                             </div>
                         </div>
                         <div className='col-lg-3 col-md-2 col-3 my-auto'>
