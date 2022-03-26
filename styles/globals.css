@@ -31,7 +31,8 @@ body {
 }
 
 * {
-  font-family: 'Poppins';
+  font-family: 'poppins';
+  font-weight: 400;
 }
 
 @font-face {
