@@ -35,7 +35,7 @@ body {
 
 @font-face {
   font-family: 'Popins'; 
-  src: url('../styles/Fonts/Poppins/OFL.txt') format("opentype");
+  src: url('../styles/Fonts/Poppins/Poppins-Light.ttf') format("opentype");
   font-style: normal;
 }
 @font-face {
