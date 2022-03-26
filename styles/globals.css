@@ -3,7 +3,6 @@ body {
   cursor  : default;
 }
 
-
 /* for scroll bar */
 .ScrollBar {
   /* padding-right: 1.0rem; */
@@ -31,13 +30,17 @@ body {
 }
 
 * {
-  font-family: 'poppins';
-  font-weight: 400;
+  font-family: 'popins';
 }
 
 @font-face {
+  font-family: 'Popins'; 
+  src: url('../styles/Fonts/Poppins/OFL.txt') format("opentype");
+  font-style: normal;
+}
+@font-face {
   font-family: 'Gothic Medium';
-  src        : url(../styles/Fonts/Alternate\ Gothic\ No3\ D\ Regular.otf);
+  src        : url('../styles/Fonts/Alternate\ Gothic\ No3\ D\ Regular.otf');
 }
 
 .Gothic_3D {
