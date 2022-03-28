@@ -17,12 +17,13 @@ class HouseholdTypesTable extends React.Component {
     tableData = (pageNo) => {
         const response = GetData.RentalGrowth(pageNo);
         response.then(value => {
-            console.log('dfgh', value)
-            this.setState({
-                data: value?.data?.rentalGrowth,
-                totalPages: value?.data?.pages,
-                loading: false
-            })
+            if (value) {
+                this.setState({
+                    data: value?.data?.rentalGrowth,
+                    totalPages: value?.data?.pages,
+                    loading: false
+                })
+            }
         })
     }
 

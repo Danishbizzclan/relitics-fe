@@ -95,7 +95,6 @@ class IncomeHHByTypeGraph extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.AvgHouseHold !== prevProps.AvgHouseHold ) {
       console.log("typeee", this.props);
-        console.log("graph", this.props)
         var b = {
             ...this.state.options,
             label: this.props.AvgHouseHold 

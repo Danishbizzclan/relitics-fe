@@ -114,12 +114,12 @@ class PopulationByAgeGraph extends Component {
                 }
             }
             var c = [{
-                name: "Series 1",
+                name: "Male",
                 data: this.props.male,
                 color: '#0F74AF'
             },
             {
-                name: "Series 1",
+                name: "FeMale",
                 data: this.props.feMale,
                 color: '#0F74AF'
             }

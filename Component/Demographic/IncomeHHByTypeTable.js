@@ -17,11 +17,13 @@ class IncomeHHByTypeTable extends React.Component {
         console.log(response)
         response.then(value => {
             console.log('dfgh', value)
-            this.setState({
-                data: value?.data?.rentalGrowth,
-                totalPages: value?.data?.pages,
-                loading: false
-            })
+            if (value) {
+                this.setState({
+                    data: value?.data?.rentalGrowth,
+                    totalPages: value?.data?.pages,
+                    loading: false
+                })
+            }
         })
     }
 
