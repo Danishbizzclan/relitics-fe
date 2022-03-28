@@ -18,7 +18,7 @@ export default function PopulationbyRace(props) {
                 </div>
                 <div className='col-sm-12 col-lg-5 my-auto'>
                     <div className='bg-white brdr_card brdr mx-1'>
-                        <PopulationbyRaceGraph race={props.race} percent={props.percent} />
+                        {props.race.length>0&& props.percent.length>0?<PopulationbyRaceGraph race={props.race} percent={props.percent} />:<></>}
                     </div>
                 </div>
             </div>

@@ -25,6 +25,9 @@ export default function Economic() {
     // const eventId = router.query.id
     useEffect(() => {
         RegionGet()
+        setRegion('Alabama');
+        unEmployment('Alabama');
+        industry('Alabama');
 
     }, []);
     const RegionGet = () => {

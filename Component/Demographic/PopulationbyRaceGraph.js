@@ -8,9 +8,9 @@ class PopulationbyRaceGraph extends Component {
         super(props);
 
         this.state = {
-            series: [13, 17, 23, 23, 4, 9, 11],
+            series: this.props.percent,
             options: {
-                labels: ['White', 'Black or African American', 'Some Other Race', 'Asian', 'Two or more races', 'American Indian and Alaska Native', 'Native Hawaiian and Other Pacific Islander'],
+                labels: this.props.race,
                 colors: ['#1F78B4', '#46A1D6', '#12608E', '#68AED6', '#E8F2FF', '#073652', '#22292E'],
                 chart: {
                     width: 380,
@@ -91,6 +91,23 @@ class PopulationbyRaceGraph extends Component {
 
 
         };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.percent !== prevProps.percent || this.props.race !== prevProps.race ) {
+    console.log("last", this.props)
+            var b = {
+                ...this.state.options,
+                xaxis: {
+                    ...this.state.options.xaxis,
+                    categories: this.props.race
+                }
+            }
+            this.setState({
+                series: this.props.percent,
+                options: b
+            })
+    
+        }
     }
 
     render() {

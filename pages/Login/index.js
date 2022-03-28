@@ -178,7 +178,7 @@ const Login = () => {
                                 <div className="col-md-6 my-auto px-0 ">
                                     <div className="login-right p-5">
                                         <p className="fs-40 Gothic_3D text-center mt-5">LOG IN</p>
-                                        <p className='fs-15'>Username</p>
+                                        <p className='fs-15'>Email</p>
                                         <form onSubmit={loginHandler}>
                                             <input type="text"
                                                 id="inputPassword6"

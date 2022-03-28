@@ -40,50 +40,6 @@ class PopulationbyRaceTable extends React.Component {
                 dataIndex: 'percentage',
             },
         ];
-        const data = [
-            {
-                key: '1',
-                race: 'White',
-                population: '29,660',
-                percentage: '60.90',
-            },
-            {
-                key: '2',
-                race: 'Black or African American',
-                population: '29,660',
-                percentage: '28.55',
-            },
-            {
-                key: '3',
-                race: 'Some Other Race',
-                population: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '4',
-                race: 'Asian',
-                population: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '5',
-                race: 'Two or more races',
-                population: '29,660',
-                percentage: '3.43',
-            },
-            {
-                key: '6',
-                race: 'American Indian and Alaska Native',
-                population: '29,660',
-                percentage: '3.47',
-            },
-            {
-                key: '7',
-                race: 'Native Hawaiian and Other Pacific Islander',
-                population: '29,660',
-                percentage: '3.47',
-            }
-        ];
         return (
             <>
                 {this.state.loading ? (

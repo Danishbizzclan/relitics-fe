@@ -57,50 +57,9 @@ export default function Demographic() {
     const [medianTable, setMedianTable] = useState([])
     const [name, setName] = useState([])
     const [raceTable, setRaceTable] = useState([])
-    const [race, setRace] = useState([])
-    const [percent, setPercent] = useState([])
+    const [race, setRace] = useState(['White', 'Black or African American', 'Some Other Race', 'Asian', 'Two or more races', 'American Indian and Alaska Native', 'Native Hawaiian and Other Pacific Islander'])
+    const [percent, setPercent] = useState([13, 17, 23, 23, 4, 9, 11])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const stateSort = (event) => [
-    //     sortedInfo = {
-    //         order: 'descend',
-    //         columnKey: 'age',
-    //     }]
-    // const CitySort = (event) => [
-    //     sortedInfo = {
-    //         order: 'descend',
-    //         columnKey: 'age',
-    //     }]
     function handleChange(e) {
         setRegion(e.target.value);
         populationCountary(e.target.value)
@@ -119,6 +78,16 @@ export default function Demographic() {
     const eventId = router.query.id
     useEffect(() => {
         Region()
+        setRegion('Alabama');
+        populationCountary('Alabama')
+        // populationRace(e.target.value)
+        education('Alabama')
+        populationAge('Alabama')
+        RenterTable('Alabama')
+        HouseIncome('Alabama')
+        HouseType('Alabama')
+
+        populationRace('Alabama')
     }, [eventId]);
 
     const Region = () => {
@@ -399,11 +368,12 @@ export default function Demographic() {
                 setMarriedFamilies(famlies)
                 setNonFamlies(NonFamlies)
 
-
             }
-
-
-
+            setHouseHolds(houseHolde)
+            setIncome(income)
+            setMarried(Married)
+            setMarriedFamilies(famlies)
+            setNonFamlies(NonFamlies)
 
         }
         )
@@ -475,15 +445,22 @@ export default function Demographic() {
                         race.push(key)
                         percent.push(value.data.Data[key + 'Percentage'])
                     }
+                    console.log({ obj })
+                    raceTable.push(obj)
+                    race.push(key)
+                    percent.push(parseInt(value.data.Data[key + 'Percentage']))
                 }
-                setRaceTable(raceTable)
             }
-
-
-
-
-
+            setRaceTable(raceTable)
+            console.log({ race }, { percent })
+            setPercent(percent)
+            setRace(race)
         }
+
+
+
+
+
         )
     }
     return (
@@ -537,7 +514,7 @@ export default function Demographic() {
                 <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
             </div>
             <div className='card p-3 my-4 bg_light'>
-                <PopulationbyRace table={raceTable} />
+                <PopulationbyRace table={raceTable} race={race} percent={percent} />
             </div>
             <footer className='text-center mt-5'>
                 <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
@@ -545,4 +522,5 @@ export default function Demographic() {
             </footer>
         </div>
     );
+
 }
