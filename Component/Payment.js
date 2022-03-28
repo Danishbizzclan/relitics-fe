@@ -51,7 +51,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
         formData.append("username", values.username)
         formData.append("country", values.country)
         formData.append("state", values.state)
-        formData.append("dob", values.dob)
+        formData.append("DOB", values.DOB)
         formData.append("phone", values.phone)
         formData.append("image", values.sendImage)
         formData.append("packageID", values.pkgId)
@@ -61,6 +61,7 @@ const Payment = ({ handleStep, prevStep, nextStep, handleChange, values }) => {
         axios
             .post("/users", formData)
             .then(value => {
+                console.log(value)
                 setSuccess(value.data.message)
                 // localStorage.setItem('user', JSON.stringify(value.data.user))
                 // localStorage.setItem('token', value.data.token)
