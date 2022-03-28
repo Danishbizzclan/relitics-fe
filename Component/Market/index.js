@@ -68,25 +68,34 @@ export default function Market(props) {
     }
     function handleChange(e) {
         setRegions(e.target.value)
-       
+    }
+    const print = () => {
 
-
+        var content = document.getElementsByClassName('Marke_pg');
+        var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+        pri.document.open();
+        pri.document.write(content[0].innerHTML);
+        pri.document.close();
+        pri.focus();
+        pri.print();
     }
 
     return (
         <div>
 
             {/* <p className='fs-40 Gothic_3D my-3'>{regions}</p> */}
+
+<div className='Marke_pg'>
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-8'>
                         <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={regions}>
                             {region.map((reg) => {
-                                return(
+                                return (
                                     <>
-                                <option value={reg.RegionID}>{reg.RegionName}</option>
-                                </>
+                                        <option value={reg.RegionID}>{reg.RegionName}</option>
+                                    </>
 
                                 )
 
@@ -96,28 +105,35 @@ export default function Market(props) {
                     </div>
                 </div>
                 <div className='ms-auto my-auto'>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
+                    <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Print <img src='/print.svg' className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print <img src='/print.svg' className='ms-2 my-auto' /></button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src='/Download_Icon1.svg' className='ms-2 my-auto' /></button>
                 </div>
             </div>
-            <div className='d-lg-inline-flex'>
-                <div className='p-3 mx-2 paginetion_none bg_table'>
-                    {console.log('Apprecation Data', Apprecation)}
-                    {Apprecation ? <ApreciationTableComponent AppreciationData={Apprecation} /> : <p>Loading</p>}
+                <div className='d-lg-inline-flex'>
+                    <div className='p-3 mx-2 paginetion_none bg_table'>
+                        {console.log('Apprecation Data', Apprecation)}
+                        {Apprecation ? <ApreciationTableComponent AppreciationData={Apprecation} /> : <p>Loading</p>}
+                    </div>
+                    <div className='p-3 mx-2 paginetion_none bg_table'>
+                        <RentalTableComponent rental={rental} />
+                    </div>
                 </div>
-                <div className='p-3 mx-2 paginetion_none bg_table'>
-                    <RentalTableComponent rental={rental} />
+                <div className=''>
+                    <MedianGraph />
                 </div>
+                <footer className='text-center mt-5'>
+                    <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                    <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                </footer>
+                <iframe id="ifmcontentstoprint" style={{
+                    height: '100%',
+                    width: '100%',
+                    position: 'absolute',
+                    display: 'none',
+                }}></iframe>
             </div>
-            <div className=''>
-                <MedianGraph />
-            </div>
-            <footer className='text-center mt-5'>
-                <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-            </footer>
         </div>
     );
 }
