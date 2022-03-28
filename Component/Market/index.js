@@ -71,7 +71,7 @@ export default function Market(props) {
     }
     const print = () => {
 
-        var content = document.getElementsByClassName('Marke_pg');
+        var content = document.getElementsByClassName('Market_pg');
         var pri = document.getElementById('ifmcontentstoprint').contentWindow;
         pri.document.open();
         pri.document.write(content[0].innerHTML);
@@ -84,8 +84,6 @@ export default function Market(props) {
         <div>
 
             {/* <p className='fs-40 Gothic_3D my-3'>{regions}</p> */}
-
-<div className='Marke_pg'>
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-8'>
@@ -111,6 +109,7 @@ export default function Market(props) {
                     <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src='/Download_Icon1.svg' className='ms-2 my-auto' /></button>
                 </div>
             </div>
+            <div className='Market_pg'>
                 <div className='d-lg-inline-flex'>
                     <div className='p-3 mx-2 paginetion_none bg_table'>
                         {console.log('Apprecation Data', Apprecation)}
@@ -127,12 +126,13 @@ export default function Market(props) {
                     <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
                     <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
                 </footer>
-                <iframe id="ifmcontentstoprint" style={{
-                    height: '100%',
-                    width: '100%',
-                    position: 'absolute',
-                    display: 'none',
-                }}></iframe>
+                <iframe id="ifmcontentstoprint"
+                    style={{
+                        height: '100%',
+                        width: '100%',
+                        position: 'absolute',
+                        display: 'none',
+                    }}></iframe>
             </div>
         </div>
     );

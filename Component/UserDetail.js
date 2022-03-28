@@ -170,13 +170,13 @@ const UserDetails = ({ handleStep, nextStep, handleChange, handleDirectChange, v
                                                 defaultValue={values.DOB}
                                                 // variant="outlined"
                                                 required
-
+                                                max='2010-01-01'
                                                 type="date"
                                             />
                                         </div>
                                         <div className="col-sm-6 my-3">
                                             <select className="form-select select-set" name="country" onChange={onhandleChange} aria-label="Default select example">
-                                            <option value=''>Select Country</option>
+                                                <option value=''>Select Country</option>
                                                 {countrydata.map((country) => {
                                                     return (
                                                         <option value={country.isoCode}>{country.name}</option>

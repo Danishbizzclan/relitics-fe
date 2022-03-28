@@ -188,7 +188,7 @@ const Login = () => {
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 value={email}
                                                 required
-                                                placeholder="Enter User Name"
+                                                placeholder="Enter Email"
                                             />
                                             <p className="fs-15 my-3">Password</p>
                                             <input type="password"

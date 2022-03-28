@@ -369,11 +369,6 @@ export default function Demographic() {
                 setNonFamlies(NonFamlies)
 
             }
-            setHouseHolds(houseHolde)
-            setIncome(income)
-            setMarried(Married)
-            setMarriedFamilies(famlies)
-            setNonFamlies(NonFamlies)
 
         }
         )
@@ -445,24 +440,28 @@ export default function Demographic() {
                         race.push(key)
                         percent.push(value.data.Data[key + 'Percentage'])
                     }
-                    console.log({ obj })
-                    raceTable.push(obj)
-                    race.push(key)
-                    percent.push(parseInt(value.data.Data[key + 'Percentage']))
                 }
+                setRaceTable(raceTable)
+                console.log({ race }, { percent })
+                setPercent(percent)
+                setRace(race)
             }
-            setRaceTable(raceTable)
-            console.log({ race }, { percent })
-            setPercent(percent)
-            setRace(race)
         }
-
-
-
-
-
         )
+        
+        
     }
+    
+            const print = () => {
+    
+                var content = document.getElementsByClassName('Demo_pg');
+                var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+                pri.document.open();
+                pri.document.write(content[0].innerHTML);
+                pri.document.close();
+                pri.focus();
+                pri.print();
+            }
     return (
         <div>
             <div className='row'>
@@ -489,37 +488,48 @@ export default function Demographic() {
 
                 </div>
                 <div className='ms-auto my-auto'>
-                    <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
+                    <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Print <img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print <img src={'/print.svg'} className='ms-2 my-auto' /></button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src={'/Download_Icon1.svg'} className='ms-2 my-auto' /></button>
                 </div>
             </div>
-            <div className='card p-3 bg_light'>
-                <Population population={population} populationDate={populationDate} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
-            </div>
-            <div className='card p-3 my-4 bg_light'>
-                <PopulationbyRace table={raceTable} race={race} percent={percent} />
-            </div>
-            <footer className='text-center mt-5'>
-                <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-            </footer>
+            <>
+                <div className='Demo_pg'>
+                    <div className='card p-3 bg_light'>
+                        <Population population={population} populationDate={populationDate} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <PopulationbyRace table={raceTable} race={race} percent={percent} />
+                    </div>
+                    <footer className='text-center mt-5'>
+                        <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                        <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                    </footer>
+                    <iframe id="ifmcontentstoprint"
+                        style={{
+                            height: '0px',
+                            width: '0px',
+                            position: 'absolute',
+                            display: 'none',
+                        }}></iframe>
+                </div>
+            </>
         </div>
     );
 
