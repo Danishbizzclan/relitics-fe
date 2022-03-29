@@ -21,7 +21,7 @@ export default function Notes() {
                 <div style={{ width: "inherit" }}>
                     <Dashnav />
                     <SecondNavbar />
-                    <div className='container mx-auto p-4'>
+                    <div className='container mx-auto p-5'>
                         <p className='fs-40 Gothic_3D my-3'>My Notes FOR City, state</p>
                         <div className='row gy-4'>
                             <div className='col-lg-3 col-md-4 col-6'>

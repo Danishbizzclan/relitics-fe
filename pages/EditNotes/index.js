@@ -70,7 +70,7 @@ export default function EditNotes() {
             <Sidebar />
             <div style={{ width: "inherit" }}>
                 <Dashnav />
-                <div className='container p-4'>
+                <div className='container p-5'>
                     <p className='fs-40 Gothic_3D my-3'>My Notes</p>
                     <p className='fs-30 Gothic_3D my-3'>City State</p>
                     <div className='div_grey p-5'>
