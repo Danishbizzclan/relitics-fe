@@ -63,7 +63,7 @@ console.log(eventId)
                 <Sidebar />
                 <div style={{ width: "inherit" }}>
                     <Dashnav />
-                    <div className='container mx-auto py-3'>
+                    <div className='container mx-auto p-4'>
                         <p className='fs-40 Gothic_3D my-3'>My Notes</p>
                         {
                             eventId && !data ?

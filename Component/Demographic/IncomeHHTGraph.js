@@ -31,6 +31,9 @@ class IncomeHHTGraph extends Component {
             }],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     type: 'bar',
                     height: 550,
                     toolbar: {
@@ -65,7 +68,7 @@ class IncomeHHTGraph extends Component {
                     shared: true,
                     intersect: false
                 },
-                
+
                 grid: {
                     show: false,
                 },
@@ -80,7 +83,7 @@ class IncomeHHTGraph extends Component {
                     categories: this.props.income,
                 },
                 yaxis: {
-                    show:'true',
+                    show: 'true',
                     labels: {
                         rotate: 330,
                         style: {
@@ -112,20 +115,20 @@ class IncomeHHTGraph extends Component {
                 name: "House Holds",
                 data: this.props.houseHolds,
                 color: '#0F74AF'
-            },{
+            }, {
                 name: "Married",
                 data: this.props.Married,
                 color: '#5EB5E8'
-            },{
+            }, {
                 name: "Non Famlies",
                 data: this.props.nonFamlies,
                 color: '#5EB5E8'
-            },{
+            }, {
                 name: "Married Famlies",
                 data: this.props.marriedFamilies,
                 color: '#5EB5E8'
             }
-            
+
             ]
             this.setState({
                 series: c,

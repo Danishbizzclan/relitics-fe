@@ -21,6 +21,9 @@ class HouseholdTypesGraph extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'area',
                     stacked: true,
@@ -87,12 +90,12 @@ class HouseholdTypesGraph extends Component {
                 name: "Owner",
                 data: this.props.owner,
                 color: '#0F74AF'
-            },{
+            }, {
                 name: "Renter",
                 data: this.props.renter,
                 color: '#5EB5E8'
             }
-            
+
             ]
             this.setState({
                 series: c,

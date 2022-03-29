@@ -21,6 +21,9 @@ class IncomeHHTMMGraph extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'bar',
                     toolbar: {
@@ -84,7 +87,7 @@ class IncomeHHTMMGraph extends Component {
     }
     componentDidUpdate(prevProps) {
         if (this.props.mean !== prevProps.mean || this.props.median !== prevProps.median) {
-            {console.log('dcd', this.props)}
+            { console.log('dcd', this.props) }
 
             var b = {
                 ...this.state.options,
@@ -103,7 +106,7 @@ class IncomeHHTMMGraph extends Component {
                 data: this.props.median,
                 color: '#0B486C'
             }
-            
+
             ]
             this.setState({
                 series: c,

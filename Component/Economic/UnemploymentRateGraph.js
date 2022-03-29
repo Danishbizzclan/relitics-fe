@@ -16,6 +16,9 @@ class UnemploymentRateGraph extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'area',
                     toolbar: {
@@ -27,7 +30,7 @@ class UnemploymentRateGraph extends Component {
                     showForSingleSeries: true,
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false
@@ -46,7 +49,7 @@ class UnemploymentRateGraph extends Component {
                 },
                 yaxis: {
                     labels: {
-                        rotate:'330',
+                        rotate: '330',
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',

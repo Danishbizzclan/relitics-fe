@@ -14,6 +14,9 @@ class EmploymentSectorsGraph extends Component {
             }],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     type: 'bar',
                     toolbar: {
                         show: false,

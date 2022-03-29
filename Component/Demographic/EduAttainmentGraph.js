@@ -22,6 +22,9 @@ class EduAttainmentGraph extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'bar',
                     toolbar: {
@@ -34,7 +37,8 @@ class EduAttainmentGraph extends Component {
                 plotOptions: {
                     bar: {
                         horizontal: true,
-                        columnWidth: '100%'
+                        columnWidth: '100%',
+                        height:'2'
                     }
                 },
                 legend: {
