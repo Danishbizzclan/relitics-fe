@@ -16,6 +16,9 @@ class MedianRental extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'area',
                     toolbar: {
@@ -25,7 +28,7 @@ class MedianRental extends Component {
                 legend: {
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false

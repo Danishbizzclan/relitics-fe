@@ -21,6 +21,9 @@ class PopulationByAgeGraph extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     type: 'bar',
                     stacked: true,
                     height: 350,

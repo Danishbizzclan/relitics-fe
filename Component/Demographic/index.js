@@ -490,8 +490,7 @@ export default function Demographic() {
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
                     <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print <img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Download PDF <img src={'/Download_Icon1.svg'} className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
                 </div>
             </div>
             <>

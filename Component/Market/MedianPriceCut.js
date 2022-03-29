@@ -4,7 +4,7 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 class MedianPriceCut extends Component {
     constructor(props) {
         super(props);
-        {console.log(this.props)}
+        { console.log(this.props) }
 
 
         this.state = {
@@ -18,6 +18,9 @@ class MedianPriceCut extends Component {
             ],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'area',
                     toolbar: {
@@ -27,7 +30,7 @@ class MedianPriceCut extends Component {
                 legend: {
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false
