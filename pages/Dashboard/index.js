@@ -68,7 +68,7 @@ const Dashboard = () => {
                             <button className="btn ms-auto light-BlueBtn px-5 fs-14">{mem.status ? "active" : "not-active"}</button>
                           </div>
                           <div className="d-flex mt-2">
-                            <p className="my-auto fs-16 greyBlack">Membership Renewdate</p>
+                            <p className="my-auto fs-16 greyBlack">Membership Renew date</p>
                             <p className="ms-auto my-auto fs-16 greyBlack">{mem.date}</p>
                           </div>
                           <div className="d-flex mt-2">
