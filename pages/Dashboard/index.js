@@ -127,7 +127,7 @@ function handleChange(e) {
 
                       {regionlist.map((each) => {
                         return (
-                          <option key={math.random()} value={each.RegionID}>{each.RegionName}</option>
+                          <option key={each.RegionID} value={each.RegionID}>{each.RegionName}</option>
                         )
                       })}
                     </select>
