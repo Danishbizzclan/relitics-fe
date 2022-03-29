@@ -122,7 +122,7 @@ function handleChange(e) {
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
                   <p className="fs-16 greyBlack">Let&#39;s go to the Region statistics</p>
                   <div className="bg-white text-center mx-auto p-3">
-                    <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
+                    <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By Region detail Statistics</p>
                     <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
                       {regionlist.map((each) => {
@@ -132,13 +132,13 @@ function handleChange(e) {
                       })}
                     </select>
                     <div className="row mt-3 ">
-                      <div className="col-sm-12 col-md-8 px-0">
-                        {/* <input type="text" value={city} name="city"
+                      {/* <div className="col-sm-12 col-md-8 px-0">
+                        <input type="text" value={city} name="city"
                           placeholder="select city"
                           onChange={(e) => setCity(e.target.value)}
-                          className="form-control dash-form  " id="exampleInputEmail1" aria-describedby="emailHelp" /> */}
-                      </div>
-                      <button className="btn ms-auto fs-15 bluebtn col-sm-12 col-md-4 brdr">Search</button>
+                          className="form-control dash-form  " id="exampleInputEmail1" aria-describedby="emailHelp" />
+                      </div> */}
+                      <button className="btn w-50 fs-15 py-3 bluebtn brdr">Search</button>
                     </div>
                   </div>
                 </div>
