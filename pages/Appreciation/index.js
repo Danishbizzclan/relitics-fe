@@ -354,7 +354,7 @@ class Aprecation extends React.Component {
                     colors={['#123123', 'rgba(123,123,123,12)']}
                     averageDuplicates
                     inferBlanks
-                    pagination={{ pageSize: 10, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 10 }}
+                    pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
                     dataSource={this.state.data} onChange={this.handleChange}
                     scroll={{ x: 768 }}
                   />
