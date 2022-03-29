@@ -43,6 +43,8 @@ const Sidebar = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
   const router = useRouter();
+  const eventId = router.query.id
+  const eventCategory = router.query.slug ? router.query.slug[0] : '';
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => {
     setIsOpen = !isOpen
@@ -64,7 +66,6 @@ const Sidebar = () => {
     localStorage.clear();
     window.location.href = '/';
   }
-
   return (
     <>
       <div id="header">
@@ -94,18 +95,21 @@ const Sidebar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu className="fs-15" iconShape="square">
-              <SubMenu title="Dashboard overview" defaultOpen='true' icon={<img src={'/Icon material-dashboard.png'} />}>
+              <Link href="/Dashboard" className="dropdown-item">
+                <MenuItem className={router.pathname == "/Dashboard" ? "active" : null} icon={<img src={'/Icon material-dashboard.png'} />}>Dashboard overview</MenuItem>
+              </Link>
+              <div className='ms-4'>
                 <Link href="/Appreciation" className="dropdown-item">
                   <MenuItem className={router.pathname == "/Appreciation" ? "active" : null} icon={<img src={'/development.png'} />}>Market Appreciation</MenuItem>
                 </Link>
                 <Link href="/RentalGrowth" className="dropdown-item">
                   <MenuItem className={router.pathname == "/RentalGrowth" ? "active" : null} icon={<img src={'/chart.png'} />}>Rental Growth</MenuItem>
                 </Link>
-                {/* <Link href="/MarketStats" className="dropdown-item"> */}
-                  <MenuItem className={router.pathname == ['/MarketStats' || '/Notes' || '/Economic' || '/DemoGraphic'] ? "active" : null} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
-                {/* </Link> */}
-              </SubMenu>
-              <Link href="/Resources" className="dropdown-item">
+                <Link href="/MarketStats/102001" className="dropdown-item">
+                  <MenuItem className={router.pathname.includes('MarketStats','Notes','DemographicStats','EconomicStats') ? "active" : 'text-white '} icon={<img src={'/bx-stats.png'} href="#" />}>Detail Statistics</MenuItem>
+                </Link>
+              </div>
+              <Link href="/Resources" >
                 <MenuItem className={router.pathname == "/Resources" ? "active" : null} icon={<img src={'/Icon material-attach-file.png'} />}>Resources</MenuItem>
               </Link>
               <Link href="/MyFavourites" >

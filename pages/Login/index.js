@@ -178,7 +178,7 @@ const Login = () => {
                                 <div className="col-md-6 my-auto px-0 ">
                                     <div className="login-right p-5">
                                         <p className="fs-40 Gothic_3D text-center mt-5">LOG IN</p>
-                                        <p className='fs-15'>Username</p>
+                                        <p className='fs-15'>Email</p>
                                         <form onSubmit={loginHandler}>
                                             <input type="text"
                                                 id="inputPassword6"
@@ -188,7 +188,7 @@ const Login = () => {
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 value={email}
                                                 required
-                                                placeholder="Enter User Name"
+                                                placeholder="Enter Email"
                                             />
                                             <p className="fs-15 my-3">Password</p>
                                             <input type="password"
@@ -207,7 +207,7 @@ const Login = () => {
                                                         Reset Now
                                                     </span>
                                                 </p>
-                                                <p className="fs-13 text-nowrap me-2 ms-auto">Not a Member</p><Link href='/SignUp' className=" fs-13 text-link pointer-cursor">Sign up</Link>
+                                                <p className="fs-13 text-nowrap ms-auto">Not a Member <Link href='/SignUp' className="ms-1 fs-13 text-link pointer-cursor"> Sign up</Link></p>
                                             </div>
                                             <div className="d-grid gap-2 col-12 mt-3 mx-auto">
                                                 <button id="myBtn" className="btn btn-primary login-button fs-15" type='submit'>{isLoading ? (<Spin />) : ' Log in'}</button>

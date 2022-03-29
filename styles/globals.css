@@ -297,6 +297,7 @@ textarea {
 .ant-tooltip-inner {
   color: #464646 !important;
   font-size: 1.2rem;
+  background-color: #E8F2FF !important;
 }
 
 .info_class {
@@ -694,7 +695,8 @@ textarea {
 
 @media only screen and (max-width: 720px) {
   .theme_bg {
-    background-image: none !important;
+    min-height: 100vh;
+    height: auto;
   }
 }
 
@@ -732,9 +734,11 @@ textarea {
   width: 40%;
 }
 
+.nav-link .active,
+.sec_nav .active,
 .pro-sidebar .active,
 .active .pro-inner-item {
-  background-color: #041E31;
+  background-color: #041E31 !important;
   color           : #FFDA5F !important;
 }
 
@@ -1000,6 +1004,10 @@ table tr:nth-child(2n) td {
 
 .modal-bg .ant-modal-body {
   background-color: #022945 !important;
+}
+
+.ant-modal-close{
+color: white;
 }
 
 .ant-modal-content {
