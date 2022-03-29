@@ -43,7 +43,7 @@ class PostData {
     const res = async () => {
       const resp = await axios
         .post("/favorite", {
-          regionID: detail._id,
+          regionID: detail.regionID,
           regionName: detail.region,
         })
 

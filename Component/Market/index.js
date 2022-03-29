@@ -7,66 +7,45 @@ import GetData from '../../Api/GetData'
 import { useRouter } from "next/router";
 
 export default function Market(props) {
-    console.log('Markey', props)
     const [rental, setRental] = useState([])
     const [Apprecation, setApprecation] = useState([])
-    const [region, setRegion] = useState([])
-    const [regions, setRegions] = useState([])
+    const [regionlst, setRegionlist] = useState([])
+    const [sltdRegion, setSlectdRegion] = useState('')
 
-
-    // const router = useRouter();
-    // const eventId = router.query.id
-    // {console.log({eventId})}
-
-
-    const stateSort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
-    const CitySort = (event) => [
-        sortedInfo = {
-            order: 'descend',
-            columnKey: 'age',
-        }]
-
-
+        const regionUpdate =(id)=>{
+            const response = GraphData.RentalAprecation(id);
+            response.then(value => {
+                console.log('Rental Res', value)
+                let data = []
+                data.push(value?.data?.Data?.appreciation)
+                setApprecation(data)
+    
+                let data1 = []
+                data1.push(value?.data?.Data?.rental)
+                setRental(data1)
+            })
+        }
 
     useEffect(() => {
-        // setLoading(true)
-        // console.log({eventId})
-        const response = GraphData.RentalAprecation(props.id);
-        response.then(value => {
-            console.log('Rental Res', value)
-            let data = []
-            data.push(value?.data?.Data?.appreciation)
-            setApprecation(data)
-
-            let data1 = []
-            data1.push(value?.data?.Data?.rental)
-            setRental(data1)
-            Region()
-            // setRental(value?.data?.Data?.rental)
-
-            //   setEvent(value?.data?.article);
-            //   setLoading(false)
-            //   console.log(value?.data?.article)
-            //   setLoading(false);
-        })
+        setSlectdRegion(props.id)
+        GetRegion()
+        regionUpdate(props.id)
+        
     }, [props.id]);
 
-    const Region = () => {
+    const GetRegion = () => {
         // setLoading(true)
         // console.log({eventId})
         const response = GetData.Region();
         response.then(value => {
             console.log('Region Res', value)
-            setRegion(value.data.Regions)
-
+            setRegionlist(value.data.Regions)
         })
     }
     function handleChange(e) {
-        setRegions(e.target.value)
+        console.log('Region>>>>',e.target.value)
+        setSlectdRegion(e.target.value)
+        regionUpdate(e.target.value)
     }
     const print = () => {
 
@@ -82,16 +61,15 @@ export default function Market(props) {
     return (
         <div>
 
-            {/* <p className='fs-40 Gothic_3D my-3'>{regions}</p> */}
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-8'>
                         <label className='bluetxt fs-13'>Region Name</label>
-                        <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={regions}>
-                            {region.map((reg) => {
+                        <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={sltdRegion}>
+                            {regionlst.map((each) => {
                                 return (
                                     <>
-                                        <option value={reg.RegionID}>{reg.RegionName}</option>
+                                        <option value={each.RegionID}>{each.RegionName}</option>
                                     </>
 
                                 )
@@ -118,7 +96,7 @@ export default function Market(props) {
                     </div>
                 </div>
                 <div className=''>
-                    <MedianGraph />
+                    <MedianGraph id={sltdRegion} />
                 </div>
                 <footer className='text-center mt-5'>
                     <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>

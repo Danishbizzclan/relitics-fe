@@ -37,7 +37,7 @@ class GraphData {
     return res();
   };
   ListPrice = (id, year) => {
-    console.log(year)
+    console.log('YEAR>?>>?>?',year)
     const res = async () => {
       const resp = await axios
         .post("/market/median_list_vs_sale_price",{
@@ -139,6 +139,18 @@ class GraphData {
     const res = async () => {
       const resp = await axios
         .get("/demographic/regions")
+
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  marketRegion = (id, year) => {
+    const res = async () => {
+      const resp = await axios
+        .get("/market/region_names")
 
         .catch(function (error) {
           console.log(error);

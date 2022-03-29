@@ -21,7 +21,7 @@ const MarketStats = () => {
                         <Dashnav />
                         <SecondNavbar />
                         <div className='container mx-auto p-4'>
-                            {eventId?<Market id={eventId}/>:<p>Loaading...</p>}
+                            {eventId?<Market id={eventId}/>:<p>Loading...</p>}
                             
                         </div>
                     </div>

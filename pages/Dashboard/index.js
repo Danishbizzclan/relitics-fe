@@ -6,16 +6,43 @@ import Membership from "../../Component/Data/MembershipData";
 import Dashnav from "../../Component/Dashnav";
 import withAuth from "../../Component/Auth";
 import "react-pro-sidebar/dist/css/styles.css";
+import GraphData from '../../Api/Grapgh'
+import Router from 'next/router'
+
+
 
 
 const Dashboard = () => {
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
+  const [region, setRegion] = useState([])
+  const [regionlist, setRegionlist] = useState([])
+
   const [menuCollapse, setMenuCollapse] = useState(false)
   const menuIconClick = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
   let firstName = JSON.parse(localStorage.getItem('user')).firstName;
+  const Region = () => {
+    const response = GraphData.marketRegion();
+    console.log(response)
+    response.then(value => {
+        console.log('Regions>?>?',value)
+        if (value) {
+            setRegionlist(value.data.Regions);
+
+        }
+    })
+}
+useEffect(() => {
+  Region()
+ 
+}, []);
+function handleChange(e) {
+  setRegion(e.target.value);
+  Router.push(`/MarketStats/${e.target.value}`);
+
+ 
+
+}
 
 
   return (
@@ -80,7 +107,7 @@ const Dashboard = () => {
                               </div>
                               <div className="col-lg-8 p-0 text-end">
                                 <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Up Grade</button>
-                               
+
                               </div>
                             </div>
                           </div>
@@ -93,19 +120,23 @@ const Dashboard = () => {
               <div className="col-lg-5">
                 <div className="bg-dash p-5">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
-                  <p className="fs-16 greyBlack">Let&#39;s go to the city statistics</p>
+                  <p className="fs-16 greyBlack">Let&#39;s go to the Region statistics</p>
                   <div className="bg-white text-center mx-auto p-3">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By city detail Statistics</p>
-                    <input type="text" value={state} name="state"
-                      placeholder="select state"
-                      onChange={(e) => setState(e.target.value)}
-                      className="form-control dash-form  mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
+
+                      {regionlist.map((each) => {
+                        return (
+                          <option value={each.RegionID}>{each.RegionName}</option>
+                        )
+                      })}
+                    </select>
                     <div className="row mt-3 ">
                       <div className="col-sm-12 col-md-8 px-0">
-                        <input type="text" value={city} name="city"
+                        {/* <input type="text" value={city} name="city"
                           placeholder="select city"
                           onChange={(e) => setCity(e.target.value)}
-                          className="form-control dash-form  " id="exampleInputEmail1" aria-describedby="emailHelp" />
+                          className="form-control dash-form  " id="exampleInputEmail1" aria-describedby="emailHelp" /> */}
                       </div>
                       <button className="btn ms-auto fs-15 bluebtn col-sm-12 col-md-4 brdr">Search</button>
                     </div>

@@ -34,70 +34,16 @@ export default function MedianGraph(props) {
 
 
 
-
-    const router = useRouter();
-
-    const eventId = router.query.id
-    // { console.log(eventId) }
+    // { console.log(props.id) }
     useEffect(() => {
         inventary()
-    }, [eventId])
+    }, [props.id])
 
-
-
-   const inventary = (year) => {
-        const response = GraphData.Inventory(eventId, year);
-        // console.log(response)
-        response.then(value => {
-            console.log(value)
-            if (value) {
-                // console.log(value.data.Data)
-                let data1 = []
-                let data2 = []
-                for (const key in value.data.Data) {
-                    data1.push(key)
-                    data2.push(parseInt(value.data.Data[key]));
-                }
-
-                setInventryDate(data1)
-                setInventry(data2)
-                console.log("inventart", inventry)
-
-            }
-        })
-        pendingData();
-        listPrice();
-        ShareListing();
-        PriceCut();
-        Median();
-    }
-
-    const pendingData = (year) => {
-        const response = GraphData.Pending(eventId, year);
-        // console.log(eventId)
-        response.then(value => {
-            console.log(value)
-            if (value) {
-                // console.log(value.data.Data)
-
-                let data1 = []
-                let data2 = []
-                for (const key in value.data.Data) {
-                    data1.push(key)
-                    data2.push(value.data.Data[key]);
-                }
-
-                setPendingDate(data1)
-                setPending(data2)
-
-            }
-        })
-    }
 
     const listPrice = (year) => {
-        const response = GraphData.ListPrice(eventId, year);
+        const response = GraphData.ListPrice(props.id, year);
         { console.log({ year }) }
-        // console.log(eventId)
+        // console.log(props.id)
         response.then(value => {
             if (value) {
                 // console.log(value.data.Data.listing)
@@ -125,8 +71,58 @@ export default function MedianGraph(props) {
             }
         })
     }
+
+   const inventary = (year) => {
+        const response = GraphData.Inventory(props.id, year);
+        // console.log(response)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data)
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(parseInt(value.data.Data[key]));
+                }
+
+                setInventryDate(data1)
+                setInventry(data2)
+                console.log("inventart", inventry)
+
+            }
+        })
+        pendingData();
+        listPrice();
+        ShareListing();
+        PriceCut();
+        Median();
+    }
+
+    const pendingData = (year) => {
+        const response = GraphData.Pending(props.id, year);
+        // console.log(props.id)
+        response.then(value => {
+            console.log(value)
+            if (value) {
+                // console.log(value.data.Data)
+
+                let data1 = []
+                let data2 = []
+                for (const key in value.data.Data) {
+                    data1.push(key)
+                    data2.push(value.data.Data[key]);
+                }
+
+                setPendingDate(data1)
+                setPending(data2)
+
+            }
+        })
+    }
+
     const ShareListing = (year) => {
-        const response = GraphData.ShareListing(eventId, year);
+        const response = GraphData.ShareListing(props.id, year);
         response.then(value => {
             if (value) {
                 // console.log(value.data.Data.listing)
@@ -148,7 +144,7 @@ export default function MedianGraph(props) {
         })
     }
     const PriceCut = (year) => {
-        const response = GraphData.PriceCut(eventId, year);
+        const response = GraphData.PriceCut(props.id, year);
         response.then(value => {
             console.log(value)
             if (value) {
@@ -171,7 +167,7 @@ export default function MedianGraph(props) {
         })
     }
     const Median = (year) => {
-        const response = GraphData.MedianRental(eventId, year);
+        const response = GraphData.MedianRental(props.id, year);
         response.then(value => {
             console.log(value)
             if (value) {
