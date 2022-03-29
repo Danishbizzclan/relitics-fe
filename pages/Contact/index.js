@@ -62,7 +62,7 @@ const ContactUs = () => {
             <HeadImage header='REACH OUT TO US' />
             <div className="pb-5">
                 <div className='container mb-5'>
-                    <p className='fs-40 Gothic_3D Bold mb-0'>We&#39;d love to hear from you</p>
+                    <p className='fs-40 Gothic_3D Bold mt-5 mb-0'>We&#39;d love to hear from you</p>
                     <p className='fs-18 mb-0'>Use the form below to get in touch with us.</p>
                     <div className="row">
                         <div className="col-lg-8 col-md-8 col-12 my-5 px-5 py-3 card border_1">

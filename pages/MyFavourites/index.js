@@ -4,6 +4,9 @@ import { getEventByFav } from '../../Component/Data/RentalGrowthData';
 import Sidebar from '../../Component/SideNavbar';
 import FavCard from '../../Component/FavCard';
 import GetData from '../../Api/GetData';
+import DeleteData from "../../Api/DeleteData"
+import {message} from "antd"
+
 
 function MyFavourite() {
     const [visible, setVisible] = useState(9);
@@ -15,7 +18,8 @@ function MyFavourite() {
     const loadLess = () => {
         setVisible(old => old - 4)
     }
-    const getNotes = () => {
+    const getFavourites = () => {
+        // alert('3')
         const response = GetData.getFavourite();
         response.then(value => {
             console.log(value)
@@ -26,8 +30,26 @@ function MyFavourite() {
             //   setLoading(false);
         })
     }
+    
+ const DeleteFavrts = (id) => {
+    const response = DeleteData.DeleteFavourite(id);
+    response.then(value => {
+// alert('1')
+      console.log(value)
+      if (value) {
+        //   alert('2')
+    message.success('Removed Successgully')
+        getFavourites()
+
+      }
+      //   setLoading(false);
+    })
+      .catch(err => {
+        console.log(err)
+      })
+  }
     useEffect(() => {
-        getNotes()
+        getFavourites()
     }, [])
     // const event = getEventByFav();
     if (!favourite) {
@@ -47,7 +69,9 @@ function MyFavourite() {
                                 {favourite.slice(0, visible).map((fav, index) => {
                                     return (
                                         < FavCard key={index}
-                                            city={fav.regionName} />
+                                        DeleteFavrt={DeleteFavrts}
+                                            city={fav.regionName} 
+                                            id={fav.regionID}/>
                                     )
                                 })}
                             </div>
