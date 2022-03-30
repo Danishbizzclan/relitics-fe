@@ -76,7 +76,9 @@ export default function EditProfile() {
                     setSuccessMessage('Profile Edited Successfully')
 
                 }
-                // localStorage.setItem('user', JSON.stringify(value.data.user))
+                localStorage.removeItem('user')
+
+                localStorage.setItem('user', JSON.stringify(value.data.data))
                 // localStorage.setItem('token', value.data.token)
 
                 console.log('Sign Up res', value)
