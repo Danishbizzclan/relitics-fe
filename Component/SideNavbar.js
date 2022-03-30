@@ -90,7 +90,7 @@ const Sidebar = () => {
                 <p className={`text-white fs-18 mb-1 pointer-cursor ${router.pathname == "/EditProfile" ? "active" : null}`}>{user?.firstName} {user?.lastName}<img src={"/editLogo.png"} className="mb-1 mx-3" /></p>
               </div>
             </Link>
-            <p className="fs-16 text-center disp-none">{user?.email}</p>
+            <p className="fs-14 text-center disp-none">{user?.email}</p>
             {/* <span style={{ marginLeft: '8rem' }}>&#9660;</span> */}
           </SidebarHeader>
           <SidebarContent>

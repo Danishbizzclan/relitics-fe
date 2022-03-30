@@ -13,7 +13,9 @@ const PriceCard = () => {
         response.then(value => {
             console.log(value)
             if(value){
-          setData(value?.data?.packages);
+          setData((value?.data?.packages.reverse()));
+          
+
         }
         })
       }, [])

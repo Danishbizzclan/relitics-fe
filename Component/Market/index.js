@@ -25,6 +25,7 @@ export default function Market(props) {
                 setRental(data1)
             })
         }
+        
 
     useEffect(() => {
         setSlectdRegion(props.id)

@@ -121,13 +121,13 @@ function handleChange(e) {
                 <div className="bg-dash p-5">
                   <p className="fs-30 Gothic_3D mb-0">Detail</p>
                   <p className="fs-16 greyBlack">Let&#39;s go to the Region statistics</p>
-                  <div className="bg-white text-center mx-auto p-3">
+                  <div className="bg-white text-center mx-auto p-5">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By Region detail Statistics</p>
                     <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
                       {regionlist.map((each) => {
                         return (
-                          <option value={each.RegionID}>{each.RegionName}</option>
+                          <option key={each.RegionID} value={each.RegionID}>{each.RegionName}</option>
                         )
                       })}
                     </select>

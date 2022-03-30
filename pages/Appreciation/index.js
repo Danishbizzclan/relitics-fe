@@ -325,10 +325,10 @@ class Aprecation extends React.Component {
               <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6'>
-                    <label className='bluetxt fs-13'>Region Name</label>
-                    <select className="form-control form-select form-control-sm" onClick={this.setRegionSort}>
+                    {/* <label className='bluetxt fs-13'>Region Name</label> */}
+                    {/* <select className="form-control form-select form-control-sm" onClick={this.setRegionSort}>
                       <option>All</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
                 <div className='ms-auto my-auto'>
