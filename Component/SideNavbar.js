@@ -79,7 +79,7 @@ const Sidebar = () => {
               )}
             </div>
             <div className={`logotext text-center `} style={{ width: "inherit" }}>
-              <img className="my-2 disp-none" src={'/Image 1.png'} />
+              <img className="my-2 disp-none" src={'/logoImg_.svg'} />
               <img className="my-2 d-none display_block imgw" src={'/LogoOnly.png'} />
             </div>
             <div className="text-center my-3">

@@ -44,7 +44,7 @@ function Navbar() {
             <nav className="navbar navbar-expand-lg p-0 navbar-dark bordr">
               <div className="container-fluid p-0">
                 <Link href="/">
-                  <a href="/"><img className={classes.ImgSize} src={"/Group 244.png"} alt="reilitics" /></a></Link>
+                  <a href="/"><img className={classes.ImgSize} src={"/logoImg_.svg"} alt="reilitics" /></a></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
