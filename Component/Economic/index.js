@@ -127,8 +127,8 @@ export default function Economic() {
                         </>
                         :
                         <>
-                            <button className='btn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                            <button className='btn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
                         </>
 
 

@@ -375,6 +375,10 @@ textarea {
   background-color: #0F74AF !important;
   color           : white !important;
 }
+.greyBtn {
+  background-color: #CCCCCC !important;
+  color           : white !important;
+}
 
 .loginn {
   font-size: smaller !important;
