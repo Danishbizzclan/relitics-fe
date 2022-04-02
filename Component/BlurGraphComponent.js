@@ -21,6 +21,9 @@ class BlurGraphComponent extends Component {
             }],
             options: {
                 chart: {
+                    zoom: {
+                        enabled: false
+                    },
                     height: 350,
                     type: 'area',
                     toolbar: {
