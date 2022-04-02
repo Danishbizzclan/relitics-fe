@@ -6,10 +6,12 @@ import SharePriceCutGraph from './SharePriceCutGraph.js';
 import MedianPriceCut from './MedianPriceCut.js';
 import MedianRental from './MedianRental.js';
 import { useEffect, useState } from 'react';
+import Link from "next/link"
 import GraphData from '../../Api/Grapgh'
 import { useRouter } from "next/router";
 
 import MedianDaystoPendingGraph from './MedianDaystoPendingGraph.js';
+import BlurGraphComponent from '../BlurGraphComponent.js';
 
 export default function MedianGraph(props) {
 
@@ -27,6 +29,8 @@ export default function MedianGraph(props) {
     const [priceCutDate, setPriceCutDate] = useState([])
     const [median, setMedian] = useState([])
     const [medianDate, setMedianDate] = useState([])
+    const [user, setUser] = useState('')
+
 
 
 
@@ -36,6 +40,10 @@ export default function MedianGraph(props) {
 
     // { console.log(props.id) }
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+
+            setUser(JSON.parse(localStorage.getItem('user')))
+        }
         inventary()
     }, [props.id])
 
@@ -72,7 +80,7 @@ export default function MedianGraph(props) {
         })
     }
 
-   const inventary = (year) => {
+    const inventary = (year) => {
         const response = GraphData.Inventory(props.id, year);
         // console.log(response)
         response.then(value => {
@@ -202,27 +210,41 @@ export default function MedianGraph(props) {
             <ApexMedianChart sales={sales} salesDate={salesDate} list={list} listDate={listDate} />
         </GraphComponent>
         <GraphComponent
-        listPrice={inventary}
+            listPrice={inventary}
             heading='For Sale Inventory'>
             <SaleInventoryGraph inventryDate={inventryDate} inventry={inventry} />
         </GraphComponent>
+        {user.packageID == 'shuihshsu' ?
+            <GraphComponent
+                listPrice={pendingData}
+                heading='Median Days to Pending'>
+                <MedianDaystoPendingGraph pendingDate={pendingDate} pending={pending} />
+            </GraphComponent>
+            :
+            <GraphComponent>
+                <div className='container_'>
+                    <div className='graph'>
+                        <BlurGraphComponent />
+                    </div>
+                    <Link href={`/`}>
+                        <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                    </Link>
+
+                </div>
+            </GraphComponent>
+        }
         <GraphComponent
-            listPrice={pendingData}
-            heading='Median Days to Pending'>
-            <MedianDaystoPendingGraph pendingDate={pendingDate} pending={pending} />
-        </GraphComponent>
-        <GraphComponent
-        listPrice={ShareListing}
+            listPrice={ShareListing}
             heading='SHARE OF LISTINGS WITH PRICE CUT'>
             <SharePriceCutGraph shareList={ShareListings} shareDate={ShareListingDate} />
         </GraphComponent>
         <GraphComponent
-        listPrice={PriceCut}
+            listPrice={PriceCut}
             heading='Median PRICE CUT'>
             <MedianPriceCut priceCut={priceCut} priceCutDate={priceCutDate} />
         </GraphComponent>
         <GraphComponent
-        listPrice={Median}
+            listPrice={Median}
             heading='MEDIAN Rental'>
             <MedianRental median={median} medianDate={medianDate} />
         </GraphComponent>

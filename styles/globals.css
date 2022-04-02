@@ -34,10 +34,11 @@ body {
 }
 
 @font-face {
-  font-family: 'Popins'; 
-  src: url('../styles/Fonts/Poppins/Poppins-Light.ttf') format("opentype");
-  font-style: normal;
+  font-family: 'Popins';
+  src        : url('../styles/Fonts/Poppins/Poppins-Light.ttf') format("opentype");
+  font-style : normal;
 }
+
 @font-face {
   font-family: 'Gothic Medium';
   src        : url('../styles/Fonts/Alternate\ Gothic\ No3\ D\ Regular.otf');
@@ -295,8 +296,8 @@ textarea {
 }
 
 .ant-tooltip-inner {
-  color: #464646 !important;
-  font-size: 1.2rem;
+  color           : #464646 !important;
+  font-size       : 1.2rem;
   background-color: #E8F2FF !important;
 }
 
@@ -696,7 +697,7 @@ textarea {
 @media only screen and (max-width: 720px) {
   .theme_bg {
     min-height: 100vh;
-    height: auto;
+    height    : auto;
   }
 }
 
@@ -1006,8 +1007,8 @@ table tr:nth-child(2n) td {
   background-color: #022945 !important;
 }
 
-.ant-modal-close{
-color: white;
+.ant-modal-close {
+  color: white;
 }
 
 .ant-modal-content {
@@ -1026,6 +1027,43 @@ color: white;
 .otp-size {
   width: 6rem;
 }
+
+/* 
+.cetered_ {
+  position: absolute !important;
+  top: 50% !important ;
+  left: 45% !important;
+} */
+
+
+/* Container needed to position the button. Adjust the width as needed */
+.container_ {
+  position: relative;
+}
+
+/* Make the image responsive */
+.container_ .graph {
+  filter: blur(4rem) !important;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container_ .btn {
+  position        : absolute;
+  top             : 45%;
+  left            : 45%;
+  background-color: #555;
+  color           : white;
+  font-size       : 16px;
+  padding         : 12px 24px;
+  border          : none;
+  cursor          : pointer;
+  border-radius   : 5px;
+}
+
+
+/* .blurComponents {
+  filter: blur(4rem);
+} */
 
 .otpcenter input {
   width        : 4rem !important;
@@ -1216,10 +1254,13 @@ summary::-webkit-details-marker,
   font-size       : 1.4rem !important;
   color           : grey !important;
 }
-.absolute-footer{
+
+.absolute-footer {
   background-color: rgb(36, 47, 132);
 }
-Footer, Footer a{
-  color: rgba(255,255,255,.5) !important;
+
+Footer,
+Footer a {
+  color      : rgba(255, 255, 255, .5) !important;
   font-family: "Poppins", sans-serif !important;
 }
