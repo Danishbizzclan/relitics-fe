@@ -9,6 +9,8 @@ import PopulationbyRace from './PopulationbyRace';
 import GraphData from '../../Api/Grapgh'
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import GraphComponent from '../GraphCard';
+import BlurGraphComponent from '../BlurGraphComponent';
 
 
 export default function Demographic() {
@@ -59,6 +61,7 @@ export default function Demographic() {
     const [raceTable, setRaceTable] = useState([])
     const [race, setRace] = useState(['White', 'Black or African American', 'Some Other Race', 'Asian', 'Two or more races', 'American Indian and Alaska Native', 'Native Hawaiian and Other Pacific Islander'])
     const [percent, setPercent] = useState([13, 17, 23, 23, 4, 9, 11])
+    const [user, setUser] = useState('')
 
     function handleChange(e) {
         setRegion(e.target.value);
@@ -77,6 +80,10 @@ export default function Demographic() {
 
     const eventId = router.query.id
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+
+            setUser(JSON.parse(localStorage.getItem('user')))
+        }
         Region()
         setRegion('Alabama');
         populationCountary('Alabama')
@@ -448,20 +455,20 @@ export default function Demographic() {
             }
         }
         )
-        
-        
+
+
     }
-    
-            const print = () => {
-    
-                var content = document.getElementsByClassName('Demo_pg');
-                var pri = document.getElementById('ifmcontentstoprint').contentWindow;
-                pri.document.open();
-                pri.document.write(content[0].innerHTML);
-                pri.document.close();
-                pri.focus();
-                pri.print();
-            }
+
+    const print = () => {
+
+        var content = document.getElementsByClassName('Demo_pg');
+        var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+        pri.document.open();
+        pri.document.write(content[0].innerHTML);
+        pri.document.close();
+        pri.focus();
+        pri.print();
+    }
     return (
         <div>
             <div className='row'>
@@ -489,46 +496,71 @@ export default function Demographic() {
                 </div>
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                    {user.packageID == 'shuihshsu' ?
+                        <>
+                            <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
+                            <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
+                        :
+                        <>
+                            <button className='btn bluebtn px-4 fs-14 m-1' disabled>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
+                            <button className='btn bluebtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
+
+
+                    }
                 </div>
             </div>
-            <>
-                <div className='Demo_pg'>
-                    <div className='card p-3 bg_light'>
-                        <Population population={population} populationDate={populationDate} />
+            {user.packageID == 'shuihshsu' ?
+                <>
+                    <div className='Demo_pg'>
+                        <div className='card p-3 bg_light'>
+                            <Population population={population} populationDate={populationDate} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
+                        </div>
+                        <div className='card p-3 my-4 bg_light'>
+                            <PopulationbyRace table={raceTable} race={race} percent={percent} />
+                        </div>
+                        <footer className='text-center mt-5'>
+                            <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                            <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                        </footer>
+                        <iframe id="ifmcontentstoprint"
+                            style={{
+                                height: '0px',
+                                width: '0px',
+                                position: 'absolute',
+                                display: 'none',
+                            }}></iframe>
                     </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+                </>
+                :
+                <GraphComponent>
+                    <div className='container_'>
+                        <div className='graph'>
+                            <BlurGraphComponent />
+                        </div>
+                        <Link href={`/`}>
+                            <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                        </Link>
+
                     </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
-                    </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
-                    </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
-                    </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
-                    </div>
-                    <div className='card p-3 my-4 bg_light'>
-                        <PopulationbyRace table={raceTable} race={race} percent={percent} />
-                    </div>
-                    <footer className='text-center mt-5'>
-                        <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                        <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-                    </footer>
-                    <iframe id="ifmcontentstoprint"
-                        style={{
-                            height: '0px',
-                            width: '0px',
-                            position: 'absolute',
-                            display: 'none',
-                        }}></iframe>
-                </div>
-            </>
+                </GraphComponent>
+            }
         </div>
     );
 

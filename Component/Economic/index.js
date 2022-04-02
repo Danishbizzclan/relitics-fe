@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import EconomicGraphs from './EconomicGraphs';
 import GraphData from "../../Api/Grapgh"
+import GraphComponent from '../GraphCard';
+import BlurGraphComponent from '../BlurGraphComponent';
+import Link from 'next/link';
 
 export default function Economic() {
     const [regionName, setRegionName] = useState([])
@@ -9,6 +12,7 @@ export default function Economic() {
     const [employmentDate, setEmploymentDate] = useState([])
     const [sector, setSector] = useState([])
     const [sectorDate, setSectorDate] = useState([])
+    const [user, setUser] = useState('')
 
 
 
@@ -24,6 +28,10 @@ export default function Economic() {
 
     // const eventId = router.query.id
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+
+            setUser(JSON.parse(localStorage.getItem('user')))
+        }
         RegionGet()
         setRegion('Alabama');
         unEmployment('Alabama');
@@ -112,13 +120,38 @@ export default function Economic() {
                 </div>
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                    <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                    {user.packageID == 'shuihshsu' ?
+                        <>
+                            <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                            <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
+                        :
+                        <>
+                            <button className='btn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                            <button className='btn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
+
+
+                    }
                 </div>
             </div>
             <div className='Economic_pg'>
                 <div className=''>
-                    <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
+                    {user.packageID == 'shuihshsu' ?
+                        <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
+                        :
+                        <GraphComponent>
+                            <div className='container_'>
+                                <div className='graph'>
+                                    <BlurGraphComponent />
+                                </div>
+                                <Link href={`/`}>
+                                    <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                                </Link>
+
+                            </div>
+                        </GraphComponent>
+                    }
                 </div>
                 <footer className='text-center mt-5'>
                     <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
