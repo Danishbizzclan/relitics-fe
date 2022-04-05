@@ -87,12 +87,12 @@ class Aprecation extends React.Component {
         console.log(response)
         response.then(value => {
             console.log(value)
-            if(value){
-            this.setState({
-                favourite: value?.data?.favoriteRegions
-            })
-            console.log(value.data.favoriteRegions)
-        }
+            if (value) {
+                this.setState({
+                    favourite: value?.data?.favoriteRegions
+                })
+                console.log(value.data.favoriteRegions)
+            }
 
         }
 
@@ -155,7 +155,7 @@ class Aprecation extends React.Component {
                 // ],
                 filteredValue: filteredInfo.name || null,
                 // onFilter: (value, record) => record.name.includes(value),
-                sorter: (a, b) => a.region.length - b.region.length,
+                sorter: (a, b) => a.region.localeCompare(b.region),
                 sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
                 ellipsis: true,
                 render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
@@ -164,7 +164,7 @@ class Aprecation extends React.Component {
                 title: () => {
                     return <div>Overall AVERAGE RENTAL GROWTH
                         <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
-                           <Button className="info_class"> <Info /></Button>
+                            <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
                 width: '15%',
@@ -250,15 +250,15 @@ class Aprecation extends React.Component {
                 title: () => {
                     return <div>Median RENTAL
                         <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
-                           <Button className="info_class"> <Info /></Button>
+                            <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
                 dataIndex: 'median',
                 key: 'median',
                 // filters: [
-                    //   { text: 'London', value: 'London' },
-                    //   { text: 'New York', value: 'New York' },
-                    // ],
+                //   { text: 'London', value: 'London' },
+                //   { text: 'New York', value: 'New York' },
+                // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
                 sorter: (a, b) => a.address.length - b.address.length,
@@ -269,7 +269,7 @@ class Aprecation extends React.Component {
                 title: () => {
                     return <div>Landlord FRIENDLY SCORE
                         <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
-                           <Button className="info_class"> <Info /></Button>
+                            <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
                 dataIndex: 'LLfriendly',
