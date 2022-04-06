@@ -5,13 +5,9 @@ import { Table } from 'antd';
 
 const columns = [
     {
-        title: 'Rental Growth',
-        render: (record, text, index) => <p>Rental Growth</p>,
-        width: '10%'
-    },
-    {
-        title: null,
-        dataIndex: 'OverallAverage',
+        title: 'Average rental growth',
+        render: (record, text, index) => <p>{record.avgGrowth}</p>,
+        width: '22%',
         fixed: 'left',
         bordered: true,
     },

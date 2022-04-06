@@ -24,9 +24,9 @@ const TableRegionComponent = (props) => {
     }
     return (
         <>
-            <div className='d-flex my-auto'>
+            <div className='d-flex my-auto hover w-100 p-1 hover_Bold pointer-cursor'>
                 <Link href={`/MarketStats/${props.record.regionID}`} >
-                    <p className='my-auto mx-2'>
+                    <p className='my-auto me-auto'>
                         {props.record.region}
                     </p>
                 </Link>

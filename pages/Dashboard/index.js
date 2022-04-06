@@ -57,14 +57,14 @@ function handleChange(e) {
             <div className="row g-5">
               <div className="col-lg-7 px-0">
                 <div className="bg-dash p-5">
-                  <p className="fs-30 mb-0 Gothic_3D">Overview</p>
-                  <p className="fs-16 greyBlack">Let&#39;s start by finding you a city of intrest</p>
+                  <p className="fs-30 mb-0 Gothic_3D">Compare Regions</p>
+                  <p className="fs-16 greyBlack">Let&#39;s start by finding you a region of interest.</p>
                   <div className="row">
                     <Link href={"./Appreciation"}>
                       <div className="col-sm-12 col-md-6 p-3 ps-0">
                         <div className="bg-white text-center p-3 Hover pointer-cursor brdr_card brdr">
                           <img src={'/development1.svg'} />
-                          <p className="my-3 fs-18 Bold greyBlack">Market Aprecation</p>
+                          <p className="my-3 fs-18 Bold greyBlack">Market Appreciation</p>
 
                         </div>
                       </div>
@@ -83,12 +83,12 @@ function handleChange(e) {
                   return (
                     <>
                       <div className="bg-dash mt-3 p-5">
-                        <p className="fs-30 Gothic_3D">MEMBERSHIP Details</p>
+                        <p className="fs-30 Gothic_3D">Membership Details</p>
                         <div className="bg-white p-5">
                           <p className="fs-16 greyBlack">Membership Package</p>
                           <div className="d-flex mt-3">
                             <p className=" fs-20 Bold greyBlack">Paid</p>
-                            <p className="ms-auto fs-22 Bold greyBlack">{mem.price}</p>
+                            <p className="ms-auto fs-22 Bold greyBlack">${mem.price}</p>
                           </div>
                           <div className="d-flex mt-1">
                             <p className="my-auto fs-16 greyBlack">Status</p>
@@ -106,7 +106,7 @@ function handleChange(e) {
                                   <MaterialDesignSwitch className='mt-3' /></div>
                               </div>
                               <div className="col-lg-8 p-0 text-end">
-                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Up Grade</button>
+                                <button className="btn mx-2 ny-2 fs-14 opac px-4 btnYelow">Upgrade</button>
 
                               </div>
                             </div>
@@ -119,8 +119,8 @@ function handleChange(e) {
               </div>
               <div className="col-lg-5">
                 <div className="bg-dash p-5">
-                  <p className="fs-30 Gothic_3D mb-0">Detail</p>
-                  <p className="fs-16 greyBlack">Let&#39;s go to the Region statistics</p>
+                  <p className="fs-30 Gothic_3D mb-0">Region Details</p>
+                  <p className="fs-16 greyBlack">Want to jump straight into details?</p>
                   <div className="bg-white text-center mx-auto p-5">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By Region detail Statistics</p>
                     <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>

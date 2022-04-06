@@ -33,7 +33,7 @@ class ApexMedianChart extends Component {
                 legend: {
                     position: 'top',
                     horizontalAlign: 'right',
-                    fontSize:'16'
+                    fontSize: '16'
                 },
                 dataLabels: {
                     enabled: false
@@ -77,7 +77,7 @@ class ApexMedianChart extends Component {
                 name: "List Price",
                 data: this.props.list,
                 color: '#E027A0'
-            },{
+            }, {
                 name: "Sales Price",
                 data: this.props.sales,
                 color: '#0F74AF'
