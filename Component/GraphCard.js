@@ -1,11 +1,7 @@
 import {React, useState} from 'react';
 
 export default function GraphComponent(props) {
-    const[year, setYear]= useState('')
-    function handleChange(e) {
-        setYear(e.target.value);
-        props.listPrice(e.target.value)
-      }
+   
 
 
 
@@ -26,16 +22,8 @@ export default function GraphComponent(props) {
                 </div>
                 <div className='d-block w-25'>
                     <div className='d-inline-flex w-100'>
-                        <label className='fs-14 w-25 my-auto me-3'>Year</label>
-                        <select className="form-control form-select form-control-sm" name="year" onChange={handleChange} value={year}>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-
-                        </select>
+                        {/* <label className='fs-14 w-25 my-auto me-3'>Year</label> */}
+                      
                     </div>
                 </div>
                 <div>

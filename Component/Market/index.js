@@ -11,6 +11,12 @@ export default function Market(props) {
     const [Apprecation, setApprecation] = useState([])
     const [regionlst, setRegionlist] = useState([])
     const [sltdRegion, setSlectdRegion] = useState('')
+    const[year, setYear]= useState('')
+
+    function handleChangee(e) {
+        setYear(e.target.value);
+        // props.listPrice(e.target.value)
+      }
 
     const regionUpdate = (id) => {
         const response = GraphData.RentalAprecation(id);
@@ -64,7 +70,9 @@ export default function Market(props) {
 
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
+              
                     <div className='d-block col-8'>
+                   
                         <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={sltdRegion}>
                             {regionlst.map((each) => {
@@ -96,8 +104,25 @@ export default function Market(props) {
                         <RentalTableComponent rental={rental} />
                     </div>
                 </div>
+                <div className='row w-25 my-auto'>
+              
+              <div className='d-block col-8'>
+             
+                  <label className='bluetxt fs-13'>Select Year</label>
+                <select className="form-control text-center form-select form-control-sm" name="year" onChange={handleChangee} value={year}>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+
+                        </select> 
+                        </div>
+                        </div>
+                                     
                 <div className=''>
-                    <MedianGraph id={sltdRegion} />
+                    <MedianGraph id={sltdRegion} year={year}/>
                 </div>
                 <iframe id="ifmcontentstoprint"
                     style={{
