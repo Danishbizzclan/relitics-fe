@@ -11,6 +11,7 @@ class SaleInventoryGraph extends Component {
             series: [
                 {
                     name: "Series 1",
+
                     data: this.props.inventry,
                     color: '#0F74AF'
                 }
@@ -39,6 +40,8 @@ class SaleInventoryGraph extends Component {
                 },
                 yaxis: {
                     show: true,
+
+                    
                     labels: {
                         style: {
                             colors: ['#555555'],

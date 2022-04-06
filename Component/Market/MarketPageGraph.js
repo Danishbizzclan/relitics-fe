@@ -38,19 +38,19 @@ export default function MedianGraph(props) {
 
 
 
-    // { console.log(props.id) }
+    { console.log(props.year) }
     useEffect(() => {
         if (typeof window !== 'undefined') {
 
             setUser(JSON.parse(localStorage.getItem('user')))
         }
         inventary()
-    }, [props.id])
+    }, [props.id, props.year])
 
 
-    const listPrice = (year) => {
-        const response = GraphData.ListPrice(props.id, year);
-        { console.log({ year }) }
+    const listPrice = () => {
+        const response = GraphData.ListPrice(props.id, props.year);
+        // { console.log({ year }) }
         // console.log(props.id)
         response.then(value => {
             if (value) {
@@ -80,8 +80,8 @@ export default function MedianGraph(props) {
         })
     }
 
-    const inventary = (year) => {
-        const response = GraphData.Inventory(props.id, year);
+    const inventary = () => {
+        const response = GraphData.Inventory(props.id, props.year);
         // console.log(response)
         response.then(value => {
             console.log(value)
@@ -91,7 +91,7 @@ export default function MedianGraph(props) {
                 let data2 = []
                 for (const key in value.data.Data) {
                     data1.push(key)
-                    data2.push(parseInt(value.data.Data[key]));
+                    data2.push(parseInt(value.data.Data[key].replace(',', "").replace(',', "").replace('$', "")));
                 }
 
                 setInventryDate(data1)
@@ -107,11 +107,11 @@ export default function MedianGraph(props) {
         Median();
     }
 
-    const pendingData = (year) => {
-        const response = GraphData.Pending(props.id, year);
+    const pendingData = () => {
+        const response = GraphData.Pending(props.id, props.year);
         // console.log(props.id)
         response.then(value => {
-            console.log(value)
+            console.log("pending", value)
             if (value) {
                 // console.log(value.data.Data)
 
@@ -129,8 +129,8 @@ export default function MedianGraph(props) {
         })
     }
 
-    const ShareListing = (year) => {
-        const response = GraphData.ShareListing(props.id, year);
+    const ShareListing = () => {
+        const response = GraphData.ShareListing(props.id, props.year);
         response.then(value => {
             if (value) {
                 // console.log(value.data.Data.listing)
@@ -151,8 +151,8 @@ export default function MedianGraph(props) {
             }
         })
     }
-    const PriceCut = (year) => {
-        const response = GraphData.PriceCut(props.id, year);
+    const PriceCut = () => {
+        const response = GraphData.PriceCut(props.id, props.year);
         response.then(value => {
             console.log(value)
             if (value) {
@@ -174,8 +174,8 @@ export default function MedianGraph(props) {
             }
         })
     }
-    const Median = (year) => {
-        const response = GraphData.MedianRental(props.id, year);
+    const Median = () => {
+        const response = GraphData.MedianRental(props.id, props.year);
         response.then(value => {
             console.log(value)
             if (value) {
@@ -264,16 +264,16 @@ export default function MedianGraph(props) {
         }
         {user.packageID == 'shuihshsu' ?
          <GraphComponent>
-         <div className='container_'>
-             <div className='graph'>
-                 <BlurGraphComponent />
-             </div>
-             <Link href={`/`}>
-                 <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-             </Link>
+                <div className='container_'>
+                    <div className='graph'>
+                        <BlurGraphComponent />
+                    </div>
+                    <Link href={`/updatePackage`}>
+                        <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                    </Link>
 
-         </div>
-     </GraphComponent>
+                </div>
+            </GraphComponent>
             
             :
             <GraphComponent
