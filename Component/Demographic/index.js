@@ -471,12 +471,12 @@ export default function Demographic() {
     }
     return (
         <div>
-            <div className='row'>
-                <div className='col-lg-3 col-12'>
+            <div className='d-flex w-100'>
+                <div className='ms-0'>
                     <p className='fs-40 Gothic_3D my-3'>{region}</p>
                 </div>
-                <div className='col-lg-9 col-12 mt-auto'>
-                    <p className='fs-17 ms-2'>REI Litics uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.</p>
+                <div className='mt-auto ms-auto'>
+                    <p className='fs-13 ms-3'>REI Litics uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.</p>
                 </div>
             </div>
             <div className='d-flex my-3'>

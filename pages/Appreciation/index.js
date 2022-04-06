@@ -154,17 +154,19 @@ class Aprecation extends React.Component {
         fixed: 'left',
         key: 'region',
         width: '15%',
-        // filters: [
-        //   { text: 'Joe', value: 'Joe' },
-        //   { text: 'Jim', value: 'Jim' },
-        // ],
-        filteredValue: filteredInfo.name || null,
+        onFilter: (value, record) => record.region.startsWith(value),
+        filteredValue: filteredInfo.value || null,
         sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
         sorter: (a, b) => a.region.localeCompare(b.region),
         sortDirections: ['ascend', 'descend'],
         ellipsis: true,
         showSorterTooltip: false,
-        render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
+        render: (record, text, index) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
+          <div className="d-flex">
+            <Button className="info_class" />
+            <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
+          </div>
+        </Tooltip>
       },
       {
         title: () => {
@@ -174,7 +176,6 @@ class Aprecation extends React.Component {
             </Tooltip></div>
         },
         bordered: true,
-        // dataIndex: 'avgGrowth',
         render: (record, text, index) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
         key: 'avgGrowth',
         width: '15%',
@@ -202,7 +203,6 @@ class Aprecation extends React.Component {
       },
       {
         title: '2019',
-        // dataIndex: 'y2019',
         render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</>,
         key: 'y2019',
         sorter: (a, b) => a.y2019 - b.y2019,
@@ -213,7 +213,6 @@ class Aprecation extends React.Component {
       },
       {
         title: '2020',
-        // dataIndex: 'y2020',
         render: (record, text, index) => <>{Math.round(record.y2020 * 100) / 100}%</>,
         key: 'y2020',
         // filters: [
@@ -230,7 +229,6 @@ class Aprecation extends React.Component {
       },
       {
         title: '2021',
-        // dataIndex: 'y2021',
         render: (record, text, index) => <>{Math.round(record.y2021 * 100) / 100}%</>,
         key: 'y2021',
         // filters: [
@@ -247,7 +245,6 @@ class Aprecation extends React.Component {
       },
       {
         title: '2022',
-        // dataIndex: 'y2022',
         render: (record, text, index) => <>{Math.round(record.y2022 * 100) / 100}%</>,
         key: 'y2022',
         // filters: [
@@ -272,6 +269,7 @@ class Aprecation extends React.Component {
         dataIndex: 'median',
         key: 'median',
         width: '11%',
+        render: (record) => <>${record.toLocaleString(record.median)}</>,
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -279,7 +277,6 @@ class Aprecation extends React.Component {
         // filteredValue: filteredInfo.address || null,
         // onFilter: (value, record) => record.address.includes(value),
         sorter: (a, b) => a.median - b.median,
-        render: (record) => <>${record.toLocaleString(record.median)}</>,
         sortDirections: ['ascend', 'descend'],
         sortOrder: sortedInfo.columnKey === 'median' && sortedInfo.order,
         showSorterTooltip: false,
@@ -344,11 +341,11 @@ class Aprecation extends React.Component {
               <p className='fs-40 Gothic_3D'>Market Appreciation</p>
               <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
-                  <div className='d-block col-6'>
-                    {/* <label className='bluetxt fs-13'>Region Name</label> */}
-                    {/* <select className="form-control form-select form-control-sm" onClick={this.setRegionSort}>
-                      <option>All</option>
-                    </select> */}
+                  <div className='d-block col-6 p-0'>
+                    <label className='bluetxt fs-13'>Region Name</label>
+                    <select className="form-control form-select form-control-sm">
+                      <option>record.region</option>
+                    </select>
                   </div>
                 </div>
                 <div className='ms-auto my-auto'>

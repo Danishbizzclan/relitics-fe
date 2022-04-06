@@ -18,26 +18,26 @@ export default function Market(props) {
         // props.listPrice(e.target.value)
       }
 
-        const regionUpdate =(id)=>{
-            const response = GraphData.RentalAprecation(id);
-            response.then(value => {
-                console.log('Rental Res', value)
-                let data = []
-                data.push(value?.data?.Data?.appreciation)
-                setApprecation(data)
-    
-                let data1 = []
-                data1.push(value?.data?.Data?.rental)
-                setRental(data1)
-            })
-        }
-        
+    const regionUpdate = (id) => {
+        const response = GraphData.RentalAprecation(id);
+        response.then(value => {
+            console.log('Rental Res', value)
+            let data = []
+            data.push(value?.data?.Data?.appreciation)
+            setApprecation(data)
+
+            let data1 = []
+            data1.push(value?.data?.Data?.rental)
+            setRental(data1)
+        })
+    }
+
 
     useEffect(() => {
         setSlectdRegion(props.id)
         GetRegion()
         regionUpdate(props.id)
-        
+
     }, [props.id]);
 
     const GetRegion = () => {
@@ -50,7 +50,7 @@ export default function Market(props) {
         })
     }
     function handleChange(e) {
-        console.log('Region>>>>',e.target.value)
+        console.log('Region>>>>', e.target.value)
         setSlectdRegion(e.target.value)
         regionUpdate(e.target.value)
     }
@@ -124,10 +124,6 @@ export default function Market(props) {
                 <div className=''>
                     <MedianGraph id={sltdRegion} year={year}/>
                 </div>
-                <footer className='text-center mt-5'>
-                    <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                    <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-                </footer>
                 <iframe id="ifmcontentstoprint"
                     style={{
                         height: '100%',
@@ -135,6 +131,10 @@ export default function Market(props) {
                         position: 'absolute',
                         display: 'none',
                     }}></iframe>
+                <footer className='text-center text-black mt-5 fs-11'>
+                    <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                    <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                </footer>
             </div>
         </div>
     );

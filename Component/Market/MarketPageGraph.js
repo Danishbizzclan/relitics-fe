@@ -206,7 +206,7 @@ export default function MedianGraph(props) {
     return (<div>
         <GraphComponent
             listPrice={listPrice}
-            heading='MEDIAN List Price Vs MEDIAN Sale Price'>
+            heading='Median list price vs median sale price'>
             <ApexMedianChart sales={sales} salesDate={salesDate} list={list} listDate={listDate} />
         </GraphComponent>
         <GraphComponent

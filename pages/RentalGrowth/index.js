@@ -145,7 +145,7 @@ class Aprecation extends React.Component {
         )
         const columns = [
             {
-                title: 'Region',
+                title: 'REGION',
                 fixed: 'left',
                 key: 'region',
                 width: '15%',
@@ -155,30 +155,37 @@ class Aprecation extends React.Component {
                 // ],
                 filteredValue: filteredInfo.name || null,
                 // onFilter: (value, record) => record.name.includes(value),
-                sorter: (a, b) => a.region.localeCompare(b.region),
                 sortOrder: sortedInfo.columnKey === 'region' && sortedInfo.order,
+                sorter: (a, b) => a.region.localeCompare(b.region),
+                sortDirections: ['ascend', 'descend'],
                 ellipsis: true,
-                render: (record, text, index) => <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
+                render: (record, text, index) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
+                    <div className="d-flex">
+                        <Button className="info_class" />
+                        <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
+                    </div>
+                </Tooltip>
             },
             {
                 title: () => {
-                    return <div>Overall AVERAGE RENTAL GROWTH
-                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                    return <div>Overall AVERAGE RENTAL GROWTH{' '}
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Estimated average rental growth 2018-present' >
                             <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
+                render: (record, text, index) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
                 width: '15%',
-                dataIndex: 'avgGrowth',
                 key: 'avgGrowth',
-                sorter: (a, b) => a.age - b.AverageRentalGrowth,
-                sortOrder: sortedInfo.columnKey === 'AverageRentalGrowth' && sortedInfo.order,
+                sorter: (a, b) => a.avgGrowth - b.avgGrowth,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'avgGrowth' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
-                fixed: 'left',
                 bordered: true,
             },
             {
                 title: '2018',
-                dataIndex: 'y2018',
+                render: (record, text, index) => <>{Math.round(record.y2018 * 100) / 100}%</>,
                 key: 'y2018',
                 // filters: [
                 //   { text: 'London', value: 'London' },
@@ -186,27 +193,25 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.2018 || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 2018 && sortedInfo.order,
+                sorter: (a, b) => a.y2018 - b.y2018,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'y2018' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: '2019',
-                dataIndex: 'y2019',
+                render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</>,
                 key: 'y2019',
-                // filters: [
-                //   { text: 'London', value: 'London' },
-                //   { text: 'New York', value: 'New York' },
-                // ],
-                // filteredValue: filteredInfo.address || null,
-                // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 2019 && sortedInfo.order,
+                sorter: (a, b) => a.y2019 - b.y2019,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'y2019' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: '2020',
-                dataIndex: 'y2020',
+                render: (record, text, index) => <>{Math.round(record.y2020 * 100) / 100}%</>,
                 key: 'y2020',
                 // filters: [
                 //   { text: 'London', value: 'London' },
@@ -214,13 +219,15 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 2020 && sortedInfo.order,
+                sorter: (a, b) => a.y2020 - b.y2020,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'y2020' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: '2021',
-                dataIndex: 'y2021',
+                render: (record, text, index) => <>{Math.round(record.y2021 * 100) / 100}%</>,
                 key: 'y2021',
                 // filters: [
                 //   { text: 'London', value: 'London' },
@@ -228,13 +235,15 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 2021 && sortedInfo.order,
+                sorter: (a, b) => a.y2021 - b.y2021,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'y2021' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: '2022',
-                dataIndex: 'y2022',
+                render: (record, text, index) => <>{Math.round(record.y2022 * 100) / 100}%</>,
                 key: 'y2022',
                 // filters: [
                 //   { text: 'London', value: 'London' },
@@ -242,17 +251,20 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 2022 && sortedInfo.order,
+                sorter: (a, b) => a.y2022 - b.y2022,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'y2022' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: () => {
-                    return <div>Median RENTAL
-                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                    return <div>Median RENTAL{' '}
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Estimated median property rental' >
                             <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
+                render: (record) => <>${record.toLocaleString(record.median)}</>,
                 dataIndex: 'median',
                 key: 'median',
                 // filters: [
@@ -261,14 +273,16 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
+                sorter: (a, b) => a.median - b.median,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'median' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
             {
                 title: () => {
-                    return <div>Landlord FRIENDLY SCORE
-                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Landlord friendly Score signifies whether It is ideal ' >
+                    return <div>Landlord FRIENDLY SCORE{' '}
+                        <Tooltip Tooltip placement="top" color='#E8F2FF' title='Legislation favor to protect landlord (at State level) 1 - Most Landlord friendly state 5 - Least landlord friendly state' >
                             <Button className="info_class"> <Info /></Button>
                         </Tooltip></div >
                 },
@@ -280,8 +294,10 @@ class Aprecation extends React.Component {
                 // ],
                 // filteredValue: filteredInfo.address || null,
                 // onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
+                sorter: (a, b) => a.LLfriendly - b.LLfriendly,
+                sortDirections: ['ascend', 'descend'],
+                sortOrder: sortedInfo.columnKey === 'LLfriendly' && sortedInfo.order,
+                showSorterTooltip: false,
                 ellipsis: true,
             },
         ];
@@ -297,10 +313,10 @@ class Aprecation extends React.Component {
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
-                                        {/* <label className='bluetxt fs-13'>Region Name</label>
-                                        <select className="form-control form-select form-control-sm" onClick={this.setStateSort}>
+                                        <label className='bluetxt fs-13'>Region Name</label>
+                                        <select className="form-control form-select form-control-sm">
                                             <option>All</option>
-                                        </select> */}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className='ms-auto my-auto'>
