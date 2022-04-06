@@ -445,7 +445,7 @@ export default function Demographic() {
                         console.log({ obj })
                         raceTable.push(obj)
                         race.push(key)
-                        percent.push(value.data.Data[key + 'Percentage'])
+                        percent.push(parseInt(value.data.Data[key + 'Percentage']))
                     }
                 }
                 setRaceTable(raceTable)
@@ -497,69 +497,76 @@ export default function Demographic() {
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'>Search properties on  Zillow </button>
                     {user.packageID == 'shuihshsu' ?
-                        <>
-                            <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
-                            <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                        </>
+                      <>
+                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
+                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                  </>
+                      
                         :
                         <>
-                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
-                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                        </>
+                        <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
+                        <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                    </>
+                      
 
 
                     }
                 </div>
             </div>
             {user.packageID == 'shuihshsu' ?
-                <>
-                    <div className='Demo_pg'>
-                        <div className='card p-3 bg_light'>
-                            <Population population={population} populationDate={populationDate} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
-                        </div>
-                        <div className='card p-3 my-4 bg_light'>
-                            <PopulationbyRace table={raceTable} race={race} percent={percent} />
-                        </div>
-                        <footer className='text-center mt-5'>
-                            <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                            <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-                        </footer>
-                        <iframe id="ifmcontentstoprint"
-                            style={{
-                                height: '0px',
-                                width: '0px',
-                                position: 'absolute',
-                                display: 'none',
-                            }}></iframe>
-                    </div>
-                </>
-                :
-                <GraphComponent>
-                    <div className='container_'>
-                        <div className='graph'>
-                            <BlurGraphComponent />
-                        </div>
-                        <Link href={`/`}>
-                            <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                        </Link>
+               <GraphComponent>
+               <div className='container_'>
+                   <div className='graph'>
+                       <BlurGraphComponent />
+                   </div>
+                   <Link href={`/`}>
+                       <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                   </Link>
 
+               </div>
+           </GraphComponent>
+               
+             
+                :
+             
+                <>
+                <div className='Demo_pg'>
+                    <div className='card p-3 bg_light'>
+                        <Population population={population} populationDate={populationDate} />
                     </div>
-                </GraphComponent>
+                    <div className='card p-3 my-4 bg_light'>
+                        <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <IncomeHHT income={income} houseHolds={houseHolds} Married={Married} nonFamlies={nonFamlies} marriedFamilies={marriedFamilies} mean={mean} median={median} name={name} table={medianTable} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <IncomeHHByType table={Table} AvgHouseHold={AvgHouseHold} label={label} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
+                    </div>
+                    <div className='card p-3 my-4 bg_light'>
+                        <PopulationbyRace table={raceTable} race={race} percent={percent} />
+                    </div>
+                    <footer className='text-center mt-5'>
+                        <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                        <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                    </footer>
+                    <iframe id="ifmcontentstoprint"
+                        style={{
+                            height: '0px',
+                            width: '0px',
+                            position: 'absolute',
+                            display: 'none',
+                        }}></iframe>
+                </div>
+            </>
+            
+               
             }
         </div>
     );

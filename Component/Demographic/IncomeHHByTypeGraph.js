@@ -93,14 +93,14 @@ class IncomeHHByTypeGraph extends Component {
     };
   }
   componentDidUpdate(prevProps) {
-    if (this.props.AvgHouseHold !== prevProps.AvgHouseHold ) {
+    if (this.props.AvgHouseHold !== prevProps.AvgHouseHold || this.props.label !== prevProps.label ) {
       console.log("typeee", this.props);
         var b = {
             ...this.state.options,
-            label: this.props.AvgHouseHold 
+            label: this.props.label 
         }
         this.setState({
-            series: this.props.label,
+            series: this.props.AvgHouseHold,
             options: b
         })
 

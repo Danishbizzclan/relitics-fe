@@ -96,7 +96,6 @@ class EduAttainmentPieGraph extends Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.percentage !== prevProps.percentage || this.props.grade !== prevProps.grade ) {
-
         var b = {
             ...this.state.options,
             xaxis: {
