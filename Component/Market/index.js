@@ -106,11 +106,11 @@ export default function Market(props) {
                         position: 'absolute',
                         display: 'none',
                     }}></iframe>
+                <footer className='text-center text-black mt-5 fs-11'>
+                    <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
+                    <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
+                </footer>
             </div>
-            <footer className='text-center mt-5 fs-11'>
-                <p>DISCLAIMER - Data is provided “as is” via the Public Records API.</p>
-                <p>© Zillow, Inc. 2006-2020. Use is subject to Term of Use.</p>
-            </footer>
         </div>
     );
 }
