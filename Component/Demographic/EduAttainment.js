@@ -19,7 +19,7 @@ export default function EduAttainment(props) {
                 </div>
                 <div className='col-sm-12 col-lg-5 my-auto'>
                     {console.log('percentage>>>>', props.percentage)}
-                    <EduAttainmentPieGraph percentage={props.percentage} grade={props.grade} />
+                    {props.grade.length>0&& props.percentage.length>0?<EduAttainmentPieGraph percentage={props.percentage} grade={props.grade} />:<></>}
                 </div>
             </div>
         </div>

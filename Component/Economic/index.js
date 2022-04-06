@@ -121,15 +121,17 @@ export default function Economic() {
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
                     {user.packageID == 'shuihshsu' ?
-                        <>
-                            <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                            <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                        </>
+                      <>
+                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                  </>
+                      
                         :
-                        <>
-                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                        </>
+                      
+                          <>
+                          <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                          <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                      </>
 
 
                     }
@@ -138,19 +140,21 @@ export default function Economic() {
             <div className='Economic_pg'>
                 <div className=''>
                     {user.packageID == 'shuihshsu' ?
-                        <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
-                        :
-                        <GraphComponent>
-                            <div className='container_'>
-                                <div className='graph'>
-                                    <BlurGraphComponent />
-                                </div>
-                                <Link href={`/`}>
-                                    <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                                </Link>
+                      <GraphComponent>
+                      <div className='container_'>
+                          <div className='graph'>
+                              <BlurGraphComponent />
+                          </div>
+                          <Link href={`/`}>
+                              <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                          </Link>
 
-                            </div>
-                        </GraphComponent>
+                      </div>
+                  </GraphComponent>
+                        :
+                        <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
+
+                      
                     }
                 </div>
                 <footer className='text-center mt-5'>

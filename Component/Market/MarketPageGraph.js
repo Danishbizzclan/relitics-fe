@@ -221,61 +221,67 @@ export default function MedianGraph(props) {
         </GraphComponent>
 
         {user.packageID == 'shuihshsu' ?
-            <GraphComponent
-                listPrice={ShareListing}
-                heading='SHARE OF LISTINGS WITH PRICE CUT'>
-                <SharePriceCutGraph shareList={ShareListings} shareDate={ShareListingDate} />
-            </GraphComponent>
-            :
-            <GraphComponent>
-                <div className='container_'>
-                    <div className='graph'>
-                        <BlurGraphComponent />
-                    </div>
-                    <Link href={`/`}>
-                        <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                    </Link>
+         <GraphComponent>
+         <div className='container_'>
+             <div className='graph'>
+                 <BlurGraphComponent />
+             </div>
+             <Link href={`/`}>
+                 <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+             </Link>
 
-                </div>
-            </GraphComponent>
+         </div>
+     </GraphComponent>
+          
+            :
+            <GraphComponent
+            listPrice={ShareListing}
+            heading='SHARE OF LISTINGS WITH PRICE CUT'>
+            <SharePriceCutGraph shareList={ShareListings} shareDate={ShareListingDate} />
+        </GraphComponent>
+           
         }
         {user.packageID == 'shuihshsu' ?
-            <GraphComponent
-                listPrice={PriceCut}
-                heading='Median PRICE CUT'>
-                <MedianPriceCut priceCut={priceCut} priceCutDate={priceCutDate} />
-            </GraphComponent>
-            :
-            <GraphComponent>
-                <div className='container_'>
-                    <div className='graph'>
-                        <BlurGraphComponent />
-                    </div>
-                    <Link href={`/`}>
-                        <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                    </Link>
+         <GraphComponent>
+         <div className='container_'>
+             <div className='graph'>
+                 <BlurGraphComponent />
+             </div>
+             <Link href={`/`}>
+                 <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+             </Link>
 
-                </div>
-            </GraphComponent>
+         </div>
+     </GraphComponent>
+            
+            :
+           
+            <GraphComponent
+            listPrice={PriceCut}
+            heading='Median PRICE CUT'>
+            <MedianPriceCut priceCut={priceCut} priceCutDate={priceCutDate} />
+        </GraphComponent>
         }
         {user.packageID == 'shuihshsu' ?
+         <GraphComponent>
+         <div className='container_'>
+             <div className='graph'>
+                 <BlurGraphComponent />
+             </div>
+             <Link href={`/updatePackage`}>
+                 <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+             </Link>
+
+         </div>
+     </GraphComponent>
+            
+            :
             <GraphComponent
                 listPrice={Median}
                 heading='MEDIAN Rental'>
                 <MedianRental median={median} medianDate={medianDate} />
             </GraphComponent>
-            :
-            <GraphComponent>
-                <div className='container_'>
-                    <div className='graph'>
-                        <BlurGraphComponent />
-                    </div>
-                    <Link href={`/updatePackage`}>
-                        <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                    </Link>
-
-                </div>
-            </GraphComponent>
+           
         }
     </div>)
 }

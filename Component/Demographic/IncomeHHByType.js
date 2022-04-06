@@ -18,7 +18,7 @@ export default function IncomeHHByType(props) {
                             <p className='fs-15'><span className='fs-20 Bold'>3.42</span> Average Family Size</p>
                             <p className='fs-15'><span className='fs-20 Bold'>3.42</span> Average Family Size</p>
                         </div>
-                        <IncomeHHByTypeGraph AvgHouseHold={props.AvgHouseHold} label={props.label}/>
+                        {props.AvgHouseHold.length>0&& props.label.length>0?<IncomeHHByTypeGraph AvgHouseHold={props.AvgHouseHold} label={props.label}/>:<></>}
                     </div>
                 </div>
             </div>
