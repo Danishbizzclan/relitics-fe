@@ -268,7 +268,7 @@ export default function MedianGraph(props) {
              <div className='graph'>
                  <BlurGraphComponent />
              </div>
-             <Link href={`/updatePackage`}>
+             <Link href={`/`}>
                  <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
              </Link>
 

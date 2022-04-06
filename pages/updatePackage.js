@@ -70,13 +70,13 @@
 //         return (
 //           <>
 
-//             <UserDetails
-//               handleStep={this.handleStep}
-//               nextStep={this.nextStep}
-//               handleChange={this.handleChange}
-//               handleDirectChange={this.handleDirectChange}
-//               values={values}
-//             />
+            <UserDetails
+              handleStep={this.handleStep}
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              handleDirectChange={this.handleDirectChange}
+              values={values}
+            />
 //           </>
 //         )
 //       case 2:
