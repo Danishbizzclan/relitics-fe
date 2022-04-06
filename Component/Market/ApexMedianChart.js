@@ -6,6 +6,7 @@ class ApexMedianChart extends Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
 
             series: [
@@ -52,7 +53,7 @@ class ApexMedianChart extends Component {
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: this.props.listDate,
+                    categories: dollarAdd,
                     labels: {
                         style: {
                             colors: ['#555555'],

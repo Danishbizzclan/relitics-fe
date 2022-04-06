@@ -6,7 +6,7 @@ import { Table } from 'antd';
 const columns = [
     {
         title: 'Average rental growth',
-        render: (record, text, index) => <p>{record.avgGrowth}</p>,
+        render: (record, text, index) => <p className='mb-0'>{record.avgGrowth}</p>,
         width: '22%',
         fixed: 'left',
         bordered: true,
