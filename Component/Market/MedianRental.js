@@ -39,6 +39,9 @@ class MedianRental extends Component {
                 yaxis: {
                     show: true,
                     labels: {
+                        formatter: function (value) {
+                            return "$" + value;
+                          },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',

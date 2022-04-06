@@ -13,6 +13,7 @@ class SaleInventoryGraph extends Component {
                     name: "Series 1",
 
                     data: this.props.inventry,
+
                     color: '#0F74AF'
                 }
             ],
@@ -43,6 +44,9 @@ class SaleInventoryGraph extends Component {
 
                     
                     labels: {
+                        formatter: function (value) {
+                            return "$" + value;
+                          },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',

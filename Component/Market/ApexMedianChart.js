@@ -43,7 +43,16 @@ class ApexMedianChart extends Component {
                 },
                 yaxis: {
                     show: true,
+                    formatter: function (value) {
+                        return "$" + value;
+                      },
                     labels: {
+                        formatter: function (value) {
+                            let nf = new Intl.NumberFormat('en-US');
+                            nf.format(value);
+
+                            return "$" + value;
+                          },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
