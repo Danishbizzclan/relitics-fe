@@ -44,10 +44,16 @@ class ApexMedianChart extends Component {
                 yaxis: {
                     show: true,
                     labels: {
+                        formatter: function (val, index) {
+                            return '$' + val.toLocaleString();
+                        },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                    },
+                    title: {
+                        text: 'Price in Dollars',
                     }
                 },
                 xaxis: {
@@ -58,7 +64,7 @@ class ApexMedianChart extends Component {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
-                    }
+                    },
                 },
             },
         };

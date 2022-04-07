@@ -216,7 +216,7 @@ export default function MedianGraph(props) {
         </GraphComponent>
         <GraphComponent
             listPrice={pendingData}
-            heading='Median Days to Pending'>
+            heading='Median days to pending'>
             <MedianDaystoPendingGraph pendingDate={pendingDate} pending={pending} />
         </GraphComponent>
 
@@ -236,7 +236,7 @@ export default function MedianGraph(props) {
             :
             <GraphComponent
             listPrice={ShareListing}
-            heading='SHARE OF LISTINGS WITH PRICE CUT'>
+            heading='Share of listings with price cut'>
             <SharePriceCutGraph shareList={ShareListings} shareDate={ShareListingDate} />
         </GraphComponent>
            
@@ -258,7 +258,7 @@ export default function MedianGraph(props) {
            
             <GraphComponent
             listPrice={PriceCut}
-            heading='Median PRICE CUT'>
+            heading='Median price cut'>
             <MedianPriceCut priceCut={priceCut} priceCutDate={priceCutDate} />
         </GraphComponent>
         }
@@ -278,7 +278,7 @@ export default function MedianGraph(props) {
             :
             <GraphComponent
                 listPrice={Median}
-                heading='MEDIAN Rental'>
+                heading='Median rental'>
                 <MedianRental median={median} medianDate={medianDate} />
             </GraphComponent>
            

@@ -43,6 +43,9 @@ class SharePriceCutGraph extends Component {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                    },
+                    title: {
+                        text: 'Percentage Value',
                     }
                 },
                 xaxis: {

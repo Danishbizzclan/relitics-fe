@@ -43,6 +43,9 @@ class MedianRental extends Component {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                    },
+                    title: {
+                        text: 'Price in Dollars',
                     }
                 },
                 xaxis: {

@@ -8,7 +8,7 @@ class EmploymentSectorsGraph extends Component {
         this.state = {
 
             series: [{
-                name: "Number of jobs (in thousands) in OCTOBER",
+                name: "Number of jobs",
                 data: this.props.sector,
                 color: '#022945',
             }],
@@ -52,15 +52,17 @@ class EmploymentSectorsGraph extends Component {
                     labels: {
                         style: {
                             colors: ['#555555'],
-                            fontSize: '8px',
+                            fontSize: '10px',
                         },
                         rotate: 330,
                     },
                 },
                 xaxis: {
-                    show: true,
                     categories: this.props.sectorDate,
                     labels: {
+                        formatter: function (val, index) {
+                            return '$' + val.toLocaleString();
+                        },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -84,7 +86,7 @@ class EmploymentSectorsGraph extends Component {
                 }
             }
             var c = [{
-                name: "Number of Jobs",
+                name: "Number of jobs",
                 data: this.props.sector,
                 color: '#0F74AF'
             }

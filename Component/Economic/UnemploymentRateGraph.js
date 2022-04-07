@@ -54,6 +54,9 @@ class UnemploymentRateGraph extends Component {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
+                    },
+                    title: {
+                        text: 'Percentage Value',
                     }
                 },
                 xaxis: {
@@ -61,7 +64,6 @@ class UnemploymentRateGraph extends Component {
                     categories: this.props.employmentDate,
                     labels: {
                         style: {
-                            // rotate:'330',
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
