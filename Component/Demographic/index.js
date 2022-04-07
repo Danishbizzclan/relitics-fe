@@ -435,6 +435,8 @@ export default function Demographic() {
 
 
                 for (let key in value.data.Data) {
+                    // console.log(key[value]);
+                    
                     if (key !== 'Total' && !key.includes('Percentage')) {
                         let obj = {
                             key: Math.random(),
@@ -442,11 +444,13 @@ export default function Demographic() {
                             population: value.data.Data[key],
                             percentage: value.data.Data[key + 'Percentage'],
                         }
+
                         console.log({ obj })
                         raceTable.push(obj)
                         race.push(key)
                         percent.push(parseInt(value.data.Data[key + 'Percentage']))
                     }
+                    console.log(key)
                 }
                 setRaceTable(raceTable)
                 console.log({ race }, { percent })

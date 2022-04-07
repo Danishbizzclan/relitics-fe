@@ -207,6 +207,17 @@ AllPackeges = () => {
     };
     return res();
   };
+  MarketRegion = () => {
+    const res = async () => {
+      const resp = await axios
+        .get("/stats/allStates")
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 
   
 }

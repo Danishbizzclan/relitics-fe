@@ -16,6 +16,7 @@ class Aprecation extends React.Component {
         filteredInfo: null,
         sortedInfo: null,
         data: [],
+        regionData: [],
         currentPage: 1,
         totalPages: 1,
         loading: true,
@@ -56,6 +57,34 @@ class Aprecation extends React.Component {
     componentDidMount() {
         this.tableData(1)
         this.favourites()
+        this.getRegion()
+    }
+    getRegion = () => {
+        const response = GetData.MarketRegion();
+        response.then(value => {
+            console.log("VALUE:", value)
+            if (value) {
+
+                let race = []
+
+                for (let key in value.data.Data) {
+
+                    race.push(value.data.Data[key].STATENAME)
+                    this.setState({
+                        regionData: race
+                    })
+
+
+
+                }
+
+
+
+
+
+            }
+
+        })
     }
 
     tableData = (pageNo) => {
@@ -314,8 +343,13 @@ class Aprecation extends React.Component {
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
                                         <label className='bluetxt fs-13'>Region Name</label>
-                                        <select className="form-control form-select form-control-sm">
-                                            <option>All</option>
+                                        <select className="form-control form-select form-control-sm" >
+
+                                            {this.state.regionData.map((state) => {
+                                                return (
+                                                    <option >{state}</option>
+                                                )
+                                            })}
                                         </select>
                                     </div>
                                 </div>
@@ -339,7 +373,6 @@ class Aprecation extends React.Component {
                             ) : (
                                 <>
                                     <div >
-                                        {console.log(this.state.data)}
                                         <Table columns={columns}
                                             colors={['#123123', 'rgba(123,123,123,12)']}
                                             averageDuplicates
