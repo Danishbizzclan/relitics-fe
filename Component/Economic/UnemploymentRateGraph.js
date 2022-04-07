@@ -50,17 +50,14 @@ class UnemploymentRateGraph extends Component {
                 yaxis: {
                     labels: {
                         formatter: function (value) {
-                            return "%" + value.toFixed(2);
-                          },
+                            return value.toFixed(2) + "%";
+                        },
                         rotate: '330',
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
                         },
                     },
-                    title: {
-                        text: 'Percentage Value',
-                    }
                 },
                 xaxis: {
                     type: 'datetime',

@@ -55,9 +55,6 @@ class ApexMedianChart extends Component {
                             fontSize: '10px',
                         },
                     },
-                    title: {
-                        text: 'Price in Dollars',
-                    }
                 },
                 xaxis: {
                     type: 'datetime',

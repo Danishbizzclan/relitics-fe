@@ -55,10 +55,13 @@ class HouseholdTypesGraph extends Component {
                 yaxis: {
                     show: true,
                     labels: {
+                        formatter: function (value) {
+                            return value.toFixed(1) + "%";
+                        },
                         rotate: 330,
                         style: {
                             colors: ['#555555'],
-                            fontSize: '12px',
+                            fontSize: '10px',
                         },
                     }
                 },
@@ -68,9 +71,9 @@ class HouseholdTypesGraph extends Component {
                     labels: {
                         style: {
                             colors: ['#555555'],
-                            fontSize: '12px',
+                            fontSize: '10px',
                         },
-                        rotate: 330,
+                        // rotate: 330,
                     }
                 },
             },

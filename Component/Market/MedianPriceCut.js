@@ -50,9 +50,6 @@ class MedianPriceCut extends Component {
                             fontSize: '10px',
                         },
                     },
-                    title: {
-                        text: 'Percentage Value',
-                    }
                 },
                 xaxis: {
                     type: 'datetime',
