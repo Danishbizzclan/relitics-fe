@@ -7,7 +7,7 @@ export default function IncomeHHT(props) {
     return (
         <div className='card my-4'>
             <div className='w-50'>
-                <p className='fs-30 mb-0 Gothic_3D'>Income by Household Type</p>
+                <p className='fs-30 mb-0 Gothic_3D'>Income by household type</p>
             </div>
             <IncomeHHTGraph houseHolds={props.houseHolds} Married={props.Married} nonFamlies={props.nonFamlies} marriedFamilies={props.marriedFamilies} income={props.income}/>
             <div className='row container p-5 my-5'>

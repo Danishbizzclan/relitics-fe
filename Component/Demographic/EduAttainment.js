@@ -7,7 +7,7 @@ export default function EduAttainment(props) {
     {console.log(props)}
     return (
         <div className='card my-4'>
-            <p className='fs-30 mb-0 Gothic_3D'>Educational Attainment by Sex (over 25)</p>
+            <p className='fs-30 mb-0 Gothic_3D'>Educational attainment by sex (over 25)</p>
             <div>
                 <EduAttainmentGraph male={props.male} feMale={props.feMale} grade={props.grade}/>
             </div>

@@ -5,7 +5,7 @@ export default function PopulationByAge(props) {
     return (
         <div className='card p-0 my-4'>
             <div className='w-50 p-5'>
-                <p className='fs-30 mb-0 Gothic_3D'>Population By Age</p>
+                <p className='fs-30 mb-0 Gothic_3D'>Population by age</p>
             </div>
             {props.male.length>0&&<PopulationByAgeGraph male={props.male} feMale={props.feMale} age={props.age}  lowest={props.lowest} highest={props.highest}/>}
             <div className='bluebtn brdr-btm m-1'>

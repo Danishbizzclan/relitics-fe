@@ -9,7 +9,7 @@ export default function PopulationbyRace(props) {
                 <div className='col-sm-12 col-lg-7 my-auto'>
                     <div className='paginetion_none Income_table overflow-auto'>
                         <div className='d-flex justify-content-between px-5 text-light'>
-                            <p className='fs-30 Gothic_3D mb-0'>Population by Race</p>
+                            <p className='fs-30 Gothic_3D mb-0'>Population by race</p>
                             <p className='fs-30 Gothic_3D mb-0'>Hispanic</p>
                             <p className='fs-30 Gothic_3D mb-0'>Non-Hispanic</p>
                         </div>

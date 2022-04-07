@@ -9,7 +9,7 @@ export default function HouseholdTypes(props) {
             <div className='row'>
                 <div className='col-sm-12 col-md-5'>
                     <div className=''>
-                        <p className='fs-30 mb-0 Gothic_3D'>Household Types</p>
+                        <p className='fs-30 mb-0 Gothic_3D'>Household types</p>
                         <span className='d-inline-flex'>
                             <p className='fs-30 me-3 my-auto'>51.1%</p>
                             <p className='fs-15 my-auto'>Rate of Home Ownership</p>

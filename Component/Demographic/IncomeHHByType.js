@@ -8,7 +8,7 @@ export default function IncomeHHByType(props) {
             <div className='row container gx-2 p-2'>
                 <div className='col-sm-12 col-lg-7 my-auto'>
                     <div className='paginetion_none Income_table overflow-auto'>
-                        <p className='fs-30 mb-0 ms-5 Gothic_3D text-light'>Households by Type</p>
+                        <p className='fs-30 mb-0 ms-5 Gothic_3D text-light'>Households by type</p>
                         <IncomeHHByTypeTable table={props.table} />
                     </div>
                 </div>

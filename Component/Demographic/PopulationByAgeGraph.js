@@ -26,7 +26,7 @@ class PopulationByAgeGraph extends Component {
                     },
                     type: 'bar',
                     stacked: true,
-                    height: 350,
+                    height: 450,
                     toolbar: {
                         show: false,
                     },
@@ -52,7 +52,7 @@ class PopulationByAgeGraph extends Component {
                     enabled: false,
                 },
                 stroke: {
-                    width: 1,
+                    width: 2,
                     lineCap: 'round',
                     colors: ["#fff"]
                 },
@@ -75,7 +75,9 @@ class PopulationByAgeGraph extends Component {
                 },
                 xaxis: {
                     categories: this.props.age,
-                    labels: {
+                    labels: {formatter: function (val, index) {
+                        return  val.toFixed();
+                    },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
@@ -142,7 +144,7 @@ class PopulationByAgeGraph extends Component {
         return (
 
             <div id="chart" className='p-5'>
-                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={350} />
+                <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height={500} />
             </div>
         );
     }
