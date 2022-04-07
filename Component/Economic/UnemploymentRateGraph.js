@@ -49,6 +49,9 @@ class UnemploymentRateGraph extends Component {
                 },
                 yaxis: {
                     labels: {
+                        formatter: function (value) {
+                            return "%" + value.toFixed(2);
+                          },
                         rotate: '330',
                         style: {
                             colors: ['#555555'],

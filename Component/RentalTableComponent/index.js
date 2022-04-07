@@ -35,9 +35,9 @@ const columns = [
         title: 'Median Rental',
         dataIndex: 'median',
         render: (record) => <>${record.toLocaleString(record.median)}</>
+
     },
 ];
-
 export default function RentalTableComponent(props) {
     console.log(props);
     return (<div>

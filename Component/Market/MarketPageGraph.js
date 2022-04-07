@@ -91,7 +91,7 @@ export default function MedianGraph(props) {
                 let data2 = []
                 for (const key in value.data.Data) {
                     data1.push(key)
-                    data2.push(parseInt(value.data.Data[key].replace(',', "").replace(',', "").replace('$', "")));
+                    data2.push(parseInt(value.data.Data[key].replace(',', "").replace('$', "")));
                 }
 
                 setInventryDate(data1)

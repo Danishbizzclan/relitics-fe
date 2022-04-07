@@ -39,6 +39,9 @@ class SharePriceCutGraph extends Component {
                 yaxis: {
                     show: true,
                     labels: {
+                        formatter: function (value) {
+                            return value.toFixed(3) + "%";
+                        },
                         style: {
                             colors: ['#555555'],
                             fontSize: '10px',
