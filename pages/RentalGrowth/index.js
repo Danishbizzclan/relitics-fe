@@ -347,7 +347,7 @@ class Aprecation extends React.Component {
 
                                             {this.state.regionData.map((state) => {
                                                 return (
-                                                    <option >{state}</option>
+                                                    <option key={Math.random()} value={state}>{state}</option>
                                                 )
                                             })}
                                         </select>
