@@ -207,6 +207,29 @@ AllPackeges = () => {
     };
     return res();
   };
+  MarketRegion = () => {
+    const res = async () => {
+      const resp = await axios
+        .get("/stats/allStates")
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
+  RegionId = (regions) => {
+    const res = async () => {
+      console.log("rtu", regions)
+      const resp = await axios
+        .get(`/stats/appreciation?keyword=${regions}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 
   
 }

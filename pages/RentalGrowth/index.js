@@ -16,11 +16,14 @@ class Aprecation extends React.Component {
         filteredInfo: null,
         sortedInfo: null,
         data: [],
+        regionData: [],
         currentPage: 1,
         totalPages: 1,
         loading: true,
         favourite: [],
         region: true,
+        regionId:"",
+        regions:""
     };
 
     handleChange = (pagination, filters, sorter) => {
@@ -33,6 +36,18 @@ class Aprecation extends React.Component {
             sortedInfo: sorter,
         });
     };
+    handleChangee=(e)=>{
+        this.getRegionId(e.target.value)
+
+
+        this.setState({
+
+            regions: e.target.value
+
+        })
+
+
+    }
 
     clearFilters = () => {
         this.setState({ filteredInfo: null });
@@ -56,6 +71,42 @@ class Aprecation extends React.Component {
     componentDidMount() {
         this.tableData(1)
         this.favourites()
+        this.getRegion()
+    }
+    getRegion = () => {
+        const response = GetData.MarketRegion();
+        response.then(value => {
+            console.log("VALUE:", value)
+            if (value) {
+
+                let race = []
+
+                for (let key in value.data.Data) {
+
+                    race.push(value.data.Data[key])
+                    this.setState({
+                        regionData: race,
+                        regionId: value.data.Data[key].ZILLOWSTATE
+                    })
+                }
+
+            }
+
+        })
+    }
+
+
+    getRegionId = (region) => {
+        const response = GetData.RegionId(region);
+        response.then(value => {
+            console.log("VALUES:", value)
+            if (value) {
+
+              
+
+            }
+
+        })
     }
 
     tableData = (pageNo) => {
@@ -115,6 +166,7 @@ class Aprecation extends React.Component {
                 this.favourites()
             })
     }
+
 
     DeleteFavrt = (id) => {
         const response = DeleteData.DeleteFavourite(id);
@@ -303,6 +355,7 @@ class Aprecation extends React.Component {
         ];
         return (
             <>
+
                 <div className="d-inline-flex w-100">
                     <Sidebar />
                     <div style={{ width: "inherit" }}>
@@ -313,9 +366,15 @@ class Aprecation extends React.Component {
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
+                                        {this.state.regions}
                                         <label className='bluetxt fs-13'>Region Name</label>
-                                        <select className="form-control form-select form-control-sm">
-                                            <option>All</option>
+                                        <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee} >
+
+                                            {this.state.regionData.map((state) => {
+                                                return (
+                                                    <option key={Math.random()} value={state.ZILLOWSTATE}>{state.STATENAME}</option>
+                                                )
+                                            })}
                                         </select>
                                     </div>
                                 </div>
@@ -339,8 +398,8 @@ class Aprecation extends React.Component {
                             ) : (
                                 <>
                                     <div >
-                                        {console.log(this.state.data)}
                                         <Table columns={columns}
+                                        className='table-text'
                                             colors={['#123123', 'rgba(123,123,123,12)']}
                                             averageDuplicates
                                             inferBlanks
