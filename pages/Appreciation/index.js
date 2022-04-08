@@ -17,7 +17,6 @@ class Aprecation extends React.Component {
     filteredInfo: null,
     sortedInfo: null,
     data: [],
-    regionData:[],
     currentPage: 1,
     totalPages: 1,
     favourite: [],
@@ -58,7 +57,6 @@ class Aprecation extends React.Component {
   componentDidMount() {
     this.tableData(1)
     this.favourites()
-    this.getRegion()
   }
   tableData = (pageNo) => {
     const response = GetData.Aprecation(pageNo);
@@ -135,33 +133,7 @@ class Aprecation extends React.Component {
         this.favourites()
       })
   }
-   getRegion = () => {
-    const response = GetData.MarketRegion();
-    response.then(value => {
-        console.log("VALUE:", value)
-        if (value) {
-         
-          let race = []
 
-           for (let key in value.data.Data) {
-            
-            race.push(value.data.Data[key].STATENAME)
-            this.setState({
-              regionData: race
-            })
-                
-                   
-
-        }
-
-        
-           
-      
-
-        }
-
-    })
-}
 
 
 
@@ -317,7 +289,7 @@ class Aprecation extends React.Component {
               <Button className="info_class"> <Info /></Button>
             </Tooltip></div>
         },
-        dataIndex: 'avgTax',
+        // dataIndex: 'avgTax',
         key: 'avgTax',
         width: '13%',
         render: (record, text, index) => <>{Math.round(record.avgTax * 100) / 100}%</>,
@@ -406,7 +378,7 @@ class Aprecation extends React.Component {
                     inferBlanks
                     pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
                     dataSource={this.state.data} onChange={this.handleChange}
-                    // scroll={{ x: 768 }}
+                    scroll={{ x: 768 }}
                   />
 
                   <iframe id="ifmcontentstoprint" style={{
