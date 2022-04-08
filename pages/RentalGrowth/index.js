@@ -22,6 +22,8 @@ class Aprecation extends React.Component {
         loading: true,
         favourite: [],
         region: true,
+        regionId:"",
+        regions:""
     };
 
     handleChange = (pagination, filters, sorter) => {
@@ -34,6 +36,18 @@ class Aprecation extends React.Component {
             sortedInfo: sorter,
         });
     };
+    handleChangee=(e)=>{
+        this.getRegionId(e.target.value)
+
+
+        this.setState({
+
+            regions: e.target.value
+
+        })
+
+
+    }
 
     clearFilters = () => {
         this.setState({ filteredInfo: null });
@@ -69,18 +83,26 @@ class Aprecation extends React.Component {
 
                 for (let key in value.data.Data) {
 
-                    race.push(value.data.Data[key].STATENAME)
+                    race.push(value.data.Data[key])
                     this.setState({
-                        regionData: race
+                        regionData: race,
+                        regionId: value.data.Data[key].ZILLOWSTATE
                     })
-
-
-
                 }
 
+            }
+
+        })
+    }
 
 
+    getRegionId = (region) => {
+        const response = GetData.RegionId(region);
+        response.then(value => {
+            console.log("VALUES:", value)
+            if (value) {
 
+              
 
             }
 
@@ -144,6 +166,7 @@ class Aprecation extends React.Component {
                 this.favourites()
             })
     }
+
 
     DeleteFavrt = (id) => {
         const response = DeleteData.DeleteFavourite(id);
@@ -332,6 +355,7 @@ class Aprecation extends React.Component {
         ];
         return (
             <>
+
                 <div className="d-inline-flex w-100">
                     <Sidebar />
                     <div style={{ width: "inherit" }}>
@@ -342,12 +366,13 @@ class Aprecation extends React.Component {
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
+                                        {this.state.regions}
                                         <label className='bluetxt fs-13'>Region Name</label>
-                                        <select className="form-control form-select form-control-sm" >
+                                        <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee} >
 
                                             {this.state.regionData.map((state) => {
                                                 return (
-                                                    <option key={Math.random()} value={state}>{state}</option>
+                                                    <option key={Math.random()} value={state.ZILLOWSTATE}>{state.STATENAME}</option>
                                                 )
                                             })}
                                         </select>
