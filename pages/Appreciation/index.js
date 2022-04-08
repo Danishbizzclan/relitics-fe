@@ -22,6 +22,7 @@ class Aprecation extends React.Component {
     favourite: [],
     loading: true,
     region: true,
+    regionData: []
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -57,6 +58,7 @@ class Aprecation extends React.Component {
   componentDidMount() {
     this.tableData(1)
     this.favourites()
+    this.getRegion()
   }
   tableData = (pageNo) => {
     const response = GetData.Aprecation(pageNo);
@@ -114,6 +116,27 @@ class Aprecation extends React.Component {
         console.log(err)
         this.favourites()
       })
+  }
+  getRegion = () => {
+    const response = GetData.MarketRegion();
+    response.then(value => {
+      console.log("VALUE:", value)
+      if (value) {
+
+        let race = []
+
+        for (let key in value.data.Data) {
+
+          race.push(value.data.Data[key])
+          this.setState({
+            regionData: race,
+            regionId: value.data.Data[key].ZILLOWSTATE
+          })
+        }
+
+      }
+
+    })
   }
 
   DeleteFavrt = (id) => {
@@ -345,12 +368,12 @@ class Aprecation extends React.Component {
                     <label className='bluetxt fs-13'>Select State</label>
                     <select className="form-control form-select form-control-sm" >
 
-                            {this.state.regionData.map((state) => {
-                                return (
-                                    <option key={Math.random()} value={state}>{state}</option>
-                                )
-                            })}
-                        </select>
+                      {this.state.regionData.map((state) => {
+                        return (
+                          <option key={Math.random()} value={state.ZILLOWSTATE}>{state.STATENAME}</option>
+                        )
+                      })}
+                    </select>
                   </div>
                 </div>
                 <div className='ms-auto my-auto'>
