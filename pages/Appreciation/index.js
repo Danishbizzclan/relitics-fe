@@ -17,7 +17,6 @@ class Aprecation extends React.Component {
     filteredInfo: null,
     sortedInfo: null,
     data: [],
-    regionData:[],
     currentPage: 1,
     totalPages: 1,
     favourite: [],
@@ -58,7 +57,6 @@ class Aprecation extends React.Component {
   componentDidMount() {
     this.tableData(1)
     this.favourites()
-    this.getRegion()
   }
   tableData = (pageNo) => {
     const response = GetData.Aprecation(pageNo);
@@ -135,33 +133,7 @@ class Aprecation extends React.Component {
         this.favourites()
       })
   }
-   getRegion = () => {
-    const response = GetData.MarketRegion();
-    response.then(value => {
-        console.log("VALUE:", value)
-        if (value) {
-         
-          let race = []
 
-           for (let key in value.data.Data) {
-            
-            race.push(value.data.Data[key].STATENAME)
-            this.setState({
-              regionData: race
-            })
-                
-                   
-
-        }
-
-        
-           
-      
-
-        }
-
-    })
-}
 
 
 
@@ -189,7 +161,7 @@ class Aprecation extends React.Component {
         sortDirections: ['ascend', 'descend'],
         ellipsis: true,
         showSorterTooltip: false,
-        render: (record) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
+        render: (record, text, index) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
           <div className="d-flex">
             <Button className="info_class" />
             <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
@@ -204,7 +176,7 @@ class Aprecation extends React.Component {
             </Tooltip></div>
         },
         bordered: true,
-        render: (record) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
         key: 'avgGrowth',
         width: '15%',
         sorter: (a, b) => a.avgGrowth - b.avgGrowth,
@@ -215,7 +187,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2018',
-        render: (record) => <>{Math.round(record.y2018 * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.y2018 * 100) / 100}%</>,
         key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -231,7 +203,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2019',
-        render: (record) => <>{Math.round(record.y2019 * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</>,
         key: 'y2019',
         sorter: (a, b) => a.y2019 - b.y2019,
         sortDirections: ['ascend', 'descend'],
@@ -241,7 +213,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2020',
-        render: (record) => <>{Math.round(record.y2020 * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.y2020 * 100) / 100}%</>,
         key: 'y2020',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -257,7 +229,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2021',
-        render: (record) => <>{Math.round(record.y2021 * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.y2021 * 100) / 100}%</>,
         key: 'y2021',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -273,7 +245,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2022',
-        render: (record) => <>{Math.round(record.y2022 * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.y2022 * 100) / 100}%</>,
         key: 'y2022',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -294,7 +266,7 @@ class Aprecation extends React.Component {
               <Button className="info_class"> <Info /></Button>
             </Tooltip></div>
         },
-        // dataIndex: 'median',
+        dataIndex: 'median',
         key: 'median',
         width: '11%',
         render: (record) => <>${record.toLocaleString(record.median)}</>,
@@ -317,10 +289,10 @@ class Aprecation extends React.Component {
               <Button className="info_class"> <Info /></Button>
             </Tooltip></div>
         },
-        dataIndex: 'avgTax',
+        // dataIndex: 'avgTax',
         key: 'avgTax',
         width: '13%',
-        render: (record) => <>{Math.round(record.avgTax * 100) / 100}%</>,
+        render: (record, text, index) => <>{Math.round(record.avgTax * 100) / 100}%</>,
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
@@ -371,14 +343,9 @@ class Aprecation extends React.Component {
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6 p-0'>
                     <label className='bluetxt fs-13'>Region Name</label>
-                    <select className="form-control form-select form-control-sm" >
-
-                            {this.state.regionData.map((state) => {
-                                return (
-                                    <option key={Math.random()} value={state}>{state}</option>
-                                )
-                            })}
-                        </select>
+                    <select className="form-control form-select form-control-sm">
+                      <option>record.region</option>
+                    </select>
                   </div>
                 </div>
                 <div className='ms-auto my-auto'>
@@ -406,7 +373,7 @@ class Aprecation extends React.Component {
                     inferBlanks
                     pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
                     dataSource={this.state.data} onChange={this.handleChange}
-                    // scroll={{ x: 768 }}
+                    scroll={{ x: 768 }}
                   />
 
                   <iframe id="ifmcontentstoprint" style={{
