@@ -161,7 +161,7 @@ class Aprecation extends React.Component {
         sortDirections: ['ascend', 'descend'],
         ellipsis: true,
         showSorterTooltip: false,
-        render: (record, text, index) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
+        render: (record) => <Tooltip placement="top" color='#E8F2FF' title='Click on any region for more information'>
           <div className="d-flex">
             <Button className="info_class" />
             <TableRegionComponent record={record} favourites={this.state.favourite} DeleteFavrt={this.DeleteFavrt} AddFavourite={this.AddFavourite} />
@@ -176,7 +176,7 @@ class Aprecation extends React.Component {
             </Tooltip></div>
         },
         bordered: true,
-        render: (record, text, index) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.avgGrowth * 100) / 100}%</>,
         key: 'avgGrowth',
         width: '15%',
         sorter: (a, b) => a.avgGrowth - b.avgGrowth,
@@ -187,7 +187,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2018',
-        render: (record, text, index) => <>{Math.round(record.y2018 * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.y2018 * 100) / 100}%</>,
         key: 'y2018',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -203,7 +203,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2019',
-        render: (record, text, index) => <>{Math.round(record.y2019 * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.y2019 * 100) / 100}%</>,
         key: 'y2019',
         sorter: (a, b) => a.y2019 - b.y2019,
         sortDirections: ['ascend', 'descend'],
@@ -213,7 +213,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2020',
-        render: (record, text, index) => <>{Math.round(record.y2020 * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.y2020 * 100) / 100}%</>,
         key: 'y2020',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -229,7 +229,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2021',
-        render: (record, text, index) => <>{Math.round(record.y2021 * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.y2021 * 100) / 100}%</>,
         key: 'y2021',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -245,7 +245,7 @@ class Aprecation extends React.Component {
       },
       {
         title: '2022',
-        render: (record, text, index) => <>{Math.round(record.y2022 * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.y2022 * 100) / 100}%</>,
         key: 'y2022',
         // filters: [
         //   { text: 'London', value: 'London' },
@@ -266,7 +266,7 @@ class Aprecation extends React.Component {
               <Button className="info_class"> <Info /></Button>
             </Tooltip></div>
         },
-        dataIndex: 'median',
+        // dataIndex: 'median',
         key: 'median',
         width: '11%',
         render: (record) => <>${record.toLocaleString(record.median)}</>,
@@ -292,7 +292,7 @@ class Aprecation extends React.Component {
         dataIndex: 'avgTax',
         key: 'avgTax',
         width: '13%',
-        render: (record, text, index) => <>{Math.round(record.avgTax * 100) / 100}%</>,
+        render: (record) => <>{Math.round(record.avgTax * 100) / 100}%</>,
         // filters: [
         //   { text: 'London', value: 'London' },
         //   { text: 'New York', value: 'New York' },
