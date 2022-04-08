@@ -23,7 +23,9 @@ class Aprecation extends React.Component {
         favourite: [],
         region: true,
         regionId:"",
-        regions:""
+        regions:"",
+        dataa:false,
+        dataRegion: []
     };
 
     handleChange = (pagination, filters, sorter) => {
@@ -101,6 +103,15 @@ class Aprecation extends React.Component {
         response.then(value => {
             console.log("VALUES:", value)
             if (value) {
+
+                this.setState({
+                    dataRegion: value?.data?.allRecords,
+                    dataa: true,
+
+                    // totalPagess: value?.data?.pages,
+                    
+                })
+
 
               
 
@@ -367,7 +378,7 @@ class Aprecation extends React.Component {
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
                                         {this.state.regions}
-                                        <label className='bluetxt fs-13'>Region Name</label>
+                                        <label className='bluetxt fs-13'>Select State</label>
                                         <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee} >
 
                                             {this.state.regionData.map((state) => {
@@ -398,14 +409,24 @@ class Aprecation extends React.Component {
                             ) : (
                                 <>
                                     <div >
-                                        <Table columns={columns}
-                                        className='table-text'
-                                            colors={['#123123', 'rgba(123,123,123,12)']}
-                                            averageDuplicates
-                                            inferBlanks
-                                            pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
-                                            dataSource={this.state.data} onChange={this.handleChange}
-                                            scroll={{ x: 768 }} />
+                                        {this.state.dataa ?
+                                         <Table columns={columns}
+                                         className='table-text'
+                                             colors={['#123123', 'rgba(123,123,123,12)']}
+                                             averageDuplicates
+                                             inferBlanks
+                                             pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
+                                             dataSource={this.state.dataRegion} onChange={this.handleChange}
+                                             scroll={{ x: 768 }} />:
+                                             <Table columns={columns}
+                                             className='table-text'
+                                                 colors={['#123123', 'rgba(123,123,123,12)']}
+                                                 averageDuplicates
+                                                 inferBlanks
+                                                 pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
+                                                 dataSource={this.state.data} onChange={this.handleChange}
+                                                 scroll={{ x: 768 }} />}
+                                       
                                     </div>
 
                                     <iframe id="ifmcontentstoprint" style={{
