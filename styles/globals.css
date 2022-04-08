@@ -748,6 +748,12 @@ textarea {
 .pro-sidebar.collapsed .imgw {
   width: 40%;
 }
+.table-text{
+  text-align-last: left;
+}
+.ant-table-cell-ellipsis.ant-table-cell-fix-left-last{
+  text-align: left;
+}
 
 .nav-link .active,
 .sec_nav .active,

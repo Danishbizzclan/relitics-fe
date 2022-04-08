@@ -374,6 +374,7 @@ class Aprecation extends React.Component {
                                 <>
                                     <div >
                                         <Table columns={columns}
+                                        className='table-text'
                                             colors={['#123123', 'rgba(123,123,123,12)']}
                                             averageDuplicates
                                             inferBlanks

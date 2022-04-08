@@ -406,7 +406,7 @@ class Aprecation extends React.Component {
                     inferBlanks
                     pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
                     dataSource={this.state.data} onChange={this.handleChange}
-                    scroll={{ x: 768 }}
+                    // scroll={{ x: 768 }}
                   />
 
                   <iframe id="ifmcontentstoprint" style={{
