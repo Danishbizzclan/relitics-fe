@@ -377,7 +377,6 @@ class Aprecation extends React.Component {
                             <div className='d-flex my-3'>
                                 <div className='row w-25 my-auto'>
                                     <div className='d-block col-6'>
-                                        {this.state.regions}
                                         <label className='bluetxt fs-13'>Select State</label>
                                         <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee} >
 
