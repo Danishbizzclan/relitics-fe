@@ -230,6 +230,18 @@ AllPackeges = () => {
     };
     return res();
   };
+  AprecationId = (regions) => {
+    const res = async () => {
+      console.log("rtu", regions)
+      const resp = await axios
+        .get(`/stats/appreciation?keyword=${regions}`)
+        .catch(function (error) {
+          console.log(error);
+        });
+      return resp;
+    };
+    return res();
+  };
 
   
 }

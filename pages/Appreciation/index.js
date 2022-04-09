@@ -22,7 +22,11 @@ class Aprecation extends React.Component {
     favourite: [],
     loading: true,
     region: true,
-    regionData: []
+    regionData: [],
+    regionId:"",
+    regions:"",
+    dataa:false,
+    dataRegion: []
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -30,11 +34,25 @@ class Aprecation extends React.Component {
     if (pagination.current !== 1) {
       this.tableData(pagination.current)
     }
+
+ 
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
     });
   };
+  handleChangee=(e)=>{
+    this.getRegionId(e.target.value)
+
+
+    this.setState({
+
+        regions: e.target.value
+
+    })
+
+
+}
 
   clearFilters = () => {
     this.setState({ filteredInfo: null });
@@ -60,6 +78,27 @@ class Aprecation extends React.Component {
     this.favourites()
     this.getRegion()
   }
+  getRegionId = (region) => {
+    const response = GetData.AprecationId(region);
+    response.then(value => {
+        console.log("VALUES:", value)
+        if (value) {
+
+            this.setState({
+                dataRegion: value?.data?.allRecords,
+                dataa: true,
+
+                // totalPagess: value?.data?.pages,
+                
+            })
+
+
+          
+
+        }
+
+    })
+}
   tableData = (pageNo) => {
     const response = GetData.Aprecation(pageNo);
     console.log(response)
@@ -162,7 +201,7 @@ class Aprecation extends React.Component {
 
 
   render() {
-    console.log('asdfgh', this.state)
+    // console.log('asdfgh', this.state)
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
@@ -366,7 +405,8 @@ class Aprecation extends React.Component {
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6 p-0'>
                     <label className='bluetxt fs-13'>Select State</label>
-                    <select className="form-control form-select form-control-sm" >
+                    {this.state.regions}
+                    <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee}  >
 
                       {this.state.regionData.map((state) => {
                         return (
@@ -395,14 +435,23 @@ class Aprecation extends React.Component {
               ) : (
 
                 <div >
-                  <Table columns={columns}
+                  {this.state.dataa ? <Table columns={columns}
                     colors={['#123123', 'rgba(123,123,123,12)']}
                     averageDuplicates
                     inferBlanks
                     pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
-                    dataSource={this.state.data} onChange={this.handleChange}
+                    dataSource={this.state.dataRegion} onChange={this.handleChange}
                     scroll={{ x: 768 }}
-                  />
+                  />:
+                  <Table columns={columns}
+                  colors={['#123123', 'rgba(123,123,123,12)']}
+                  averageDuplicates
+                  inferBlanks
+                  pagination={{ pageSize: 200, defaultCurrent: this.state.currentPage, total: this.state.totalPages * 200 }}
+                  dataSource={this.state.data} onChange={this.handleChange}
+                  scroll={{ x: 768 }}
+                /> }
+                 
 
                   <iframe id="ifmcontentstoprint" style={{
                     height: '100%',
