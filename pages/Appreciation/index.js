@@ -405,7 +405,6 @@ class Aprecation extends React.Component {
                 <div className='row w-25 my-auto'>
                   <div className='d-block col-6 p-0'>
                     <label className='bluetxt fs-13'>Select State</label>
-                    {this.state.regions}
                     <select className="form-control form-select form-control-sm" value={this.state.regions} onChange={this.handleChangee}  >
 
                       {this.state.regionData.map((state) => {
