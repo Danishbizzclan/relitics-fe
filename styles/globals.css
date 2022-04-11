@@ -372,6 +372,11 @@ textarea {
 
 }
 
+.bulletLists{
+  list-style-type: disc;
+  
+}
+
 .bluetxt {
   color: #0F74AF;
 }
