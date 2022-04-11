@@ -166,7 +166,8 @@ export default function Demographic() {
                     }
 
                 }
-                for (const key in value.data.Data[3]) {
+                for (const key in value.data.Data[3])
+                 {
                     if (key !== 'Region') {
                         feMale.push(value.data.Data[3][key].replace(',', "").replace(',', ""))
                     }
@@ -442,15 +443,16 @@ export default function Demographic() {
                             key: Math.random(),
                             race: key,
                             population: value.data.Data[key],
-                            percentage: value.data.Data[key + 'Percentage'],
+                            percentage: value.data.Data[key + ' Percentage'],
                         }
 
                         console.log({ obj })
                         raceTable.push(obj)
                         race.push(key)
-                        percent.push(parseInt(value.data.Data[key + 'Percentage']))
+                        percent.push(parseInt(value.data.Data[key + ' Percentage']))
+                        console.log("vli", value.data.Data[key + 'Percentage'])
+
                     }
-                    console.log(key)
                 }
                 setRaceTable(raceTable)
                 console.log({ race }, { percent })
@@ -554,6 +556,7 @@ export default function Demographic() {
                         <EduAttainment male={male} feMale={feMale} eduTableData={eduTableData} percentage={percentage} grade={grade} />
                     </div>
                     <div className='card p-3 my-4 bg_light'>
+                        {console.log({percent})}
                         <PopulationbyRace table={raceTable} race={race} percent={percent} />
                     </div>
                     <footer className='text-center mt-5'>
