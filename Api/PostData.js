@@ -55,6 +55,22 @@ class PostData {
     };
     return res();
   };
+  AddFavouriteStats = (id, region) => {
+    const res = async () => {
+      const resp = await axios
+        .post("/favorite", {
+          regionID: id,
+          regionName: region,
+        })
+
+        .catch(function (error) {
+          console.log(error.response)
+          settingErrors(error.response.data.message);
+        });
+      return resp;
+    };
+    return res();
+  };
     Return() {
       return this.result;
     }

@@ -5,6 +5,9 @@ import MedianGraph from './MarketPageGraph';
 import GraphData from "../../Api/Grapgh"
 import GetData from '../../Api/GetData'
 import { useRouter } from "next/router";
+import PostData from "../../Api/PostData"
+import { message } from 'antd';
+
 
 export default function Market(props) {
     const [rental, setRental] = useState([])
@@ -12,6 +15,10 @@ export default function Market(props) {
     const [regionlst, setRegionlist] = useState([])
     const [sltdRegion, setSlectdRegion] = useState('')
     const [year, setYear] = useState('')
+    const [region, setRegion] = useState('')
+    const [id, setId] = useState('')
+
+
 
     function handleChangee(e) {
         setYear(e.target.value);
@@ -22,6 +29,8 @@ export default function Market(props) {
         const response = GraphData.RentalAprecation(id);
         response.then(value => {
             console.log('Rental Res', value)
+            setId(value?.data?.Data?.appreciation.regionID)
+            setRegion(value?.data?.Data?.appreciation.region)
             let data = []
             data.push(value?.data?.Data?.appreciation)
             setApprecation(data)
@@ -31,6 +40,21 @@ export default function Market(props) {
             setRental(data1)
         })
     }
+    const AddFavourite = () => {
+    const res = PostData.AddFavouriteStats(id, region)
+    res.then(value => {
+      console.log('value', value.data)
+      if (value.data.success) {
+        message.success('Added to favourites')
+        // this.favourites()
+      }
+
+    })
+      .catch(err => {
+        console.log(err)
+        // this.favourites()
+      })
+  }
 
 
     useEffect(() => {
@@ -90,7 +114,7 @@ export default function Market(props) {
                 </div>
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
-                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                    <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' onClick={AddFavourite} className='ms-2 my-auto' /></button>
                     <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
                 </div>
             </div>
