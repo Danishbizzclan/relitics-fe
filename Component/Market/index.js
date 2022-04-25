@@ -17,9 +17,6 @@ export default function Market(props) {
     const [year, setYear] = useState('')
     const [region, setRegion] = useState('')
     const [id, setId] = useState('')
-
-
-
     function handleChangee(e) {
         setYear(e.target.value);
         // props.listPrice(e.target.value)
@@ -34,7 +31,6 @@ export default function Market(props) {
             let data = []
             data.push(value?.data?.Data?.appreciation)
             setApprecation(data)
-
             let data1 = []
             data1.push(value?.data?.Data?.rental)
             setRental(data1)
@@ -48,21 +44,17 @@ export default function Market(props) {
         message.success('Added to favourites')
         // this.favourites()
       }
-
     })
       .catch(err => {
         console.log(err)
         // this.favourites()
       })
   }
-
-
+  
     useEffect(() => {
-        
         setSlectdRegion(props.id)
         GetRegion()
         regionUpdate(props.id)
-
     }, [props.id]);
 
     const GetRegion = () => {
@@ -100,6 +92,7 @@ export default function Market(props) {
 
                         <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={sltdRegion}>
+                            {console.log('regionss', regionlst)}
                             {regionlst.map((each) => {
                                 return (
                                     <>

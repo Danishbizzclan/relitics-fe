@@ -14,15 +14,10 @@ export default function Economic() {
     const [sectorDate, setSectorDate] = useState([])
     const [user, setUser] = useState('')
 
-
-
-
     function handleChange(e) {
         setRegion(e.target.value);
         unEmployment(e.target.value);
         industry(e.target.value);
-
-
     }
     // const router = useRouter();
 
@@ -109,8 +104,18 @@ export default function Economic() {
                     <div className='d-block col-6'>
                         <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
-
-                            {regionName.map((state) => {
+                            {console.log('regions', regionName)}
+                            {regionName?.states?.map((state) => {
+                                return (
+                                    <option value={state}>{state}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
+                    <div className='d-block col-6'>
+                        <label className='bluetxt fs-13'>Area Name</label>
+                        <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
+                            {regionName?.areas?.map((state) => {
                                 return (
                                     <option value={state}>{state}</option>
                                 )
@@ -121,17 +126,17 @@ export default function Economic() {
                 <div className='ms-auto my-auto'>
                     <button onClick={() => window.open("https://www.zillow.com/")} className='btn bluebtn px-4 fs-14 m-1'  >Search properties on  Zillow </button>
                     {user.packageID == 'shuihshsu' ?
-                      <>
-                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                      <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                  </>
-                      
+                        <>
+                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                            <button className='btn greyBtn px-4 fs-14 m-1' disabled>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
+
                         :
-                      
-                          <>
-                          <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
-                          <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
-                      </>
+
+                        <>
+                            <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src='/unfilledHeart1.svg' className='ms-2 my-auto' /></button>
+                            <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
+                        </>
 
 
                     }
@@ -140,21 +145,21 @@ export default function Economic() {
             <div className='Economic_pg'>
                 <div className=''>
                     {user.packageID == 'shuihshsu' ?
-                      <GraphComponent>
-                      <div className='container_'>
-                          <div className='graph'>
-                              <BlurGraphComponent />
-                          </div>
-                          <Link href={`/`}>
-                              <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
-                          </Link>
+                        <GraphComponent>
+                            <div className='container_'>
+                                <div className='graph'>
+                                    <BlurGraphComponent />
+                                </div>
+                                <Link href={`/`}>
+                                    <button className='btn btn-success cetered_ btnYelow px-5'>Unlock</button>
+                                </Link>
 
-                      </div>
-                  </GraphComponent>
+                            </div>
+                        </GraphComponent>
                         :
                         <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
 
-                      
+
                     }
                 </div>
                 <footer className='text-center mt-5'>

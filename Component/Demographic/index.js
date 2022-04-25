@@ -104,7 +104,6 @@ export default function Demographic() {
             console.log(value)
             if (value) {
                 setRegionName(value.data.Data);
-
             }
         })
     }
@@ -118,10 +117,8 @@ export default function Demographic() {
                     data1.push(key.replace(',', ""))
                     data2.push(parseInt(value.data.Data[key].replace(',', "").replace(',', "")));
                 }
-
                 setPopulationDate(data1)
                 setPopulation(data2)
-
             }
         })
     }
@@ -137,7 +134,6 @@ export default function Demographic() {
                 let male = []
                 let feMale = []
                 let eduTable = []
-
                 for (const key in value.data.Data[0]) {
                     if (key !== 'Region') {
                         region.push(key)
@@ -146,13 +142,9 @@ export default function Demographic() {
                             name: key,
                             count: value.data.Data[0][key],
                             percentage: value.data.Data[1][key],
-
                         }
-
-
                         eduTable.push(data)
                     }
-
                 }
                 for (const key in value.data.Data[1]) {
                     if (key !== 'Region') {
@@ -178,8 +170,6 @@ export default function Demographic() {
                 seteduTableData(eduTable)
                 setGrade(region)
             }
-
-
             // setEducationDate(data1)
             // setEducationn(data2)
 
@@ -242,13 +232,9 @@ export default function Demographic() {
                 setFeMaleCount(feMale.reverse())
                 setMaleCount(maleCount.reverse())
                 setAge(Age.reverse())
-
             }
-
-
             // setEducationDate(data1)
             // setEducationn(data2)
-
         }
         )
     }
@@ -276,22 +262,12 @@ export default function Demographic() {
                     Owner.push(newArray[array].Owner)
                     Renter.push(newArray[array].Renter)
                     Regionn.push(newArray[array].Region)
-
-
                 }
-
-
-
                 setOwner(Owner)
                 setRenter(Renter)
                 setOTable(OwnTables)
                 setType(Regionn)
-
             }
-
-
-
-
         }
         )
     }
@@ -308,10 +284,6 @@ export default function Demographic() {
                 let mean = []
                 let median = []
                 let name = []
-
-
-
-
                 const newArray = value.data.Data.filter((item => {
                     return item
                 }))
@@ -322,24 +294,16 @@ export default function Demographic() {
                         mean: newArray[array].Mean,
                         median: newArray[array].Median,
                         name: newArray[array].Region,
-
                     }
-
                     mean.push(newArray[array].Mean)
                     median.push(newArray[array].Median)
                     OwnTables.push(tableData)
                     name.push(newArray[array].Region)
-
-
                 }
                 setMean(mean)
                 setMedian(median)
                 setMedianTable(OwnTables)
                 setName(name)
-
-
-
-
                 for (const key in value.data.Data[0]) {
                     if (key !== 'Region' && key !== 'Total' && key !== "Mean income" && key !== 'Median income') {
                         income.push(key)
@@ -374,9 +338,7 @@ export default function Demographic() {
                 setMarried(Married)
                 setMarriedFamilies(famlies)
                 setNonFamlies(NonFamlies)
-
             }
-
         }
         )
     }
@@ -387,9 +349,6 @@ export default function Demographic() {
                 let OwnTables = []
                 let AvgHouseHold = []
                 let label = []
-
-
-
                 const newArray = value.data.Data.filter((item => {
                     return item
                 }))
@@ -401,25 +360,15 @@ export default function Demographic() {
                         count: newArray[array].TotalHouseholds,
                         avgSize: newArray[array].AverageHouseholdSize,
                         owned: newArray[array].Owned,
-
-
                     }
                     OwnTables.push(tableData)
                     AvgHouseHold.push(parseInt(newArray[array].AverageHouseholdSize))
                     label.push(newArray[array].Region)
-
-
-
                 }
                 setTable(OwnTables)
                 setLabel(label)
                 setAvgHouseHold(AvgHouseHold)
             }
-
-
-
-
-
         }
         )
     }
@@ -432,8 +381,6 @@ export default function Demographic() {
             let race = []
             let percent = []
             if (value) {
-
-
                 for (let key in value.data.Data) {
                     // console.log(key[value]);
 
@@ -460,12 +407,9 @@ export default function Demographic() {
             }
         }
         )
-
-
     }
 
     const print = () => {
-
         var content = document.getElementsByClassName('Demo_pg');
         var pri = document.getElementById('ifmcontentstoprint').contentWindow;
         pri.document.open();
@@ -490,7 +434,18 @@ export default function Demographic() {
                         <label className='bluetxt fs-13'>Region Name</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
-                            {regionName.map((state) => {
+                            {regionName?.states?.map((state) => {
+                                return (
+                                    <option value={state}>{state}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
+                    <div className='d-block col-6'>
+                        <label className='bluetxt fs-13'>Area Name</label>
+                        <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
+
+                            {regionName?.areas?.map((state) => {
                                 return (
                                     <option value={state}>{state}</option>
                                 )
@@ -512,9 +467,6 @@ export default function Demographic() {
                             <button className='btn bluebtn px-4 fs-14 m-1'>Add to Favourite <img src={'/unfilledHeart1.svg'} className='ms-2 my-auto' /></button>
                             <button className='btn bluebtn px-4 fs-14 m-1' onClick={print}>Print and Download<img src={'/print.svg'} className='ms-2 my-auto' /></button>
                         </>
-
-
-
                     }
                 </div>
             </div>
@@ -530,8 +482,6 @@ export default function Demographic() {
 
                     </div>
                 </GraphComponent>
-
-
                 :
 
                 <>
@@ -571,8 +521,6 @@ export default function Demographic() {
                             }}></iframe>
                     </div>
                 </>
-
-
             }
         </div>
     );
