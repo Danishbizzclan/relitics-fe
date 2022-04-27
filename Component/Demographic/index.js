@@ -232,9 +232,13 @@ export default function Demographic() {
                 setFeMaleCount(feMale.reverse())
                 setMaleCount(maleCount.reverse())
                 setAge(Age.reverse())
+
             }
+
+
             // setEducationDate(data1)
             // setEducationn(data2)
+
         }
         )
     }
@@ -431,7 +435,7 @@ export default function Demographic() {
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Region Name</label>
+                        <label className='bluetxt fs-13'>Select State</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
                             {regionName?.states?.map((state) => {
@@ -442,7 +446,7 @@ export default function Demographic() {
                         </select>
                     </div>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Area Name</label>
+                        <label className='bluetxt fs-13'>Select Area</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
 
                             {regionName?.areas?.map((state) => {

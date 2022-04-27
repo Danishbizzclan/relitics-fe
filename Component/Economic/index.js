@@ -102,7 +102,7 @@ export default function Economic() {
             <div className='d-flex my-3'>
                 <div className='row w-25 my-auto'>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Region Name</label>
+                        <label className='bluetxt fs-13'>Select State</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
                             {console.log('regions', regionName)}
                             {regionName?.states?.map((state) => {
@@ -113,7 +113,7 @@ export default function Economic() {
                         </select>
                     </div>
                     <div className='d-block col-6'>
-                        <label className='bluetxt fs-13'>Area Name</label>
+                        <label className='bluetxt fs-13'>Select Area</label>
                         <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
                             {regionName?.areas?.map((state) => {
                                 return (
@@ -157,7 +157,14 @@ export default function Economic() {
                             </div>
                         </GraphComponent>
                         :
-                        <EconomicGraphs employmentDate={employmentDate} unEmploymentData={unEmploymentData} sector={sector} sectorDate={sectorDate} />
+                        <EconomicGraphs
+                         employmentDate={employmentDate}
+                          unEmploymentData={unEmploymentData}
+                           sector={sector}
+                            sectorDate={sectorDate}
+                            onChange={handleChange}
+                            regionName={regionName}
+                            region={region} />
 
 
                     }
