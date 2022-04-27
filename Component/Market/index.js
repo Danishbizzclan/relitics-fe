@@ -90,7 +90,7 @@ export default function Market(props) {
 
                     <div className='d-block col-8'>
 
-                        <label className='bluetxt fs-13'>Select State</label>
+                        <label className='bluetxt fs-13'>Select Region</label>
                         <select className="form-control form-select w-100 form-control-sm" onChange={handleChange} value={sltdRegion}>
                             {console.log('regionss', regionlst)}
                             {regionlst.map((each) => {

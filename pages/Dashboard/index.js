@@ -124,7 +124,7 @@ const Dashboard = () => {
                   <div className="bg-white text-center mx-auto p-5">
                     <p className="fs-18 greyBlack" style={{ fontWeight: "medium" }}>By Region detail Statistics</p>
                     <select className="form-control form-select form-control-sm" onChange={handleChange} value={region}>
-
+                    <option value="">Select Region</option>
                       {regionlist.map((each) => {
                         return (
                           <option key={each.RegionID} value={each.RegionID}>{each.RegionName}</option>

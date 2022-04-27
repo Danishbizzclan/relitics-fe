@@ -51,7 +51,7 @@ class PopulationByAgeGraph extends Component {
                 dataLabels: {
                     enabled: false,
                 },
-                stroke: {
+                stroke: { 
                     width: 2,
                     lineCap: 'round',
                     colors: ["#fff"]
