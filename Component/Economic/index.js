@@ -7,7 +7,9 @@ import Link from 'next/link';
 
 export default function Economic() {
     const [regionName, setRegionName] = useState([])
-    const [region, setRegion] = useState([])
+    const [updatedRegionName, setUpdatedRegionName] = useState([]);
+    const [region, setRegion] = useState([]);
+    const [updatedRegion, setUpdatedRegion] = useState([]);
     const [unEmploymentData, setUnEmploymentData] = useState([])
     const [employmentDate, setEmploymentDate] = useState([])
     const [sector, setSector] = useState([])
@@ -16,6 +18,7 @@ export default function Economic() {
 
     function handleChange(e) {
         setRegion(e.target.value);
+        setUpdatedRegion(e.target.value);
         unEmployment(e.target.value);
         industry(e.target.value);
     }
@@ -29,6 +32,7 @@ export default function Economic() {
         }
         RegionGet()
         setRegion('Alabama');
+        setUpdatedRegion('Alabama');
         unEmployment('Alabama');
         industry('Alabama');
 
@@ -40,6 +44,7 @@ export default function Economic() {
             console.log(value)
             if (value) {
                 setRegionName(value.data.Data);
+                setUpdatedRegionName(value.data.Data);
 
             }
         })
@@ -158,13 +163,13 @@ export default function Economic() {
                         </GraphComponent>
                         :
                         <EconomicGraphs
-                         employmentDate={employmentDate}
-                          unEmploymentData={unEmploymentData}
-                           sector={sector}
+                            employmentDate={employmentDate}
+                            unEmploymentData={unEmploymentData}
+                            sector={sector}
                             sectorDate={sectorDate}
                             onChange={handleChange}
-                            regionName={regionName}
-                            region={region} />
+                            regionName={updatedRegionName}
+                            region={updatedRegion} />
 
 
                     }
