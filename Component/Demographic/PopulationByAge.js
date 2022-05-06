@@ -7,7 +7,7 @@ export default function PopulationByAge(props) {
             <div className='w-50 p-5'>
                 <p className='fs-30 mb-0 Gothic_3D'>Population by age</p>
             </div>
-            {props.male.length>0&&<PopulationByAgeGraph male={props.male} feMale={props.feMale} age={props.age}  lowest={props.lowest} highest={props.highest}/>}
+            {props.male.length > 0 && <PopulationByAgeGraph male={props.male} feMale={props.feMale} age={props.age} lowest={props.lowest} highest={props.highest} />}
             <div className='bluebtn brdr-btm m-1'>
                 <div className='container row g-5 my-4'>
                     <div className='col-sm-12 col-md-6 col-lg-4'>
@@ -66,7 +66,8 @@ export default function PopulationByAge(props) {
                             </div>
                             <div className='col-sm-12 col-md-6 col-lg-12'>
                                 <p className='fs-30 Gothic_3D'>Adults</p>
-                                <p className='fs-15'>There are 651,238 adults, (105,185 of whom are seniors) in Indianapolis.</p>
+                                {/* <p className='fs-15'>There are 651,238 adults, (105,185 of whom are seniors) in Indianapolis.</p> */}
+                                <p className='fs-15'>There are {props.tltAdlt} adults, (105,185 of whom are seniors).</p>
                             </div>
                         </div>
                     </div>

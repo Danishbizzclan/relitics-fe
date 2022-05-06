@@ -6,7 +6,8 @@ export default function Population(props) {
         <div className='card my-4'>
             <div className='w-50'>
                 <p className='fs-30 mb-0 Gothic_3D'>Population</p>
-                <p className='fs-30 mb-0 Gothic_3D'>887,232</p>
+                {/* <p className='fs-30 mb-0 Gothic_3D'>887,232</p> */}
+                <p className='fs-30 mb-0 Gothic_3D'>{props?.population[9]}</p>
             </div>
             <PopulationGraph population={props.population} populationDate={props.populationDate}/>
             <div className='row container gx-5 my-3'>

@@ -43,6 +43,8 @@ export default function Demographic() {
     const [OldAgeDepend, setOldAgeDepend] = useState([])
     const [ChildAgeDepend, setChildAgeDepend] = useState([])
     const [FemaleRatioVal, setFemaleRatioVal] = useState([])
+    const [sexMaleRatio, setMaleSexRatio] = useState([])
+    const [sexFemaleRatio, setFemleSexRatio] = useState([])
     const [MaleRatioVal, setMaleRatioVal] = useState([])
     const [tltAdlt, settltAdlt] = useState([])
     const [Senior, setSenior] = useState([])
@@ -194,12 +196,17 @@ export default function Demographic() {
                         setOldAgeDepend(x.Oldagedependencyratio)
                         setChildAgeDepend(x.Childdependencyratio)
                         settltAdlt(x.settltAdlt)
+                        setAgeDepend(x.Agedependencyratio)
+                        setOldAgeDepend(x.OldAgedependencyratio)
+                        settltAdlt(x.Adults)
                     }
                     else if (x.Region.includes('Male') && !x.Region.includes('Percent')) {
                         setMaleMedian(x.Medianage)
+                        setMaleSexRatio(x.Sexratio)
                     }
                     else if (x.Region.includes('Female') && !x.Region.includes('Percent')) {
                         setFemaleMedian(x.Medianage)
+                        setFemleSexRatio(x.Sexratio)
                     }
                 })
 
@@ -494,7 +501,8 @@ export default function Demographic() {
                             <Population population={population} populationDate={populationDate} />
                         </div>
                         <div className='card p-3 my-4 bg_light'>
-                            <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
+                            {/* <PopulationByAge totalMedian={totalMedian} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} /> */}
+                            <PopulationByAge totalMedian={totalMedian} sexMaleRatio={sexMaleRatio} sexFemaleRatio={sexFemaleRatio} maleMedian={maleMedian} femaleMedian={femaleMedian} AgeDepend={AgeDepend} OldAgeDepend={OldAgeDepend} ChildAgeDepend={ChildAgeDepend} FemaleRatioVal={FemaleRatioVal} MaleRatioVal={MaleRatioVal} tltAdlt={tltAdlt} Senior={Senior} male={maleCount} feMale={feMaleCount} age={age} lowest={lowest} highest={highest} />
                         </div>
                         <div className='card p-3 my-4 bg_light'>
                             <HouseholdTypes data={oTable} type={type} owner={Owner} renter={renter} />
